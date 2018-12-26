@@ -497,7 +497,6 @@ getClick = function(tbl, plotly_click_event){
 
 ###### Package: rCharts =============================
 
-
 ##### Package rintrojs ================================
 ### example.R ---------------------------
 library(rintrojs)
