@@ -1,0 +1,89 @@
+### 04 September 2017 (How I built gener package in linux RHEL6.txt  ----------------------
+* Make a local clone of the repo on the hard disk:
+  
+  1- run putty and ssh to the ODP Linux server: s029ndpl0703.s4.chp.cba
+2- login with your credentials: username and LDAP pass
+3- ls to the folder you like to put the repo
+4- git clone https://Berta@stash.odp.cba/scm/~Berta/gener.git
+
+* Install required packages in R if they are not installed:
+  
+  1-  type R (enter) to goto R console
+2-  options(repos=structure(c(CRAN="http://cran.dev.cba/")))
+3-  install.packages('devtools')
+- to get lib directories that R uses: in R call this function: .libPaths()
+- to get the default library: .Library
+- to call a R function or run a R script outside R: R -e 'your R script comes here'
+Example: sudo R -e 'install.packages("curl", repos = "http://cran.dev.cba/", lib = "/usr/lib64/R/library/")'
+
+to download a file from a url to current directory: example:
+  wget "http://domain.com/directory/4?action=AttachFile&do=view&target=file.tgz"
+
+to download to a specific directory (example)
+wget  -O /home/omio/Desktop/ "http://thecanadiantestbox.x10.mx/CC.zip"
+
+3-1: Installing package devtools failed! Because package 'curl' could not be unpacked. When tried to  install 'curl', faced this error:
+  
+  Configuration failed because libcurl was not found. Try installing:
+  * deb: libcurl4-openssl-dev (Debian, Ubuntu, etc)
+* rpm: libcurl-devel (Fedora, CentOS, RHEL)
+* csw: libcurl_dev (Solaris)
+If libcurl is already installed, check that 'pkg-config' is in your
+PATH and PKG_CONFIG_PATH contains a libcurl.pc file. If pkg-config
+is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
+  R CMD INSTALL --configure-vars='INCLUDE_DIR=... LIB_DIR=...'
+--------------------------------------------------------------------
+  ERROR: configuration failed for package ?curl?
+  * removing ?/usr/lib64/R/library/curl?
+  
+  3-1-1) sudo yum -y install libcurl libcurl-devel
+3-1-2) sudo R -e 'install.packages("curl", repos = "http://cran.dev.cba/", lib = "/usr/lib64/R/library/")'
+3-1-3) install package httr 
+3-1-3-1) you need to download the source .tar.gz manually from cran. Goto where you downloaded the file and then goto R
+3-1-3-2) > install.packages("httr_1.3.1.tar.gz", repos = NULL, type = "source")	
+
+3-1-4) sudo R -e 'install.packages("devtools", repos = "http://cran.dev.cba/", lib = "/usr/lib64/R/library/")'
+
+4- install 'roxygen2'
+4-1) install 'xml2' and 'commonmark' manually
+4-2) sudo yum -y install libxml2 libxml2-devel
+4-3) sudo R -e 'install.packages("xml2_1.1.1.tar.gz", repos = NULL, type = "source")'
+4-4) sudo R -e 'install.packages("commonmark_1.4.tar.gz", repos = NULL, type = "source")'
+4-5) sudo R -e 'install.packages("roxygen2", repos = "http://cran.dev.cba/", lib = "/usr/lib64/R/library/")'
+
+5- Now you are ready to build packages: goto the root folder of your package and type R: devtools::build(binary = TRUE, args = c('--preclean'))
+(build all packages like that) 
+Start building and installing gener:	
+  5-1) git clone https://Berta@stash.odp.cba/scm/~Berta/gener.git
+5-2) build gener: cd gener --> R --> devtools::build(binary = TRUE, args = c('--preclean')) --> q()
+5-3) sudo R -e 'install.packages("gener_2.1.2_R_x86_64-redhat-linux-gnu.tar.gz", repos = NULL, type = "source")'
+Start building and installing niraprom:	
+  5-4) install tibble manually: version >= 1.3.4 is required --> copy the .tar.gz file from cran and cd to where it is copied 
+5-5) sudo R -e 'install.packages("rlang", repos = "http://cran.dev.cba/", lib = "/usr/lib64/R/library/")'
+5-6) sudo R -e 'install.packages("tibble_1.3.4.tar.gz", repos = NULL, type = "source")'
+5-7) sudo R -e 'install.packages("dplyr", repos = "http://cran.dev.cba/", lib = "/usr/lib64/R/library/")'
+5-4) cd niraprom --> R > options(repos=structure(c(CRAN="http://cran.dev.cba/"))) --> devtools::build(binary = TRUE, args = c('--preclean'))
+5-5) cd viser	--> R >  options(repos=structure(c(CRAN="http://cran.dev.cba/"))) --> devtools::build(binary = TRUE, args = c('--preclean'))
+
+6- Other required packages:
+  6-1) lpSolve: install.packages("lpSolve", repos = "http://cran.dev.cba/")
+
+
+Latest CBA R Artifactory: http://artifactory.dev.cba/artifactory/com-revolutionanalytics-mran-remote/2017-02-14/
+  
+  to get the version of an installed package in R: example: packageVersion('shiny')
+
+to disable connection timeout, send packets every 10 seconds:
+  putty --> change settings --> connection --> Seconds between keepalives(0 to turn off): 10
+
+
+R1d@mBeGh@breB@b@t
+
+export ODBCSYSINI=/usr/local/etc
+export ODBCINI=/usr/local/etc/odbcini
+export LD_LIBRARY_PATH=/usr/local/lib
+
+
+LD_LIBRARY_PATH look for /usr/loccal/lib
+
+look for unixodbc

@@ -1,0 +1,8 @@
+
+### 20 Jan 2016 (Task page on confluence).txt  ----------------------
+To add a task list on a page:
+Edit the page.
+Choose the task-list icon in the editor toolbar, or press [ and then ] on your keyboard.
+Type the description of the task.
+If you want to assign a task to someone, type '@' and the person's name in the task description. ...
+To end the list, press Enter twice.

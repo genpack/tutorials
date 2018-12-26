@@ -1,0 +1,10 @@
+### 22 Nov 2017 (How I bought a ticket to Perth).txt  ----------------------
+Buy Tickets:
+  
+one.cba --> commnet --> tools --> travel (Under Administration)
+
+Takes you to Concur Travel Agent website
+
+You will need a corporate card to pay,
+If you need a hotel reservation as well, you should tick the hotel reservataion before searching for the flight
+

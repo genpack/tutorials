@@ -1,0 +1,37 @@
+verbose: 1
+response: churn
+data:
+  source: "3://sticky.dummy.elula.ai/dummyDataset.csv"
+  tmp: "s3://sticky.dummy.elula.ai/run=XYZ/"
+categorical:
+- investmentProperty
+- education
+- mobileOrLandline
+- gender
+- dependents
+- hasCreditCard
+- firstHomeBuyer
+- externalRefinance
+- originationChannel
+- pri_contact_meth
+- paperless
+- hasPersonalLoanAccount
+storage:
+  report: "s3://sticky.dummy.elula.ai/reports/"
+  model: "s3://sticky.dummy.elula.ai/modelstorage/"
+split: 0.5
+evaluationmetric: f1
+models:
+- model: "Logistic Regression"
+  class: "ClassificationModels.logistic_regression.LogisticRegression"
+  task: "prediction-linear-regression"
+- model: "XG Boost Classifier"
+  class: "ClassificationModels.xgboost.XGBoostClassify"
+  task: "prediction-linear-regression"
+- model: "Neural Net"
+  class: "ClassificationModels.neural_net.NeuralNet"
+  task: "prediction-linear-regression"
+compute:
+  cluster: sticky
+  subnet: subnet-00bd73a8441685ba5
+  securitygroup: sg-0bd52dca744ae20e4

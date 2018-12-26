@@ -1,0 +1,22 @@
+### 30 Nov 2015 (Payment Blue sky ideas).txt  ----------------------
+
+In terms of the process:
+  
+  Bottle necks
+process graph
+Quality measure
+E2E process time
+
+Descriptive:
+  
+  Associative Rule
+Identify Transaction Patterns  
+Fraud Pattern Detection
+
+
+Prediction:
+  
+  Spends
+Transaction Types (Volume and Frequency)
+Location        
+

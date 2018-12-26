@@ -1,0 +1,36 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+### test2.rmd -------------------------------------------------------------------
+
+# Embedded googleVis plots
+
+Some text here
+
+```{r}
+library(googleVis)
+op <- options(gvis.plot.tag="chart")
+```
+
+And now the plot
+
+```{r result='asis', tidy=TRUE}
+mark_func <- function(data) {
+    data$Mean=mean(data$Popularity)
+    CC <- gvisComboChart(data, xvar='City',
+          yvar=c('Mean', 'Popularity'),
+          options=list(seriesType='bars',
+                       width=450, height=300,
+                       title='City Popularity',
+                       series='{0: {type:"line"}}'))
+    return(CC)
+}
+```
+
+```{r results='asis', tidy=TRUE}
+plt <- mark_func(CityPopularity)
+plot(plt)
+# This does not work due to connection errors, must work in personal environment!
+```  

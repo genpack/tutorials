@@ -1,0 +1,75 @@
+### 05 Feb 2018 (Some RHEL terminal commands).txt  ----------------------
+
+# To change read/write permission:
+#   sudo chmod 755 -R /srv/shiny-server/<foldername>
+#   
+#   To change the mode of a file, use the chmod command. The general form is
+# 
+# chmod X@Y file1 file2 ...
+# where: X is any combination of the letters `u' (for owner), `g' (for group), `o' (for others), `a' (for all; that is, for `ugo'); @ is either `+' to add permissions, `-' to remove permissions, or `=' to assign permissions absolutely; and Y is any combination of `r', `w', `x'. Following are some examples:
+
+# chmod u=rx file        (Give the owner rx permissions, not w)
+# chmod go-rwx file      (Deny rwx permission for group, others)
+# chmod g+w file         (Give write permission to the group)
+# chmod a+x file1 file2  (Give execute permission to everybody)
+# chmod g+rx,o+x file    (OK to combine like this with a comma)
+# 
+# go here for more information:
+# https://www.washington.edu/computing/unix/permissions.html
+# 
+# Load docker image from docker image file
+# $ sudo docker load < my_r_image.docker
+# 
+# To build the docker image:
+# $ cd dockerTest/
+# $ sudo docker build -t test .
+# 
+# To launch the docker image:
+# $ sudo docker run -it <docker_image>
+# Example:
+# $ sudo docker run -it docker.artifactory.ai.cba/aiaa/r-essential:3.4.2r1-mran
+# 
+# 
+# You can launch an image and run a command or a series of commands in the container:
+# Example:
+# $ sudo docker run -p 8080:8080 test R -e "library(shiny);runApp('projects', host = '0.0.0.0', port = 8080)
+
+Example of a shiny ui in docker container:
+# https://github.com/flaviobarros/shiny-wordcloud/blob/master/Dockerfile
+
+To get the list of all repositories: 
+$ sudo yum repolist all
+
+Gives you a list of all files:
+$ du -h | sort -r
+
+Gives you the current folder:
+$ pwd
+
+Gives you a list of mounted drives:
+
+$ df
+$ df -h (gives better view)
+$ df -Th (also gives the file system of each drive)
+File systems are like: xfs, devtmpfs, tmpfs, ext3, ext4, ...
+Some file systems are limited to a certain total space
+
+Command du(disk usage) gives you a list of files and folders with their sizes:
+$ du
+$ du -sh *  (Summaraizes and makes more human readable)
+
+
+Gives you list of files and folders with user rights 
+$ ls -ltr
+
+Gives you where a program is installed (address the program is called from)
+$ which yum
+
+Where rpm has installed a package?
+$ rpm -ql <package_name>
+
+Link to agility:
+https://agility.s4.chp.cba:8443/agility/login.html
+
+to copy a folder recursively with all attributes:
+sudo cp -rp smartoptimiser sodc

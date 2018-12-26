@@ -1,0 +1,42 @@
+###### Package: ioslide ===============================================
+### tutorial.md ------------------
+---
+  title: "Habits"
+author: John Doe
+date: March 22, 2005
+output:
+  ioslides_presentation
+---
+  
+  # In the morning
+  
+  ## Getting up {.build}
+  
+  - Turn off alarm
+- Get out of bed
+
+## Breakfast | What I like to do first thing
+
+> - Eat eggs
+> - Drink coffee
+
+# In the evening
+
+## Dinner {.smaller}
+
+- Eat spaghetti
+- Drink wine
+
+----
+  
+  ![picture of spaghetti](images/spaghetti.jpg)
+
+## Going to sleep
+
+- Get in bed
+- Count sheep
+
+## Next Steps {.emphasized}
+
+- Watch dreams
+- Wake up the next day

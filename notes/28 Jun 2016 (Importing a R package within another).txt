@@ -1,0 +1,16 @@
+### 28 Jun 2016 (Importing a R package within another).txt  ----------------------
+If your package is using a function from another package, you should import that function in the namespace
+For example:
+  By putting this line in the code:
+  #' import timeDate
+  #' import niragen
+  
+  Roxygen will add it to the namespace
+
+Also in the 
+DESCRIPTION file of your package:
+  You should add a line like this:
+  Import:
+  timeDate, nirgaen, ...
+
+

@@ -1,0 +1,8 @@
+### 19 Nov 2015 (Comments to Megan).txt  ----------------------
+You don't need to write a loop to convert each text. Function gsub() applies conversion to a text vector as well.
+So you can sinply use for example:
+
+Corpus_Cont <- gsub("customers", "customer", Corpus_Cont)
+
+
+

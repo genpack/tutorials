@@ -1,0 +1,8 @@
+### 10 Jul 2017 (How I published a shiny dashboard for the first time).txt  ----------------------
+Create ui and server objects: ui = dash.ui
+Create an app object appobj = shinyApp(ui, server)
+run the application: runApp(appobj, host = "0.0.0.0", port = '8080')
+
+Then find your ip address: everybody should be able to see it: 
+example:   http://10.47.167.132:8080/
+  

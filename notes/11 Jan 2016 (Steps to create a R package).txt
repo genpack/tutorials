@@ -1,0 +1,36 @@
+### 11 Jan 2016 (Steps to create a R package).txt  ----------------------
+# Step 1: install and library devtools
+install.packages('devtools')
+library(devtools)
+# step 2: Make a blank directory with the name of your package (without version) and setwd() to that path
+# step 3: make a blank package devtools::document() --> select 1-yes
+devtools::document()
+# step 4: copy your roxygen documented .R file(s) to folder R in the package and run devtools::document() again
+devtools::document()
+# step 5: from RStudio menu --> build --> build and reload
+# I received a warning:
+# WARNING: Rtools is required to build R packages but is not currently installed. Please download and install
+# the appropriate version of Rtools before proceeding:
+
+# http://cran.rstudio.com/bin/windows/Rtools/
+# I downloaded and installed it. It was known by devtools but not by detected by R Studio
+# To check if Rtools is detected by devtools:
+devtools::find_rtools(T)
+# Scanning path...
+# Scanning registry...
+# Found c:/Rtools for 3.3
+# VERSION.txt
+# Rtools version 3.3.0.1959
+# [1] TRUE
+#
+# To check if Rtools is in the R Studio path list:
+Sys.getenv()['PATH']
+
+# step 6: Check all your functions are available in the package, if not make sure they are mentioned in the NAMESPACE file in the root of your package
+
+# Use function devtools::build() to build a compressed package ready to be installed by install.packages()
+devtools::build()
+
+http://r-pkgs.had.co.nz/man.html
+
+http://r-pkgs.had.co.nz/data.html

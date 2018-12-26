@@ -1,0 +1,14 @@
+### 30 Jan 2018 (How I dockerized my app).txt  ----------------------
+* How I installed docker on the linux machine:
+  
+1- run putty and ssh to the ODP Linux server: s029ndpl0703.s4.chp.cba
+2- login with your credentials: username and LDAP pass: R1d@mBeGh@breB@b@t
+3- Installed docker on the attached drive: 
+  
+  [Berta@s029ndpl0703 ~]$sudo yum -y install docker --installroot=/mnt/test/ --nogpgcheck
+
+If you want to find which versions of each software is available on the satellite:
+  $sudo yum list docker  --showduplicates | sort -r
+$sudo yum list R  --showduplicates | sort -r
+
+

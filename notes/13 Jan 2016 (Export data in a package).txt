@@ -1,0 +1,194 @@
+### 13 Jan 2016 (Export data in a package).txt  ----------------------
+
+To export data in a package, load it in the workspace and then
+use
+
+devtools::use_data(...)
+... is list of items in the workspace you like to be available.
+By default it is available external (For a user outside your package)
+
+?use_data for more information:
+  
+  http://r-pkgs.had.co.nz/data.html
+
+After this, you need to add the name of those variables in the namespace to be exported:
+  
+  example:
+  
+  use_data(wdlabel)
+
+in NAMESPASE:
+  
+  export(wdlabel)
+
+You don't need to define the variable in the code
+
+
+### file:///C:/Nicolas/RCode/projects/tutorials/notes/14 May 2018 (ODBC in Linux).txt  ----------------------
+To connect a linux machine to a database server by odbc, you need to have iodbc installed.
+
+This should give you all your defined DSNs: 
+odbcinst -q ?s
+
+For example if SODEV2 is a DSN, you can check and see if you can connect to this database:
+
+isql SODEV2 [uid] [pwd] ?v
+
+Example:
+
+isql SODEV2 rshinyuser smart1Optimiser2 ?v
+
+Connect to databse in R using RODBC package:
+
+go to R and type:
+
+library(RODBC)
+odbcConnect(dsn, uid, pwd) 
+Example:
+odbcConnect(dsn = 'SODEV2', uid = 'rshinyuser', pwd = 'smart1Optimiser2') 
+
+### file:///C:/Nicolas/RCode/projects/tutorials/notes/16 May 2016 (get shiny input from gvis plot)
+This is wonderful!
+QUESTION:
+
+
+Basically, I have a gvisCalendar Chart from the googleVis package in a Shiny app, and 
+I want to display a dataTable underneath the chart that corresponds to a selected box.
+
+
+I can add an event listener by setting the gvis.listener.jscode argument to a variable that holds a string 
+of javascript code. 
+
+For example, using this code, I can pull up the wikipedia page for a selected calendar date:
+
+
+output$dates_plot <- renderGvis({
+
+gvisCalendar(calendar.ddply,
+
+options = list(
+
+colorAxis = "{
+
+minValue: 0,
+
+colors: ['E9967A', 'A52A2A']
+
+}",
+
+gvis.listener.jscode = jscode2 )
+
+)
+
+})
+
+
+jscode2<- "window.open('http://en.wikipedia.org/wiki/'
+
++ data.getValue(chart.getSelection()[0].row,0));
+
+"
+
+
+Using this code, I ran my program, selected the "June 16, 2015" box, and a new tab came up on my browser 
+for this website: 
+https://en.wikipedia.org/wiki/Tue_Jun_16_2015_00:00:00_GMT-0400_(EDT)
+
+
+I don't actually want to do anything with wikipedia, 
+I was just using that as an example.
+
+
+All I want to do is save the date of the selected calendar box as an R object so that I can then display 
+a data table of data that corresponds to that date.
+
+
+I have almost no experience with javascript. 
+Thank you!
+  
+  
+  
+  
+  ANSWER:
+  
+  
+  
+  You can use Shiny.onInputChange to send data back to the server. 
+Here is an example:
+  
+  
+  
+  library(shiny)
+
+library(googleVis)
+
+server <- function(input, output) {
+  
+  output$dates_plot <- renderGvis({
+    
+    gvisCalendar(Cairo,
+                 
+                 options = list(
+                   
+                   colorAxis = "{
+                   
+                   minValue: 0,
+                   
+                   colors: ['E9967A', 'A52A2A']
+                   
+  }",
+
+                   gvis.listener.jscode = "
+                   
+                   var selected_date = data.getValue(chart.getSelection()[0].row,0);
+                   
+                   var parsed_date = selected_date.getFullYear()+'-'+(selected_date.getMonth()+1)+'-'+selected_date.getDate();
+                   
+                   Shiny.onInputChange('selected_date',parsed_date)")
+                 
+                 )
+    
+})
+  
+  output$date <- renderText({
+    
+    input$selected_date
+    
+  })
+  }
+
+
+ui <- shinyUI(fluidPage(
+  
+  htmlOutput("dates_plot"),
+  
+  textOutput("date")
+))
+
+
+
+shinyApp(ui = ui, server = server)
+
+
+
+
+
+
+In this example I parsed the date to YYYY/M/D, if you want to keep the javascript long date format you can also
+return selected_date.toString() instead of parsed_date.
+
+to handle events by java script:
+  
+  
+  https://developers.google.com/chart/interactive/docs/events
+
+look 
+at these links:
+  
+  
+  https://ryouready.wordpress.com/2013/11/20/sending-data-from-client-to-server-and-back-using-shiny/
+  
+  
+  http://stackoverflow.com/questions/31375480/using-observe-function-in-shiny-r
+
+

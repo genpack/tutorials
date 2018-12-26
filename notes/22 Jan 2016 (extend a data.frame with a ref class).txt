@@ -1,0 +1,227 @@
+### 22 Jan 2016 (extend a data.frame with a ref class).txt  ----------------------
+Today I did some research on how to extend a data.frame with a ref class in R
+I found this:
+
+
+[Rd] how to properly extend s3 data.frames with s4 classes?
+
+Ulf Martin ulfmartin at web.de 
+Wed Jan 24 12:28:46 CET 2007
+Previous message: [Rd] Useful statusbar in RGui
+Next message: [Rd] how to trace what crashes R
+Messages sorted by: [ date ] [ thread ] [ subject ] [ author ]
+Dear R Programmers!
+
+After some time of using R I decided to work through John Chambers book 
+"Programming with Data" to learn what these S4 classes are all about and 
+how they work in R. (I regret not having picked up this rather fine book 
+earlier!)
+
+I know from the documentation and the mailing archives that S4 in R is 
+not 100% the book and that there are issues especially with dataframes, 
+but to my knowledge the following has not been reported yet.
+
+
+Summary
+-------
+(a) When extending a S3 data.frame with a S4 class adding a slot, it 
+seems to be impossible to initialize objects of these 
+"ExtendedDataframes" (XDF) with S3 data.frames.
+
+(b) Extending data.frames with an S4 class without a slot, i.e. creating 
+a "WrappedDataframe" (WDF), seems to allow initialization with a 
+data.frame, but the behaviour appears to be somewhat inconsistent.
+
+(c) Trying to be "smart" by extending the WrappedDataframe from (b) by 
+adding a slot, yields a similar behaviour than (a), i.e. initialization 
+with a WDF object fails although WDF is an instance of an S4 class.
+
+It is actually (c) that surprises me most.
+
+
+Code
+----
+# (Should be pastable into an R session)
+# R version is 2.4.1
+#
+# === Preliminaries ===
+# (">" indicates output)
+#
+library("methods")
+setOldClass("data.frame")
+tdf <- data.frame(x=c(1,2), y=c(TRUE,FALSE)) # For testing purposes
+#
+# === (a) Exdended Dataframe Case ===
+#
+XDF <- "ExtendedDataframe" # Convenient shortcut
+setClass(XDF, representation("data.frame", info="character"))
+getClass(XDF)
+#
+# > Slots:
+# >
+# > Name:       info
+# > Class: character
+# >
+# > Extends:
+# > Class "data.frame", directly
+# > Class "oldClass", by class "data.frame", distance 2
+#
+# So far everything looks good.
+# But now,
+#
+new(XDF)                                 # a1)
+new(XDF, data.frame())                   # a2)
+new(XDF, tdf, info="Where is the data?") # a3)
+#
+# all yield:
+#
+# > An object of class "ExtendedDataframe"
+# > NULL
+# > <0 rows> (or 0-length row.names)
+#
+# Only (a3) additionally has
+#
+# > Slot "info":
+# > [1] "Where is the data?"
+#
+# === (b) Wrapped Dataframe ===
+#
+WDF <- "WrappedDataframe"
+setClass(WDF, representation("data.frame"))
+getClass(WDF)
+#
+# > No Slots, prototype of class "S4"  # N.B.!
+# >
+# > Extends:
+# > Class "data.frame", directly
+# > Class "oldClass", by class "data.frame", distance 2
+#
+new(WDF)
+#
+# > <S4 Type Object>
+# > attr(,"class")
+# > [1] "WrappedDataframe"
+# > attr(,"class")attr(,"package")
+# > [1] ".GlobalEnv"
+#
+# Now we have attributes -- there wheren't any with XDF.
+# Thus, not supplying a slot adds attributes -- confusing.
+#
+# Now: Initialization with an empty data.frame instead of nothing:
+#
+new(WDF, data.frame())
+#
+# > An object of class "WrappedDataframe"
+# > Slot "row.names":
+# > character(0)
+# > Warning message:
+# > missing package slot (.GlobalEnv) in object of class
+# > "WrappedDataframe" (package info added) in: initialize(value, ...)
+#
+# OBS! Now there is
+#  (i) a slot "row.names" -- which is wrong
+#      since WDFs aren't suposed to have any slots;
+# (ii) an odd warning about another missing slot
+#      (presumably called "package" but the message is
+#      somewhat ambigous).
+#
+# But at least
+#
+new(WDF, tdf)
+#
+# yields:
+#
+# > $x
+# > [1] 1 2
+# >
+# > $y
+# > [1]  TRUE FALSE
+# >
+# > attr(,"row.names")
+# > [1] 1 2
+# > attr(,"class")
+# > [1] "WrappedDataframe"
+# > attr(,"class")attr(,"package")
+# > [1] ".GlobalEnv"
+# > Warning message:
+# > missing package slot (.GlobalEnv) in object of class
+# > "WrappedDataframe" (package info added) in: initialize(value, ...)
+#
+# So, at least the data seems to be there. Let's use this one.
+#
+wdf <- new(WDF, tdf)
+#
+# === (c) "Smart" Dataframes ===
+#
+SDF <- "SmartDataframe"
+setClass(SDF, representation(WDF, info="character"))
+getClass(SDF)
+#
+# > Slots:
+# >
+# > Name:       info
+# > Class: character
+# >
+# > Extends:
+# > Class "WrappedDataframe", directly
+# > Class "data.frame", by class "WrappedDataframe", distance 2
+# > Class "oldClass", by class "WrappedDataframe", distance 3
+#
+# Now I would expect this:
+#
+new(SDF,wdf)
+#
+# to show the data in wdf, but in fact I get:
+#
+# > An object of class "SmartDataframe"
+# > NULL
+# > <0 rows> (or 0-length row.names)
+# > Slot "info":
+# > character(0)
+#
+# which is the same as:
+#
+# new(SDF)
+# #
+# # or
+# #
+# new(SDF, data.frame())
+# #
+# # The slot does get initialized, though
+# #
+# new(SDF,wdf,info="Where is the data?")
+# new(SDF,tdf,info="Where is the data?")
+# #
+# END OF CODE
+
+
+# Further Remarks
+# ---------------
+#   The rationale behind being able to extend S3 data.frames with S4 classes 
+# is that
+# (a) there is so much legacy code for data.frames (they are the 
+#                                                   foundation of the data part in "programming with data");
+# (b) S4 classes allow for validation, multiple dispatch, etc.
+# 
+# I also wonder why the R developers chose this "setOldClass" way of 
+# making use of S3 classes rather than adding a clean set of wrapper 
+# classes that delegate calls to them cleanly down to their resp. S3 
+# companions (i.e. a "Methods" package (capital "M") with "Character", 
+#             "Numeric", "List", "Dataframe", etc.). The present situation appears to 
+# be somewhat messy.
+# 
+# 
+# Anyway -- a great tool and great work!
+#   Cheers!
+#   Ulf Martin
+# 
+# Previous message: [Rd] Useful statusbar in RGui
+# Next message: [Rd] how to trace what crashes R
+# Messages sorted by: [ date ] [ thread ] [ subject ] [ author ]
+# More information about the R-devel mailing list
+# 
+# 
+# 
+# 
+# Also, read this:
+#   http://www.carlboettiger.info/2013/09/11/extending-data-frame-class.html

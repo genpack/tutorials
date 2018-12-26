@@ -1,0 +1,114 @@
+### timser.Rmd ----------------------------------
+---
+title: "timser: R Package for handling time series"
+author: "Nicolas Berta"
+date: "19 December 2016"
+output: html_document
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## What is timser?
+
+**timser** is an R package produced in the Business Intelligent and Analytics team in CBA. 
+This package is written to deal with various uni-variate and multi-variate time series.
+This tutorial is to help you use this package.
+...
+
+Let's start with a simple example:
+
+First import required packages:
+```{r echo = TRUE, message = FALSE}
+library(niragen)
+library(timser)
+```
+Now, let's make a TIME.SERIES object:
+  <p>To create an instance of TIME.SERIES, you need to have your data in a data.frame.
+The data.frame can be read from a .csv file or directly from ODBC server and must have one column containing time values (Date, POSIXlt, POSIXct, timeDate, ...).</p>
+  
+  You can also convert a ts object into a TIME.SERIES object:
+  
+  ```{r echo = TRUE, message = FALSE}
+x = as.TIME.SERIES(AirPassengers)
+names(x) <- 'PassCount'
+```
+Now, `x` is a TIME.SERIES object. It supports some generic functions like:
+  
+  ```{r}
+length(x)
+dim(x)
+head(x)
+tail(x)
+names(x)
+summary(x)
+```
+
+With a TIME.SERIES object, you can move on the time-line axis. To see the current time:
+  ```{r}
+x$now()
+```
+
+To jump to the next time stamp, use method `jump()`:
+  ```{r}
+x$jump()
+x$now()
+x$jump(10)
+x$now()
+```
+To see the current value of a variable:
+  ```{r}
+x$current('PassCount')
+```
+You can change in time by refering to a specific time. You will jump to the first time stamp which is equal or greater than the specified time. If the given time is after than the latest time in the time series, you will jump to the last time-stamp:
+  ```{r}
+x$goto('1953-11-23')
+x$now()
+x$goto('2015-11-23')
+x$now()
+```
+The current time number is stored in property `ctn`. 
+Another property named as `stn` is used when you like to focus on a specific window within the time series.
+To change the value of `stn` you should first go to your desired time and call method `reset()`:
+  
+  (NOte: Try to avoid changing property values directly as much as possible)
+```{r}
+x$stn
+x$ctn
+x$goto('1951-07-01')
+x$ctn
+x$reset()
+x$stn
+```
+
+## Basic Visualisation:
+
+The basic generic function `plot()` works on TIME.SERIES as well:
+  ```{r echo=TRUE}
+x$goto('1956-12-01')
+plot(x)
+```
+Note that all plot functions, plot from starting time number until the current time number.
+
+## Forecasting:
+To predict future values of any figure in your time series, a predictive model needs to be trained with history data. It is assumed that all data prior to the current time (including current values) are included in the training. To train an *ARIMA* model, just go to the desired time at which you like to run the preduction and use method `updateForecast()`:
+  
+  ```{r echo=TRUE, message = FALSE}
+x$goto('1957-01-31')
+x$now()
+x$updateForecast(figure = 'PassCount')
+```
+Now that the model has been trained, we use method `updateForecast()` to get forecasts for future:
+  ```{r echo=TRUE}
+x$predictNext(10, figure = 'PassCount')
+```
+
+## Advanced Visualisation:
+You can employ various packages to draw elegant html-based plots. Various plots are available.
+To use these features, you will need to have package *viser* installed.
+```{r echo=TRUE, message = FALSE}
+library(viser)
+x$plot.history()
+```
+
