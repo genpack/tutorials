@@ -1,9 +1,0 @@
-### 19 Nov 2015 (R Version Problem).txt  ----------------------
-What did I learn today:
-
-to change the version of R underneath R Studio:
-goto Tools --> Global Options --> General --> R Version --> Chaneg
-Select the folder to your new R versio
-Example:  [64-bit] \\naunsw001\Berta\R\R-3.2.2
-
-Note: Good to know that you can extract the latest versin of R any where in your computer without having administrator access.
