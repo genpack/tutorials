@@ -1,0 +1,180 @@
+How  can I:
+
+## change environmental variables in R environment [27 Dec 2018]:
+> Sys.setenv("VAR1" = "value1", "VAR2" = "value2", ...)
+
+## get the value of an environmental variable in R environment [27 Dec 2018]:
+> Sys.getenv("VAR1")
+
+## run R command in shell environment [27 Dec 2018]:
+Examples:
+$ sudo R -e 'install.packages("curl", repos = "http://cran.dev.cba/", lib = "/usr/lib64/R/library/")'
+$ R -e 'source("C:/R/myfile.R"); df = read.csv("C:/data/mydata.cdv")'
+
+## install libcurl in redhat [27 Dec 2018]
+$ sudo yum -y install libcurl libcurl-devel
+
+## start/stop shinyserver  [27 Dec 2018]:
+$ sudo systemctl stop shiny-server
+$ sudo systemctl start shiny-server
+
+## find where rpm has installed a package in redhat [27 Dec 2018]:
+$ rpm -ql <package_name>
+
+## upload a file to s3 bucket in shell environment [27 Dec 2018]:
+$ aws s3 cp <local_address> <s3_address> --profile <your_role>@<your_profile> 
+Example:
+$ aws s3 cp ~/Documents/data/sticky/bigeventlog.csv s3://staging.democlient.elulaservices.com/bigeventlog.csv --profile write@billing
+
+## download a file from s3 bucket in shell environment [27 Dec 2018]:
+$ aws s3 cp <s3_address> <local_address> --profile <your_role>@<your_profile> 
+Example:
+$ aws s3 cp s3://staging.democlient.elulaservices.com/bigeventlog.csv ~/Documents/data/sticky/bigeventlog.csv --profile write@billing
+
+## see list of all environmental variables in linux shell [27 Dec 2018]:
+$ env
+
+## remotely connect to AWS EMR cluster [27 Dec 2018]:
+To connect to an aws EMR cluster:
+1- You need to know the uri of your cluster which is referred to as : Master Public DNS
+Examples of uri to an EMR cluster:
+hadoop@ec2-54-164-254-176.compute-1.amazonaws.com
+hadoop@ ec2-52-62-226-25.ap-southeast-2.compute.amazonaws.com
+2- You also need a key to open the gate. This key is a small file with extension .pem (or .ppk)
+This file contains a RSA256 hashed key for ssh connection:
+You need to set permissions for your keys otherwise your connection will come with an error saying the keys are too open and not really secure:
+$ chmod 400 ~/mykeypair.pem 
+Reading this can help:
+https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html
+3 - To connect remotely to the cluster with ssh:
+$ ssh hadoop@<EMR URI> -I <your key>
+Examples:
+$ ssh hadoop@emr.79c1756b-2621-a8ba-fcca-8b07d9f22ae9.sticky.elulaservices.com -i ~/democlient.pem
+
+## to copy a folder recursively with all attributes in linux shell [27 Dec 2018]:
+$ cp -rp <source_address> <destination_address>
+Example:
+$ sudo cp -rp smartoptimiser sodc
+
+## copy files from one machine to another using ssh [27 Dec 2018]:
+Send:
+$ scp <source_address> <username>@<destination_machine_uri>:<destination_address>
+Receive:
+$ scp <username>@<destination_machine_uri>:<destination_address> <source_address> 
+In case the remote machine uses ssh or identity file for authorisation (rather than username & password)
+use -i (for identity file) or -F (for ssh key)
+Example:
+$ sudo scp -i ~/democlient.pem config.yml hadoop@emr.79c1756b-2621-a8ba-fcca-8b07d9f22ae9.sticky.elulaservices.com:~/
+
+## get the list of files in a directory in R environment:
+> list.files(path = '.')
+
+## publish RStudio Server as a web interface on AWS EMR cluster or EC2 instance [28 Dec 2018]:
+1- [remotely connect to] AWS EMR cluster
+2- install R on the instance
+3- [install Rstudio server] on the instance
+4- [make a new user with password]
+5- To connect remotely to the app, on each client, you need to [build a tunnel with dynamic port forwarding]
+6- [set proxy settings via foxyproxy] on the client with the same port number you build the tunnel trough. Make sure the instance uri will pass the url patterns (regex/wildcard filters) specified in the proxy settings.
+7- By default RStudio Server runs on port 8787. To connect, on the client browser: http://<server-ip>:8787
+Reading this can help:
+https://spark.rstudio.com/examples/yarn-cluster-emr/
+
+## install Rstudio server on any redhat linux machine [28 Dec 2018]:
+$ sudo yum update
+$ sudo yum install libcurl-devel openssl-devel
+$ wget -P /tmp https://s3.amazonaws.com/rstudio-dailybuilds/rstudio-server-rhel-0.99.1266-x86_64.rpm
+$ sudo yum install --nogpgcheck /tmp/rstudio-server-rhel-0.99.1266-x86_64.rpm
+By default RStudio Server runs on port 8787. To connect, on the client browser: http://<server-ip>:8787
+
+## make a new user with password on linux shell:
+$ sudo useradd -m <username>
+$ sudo passwd <username>
+enter a new password or change old password
+
+## build a tunnel with dynamic port forwarding to an aws instance
+$ ssh -i <your_key> -N -D <port_number> <username>@<remote_machine_uri>
+Example:
+$ ssh -i ~/democlient.pem -N -D 8157 hadoop@emr.79c1756b-2621-a8ba-fcca-8b07d9f22ae9.sticky.elulaservices.com
+https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-proxy.html
+
+## set proxy settings via foxyproxy in google chrome [28 Dec 2018]:
+1- install foxyproxy in google chrome
+2- go to chrome and right-click on the blue foxyproxy extension icon on the upper right (right after the address bar) --> select options
+3- add a new or edit an existing proxy settings (you can either add a new proxy settings manually or import it from a xml file)
+3.1- to add a new proxy settings manually:
+3.1.1 click on add new proxy
+3.1.2 in General tab, select a name and some describing notes and a color for the new proxy settings you are going to add
+3.1.3 in Proxy Details tab, manually write all the specifications 
+3.1.4 in URL Patterns tab, manually add all the patterns 
+3.2- to import proxy settings from xml file:
+3.2.1- make a xml text file with any editor. This file can contain multiple proxy settings. The xml file should be like this example:
+<?xml version="1.0" encoding="UTF-8"?>
+<foxyproxy>
+   <proxies>
+      <proxy name="emr-socks-proxy" id="2322596116" notes="" fromSubscription="false" enabled="true" mode="manual" selectedTabIndex="2" lastresort="false" animatedIcons="true" includeInCycle="true" color="#0055E5" proxyDNS="true" noInternalIPs="false" autoconfMode="pac" clearCacheBeforeUse="false" disableCache="false" clearCookiesBeforeUse="false" rejectCookies="false">
+         <matches>
+            <match enabled="true" name="*ec2*.amazonaws.com*" pattern="*ec2*.amazonaws.com*" isRegEx="false" isBlackList="false" isMultiLine="false" caseSensitive="false" fromSubscription="false" />
+            <match enabled="true" name="*ec2*.compute*" pattern="*ec2*.compute*" isRegEx="false" isBlackList="false" isMultiLine="false" caseSensitive="false" fromSubscription="false" />
+            <match enabled="true" name="10.*" pattern="http://10.*" isRegEx="false" isBlackList="false" isMultiLine="false" caseSensitive="false" fromSubscription="false" />
+            <match enabled="true" name="*10*.amazonaws.com*" pattern="*10*.amazonaws.com*" isRegEx="false" isBlackList="false" isMultiLine="false" caseSensitive="false" fromSubscription="false" />
+            <match enabled="true" name="*10*.compute*" pattern="*10*.compute*" isRegEx="false" isBlackList="false" isMultiLine="false" caseSensitive="false" fromSubscription="false" /> 
+            <match enabled="true" name="*.compute.internal*" pattern="*.compute.internal*" isRegEx="false" isBlackList="false" isMultiLine="false" caseSensitive="false" fromSubscription="false"/>
+            <match enabled="true" name="*.ec2.internal* " pattern="*.ec2.internal*" isRegEx="false" isBlackList="false" isMultiLine="false" caseSensitive="false" fromSubscription="false"/>	  
+	   </matches>
+         <manualconf host="localhost" port="8157" socksversion="5" isSocks="true" username="" password="" domain="" />
+      </proxy>
+   </proxies>
+</foxyproxy>
+3.2.2- On the FoxyProxy page, choose Import/Export, choose the xml file you created
+
+## select a set of most relevant features for your ML models [02 Jan 2019]:
+Reading these links will help:
+https://blog.bigml.com/2014/02/26/smart-feature-selection-with-scikit-learn-and-bigmls-api/
+https://github.com/cheesinglee/bigml-feature-subsets
+https://arxiv.org/pdf/1812.09044.pdf
+
+
+## download some dataset for machine learning or other purposes [02 Jan 2019]:
+http://archive.ics.uci.edu/ml/index.php
+
+## detect concept drift in machine learning [02 Jan 2019]:
+What is concept drift?
+https://en.wikipedia.org/wiki/Concept_drift#Datasets
+Methods to detect:
+http://www.liaad.up.pt/area/jgama/DataStreamsCRC.pdf
+http://www.lsi.upc.edu/~abifet/EDDM.pdf
+
+## Read a csv text file [03 Jan 2019]:
+Into R data.frame: read.csv(filename, ...)
+In Python pandas dataframe: pandas.read_csv(filename, ...)
+
+## add a header with column names to a table [04 Jan 2019]:
+Python pandas DataFrame:
+data = pandas.DataFrame(data.values, columns = ['col1', 'col2'])
+
+## run spark jobs on emr cluster [06 Jan 2019]: (not complete)
+aws emr add-steps --cluster-id <cluster_id> --steps "Type=spark,Name=<job_name>,Args=[--args1,values1,--args2,values2,--args3,values3,...]" --profile <profile>@<role>
+Example:
+aws emr add-steps --cluster-id j-742YEJR5HYJE --steps Type=spark,Name=PeriodicAggregatorJob,Args=[--deploy-mode,cluster,--master,yarn,--conf,spark.yarn.submit.waitAppCompletion=true,s3://sticky.democlient.elulaservices.com/spark_jobs/periodicAggregator.py,s3://sticky.democlient.elulaservices.com/configurations/periodicAggregator_config.yml],ActionOnFailure=CONTINUE --profile admin@sticky-demo
+Read:
+https://docs.aws.amazon.com/cli/latest/reference/emr/add-steps.html
+https://aws.amazon.com/premiumsupport/knowledge-center/emr-submit-spark-job-remote-cluster/
+https://stackoverflow.com/questions/34664090/how-do-i-setup-and-run-sparkr-projects-and-scripts-like-a-jar-file
+
+## deal with categorical variables with large domain in machine learning [07 Jan 2019]: 
+Read about fused lasso:
+https://stats.stackexchange.com/questions/146907/principled-way-of-collapsing-categorical-variables-with-many-levels
+http://dept.stat.lsa.umich.edu/~jizhu/pubs/Tibs-JRSSB05.pdf
+With R: https://www.rdocumentation.org/packages/lqa/versions/1.0-3/topics/fused.lasso
+https://www.researchgate.net/publication/265615582_User's_Guide_to_lqa
+With Python:
+
+## install a python package from remote repository [08 Jan 2019]:
+$ pip install git+<repo_url>
+Example:
+$ pip install git+https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/Elulalib
+In Python environment:
+>>> !pip install git+<repo_url>
+
+
