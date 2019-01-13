@@ -177,4 +177,10 @@ $ pip install git+https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/E
 In Python environment:
 >>> !pip install git+<repo_url>
 
+## convert a numpy array to a list in python [10 Jan 2019]:
+>>> x.tolist()
+
+## convert pandas series to a list in python [10 Jan 2019]:
+>>> x.tolist()
+
 

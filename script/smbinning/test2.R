@@ -57,5 +57,5 @@ crossValidate(lr, data)
 
 crossValidate(lr, d2)
 
-f = function(x) 1/(0.9101 - x)
+
 
