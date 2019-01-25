@@ -24,12 +24,12 @@ $ rpm -ql <package_name>
 ## upload a file to s3 bucket in shell environment [27 Dec 2018]:
 $ aws s3 cp <local_address> <s3_address> --profile <your_role>@<your_profile> 
 Example:
-$ aws s3 cp ~/Documents/data/sticky/bigeventlog.csv s3://staging.democlient.elulaservices.com/bigeventlog.csv --profile write@billing
+$ aws s3 cp ~/Documents/data/stk/bigeventlog.csv s3://staging.democlient.elservices.com/bigeventlog.csv --profile write@billing
 
 ## download a file from s3 bucket in shell environment [27 Dec 2018]:
 $ aws s3 cp <s3_address> <local_address> --profile <your_role>@<your_profile> 
 Example:
-$ aws s3 cp s3://staging.democlient.elulaservices.com/bigeventlog.csv ~/Documents/data/sticky/bigeventlog.csv --profile write@billing
+$ aws s3 cp s3://staging.democlient.elservices.com/bigeventlog.csv ~/Documents/data/stk/bigeventlog.csv --profile write@billing
 
 ## see list of all environmental variables in linux shell [27 Dec 2018]:
 $ env
@@ -49,7 +49,7 @@ https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-s
 3 - To connect remotely to the cluster with ssh:
 $ ssh hadoop@<EMR URI> -I <your key>
 Examples:
-$ ssh hadoop@emr.79c1756b-2621-a8ba-fcca-8b07d9f22ae9.sticky.elulaservices.com -i ~/democlient.pem
+$ ssh hadoop@emr.79c1756b-2621-a8ba-fcca-8b07d9f22ae9.stk.elservices.com -i ~/democlient.pem
 
 ## to copy a folder recursively with all attributes in linux shell [27 Dec 2018]:
 $ cp -rp <source_address> <destination_address>
@@ -64,7 +64,7 @@ $ scp <username>@<destination_machine_uri>:<destination_address> <source_address
 In case the remote machine uses ssh or identity file for authorisation (rather than username & password)
 use -i (for identity file) or -F (for ssh key)
 Example:
-$ sudo scp -i ~/democlient.pem config.yml hadoop@emr.79c1756b-2621-a8ba-fcca-8b07d9f22ae9.sticky.elulaservices.com:~/
+$ sudo scp -i ~/democlient.pem config.yml hadoop@emr.79c1756b-2621-a8ba-fcca-8b07d9f22ae9.stk.elservices.com:~/
 
 ## get the list of files in a directory in R environment:
 > list.files(path = '.')
@@ -95,7 +95,7 @@ enter a new password or change old password
 ## build a tunnel with dynamic port forwarding to an aws instance
 $ ssh -i <your_key> -N -D <port_number> <username>@<remote_machine_uri>
 Example:
-$ ssh -i ~/democlient.pem -N -D 8157 hadoop@emr.79c1756b-2621-a8ba-fcca-8b07d9f22ae9.sticky.elulaservices.com
+$ ssh -i ~/democlient.pem -N -D 8157 hadoop@emr.79c1756b-2621-a8ba-fcca-8b07d9f22ae9.stk.elservices.com
 https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-proxy.html
 
 ## set proxy settings via foxyproxy in google chrome [28 Dec 2018]:
@@ -156,7 +156,7 @@ data = pandas.DataFrame(data.values, columns = ['col1', 'col2'])
 ## run spark jobs on emr cluster [06 Jan 2019]: (not complete)
 aws emr add-steps --cluster-id <cluster_id> --steps "Type=spark,Name=<job_name>,Args=[--args1,values1,--args2,values2,--args3,values3,...]" --profile <profile>@<role>
 Example:
-aws emr add-steps --cluster-id j-742YEJR5HYJE --steps Type=spark,Name=PeriodicAggregatorJob,Args=[--deploy-mode,cluster,--master,yarn,--conf,spark.yarn.submit.waitAppCompletion=true,s3://sticky.democlient.elulaservices.com/spark_jobs/periodicAggregator.py,s3://sticky.democlient.elulaservices.com/configurations/periodicAggregator_config.yml],ActionOnFailure=CONTINUE --profile admin@sticky-demo
+aws emr add-steps --cluster-id j-742YEJR5HYJE --steps Type=spark,Name=PeriodicAggregatorJob,Args=[--deploy-mode,cluster,--master,yarn,--conf,spark.yarn.submit.waitAppCompletion=true,s3://stk.democlient.elservices.com/spark_jobs/periodicAggregator.py,s3://stk.democlient.elservices.com/configurations/periodicAggregator_config.yml],ActionOnFailure=CONTINUE --profile admin@stk-demo
 Read:
 https://docs.aws.amazon.com/cli/latest/reference/emr/add-steps.html
 https://aws.amazon.com/premiumsupport/knowledge-center/emr-submit-spark-job-remote-cluster/
@@ -173,14 +173,34 @@ With Python:
 ## install a python package from remote repository [08 Jan 2019]:
 $ pip install git+<repo_url>
 Example:
-$ pip install git+https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/Elulalib
+$ pip install git+https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/ellib
 In Python environment:
 >>> !pip install git+<repo_url>
 
-## convert a numpy array to a list in python [10 Jan 2019]:
->>> x.tolist()
+## find address of a variable in R [17 Jan 2019]:
+> pryr::address(x)
 
-## convert pandas series to a list in python [10 Jan 2019]:
->>> x.tolist()
+## find a website to download forex rates [19 Jan 2019]:
+https://www.rba.gov.au/statistics/historical-data.html
+R package quantmod also gives you API to download, but only the latest 180 days!
 
+## run parallel tasks on sparkR [24 Jan 2019]:
+https://databricks.com/session/parallelizing-existing-r-packages-with-sparkr
+https://stackoverflow.com/questions/34670006/parallelize-not-working-sparkr
+https://blog.rstudio.com/2015/05/28/sparkr-preview-by-vincent-warmerdam/
 
+## list all branches in a git repository from command line [25 Jan 2019]:
+$ git branch -a
+
+## switch to a branch in a git repository from command line [25 Jan 2019]:
+$ git checkout <branch_name>
+Example:
+$ git checkout develop
+
+## update a branch in the local copy from a git repository from command line [25 Jan 2019]:
+$ git pull <repository_name> <branch_name>
+Examples:
+$ git pull origin develop
+$ git pull repo2 master
+
+ 
