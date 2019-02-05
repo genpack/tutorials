@@ -3,7 +3,7 @@
 ### dash.R ---------------------
 # Header
 # Filename:       dash.R
-# Description:    This file creates shiny UI for the Smart Optimiser project. 
+# Description:    This file creates shiny UI for the SO project. 
 # Author:         Nima Ramezani Taghiabadi
 # Email:          nima.ramezani@cba.com.au
 # Start Date:     10 May 2017
@@ -26,7 +26,7 @@
 # 1.1.3     31 August 2017    Message notes updated.
 # 1.1.4     11 September 2017 CommSee task read from CSV updated.
 # 1.1.5     12 September 2017 CommSee task removal button added.
-# From now on, the version of this file is the version of Smart Optimiser! Changes if any of these files change: dash.R, iotools.R, otavis.R, global.R
+# From now on, the version of this file is the version of SO! Changes if any of these files change: dash.R, iotools.R, otavis.R, global.R
 # 1.2.0     12 October 2017   otavis.R changed to version 1.1.9
 # 1.2.1     12 October 2017   0.5 sec delay before some operations to make the notification change visible
 # 1.2.2     16 October 2017   Pivot Table added as a new tab 
@@ -252,7 +252,7 @@ export.srv = paste(
   "dash$disableItems('export', 'read', 'write')",
   "Sys.sleep(0.5)",
   "res = try(writeAllocationReport(session$userData$ota, file), silent = T)",
-  "flnm = paste(as.character(sync$ALCD), as.character(sync$ALCT), 'Smart Optimiser Allocation Report.xlsx')",
+  "flnm = paste(as.character(sync$ALCD), as.character(sync$ALCT), 'SO Allocation Report.xlsx')",
   "if(inherits(res, 'try-error')){sync$message <<- 'Failed to export: ' %++% cleanError(as.character(res))} else {sync$message <<- messages['exported'] %++% flnm}",
   "dash$enableItems('export', 'read', 'write')" , sep = '\n')
 
@@ -315,8 +315,8 @@ id : $(this).data("id")
 
 ######### Main Containers: #########
 
-I$main       = list(type = 'dashboardPage', title = 'Smart Optimiser v 2.8.3', color = 'blue', layout.head = c() ,layout.body = c('shinyjs', 'flowPage'), sidebar.width = 300,
-                    layout.side = c('caret','loginPanel', 'lhide' , 'getTeam', 'getDate', 'lhide', 'read', 'write', 'lhide', 'export'), header.title = 'Smart Optimiser v 2.8.3', header.title.width = 300, header.title.font = 'tahoma', header.title.font.weight = 'bold', header.title.font.size = 26)
+I$main       = list(type = 'dashboardPage', title = 'SO v 2.8.3', color = 'blue', layout.head = c() ,layout.body = c('shinyjs', 'flowPage'), sidebar.width = 300,
+                    layout.side = c('caret','loginPanel', 'lhide' , 'getTeam', 'getDate', 'lhide', 'read', 'write', 'lhide', 'export'), header.title = 'SO v 2.8.3', header.title.width = 300, header.title.font = 'tahoma', header.title.font.weight = 'bold', header.title.font.size = 26)
 
 I$loginPanel = list(type = 'loginInput')
 # I$loginPanel = list(type = 'dynamicInput', service = loginPanel.srv)
@@ -352,7 +352,7 @@ I$getTeam = list(type = 'selectInput' , title = 'Team:'    , choices = teams, se
 I$read    = list(type = 'actionButton', title = 'Load Data', width = '90%', icon = icon('tasks', 'fa-2x'), service = read.srv)
 I$write   = list(type = 'actionButton', title = 'Save Allocation', width = '90%' , icon = icon('hdd-o', 'fa-2x'), service = write.srv)
 I$export  = list(type = 'downloadButton', title = 'Export to Excel', service = export.srv, 
-                 filename = "paste(as.character(sync$ALCD), as.character(sync$ALCT), 'Smart Optimiser Allocation Report.xlsx')",
+                 filename = "paste(as.character(sync$ALCD), as.character(sync$ALCT), 'SO Allocation Report.xlsx')",
                  style = style.css(width = '300px', color = 'black'))
 
 # I$help    = list(type = 'actionLink', title = 'Show me how the dashboard works', service = "rintrojs::introjs(session)")
@@ -563,7 +563,7 @@ app    <- shinyApp(ui, server)
 # Header
 # Filename:      iotools.R
 # Description:   This module provides functions for extractiion and modfication of data
-#                from GDW, datamart or any other source of data in CBA required for smart optimiser project.
+#                from GDW, datamart or any other source of data in CBA required for SO project.
 # Authors:       Nima Ramezani Taghiabadi, Timothy Pope, Kelumi Harshika, Mustafizur Rahman
 # Emails :       nima.ramezani@cba.com.au 
 # Start Date:    25 January 2017
@@ -1533,9 +1533,9 @@ applyMN = function(obj, MNTable){
 }
 
 # This function writes skill, agent and task summary to excel file
-writeAllocationReport = function(obj = NULL, filename = "Smart Optimiser Allocation Report.xlsx"){
+writeAllocationReport = function(obj = NULL, filename = "SO Allocation Report.xlsx"){
   
-  #fileName = "Smart Optimiser Allocation Report.xlsx"
+  #fileName = "SO Allocation Report.xlsx"
   #filepath = paste(choose.dir(default = "", caption = "Select folder"), '\\', sep = "")
   
   # generate data frame for allocation summary for each skill and agent, and allocation details for each task
@@ -2175,7 +2175,7 @@ MNTable.srvf = function(MNTable, obj){
 }
 
 messages = c(
-  initial           = "Welcome to the Smart Optimiser! Please enter Username and Password to login.",
+  initial           = "Welcome to the SO! Please enter Username and Password to login.",
   loginFail         = "Sorry! Username or Password are entered incorrectly. Please try again.",
   loginSuccess      = "Welcome user! Please select a team and date, then click on 'Load Data'",
   MNTableAdded      = "One task is added to new non-CommSee Tasks table for the selected skill.",
@@ -2373,7 +2373,7 @@ x2 = x %>% distributeTasks(flt2IntCnvrsn = 'round')
 
 
 ### bankwest.R ---------------------
-# Test Smart Optimiser for BankWest:
+# Test SO for BankWest:
 library(magrittr)
 library(dplyr)
 library(niragen)
@@ -2480,7 +2480,7 @@ y = OptimalTaskAllocator() %>%
 
 write.csv(y$TAT, 'tables/CCV_AUT.csv')
 ### for_eliot.R ---------------------
-# Test Smart Optimiser for BankWest:
+# Test SO for BankWest:
 library(magrittr)
 library(dplyr)
 library(niragen)
@@ -4161,7 +4161,7 @@ INNER JOIN
   
   
   ---
-title: 'Smart Optimiser: An introduction to the optimal task allocatoe engine'
+title: 'SO: An introduction to the optimal task allocatoe engine'
 author: "Nima Ramezani Taghiabadi"
 date: "2 October 2018"
 output: html_document
@@ -4175,9 +4175,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <!-- Explain why this is required/ Current status in most businesses  -->
 
-**Smart Optimiser** is a workforce optimisation system aiming to improve productivity and performance quality of business processes by optimal resource allocation.
+**SO** is a workforce optimisation system aiming to improve productivity and performance quality of business processes by optimal resource allocation.
 
-Optimal Task Allocator (OTA) is currently, the main component of Smart Optimiser which allocates work items (tasks) to employees optimally based on the observed history of their performance on various task types. This product is provided as a R package (named **otar**) with a set of API functions which R developers can use to run task allocation for their data and requirements.
+Optimal Task Allocator (OTA) is currently, the main component of SO which allocates work items (tasks) to employees optimally based on the observed history of their performance on various task types. This product is provided as a R package (named **otar**) with a set of API functions which R developers can use to run task allocation for their data and requirements.
 In this article, we will explain the methodology used in the provided optimal task allocator engine and show how package API functions can be used to run an appropriate task allocation. 
 
 <!-- / background/ benefits -->
@@ -4467,7 +4467,7 @@ Now it's time to start the engine to run allocations. But before, it's good to k
 
 * **Kf**: 
 
-Sometimes you may want to allocate tasks so that agents receive almost equal quota of work load and/or benefit from the works they do. For example, some work items regardless of thir type may be tougher than others but bring little customer outcome, on the otherside there might be some easier tasks with higher outcomes or benefit for the agent so that more employees would prefer to do. It is important to distribute a balanced share of hardness and benefit among the agents to have a __fair__ allocation. By default, Smart Optimiser does not care about this and allocates tasks to maximize prioritised task coverage (productivity), but it is possible to have a fairer allocation considering a balanced benefit and load sahring. For this, first you need to give a score to each task. This score is a scalar value reflecting the amount of overall benefit/loss that agents receive by performing that task. It could be defined as a weighted combination of task priority, hardness or simplicity, customer outcome or employee benefit (in terms of income, KPIs or whatever else). By giving a weight to argument ```Kf``` you can encourage the optimisation model to allocate with a more balanced score sharing among the agents. It can take any value from 0(default) to $\infty$. Usually $Kf = 1$ provides a reasonable allocation, however you should try different values and find the one which best suits your requirements.
+Sometimes you may want to allocate tasks so that agents receive almost equal quota of work load and/or benefit from the works they do. For example, some work items regardless of thir type may be tougher than others but bring little customer outcome, on the otherside there might be some easier tasks with higher outcomes or benefit for the agent so that more employees would prefer to do. It is important to distribute a balanced share of hardness and benefit among the agents to have a __fair__ allocation. By default, SO does not care about this and allocates tasks to maximize prioritised task coverage (productivity), but it is possible to have a fairer allocation considering a balanced benefit and load sahring. For this, first you need to give a score to each task. This score is a scalar value reflecting the amount of overall benefit/loss that agents receive by performing that task. It could be defined as a weighted combination of task priority, hardness or simplicity, customer outcome or employee benefit (in terms of income, KPIs or whatever else). By giving a weight to argument ```Kf``` you can encourage the optimisation model to allocate with a more balanced score sharing among the agents. It can take any value from 0(default) to $\infty$. Usually $Kf = 1$ provides a reasonable allocation, however you should try different values and find the one which best suits your requirements.
 
 * **Ku**:
 
