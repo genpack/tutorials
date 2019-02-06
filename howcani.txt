@@ -208,4 +208,15 @@ $ git pull repo2 master
 >>> dictionary = {"a": [1, 2], "b": [4, 5]}
 >>> print yaml.dump(dictionary)
 
-##
+## run Time-series event-based prediction [06 Feb 2019]:
+https://www.researchgate.net/publication/271539746_Time-series_event-based_prediction_An_unsupervised_learning_framework_based_on_genetic_programming
+
+## train LSTM model with R [06 Feb 2019]:
+https://www.kaggle.com/taindow/simple-lstm-with-r
+
+## use TensorFlow in R [06 Feb 2019]:
+https://tensorflow.rstudio.com/tensorflow/articles/using_tensorflow_api.html
+
+## fit distributions in python with scipy [06 Feb 2019]:
+https://docs.scipy.org/doc/scipy/reference/stats.html
+
