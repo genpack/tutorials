@@ -94,12 +94,13 @@ cbind(y_pred, y_test)
 abs(y_pred - y_test) %>% mean
 
 #### let's train scale rather than landa:
-myloss = function(y_true, y_pred){
+myloss = function(y_true, y_pred, c_true = c_train){
   K <- backend()
   landa = K$pow(y_pred + 0.0001, -1)
   x     = y_true + 0.0001
   # K$mean(K$pow(K$pow(y_pred, -1) - y_true, 2))
-  K$mean(landa*x - K$log(landa))
+  # K$mean(c_true*K$pow(y_pred + 0.0001, -1)*x - K$log(landa))
+  K$mean(c_true*K$pow(y_pred + 0.0001, -1)*(y_true + 0.0001) + K$log(y_pred + 0.0001))
   # K$mean( K$abs( K$log( K$relu(y_true *1000 ) + 1 ) - K$log( K$relu(y_pred*1000 ) + 1)))
 }
 
@@ -114,7 +115,7 @@ summary(model)
 history <- model %>% fit(
   X_train,
   y_train,
-  epochs = 30,
+  epochs = 3,
   batch_size = 32,
   # learning_rate = 0.0001,
   validation_split = 0.2,

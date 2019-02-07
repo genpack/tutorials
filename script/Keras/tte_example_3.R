@@ -13,12 +13,13 @@ X_test = data[- trindex, c(-1, -54)] %>% scale
 y_test = data[- trindex, 54]
 
 build_model = function(layer1 = 64, layer2 = 64, inputs = 1, outputs = 1, dropout = 0.1){
+  K = backend()
   model <- keras_model_sequential() %>%
-    layer_dense(units = layer1, activation = "relu", input_shape = inputs) %>%
+    layer_dense(units = layer1, activation = "linear", input_shape = inputs) %>%
     layer_dropout(rate = dropout) %>% 
-    layer_dense(units = layer2, activation = "relu") %>%
+    layer_dense(units = layer2, activation = "sigmoid") %>%
     layer_dropout(rate = dropout) %>% 
-    layer_dense(units = outputs, activation = "relu")
+    layer_dense(units = outputs, activation = K$exp)
 }
 
   
@@ -52,17 +53,17 @@ y_pred = model$predict(X_test)
 cbind(y_pred, y_test)
 abs(y_pred - y_test) %>% mean
 
-# let's see how a customized loss can we passed
+# let's see how a customized loss can be passed
 myloss = function(y_true, y_pred){
   K <- backend()
-  landa = 0.5*(K$abs(y_pred) + y_pred) + 0.00001
-  x     = y_true + 0.00001
+  landa = y_pred
+  x     = y_true
   # K$mean(K$pow(K$pow(y_pred, -1) - y_true, 2))
   K$mean(landa*x - K$log(landa))
   # K$mean( K$abs( K$log( K$relu(y_true *1000 ) + 1 ) - K$log( K$relu(y_pred*1000 ) + 1)))
 }
 
-model = build_model(layer1 = 64, layer2 = 64, inputs = dim(X_train)[2]) %>% compile(
+model = build_model(layer1 = 128, layer2 = 64, inputs = dim(X_train)[2]) %>% compile(
     loss = myloss,
     optimizer = optimizer_rmsprop(),
     metrics   = list("mean_absolute_error")
