@@ -32,9 +32,14 @@ summary(model)
 
 print_dot_callback <- callback_lambda(
   on_epoch_end = function(epoch, logs) {
-    cat('epoch:', epoch, ' loss: ', logs$loss, 'validation loss:', logs$val_loss, '\n')
+    if(epoch == 1){
+      cat('class(logs): ', class(logs), 'names(logs): ', names(logs), "\n")
+    }
+    if (epoch %% 30 == 0) cat("\n")
+    cat(epoch,".")
   }
 )
+
 # normal regression:
 history <- model %>% fit(
   X_train,

@@ -32,7 +32,8 @@ summary(model)
 
 print_dot_callback <- callback_lambda(
   on_epoch_end = function(epoch, logs) {
-    cat('epoch:', epoch, ' loss: ', logs$loss, 'validation loss:', logs$val_loss, '\n')
+    if (epoch %% 30 == 0) cat("\n")
+    cat(epoch, ".")
   }
 )
 
