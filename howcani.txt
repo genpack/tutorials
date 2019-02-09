@@ -220,3 +220,13 @@ https://tensorflow.rstudio.com/tensorflow/articles/using_tensorflow_api.html
 ## fit distributions in python with scipy [06 Feb 2019]:
 https://docs.scipy.org/doc/scipy/reference/stats.html
 
+## install a python package on windows [09 Feb 2019]:
+goto the python folder
+Example:
+> cd C:\Users\nima_\AppData\Local\Programs\Python\Python37
+> python -m pip install --upgrade pip
+> cd Scripts
+> pip install tensorflow
+> pip.exe install keras
+
+

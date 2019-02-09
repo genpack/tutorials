@@ -64,6 +64,10 @@ loss.mae = function(y_true, y_pred){
   abs(y_pred - y_true) %>% mean(na.rm = T)
 }
 
+loss.medae = function(y_true, y_pred){
+  abs(y_pred - y_true) %>% median(na.rm = T)
+}
+
 loss.weibull.bz = function(y_true, y_pred){
   K <- backend()
   b = y_pred[,1] + eps
@@ -125,3 +129,7 @@ loss.exp.l = function(y_true, y_pred){
   K$mean(landa*x - K$log(landa))
 }
 
+sigmoid = function(x) {1.0/(1.0 + exp(-x))}
+sigprim = function(x) {a = exp(-x); return(a/((1.0 + a)^2))}
+
+                           
