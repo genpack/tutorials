@@ -229,4 +229,12 @@ Example:
 > pip install tensorflow
 > pip.exe install keras
 
+## Assign multiple new variables on LHS in a single line in R [11 Feb 2019]:
+option 1 Example: 
+>>> list(x = 12, Y = 'Hello') %>% list2env(.GlobalEnv)
+option 2 Example: 
+>>> library(zeallot)
+>>> c(x, Y) %<-% list(x = 12, Y = 'Hello')
+
+
 

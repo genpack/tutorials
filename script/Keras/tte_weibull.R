@@ -1,33 +1,38 @@
 library(magrittr)
+library(zeallot)
 library(keras)
 
-path = '~/Documents/data/miscellaneous/'
-data = read.csv(path %>% paste0('tte_dataset.csv'), row.names = 'X')
-data$externalRefinance %<>% as.integer
+c(X_train, y_train, X_test, y_test) %<-% read_kaggle_data()
 
-# data %<>% dplyr::filter(status == 1) %>% dplyr::select(-status)
-# trindex = sample(data %>% nrow %>% sequence, 2500, replace = F)
+y_train %>% hist(breaks = 100, prob = T)
+y_train %>% density %>% lines(col="blue")
 
-trindex = sample(1:10000, 7000, replace = F)
-X_train = data[trindex, ] %>% dplyr::select(-id, -tte) %>% as.matrix %>% scale
-y_train = data[trindex, 'tte']
+a = mean(y_train)
+b = mean(y_train^2) - a^2
+d = 1 + b/(a^2)
 
-X_test = data[- trindex, ] %>% dplyr::select(-id, -tte) %>% as.matrix %>% scale
-y_test = data[- trindex, 'tte']
+fgama = function(z) gamma(2*z + 1)/(gamma(z+1)^2) - d
+ggama = function(z) (fgama(z + eps) - fgama(z))/eps
+z     = eqSolver1d(fgama, ggama, 1)
+shape = 1.0/z
+landa = a/gamma(1 + z)
+  
+x = 0.01*(0:(100*max(y_test))); lines(x, pdf.weibull(x, landa, shape), col="red")
+rweibull(length(y_train), shape = shape, scale = landa) %>% density %>% lines(col="green")
 
-
-model = build_model(inputs = ncol(X_train), outputs = 2, act3 = 'sigmoid') %>% decompile(loss.weibull.me)
+model = build_model(inputs = ncol(X_train), outputs = 1, act3 = 'relu') %>% decompile(loss.weibull.linv)
 
 history = model %>% defit(X_train, y_train)
 
 plot(history, metrics = "loss", smooth = FALSE)
 #plot(history, metrics = "mean_absolute_error", smooth = FALSE)
 
-model$predict(X_test) %>% pred.weibull %>% loss.mae(y_test)
-mean(y_test) %>% loss.mae(y_test)
+y_pred = model$predict(X_test) %>% pred.weibull.linv
+loss.plot(y_pred, y_test)
+loss.summary(y_pred, y_test)
 
 
 # compare to normal regression:
 model  = lm(y_train ~ X_train)
 y_pred = model$coefficients[1] + as.numeric(X_test %*% model$coefficients[-1])
-y_pred %>% loss.mae(y_test)
+loss.summary(y_pred, y_test)

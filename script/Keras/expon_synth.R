@@ -10,26 +10,13 @@ x1 = X[,'X1']
 x2 = X[,'X2']
 x3 = X[,'X3']
 
-# y  = as.integer(100*rexp(10000, rate = 0.2*x1 - 0.5*x2 + 0.01*x3 + 3)) %>% as.numeric
-y  = 100*rexp(10000, rate = 0.2*x1 - 0.5*x2 + 0.01*x3 + 3)
+y  = rexp(10000, rate = 0.01 + sigmoid(2*x1 - 5*x2 + x3 + 3)) %>% floor %>% as.numeric
 
 trindex = sample(1:10000, 7000, replace = F)
 X_train = X[trindex, ]
 y_train = y[trindex]
 X_test  = X[- trindex, ]
 y_test  = y[- trindex]
-
-######### verify 100% accurate model: #########
-r = 0.2*x1 - 0.5*x2 + 0.01*x3 + 3
-r_train = r[trindex]
-r_test  = r[- trindex]
-
-(100*pred.exp.landa(r_test)) %>% loss.mae(y_test)
-mean(y_test) %>% loss.mae(y_test)
-
-######### verify 2: #########
-r = rnorm(10000, 5, 1)
-rexp(10000, rate = 1.0/r) %>% loss.mae(r) 
 
 ########## if we know the rate, can NN regress it by normal loss?  ##########
 model = build_model(act3 = 'relu', inputs = ncol(X_train)) %>% decompile(loss = 'mse')
@@ -41,9 +28,11 @@ mean(r_test) %>% loss.mae(r_test)
 
 
 ########## 
-model = build_model(act3 = 'relu', inputs = ncol(X_train)) %>% decompile(loss = loss.exp.l)
+model = build_model(act3 = 'sigmoid', inputs = ncol(X_train)) %>% decompile(loss = loss.exp.l)
 history = model %>% defit(X_train, y_train)
 
 y_pred = model$predict(X_test) %>% pred.exp.landa
+y_pred %>% loss.medae(y_test)
 y_pred %>% loss.mae(y_test)
 mean(y_test) %>% loss.mae(y_test)
+median(y_test) %>% loss.medae(y_test)

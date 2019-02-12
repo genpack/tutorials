@@ -1,0 +1,112 @@
+---
+title: "Distribution Modelling"
+author: "Nima Ramezani Taghiabadi"
+date: "11/02/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(magrittr)
+library(zeallot)
+library(keras)
+source('~/Documents/software/Python/projects/prediction/elulalib/DistributionModels/R_test/tools.R')
+```
+
+## Introduction:
+
+In machine learning, we often use a model to describe the process that results in the observed data. We may use a classifier like logistic regression or random forest to classify whether customers may cancel a subscription from a service (known as churn modelling) or we may use a regression model to predict the revenue that will be generated for a company depending on the amount of fund spend on advertising. Each model contains its own set of parameters that ultimately defines what the model looks like.
+We may have various distributions for the output label depending on the underlying process that generates it. Ignoring the distribution of the output variables in machine learning, can lead to poor predictions. For example. if the distribution of the label is exponential, we may observe outliers which is expected for exponential distribution. If we use a regression model which minimizes mean squared error, those outlier values can ruin the model prediction for the majority of data just because we are trying to fit those outliers. Thus, choice of the objective (loss function) is important when we train the model. In this case, for examle median absolute error between the predicted and actual value could be a better loss rather than mean absolute or mean squared error.
+
+## Machine Learning with non-linear conversion of the output:
+
+As an example consider the total daily amount of cash people withdraw from an ATM machine. Looking at the data, you may find a special kind of distribution which may look like gaussian, however you may also see that it cannot always fit to gaussian very well because especially where the mean is low, Gaussian distribution could generate negative values, while we do have negative values in total daily withdrawal amounts.
+So, which distribution is best describing the behaviour of this data? To answer this question, we should have a look at the underlying process that generates our output variable.
+Total daily withdrawal from an ATM is the sum of multiple individual cash withdrawals from individuals. Now, if we see each withdrawal as a sum of denominations of say \$20 and \$50 cash notes, we can model the count of notes in each withdrawal separately. If we have more detailed data in denomination transaction level, we can fit various possible distributions to each transaction to find which one fits best, but we consider a case where such data is not available.
+In this case, we will need to assume a distribution for each transaction and build a combined distribution which best describes the process.
+For example let's assume count of each denomination to be of prime beta distribution and counts of customer arrivals in a day to have a Poisson distribution. 
+Having this assumption, the probability distribution function(pdf) of the combined distribution for total daily withdrawal is very complicated and not expressable as closed form, however, we can estimate its mean(first moment) from parameters of three distributions we assumed:
+
+$$\overline{x} = \lambda . \big ( \frac{20 \alpha_{20}}{\beta_{20} - 1} + \frac{50 \alpha_{50}}{\beta_{50} - 1} \big )$$
+where $\lambda$ is the customer arrival rate, $\alpha_{20}$, $\beta_{20}$ are parameters for the distribution of \$20 notes and similarly, $\alpha_{50}$, $\beta_{50}$ for \$50 notes.
+Now, one can build a regression model, or neural network with 5 outputs, one for each parameter and minimize the mean squared error.
+We may get a better result now comparing to when regressing the output variable directly.
+Note that this is not what we refer to as likelihood maximization. However, if the distribution of the observed data is too complicated, this could be a better way to train the model.
+
+## Likelihood Maximization:
+Likelihood Maximization or Maximum Likelihood Estimation is a method that determines values for the parameters of a model so that the likelihood of the observed data with respect to the assumed distribution is maximized. Distributions are indexed by their underlying parameters. Thus, as long as we know the parameter, we know the entire distribution. For instance, for Normal distributions $N(μ,σ)$, if we know $μ$ and $σ$, the entire distribution is determined. In machine learning with Likelihood Maximization, we try to regress parameters of the distribution underlying the observed data rather than its value directly. For normal (Gaussian) distributions, 
+[Linear regression with MSE as loss, returns the same result as Likelihood Maximization](https://www.cs.princeton.edu/courses/archive/fall18/cos324/files/mle-regression.pdf).
+
+Now, consider that the observed distribution of our label data may not necessariy be normal. 
+In this case, we first have to decide which model we think best describes the process of generating the data. This part is very important. At the very least, we should have a good idea about which model to use. 
+
+For example, in exponential distributions Exp(λ), as long as we know the value of λ, we know the entire distribution. 
+Because parameters in the parametric distributions determine the entire distribution, finding these parameters is very important in practice. There are many approaches of finding parameters; here we will introduce the most famous and perhaps most important one–the [maximum likelihood estimator](http://faculty.washington.edu/yenchic/17Sp_403/Lec3_MLE_MSE.pdf) (MLE).
+
+
+## ML with Likelihood Maximization for exponential distribution:
+#### Predicting Time to Event:
+
+Consider an eventlog which describes the life a set of cases from when they are started until the current time and assume our
+output label is time until a particular event. To obtain training data, we first split the data by a random time and take historic samples of the past data and track the case status until the split time which we assume is the current time for a experiment.
+We used a sample dataset which has Time to Churn as output label. Look at the histogram of the output label:
+
+```{r}
+c(X_train, y_train, X_test, y_test) %<-% read_kaggle_data()
+y_train %>% hist(breaks = 100, prob = T)
+y_train %>% density %>% lines(col="blue")
+a = 1.0/mean(y_train); x = 0:max(y_test); lines(x, a*exp(-a*x), col="red")
+rexp(length(y_train), rate = a) %>% density %>% lines(col="green")
+```
+
+Blue curve shows the non-parametric density function of the observed data. Green curve shows the pdf of exponential distribution fit to the observed data and red curve is the density of random variables generated wit exponential distribution which is fit with the observed data.
+As it can be seen, exponential distribution could be a good fit. 
+
+
+Now, we use three different models and evaluate the results:
+1- Simple linear regression 
+2- Regression with likelihood maximization for exponential distribution
+3- Neural network with two layers with MSE as loss function
+4- Neural network with two layers with exponential log-likelihood as loss function
+
+### Simple linear regression
+
+```{r}
+model = lm(y_train ~ X_train)
+y_pred = model$coefficients %>% predict.lm(X_test)
+loss.plot(y_pred, y_test)
+loss.summary(y_pred, y_test)
+```
+
+The error plot does not look really good. 
+
+### Regression with likelihood maximization for exponential distribution
+
+```{r}
+model = lm.exp(X_train, y_train)
+y_pred = model %>% predict.lm.exp(X_test) %>% convert.exp.landa
+loss.plot(y_pred, y_test)
+loss.summary(y_pred, y_test)
+```
+
+### Neural network with two layers with MSE as loss function
+```{r}
+model   <- build_model(inputs = dim(X_train)[2], act3 = 'relu') %>% decompile
+history <- model %>% defit(X = X_train, y = y_train)
+plot(history, metrics = "loss", smooth = FALSE)
+
+y_pred = convert.exp.landa(model$predict(X_test))
+loss.plot(y_pred, y_test)
+loss.summary(y_pred, y_test)
+```
+
+### Neural network with two layers with exponential log-likelihood as loss function
+```{r}
+model   <- build_model(inputs = dim(X_train)[2], act3 = 'sigmoid') %>% decompile(loss = loss.exp.landa)
+history <- model %>% defit(X = X_train, y = y_train)
+plot(history, metrics = "loss", smooth = FALSE)
+
+y_pred = convert.exp.landa(model$predict(X_test))
+loss.plot(y_pred, y_test)
+loss.summary(y_pred, y_test)
+```
