@@ -37,22 +37,53 @@ decompile = function(model, loss = 'mse', metric = "mean_absolute_error"){
   )
 }
 
-pred.exp.landa = function(output){
+# optimization using steepest descent method:
+optim.sdm = function(fun, grad, w0, ...){
+  w   = w0
+  f0  = fun(w0, ...)
+  
+  k   = 1.0
+  
+  imp = Inf
+  cnt = 0
+  while(abs(imp) > eps & (cnt < 1000) & (k > eps)){
+    g   = grad(w, ...)
+    w   = w - k*g
+    f   = fun(w, ...)
+    imp = f0 - f
+    if(imp < 0){
+      # cat('imp = ', imp, '\n')
+      w = w + k*g
+      f = f0
+      k = 0.5*k
+      imp = Inf
+    } else {
+      cnt = cnt + 1
+      cat('Iter: ', cnt, '--> loss value: ', f, '--> improvement: ', imp, '--> step size: ', k, '\n')
+      f0  = f
+      k   = k*2
+    }
+    # cat('cnt: ', cnt, '--> obj = ', f, '--> imp = ', imp, '--> k = ', k, '--> g = ', g, '--> w = ', w, '\n')
+  }
+  return(w)
+}
+
+convert.exp.landa = function(output){
   return(1.0/output)
 }
 
-pred.exp.scale = function(output){
+convert.exp.scale = function(output){
   return(output)
 }
 
-pred.weibull = function(output){
+convert.weibull = function(output){
   landa    = output[,1] + eps
   shapeinv = 1.0/(output[,2] + eps)
   landa*gamma(1 + shapeinv)
 }
 
 
-pred.weibull.lp = function(output){
+convert.weibull.lp = function(output){
   # z: 1/shape = 1/k = 1/(p + 1)
   landa = output[,1] + eps
   z = 1.0/(output[,2] + 1.0)
@@ -94,14 +125,23 @@ loss.weibull.wtte = function(y_true, y_pred){
   -K$mean(K$log(y_pred[,2]) + y_pred[,2]*K$log(x) - K$pow(x, y_pred[,2]))
 }
 
-loss.weibull.me = function(y_true, y_pred){
+loss.weibull.ls = function(y_true, y_pred){
   loglanda = K$log(y_pred[,1] + eps)
   shape    = y_pred[,2] + eps
   logx     = K$log(y_true + eps) - loglanda
   K$mean(K$exp(shape*logx) + loglanda - K$log(shape) - (shape - 1)*logx)
 }
 
-loss.weibull.me.r = function(y_true, y_pred){
+loss.weibull.lp.inv = function(y_true, y_pred){
+  # linv: 1/landa or inverse of scale
+  # shape: given as global variable 
+  loglinv  = K$log(y_pred + eps)
+  shape    = 1.044835
+  logx     = K$log(y_true + eps) + loglinv
+  K$mean(K$pow(x, shape) - loglinv - K$log(shape) - (shape - 1)*logx)
+}
+
+loss.weibull.ls.r = function(y_true, y_pred){
   loglanda = log(y_pred[,1] + eps)
   shape    = y_pred[,2] + eps
   logx     = log(y_true + eps) - loglanda
@@ -142,4 +182,86 @@ read_kaggle_data = function(path = '~/Documents/data/miscellaneous/'){
   
   X_test = data[- trindex, ] %>% dplyr::select(-id, -status, -tte) %>% scale
   y_test = data[- trindex, 'tte']
-}                           
+  
+  list(X_train = X_train, y_train = y_train, X_test = X_test, y_test = y_test)
+}
+
+
+loss.plot = function(y_pred, y_true){
+  er  = abs(y_pred - y_true)
+  ss  = er %>% quantile
+  w25 = er < ss['25%'] 
+  w50 = er < ss['50%']
+  w75 = er < ss['75%']
+  col = rep('red', length(er))
+  col[w25] <- 'green'
+  col[w50 & !w25] <- 'blue'
+  col[w75 & !w50] <- 'yellow'
+  
+  #plot(y_pred - y_true, col = col)
+  plot(y_pred - y_true, col = col)
+  N = length(col)
+  # cat('Green : ', sum(col == 'green')/N, '\n')
+  # cat('Blue  : ', sum(col == 'blue')/N, '\n')
+  # cat('Yellow: ', sum(col == 'yellow')/N, '\n')
+  # cat('Red   : ', sum(col == 'red')/N, '\n')
+}
+
+
+loss.summary = function(y_pred, y_true){
+  cat('\n', 'Summary of loss: ', '\n', '\n')
+  cat('Mean Absolute Error   : ', loss.mae(y_pred, y_true), '\n')
+  cat('Median Absolute Error : ', loss.medae(y_pred, y_true), '\n')
+  cat('Error Distribution    : ', '\n')
+  summary(y_pred, y_true)
+  ss  = y_true %>% quantile
+  
+  er  = abs(y_pred - y_true)
+  n25 = sum(er < ss['25%'])
+  n50 = sum(er < ss['50%'])
+  n75 = sum(er < ss['75%'])
+  N = length(er)
+  
+  cat(n25, ' (', round(n25*100/N),'%)', ' of errors are less than ', ss['25%'], '\n')
+  cat(n50, ' (', round(n50*100/N),'%)', ' of errors are less than ', ss['50%'], '\n')
+  cat(n75, ' (', round(n75*100/N),'%)', ' of errors are less than ', ss['75%'], '\n')
+}
+
+testgrad = function(fun, grad, w, ...){
+  g  = grad(w, ...)
+  gp = g
+  for(i in sequence(length(w))){
+    w1 = w
+    w1[i] = w1[i] + eps
+    gp[i] = (fun(w1, ...) - fun(w, ...))/eps
+  }
+  cat('\n', g, '\n', gp)
+}
+
+objfun.exp.lm = function(w, X, y){
+  landa = (X %*% w) %>% as.numeric %>% sigmoid
+  (landa*y - log(landa)) %>% mean(na.rm = T)
+}
+
+objgrad.exp.lm = function(w, X, y){
+  a  = (X %*% w) %>% as.numeric %>% sigmoid
+  b  = (X %*% w) %>% as.numeric %>% sigprim
+  d  = b*(y - (1/a))
+  colMeans(d*X, na.rm = T)
+}
+
+lm.exp = function(X, y, w0 = NULL){
+  if(is.null(w0)){w0 = rep(0, 1 + ncol(X))}
+  X   = cbind(1, X) %>% as.matrix
+  optim.sdm(objfun.exp.lm, objgrad.exp.lm, w0, X, y)
+}
+
+predict.lm.exp = function(w, X){
+  X   = cbind(1, X) %>% as.matrix
+  (X %*% w) %>% as.numeric %>% sigmoid
+}
+
+predict.lm = function(w, X){
+  X   = cbind(1, X) %>% as.matrix
+  (X %*% w) %>% as.numeric
+}
