@@ -132,4 +132,14 @@ loss.exp.l = function(y_true, y_pred){
 sigmoid = function(x) {1.0/(1.0 + exp(-x))}
 sigprim = function(x) {a = exp(-x); return(a/((1.0 + a)^2))}
 
-                           
+read_kaggle_data = function(path = '~/Documents/data/miscellaneous/'){
+  data = read.csv(path %>% paste0('tte_dataset.csv'), row.names = 'X')
+  data$externalRefinance %<>% as.integer
+  
+  trindex = sample(1:10000, 7000, replace = F)
+  X_train = data[trindex,] %>% dplyr::select(-id, -status, -tte) %>% scale
+  y_train = data[trindex, 'tte']
+  
+  X_test = data[- trindex, ] %>% dplyr::select(-id, -status, -tte) %>% scale
+  y_test = data[- trindex, 'tte']
+}                           
