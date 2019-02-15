@@ -237,4 +237,13 @@ option 2 Example:
 >>> c(x, Y) %<-% list(x = 12, Y = 'Hello')
 
 
+## find list of best R packages [06 Feb 2019]:
+https://www.computerworld.com/article/2921176/business-intelligence/great-r-packages-for-data-import-wrangling-visualization.html
+
+## see list of files in s3 bucket folder [13 Feb 2019]:
+$ aws s3 ls <s3_bucket>/path/to/your/directory/
+Example:
+$ aws s3 ls s3://em.prd.stcy.wp.els.com/run=283f037c-d5c2-476a-9c5f-4322f72d4173/data/
+
+
 
