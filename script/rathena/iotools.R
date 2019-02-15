@@ -9,7 +9,7 @@ read_s3.sparklyr = function(path){
   return(el)
 }
 
-buildAthenaConnection = function(bucket = "s3://aws-athena-query-results-192395310368-ap-southeast-2"){
+buildAthenaConnection = function(bucket = "s3://aws-athena-query-results-322565120381-ap-southeast-2"){
   pyathena$connect(s3_staging_dir = bucket, region_name = 'ap-southeast-2')
 }
 
