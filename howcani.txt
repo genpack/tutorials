@@ -246,4 +246,5 @@ Example:
 $ aws s3 ls s3://em.prd.stcy.wp.els.com/run=283f037c-d5c2-476a-9c5f-4322f72d4173/data/
 
 
-
+## find all data types in athena sql [18 Feb 2019]:
+https://docs.aws.amazon.com/athena/latest/ug/data-types.html
