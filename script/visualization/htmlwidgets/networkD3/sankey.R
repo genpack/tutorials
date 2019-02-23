@@ -8,6 +8,8 @@ source('../../packages/master/niravis-master/R/visgen.R')
 source('../../packages/master/niravis-master/R/networkD3.R')
 source('../../packages/master/niravis-master/R/googleVis.R')
 
+# Example 1:
+
 fn <- 'data/energy.json'
 
 Energy <- jsonlite::fromJSON(txt = fn)
@@ -61,5 +63,42 @@ visNetwork.graphChart(links = Energy$links, nodes = Energy$nodes, linkSource = "
                       linkTarget = "target", linkWidth = "value", label = "name")
 
 
+## Example 2: (from: https://towardsdatascience.com/using-networkd3-in-r-to-create-simple-and-clear-sankey-diagrams-48f8ba8a4ace)
+## load libraries
+library(dplyr)
+library(networkD3)
+library(tidyr)
+datapath = "~/Documents/data/miscellaneous/" 
+# read in EU referendum results dataset
+refresults <- read.csv(datapath %>% paste0("EU-referendum-result-data.csv"))
+# aggregate by region
+results <- refresults %>% 
+  dplyr::group_by(Region) %>% 
+  dplyr::summarise(Remain = sum(Remain), Leave = sum(Leave))
 
+# format in prep for sankey diagram
+results <- tidyr::gather(results, result, vote, -Region)
+# create nodes dataframe
+regions <- unique(as.character(results$Region))
+nodes <- data.frame(node = c(0:13), 
+                    name = c(regions, "Leave", "Remain"))
+#create links dataframe
+results <- merge(results, nodes, by.x = "Region", by.y = "name")
+results <- merge(results, nodes, by.x = "result", by.y = "name")
+links <- results[ , c("node.x", "node.y", "vote")]
+colnames(links) <- c("source", "target", "value")
 
+# draw sankey network
+networkD3::sankeyNetwork(Links = links, Nodes = nodes, 
+                         Source = 'source', 
+                         Target = 'target', 
+                         Value = 'value', 
+                         NodeID = 'name',
+                         units = 'votes')
+
+library(magrittr)
+library(gener)
+library(viser)
+
+# viser translation:
+list(links = links, nodes = nodes) %>% viserPlot(key = 'node', label = 'name', source = 'source', target = 'target', linkWidth = 'value', type = 'sankey', plotter = 'networkD3')
