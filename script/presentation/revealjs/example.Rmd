@@ -1,0 +1,73 @@
+---
+title: "Habits"
+author: John Doe
+date: March 22, 2005
+output: 
+  revealjs::revealjs_presentation
+theme: league
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE)
+
+
+
+library(dplyr)
+library(networkD3)
+library(tidyr)
+datapath = "~/Documents/data/miscellaneous/" 
+# read in EU referendum results dataset
+refresults <- read.csv(datapath %>% paste0("EU-referendum-result-data.csv"))
+# aggregate by region
+results <- refresults %>% 
+  dplyr::group_by(Region) %>% 
+  dplyr::summarise(Remain = sum(Remain), Leave = sum(Leave))
+
+# format in prep for sankey diagram
+results <- tidyr::gather(results, result, vote, -Region)
+# create nodes dataframe
+regions <- unique(as.character(results$Region))
+nodes <- data.frame(node = c(0:13), 
+                    name = c(regions, "Leave", "Remain"))
+#create links dataframe
+results <- merge(results, nodes, by.x = "Region", by.y = "name")
+results <- merge(results, nodes, by.x = "result", by.y = "name")
+links <- results[ , c("node.x", "node.y", "vote")]
+colnames(links) <- c("source", "target", "value")
+
+# draw sankey network
+networkD3::sankeyNetwork(Links = links, Nodes = nodes, 
+                         Source = 'source', 
+                         Target = 'target', 
+                         Value = 'value', 
+                         NodeID = 'name',
+                         units = 'votes') -> net
+
+```
+
+  
+# In the morning
+  
+## Getting up
+  
+- Turn off alarm
+- Get out of bed
+
+## Breakfast
+
+- Eat eggs
+- Drink coffee
+
+# In the evening
+
+## Dinner
+
+- Eat spaghetti
+- Drink wine
+
+## Going to sleep
+
+```{r}
+net
+```

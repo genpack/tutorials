@@ -101,4 +101,5 @@ library(gener)
 library(viser)
 
 # viser translation:
-list(links = links, nodes = nodes) %>% viserPlot(key = 'node', label = 'name', source = 'source', target = 'target', linkWidth = 'value', type = 'sankey', plotter = 'networkD3')
+net = list(links = links, nodes = nodes) %>% viserPlot(key = 'node', label = 'name', source = 'source', target = 'target', linkWidth = 'value', type = 'sankey', plotter = 'networkD3')
+

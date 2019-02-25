@@ -1,0 +1,69 @@
+---
+title: "Untitled"
+author: "Nima Ramezani Taghiabadi"
+date: "20/02/2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+
+
+library(dplyr)
+library(networkD3)
+library(tidyr)
+datapath = "~/Documents/data/miscellaneous/" 
+# read in EU referendum results dataset
+refresults <- read.csv(datapath %>% paste0("EU-referendum-result-data.csv"))
+# aggregate by region
+results <- refresults %>% 
+  dplyr::group_by(Region) %>% 
+  dplyr::summarise(Remain = sum(Remain), Leave = sum(Leave))
+
+# format in prep for sankey diagram
+results <- tidyr::gather(results, result, vote, -Region)
+# create nodes dataframe
+regions <- unique(as.character(results$Region))
+nodes <- data.frame(node = c(0:13), 
+                    name = c(regions, "Leave", "Remain"))
+#create links dataframe
+results <- merge(results, nodes, by.x = "Region", by.y = "name")
+results <- merge(results, nodes, by.x = "result", by.y = "name")
+links <- results[ , c("node.x", "node.y", "vote")]
+colnames(links) <- c("source", "target", "value")
+
+# draw sankey network
+networkD3::sankeyNetwork(Links = links, Nodes = nodes, 
+                         Source = 'source', 
+                         Target = 'target', 
+                         Value = 'value', 
+                         NodeID = 'name',
+                         units = 'votes') -> net
+
+```
+
+## R Markdown
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+net
+```
+
