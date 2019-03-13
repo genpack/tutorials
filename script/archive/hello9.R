@@ -17,6 +17,624 @@ hello <- function() {
   print("Hello, world!")
 }
 
+
+
+###### survival_v4.R
+# surver
+
+SURVIVAL = setRefClass('SURVIVAL', 
+  fields = list(data = 'list', report = 'list', settings = 'list'), 
+  methods = list(
+    initialize = function(config = NULL, ...){
+      callSuper(settings = config, ...)
+      
+      settings %>% 
+        list.default(caseID_col = 'caseID', eventTime_col = 'eventTime', eventType_col = 'eventType', variable_col = 'variable', value_col = 'value') %>% 
+        list.default(caseStart_tag = NULL, caseEnd_tag = NULL) %>% 
+        list.default(age_varname = 'age', deathReason_varname = 'deathReason', caseProfile_features = character()) ->> settings
+    },
+    
+    # caseStart_tag specifies eventType that triggers start of a case (when a case is born)
+    # if caseStart_tag is not specified, age_varname must be specified.
+    # age_varname specifies the value in variable column whose associated value column contains the case age or tenure.
+    # if age_varname is not specifies, then age is computed from the eventTime of the earliest row whose associated value in eventType column equals caseStart_tag.
+    feed.eventLog = function(dataset){
+      data$el <<- dataset %>% rename(caseID = settings$caseID_col, eventTime = settings$eventTime_col, eventType = settings$eventType_col, variable = settings$variable_col, value = settings$value_col)
+    },
+
+    feed.caseProfile = function(dataset){
+      rename(caseID = settings$caseID_col)
+    },
+    
+    feed.caseProfile.aggregated = function(dataset, age_col = 'age', death_reason_col = 'reason', count = 'count'){
+      data$cpag <<- dataset %>% 
+        nameColumns(columns = list(age = age_col, reason = death_reason_col, count = count_col), classes = list(age = 'integer', reason = 'character', count = 'integer')) %>% 
+        arrange(age, reason)
+    },
+    
+    get.eventVariables = function(){
+      if(is.null(data$ev)){
+        if(!is.null(data$el)){
+          data$ev <<- data$el %>% group_by(eventType, variable) %>% summarise(count = COUNT(value)) %>% collect
+        } else {stop("No eventLog found!")}
+        # todo: get it from other tables if available
+      }
+      return(data$ev)
+    },
+    
+    get.caseVarProfile = function(){
+      # For now, assume age_varname and deathReason_varname are not NULL:
+      assert(!is.null(settings$age_varname))
+      assert(!is.null(settings$deathReason_varname))
+      
+      variables = settings$caseProfile_features %U% c(settings$age_varname, settings$deathReason_varname)
+      
+      ### Get case profile:  
+      if(is.null(data$cvp)){
+        cat("\n", "No caseVarProfile found in the dataset. Building from event log ... ")
+        if(is.null(data$el)){stop("No event log found in the dataset")}
+        data$el %>% filter(variable %in% variables) %>%
+          arrange(caseID, eventTime) %>% group_by(caseID, variable) %>% 
+          summarise(firstValue = first_value(value), lastValue = last_value(Value), firstTime = first_value(eventTime), lastTime = last_value(eventTime)) ->> data$cvp
+        cat("Done!", "\n")
+      }
+      return(data$cvp)
+    },
+    
+    get.caseProfile = function(){
+      if(is.null(data$cp)){
+        cat("\n", "No caseVarProfile found in the dataset. Building from caseVarProfile ...")
+        
+        get.caseVarProfile() %>% filter(variable %in% settings$caseProfile_features) %>% 
+          sdf_pivot(caseID ~ variable, fun.aggregate = list(firstValue = "sum")) -> cp
+
+        get.caseVarProfile() %>% filter(variable %in% c(settings$age_varname, settings$deathReason_varname)) %>% 
+          sdf_pivot(caseID ~ variable, fun.aggregate = list(lastValue = "sum", lastTime = "last_value")) %>% 
+          rename(deathTime   = settings$deathReason_varname %>% paste0('_last(lastTime, false)'), 
+                 deathReason = settings$deathReason_varname %>% paste0('_sum(CAST(lastValue AS DOUBLE))'),
+                 LastAgeTime = settings$age_varname %>% paste0('_last(lastTime, false)'),
+                 LastAge     = settings$age_varname %>% paste0('_sum(CAST(lastValue AS DOUBLE))')) %>% 
+          mutate(deathDate = as.Date(deathTime), LastAgeDate = as.Date(LastAgeTime)) %>% 
+          mutate(deathAge  = as.numeric(datediff(deathDate, LastAgeDate)) + LastAge) -> cpt
+        
+        data$cp <<- left_join(cp, cpt, by = 'caseID')
+        cat("Done!", "\n")
+      }
+      return(data$cp)
+    },
+
+    get.aggReportName = function(type, reasons = NULL, categoricals = NULL){
+      str = paste0(type, '.'); sp = ''
+      if(!is.empty(categoricals)) {str %<>% paste0(categoricals %>% sort %>% paste(collapse = '.')); sp = '.'}
+      if(!is.empty(reasons))  {str %<>% paste0(sp, reasons %>% sort %>% paste(collapse = '.'))}
+      return(str)
+    },
+    
+    # Computes the aggregated observations based on the given categorical categoricals from caseProfile Aggregated table:
+    get.aggregates = function(categoricals = NULL){
+      tname = get.aggReportName('aggr', categoricals)
+      if(is.null(report$aggregates[[tname]])){
+        if(!is.empty(categoricals)){
+          scr = paste0("data$cpag %>% group_by(age, reason, ", categoricals %>% paste(collapse = ', '),") %>% summarise(count = sum(count))")
+          parse(text = scr) %>% eval -> tbl
+          tbd = F
+          for(col in categoricals){
+            tbd = tbd | is.na(tbl[, col])
+          }
+          report$aggregates[[tname]] <<- tbl[!tbd, ]
+        } else {
+          data$cpag %>% group_by(age, reason) %>% summarise(count = sum(count)) ->> report$aggregates[[tname]]
+        }
+      }
+      return(report$aggregates[[tname]])
+    },
+
+    
+    # This function calculates hazard and survival probability from aggregated observations 
+    #   given count of observations at various tenures
+    # inputs: 
+    #   data$cpag: data.frame containing aggregated observations
+    #   tenure_col: which column contains age values (column values should be integer)
+    #   status_col: status at the time of observation: must be either 'died' or 'censored'
+    #   count_col: column containing count of observations
+    get.hazard = function(reasons = NULL, categoricals){
+      # verifications:
+      if(is.null(reasons)){reasons = data$cpag$reason %>% unique %>% na.omit}
+      assert(reasons %<% unique(data$cpag$reason))
+
+      tname = get.aggReportName('hazard', categoricals, reasons)
+      if(is.null(report$hazard[[tname]])){
+        
+        tbl = get.aggregates(categoricals)
+
+        # tbl %<>% mutate(status = ifelse(reason %in% reasons, 'died', 'censored'))
+        tbl %<>% mutate(status = ifelse(is.na(reason), 'censored', ifelse(reason %in% reasons, 'died', NA)))
+        
+        if(!is.empty(categoricals)){
+          tbl = parse(text = paste0("tbl %>% mutate(featval = paste(", categoricals %>% paste(collapse = ','), ", sep = '-'))")) %>% eval
+        } else {tbl$featval <- 'Entire Data'}
+        
+        
+        tbl %<>% reshape2::dcast(age + featval ~ status, value.var = 'count', fun.aggregate = sum) %>% arrange(age)
+ 
+        tbl %<>% group_by(featval) %>% do({
+          calHazard(., normalize_hazard = settings$normalize_hazard)
+        })
+
+        report$hazard[[tname]] <<- tbl
+      }
+      return(report$hazard[[tname]])
+    },
+    
+    plot.hazard = function(reasons = NULL, categoricals = NULL, plotter = 'plotly', smooth_k = 6, gain = 100){
+      haz = get.hazard(reasons = reasons, categoricals = categoricals) %>% mutate(hazard = hazard*gain) %>% 
+        filter(hazard < mean(hazard, na.rm = T) + 3*sd(hazard, na.rm = T))
+      
+      
+      
+      if(!is.null(smooth_k)){
+        haz %<>% group_by(featval) %>% do({mutate(., hazard = zoo::rollmean(hazard, k = smooth_k, fill = NA)) %>% na.omit})
+      }
+      
+      cols = unique(haz$featval) %>% as.list
+      
+      haz %>% reshape2::dcast(age ~ featval, value.var = 'hazard') %>%
+        viser::viserPlot(type = 'scatter', plotter = plotter, x = 'age', y = cols, shape = 'line')
+    },
+    
+    plot.survival = function(reasons = NULL, categoricals = NULL, plotter = 'plotly', gain = 100, t0 = 0){
+      haz = get.hazard(reasons = reasons, categoricals = categoricals) %>% mutate(prsurv = prsurv)
+
+      cols = unique(haz$featval) %>% as.list
+    
+      haz %<>% reshape2::dcast(age ~ featval, value.var = 'prsurv')
+      haz[haz$age >= t0, ] %>% column2Rownames('age') %>% 
+        apply(2, function(x) gain*x/x[1]) %>% as.data.frame %>% mutate(age = rownames(.) %>% as.integer) %>% 
+        mutate(age = age - age[1]) %>% 
+        viser::viserPlot(type = 'scatter', plotter = plotter, x = 'age', y = cols, shape = 'line')
+    },
+    
+    plot.death = function(reasons = NULL, categoricals = NULL, plotter = 'plotly', gain = 100, t0 = 0){
+      haz = get.hazard(reasons = reasons, categoricals = categoricals) %>% mutate(prdeath = (1.0 - prsurv))
+      
+      cols = unique(haz$featval) %>% as.list
+      
+      haz %<>% reshape2::dcast(age ~ featval, value.var = 'prdeath')
+      
+      haz[haz$age >= t0, ] %>% column2Rownames('age') %>% 
+        apply(2, function(x) gain*(x - x[1])/(1.0 - x[1])) %>% as.data.frame %>% mutate(age = rownames(.) %>% as.integer) %>% 
+        mutate(age = age - age[1]) %>% 
+        viser::viserPlot(type = 'scatter', plotter = plotter, x = 'age', y = cols, shape = 'line')
+    }
+    
+    
+  ))
+
+### survtools.R:
+      
+# survtools
+
+calHazard = function(data, normalize_hazard = F){
+  if(is.null(data$died)){data$died = 0}
+  if(is.null(data$censored)){data$censored = 0}
+  
+  data %<>% 
+    mutate(total        = died + censored) %>% 
+    mutate(cumtotal     = cumsum(total)) %>% 
+    mutate(passed       = sum(total) - c(0, cumtotal[-length(cumtotal)]) - died) %>% 
+    mutate(hazard       = died/(passed + died))
+  
+  # I think hazard must be normalized to make sure they add up to one, because hazard is a probability
+  # I believe survival probability achieved from normalized hazard gives a better estimation however this needs to be tested!
+  if(normalize_hazard){
+    data %>% pull(hazard) %>% sum -> H
+    if(H == 0) H = 1.0
+  } else {H = 1.0}
+  
+  data %>% mutate(hazard = hazard/H) %>% 
+    mutate(safety = 1 - hazard) %>% 
+    mutate(lgsfty = log(safety)) %>% 
+    mutate(clsfty = cumsum(lgsfty)) %>% 
+    mutate(prsurv = exp(clsfty))
+}
+
+
+
+
+# This function calculates hazard and survival probability from aggregated observations 
+#   given count of observations at various tenures
+# inputs: 
+#   data: data.frame containing aggregated observations
+#   tenure_col: which column contains tenure values (column values should be integer)
+#   status_col: status at the time of observation: must be either 'died' or 'censored'
+#   count_col: column containing count of observations
+getHazard = function(data, tenure_col, status_col, count_col, normalize_hazard = F){
+  # verificationa:
+  ust = data %>% pull(status_col) %>% unique
+  # assert(ust %<% c('died', 'censored'), "status column must be either 'died' or 'censored'")
+  
+  tenure_col %>% paste(status_col, sep = '~') %>% as.formula -> frm
+  data %>% pull(count_col) %>% sum -> N
+  data %<>% reshape2::dcast(frm, value.var = count_col, fun.aggregate = sum) %>% arrange_(tenure_col)
+  if(is.null(data$died)){data$died = 0}
+  if(is.null(data$censored)){data$censored = 0}
+  data %>% calHazard(normalize_hazard)
+}
+
+## survtools_v3.R
+# survtools
+
+calHazard = function(data, normalize_hazard = T){
+  if(is.null(data$died)){data$died = 0}
+  if(is.null(data$censored)){data$censored = 0}
+  
+  data %<>% 
+    mutate(total        = died + censored) %>% 
+    mutate(cumtotal     = cumsum(total)) %>% 
+    mutate(passed       = sum(total) - c(0, cumtotal[-length(cumtotal)]) - died) %>% 
+    mutate(hazard       = died/(passed + died))
+  
+  # I think hazard must be normalized to make sure they add up to one, because hazard is a probability
+  # I believe survival probability achieved from normalized hazard gives a better estimation however this needs to be tested!
+  if(normalize_hazard){
+    data %>% pull(hazard) %>% sum -> H
+    if(H == 0) H = 1.0
+  } else {H = 1.0}
+  
+  data %>% mutate(hazard = hazard/H) %>% 
+    mutate(safety = 1 - hazard) %>% 
+    mutate(lgsfty = log(safety)) %>% 
+    mutate(clsfty = cumsum(lgsfty)) %>% 
+    mutate(prsurv = exp(clsfty))
+}
+
+
+
+
+# This function calculates hazard and survival probability from aggregated observations 
+#   given count of observations at various tenures
+# inputs: 
+#   data: data.frame containing aggregated observations
+#   tenure_col: which column contains tenure values (column values should be integer)
+#   status_col: status at the time of observation: must be either 'died' or 'censored'
+#   count_col: column containing count of observations
+getHazard = function(data, tenure_col, status_col, count_col, normalize_hazard = T){
+  # verificationa:
+  ust = data %>% pull(status_col) %>% unique
+  assert(ust %<% c('died', 'censored'), "status column must be either 'died' or 'censored'")
+  
+  tenure_col %>% paste(status_col, sep = '~') %>% as.formula -> frm
+  data %>% pull(count_col) %>% sum -> N
+  data %<>% reshape2::dcast(frm, value.var = count_col, fun.aggregate = sum) %>% arrange_(tenure_col)
+  if(is.null(data$died)){data$died = 0}
+  if(is.null(data$censored)){data$censored = 0}
+  data %>% calHazard(normalize_hazard)
+}
+
+### survival_v3.R
+      
+# surver
+
+SURVIVAL = setRefClass('SURVIVAL', 
+  fields = list(data = 'data.frame', report = 'list', settings = 'list'), 
+  methods = list(
+    initialize = function(data, tenure_col, death_reason_col, count_col, normalize_hazard = F){
+      data <<- data %>% 
+        nameColumns(columns = list(tenure = tenure_col, reason = death_reason_col, count = count_col), classes = list(tenure = 'integer', reason = 'character', count = 'integer')) %>% 
+        arrange(tenure, reason)
+      
+      settings$tenure_col        <<- tenure_col
+      settings$death_reason_col  <<- death_reason_col
+      settings$normalize_hazard  <<- normalize_hazard
+    },
+    
+    get.reportName = function(type, features = NULL, reasons = NULL){
+      str = paste0(type, '.'); sp = ''
+      if(!is.empty(features)) {str %<>% paste0(features %>% sort %>% paste(collapse = '.')); sp = '.'}
+      if(!is.empty(reasons))  {str %<>% paste0(sp, reasons %>% sort %>% paste(collapse = '.'))}
+      return(str)
+    },
+    
+    # Computes the aggregated observations based on the given categorical features:
+    get.aggregates = function(features = NULL){
+      tname = get.reportName('aggr', features)
+      if(is.null(report$aggregates[[tname]])){
+        if(!is.empty(features)){
+          scr = paste0("data %>% group_by(tenure, reason, ", features %>% paste(collapse = ', '),") %>% summarise(count = sum(count))")
+          parse(text = scr) %>% eval -> tbl
+          tbd = F
+          for(col in features){
+            tbd = tbd | is.na(tbl[, col])
+          }
+          report$aggregates[[tname]] <<- tbl[!tbd, ]
+        } else {
+          data %>% group_by(tenure, reason) %>% summarise(count = sum(count)) ->> report$aggregates[[tname]]
+        }
+      }
+      return(report$aggregates[[tname]])
+    },
+
+    
+    # This function calculates hazard and survival probability from aggregated observations 
+    #   given count of observations at various tenures
+    # inputs: 
+    #   data: data.frame containing aggregated observations
+    #   tenure_col: which column contains tenure values (column values should be integer)
+    #   status_col: status at the time of observation: must be either 'died' or 'censored'
+    #   count_col: column containing count of observations
+    get.hazard = function(features = NULL, reasons = NULL){
+      # verifications:
+      if(is.null(reasons)){reasons = data$reason %>% unique %>% na.omit}
+      assert(reasons %<% unique(data$reason))
+
+      tname = get.reportName('hazard', features, reasons)
+      if(is.null(report$hazard[[tname]])){
+        
+        tbl = get.aggregates(features)
+
+        # tbl %<>% mutate(status = ifelse(reason %in% reasons, 'died', 'censored'))
+        tbl %<>% mutate(status = ifelse(is.na(reason), 'censored', ifelse(reason %in% reasons, 'died', NA)))
+        
+        if(!is.empty(features)){
+          tbl = parse(text = paste0("tbl %>% mutate(featval = paste(", features %>% paste(collapse = ','), ", sep = '-'))")) %>% eval
+        } else {tbl$featval <- 'Entire Data'}
+        
+        
+        tbl %<>% reshape2::dcast(tenure + featval ~ status, value.var = 'count', fun.aggregate = sum) %>% arrange(tenure)
+ 
+        tbl %<>% group_by(featval) %>% do({
+          calHazard(., normalize_hazard = settings$normalize_hazard)
+        })
+
+        report$hazard[[tname]] <<- tbl
+      }
+      return(report$hazard[[tname]])
+    },
+    
+    plot.hazard = function(reasons = NULL, features = NULL, plotter = 'plotly', smooth_k = 6, gain = 100){
+      haz = get.hazard(reasons = reasons, features = features) %>% mutate(hazard = hazard*gain) %>% 
+        filter(hazard < mean(hazard, na.rm = T) + 3*sd(hazard, na.rm = T))
+      
+      
+      
+      if(!is.null(smooth_k)){
+        haz %<>% group_by(featval) %>% do({mutate(., hazard = zoo::rollmean(hazard, k = smooth_k, fill = NA)) %>% na.omit})
+      }
+      
+      cols = unique(haz$featval) %>% as.list
+      
+      haz %>% reshape2::dcast(tenure ~ featval, value.var = 'hazard') %>%
+        viser::viserPlot(type = 'scatter', plotter = plotter, x = 'tenure', y = cols, shape = 'line')
+    },
+    
+    plot.survival = function(reasons = NULL, features = NULL, plotter = 'plotly', gain = 100, t0 = 0){
+      haz = get.hazard(reasons = reasons, features = features) %>% mutate(prsurv = prsurv)
+
+      cols = unique(haz$featval) %>% as.list
+    
+      haz %<>% reshape2::dcast(tenure ~ featval, value.var = 'prsurv')
+      haz[haz$tenure >= t0, ] %>% column2Rownames('tenure') %>% 
+        apply(2, function(x) gain*x/x[1]) %>% as.data.frame %>% mutate(tenure = rownames(.) %>% as.integer) %>% 
+        mutate(tenure = tenure - tenure[1]) %>% 
+        viser::viserPlot(type = 'scatter', plotter = plotter, x = 'tenure', y = cols, shape = 'line')
+    },
+    
+    plot.death = function(reasons = NULL, features = NULL, plotter = 'plotly', gain = 100, t0 = 0){
+      haz = get.hazard(reasons = reasons, features = features) %>% mutate(prdeath = (1.0 - prsurv))
+      
+      cols = unique(haz$featval) %>% as.list
+      
+      haz %<>% reshape2::dcast(tenure ~ featval, value.var = 'prdeath')
+      
+      haz[haz$tenure >= t0, ] %>% column2Rownames('tenure') %>% 
+        apply(2, function(x) gain*(x - x[1])/(1.0 - x[1])) %>% as.data.frame %>% mutate(tenure = rownames(.) %>% as.integer) %>% 
+        mutate(tenure = tenure - tenure[1]) %>% 
+        viser::viserPlot(type = 'scatter', plotter = plotter, x = 'tenure', y = cols, shape = 'line')
+    }
+    
+    
+  ))
+
+## test_surver.R
+      
+      
+
+ovarian %>% nameColumns(columns = list(tenure = 'futime', reason = 'fustat', count = count_col, classes = list(tenure = 'integer', reason = 'character', count = 'integer')))
+
+library(survival)
+data(ovarian, package = 'survival')
+Surv(time = ovarian$futime, event = ovarian$fustat) -> sobj
+survfit(sobj ~ 1, data = ovarian) -> fit1
+fit = data.frame(fit1$time, fit1$n.risk, fit1$n.event, fit1$n.censor, fit1$surv)
+
+obj = SURVIVAL(data = ovarian %>% mutate(reason = ifelse(fustat, 'death', NA), count = 1), 
+               tenure_col = 'futime', death_reason_col = 'reason', count_col = 'count')
+  
+obj$get.hazard() -> fit2
+
+
+obj$settings$normalize_hazard = F
+obj$get.hazard() -> fit3
+
+
+data.frame(fit2$prsurv, fit3$prsurv, fit1$surv)
+
+
+
+survfit(sobj ~ resid.ds, data = ovarian) -> fit
+plot(fit)
+obj = SURVIVAL(data = ovarian %>% mutate(reason = ifelse(fustat, 'death', NA), count = 1), 
+               tenure_col = 'futime', death_reason_col = 'reason', count_col = 'count')
+obj$settings$normalize_hazard = F
+
+fit2 = obj$get.hazard(features = 'resid.ds')
+data.frame(fit2$prsurv, fit$surv)
+
+
+obj$plot.survival(features = 'resid.ds')
+
+
+#######################
+
+# agg$tables[[3]] %>% filter(OriginationChannel == 'Third Party') %>% 
+#   mutate(status = ifelse(ClosureReason == 'Never Observed','censored', 'died'))  %>% select(- OriginationChannel, - ClosureReason) -> data
+
+
+obj = SURVIVAL(data = agg$tables[[3]] %>% mutate(ClosureReason = ifelse(ClosureReason == 'Never Observed', NA, ClosureReason)), 
+               tenure_col = 'LTM', death_reason_col = "ClosureReason", count_col = 'Count')
+
+obj$plot.survival(reasons = c('External_Refinance', 'Property_Sale'))
+
+######
+
+obj$get.hazardByFeature(reasons = c('External_Refinance', 'Property_Sale'), feature = 'OriginationChannel')
+obj$plot.hazardByFeature(reasons = c('External_Refinance', 'Property_Sale'), feature = 'OriginationChannel')
+
+
+
+
+dataset <- agg$tables[[1]] %>% 
+  mutate(ClosureReason = ifelse(ClosureReason == 'Never Observed', NA, ClosureReason))
+
+#######################
+agg$tables[[1]] -> dataset
+dataset[dataset == 'Never Observed'] <- NA
+
+obj = SURVIVAL(data = dataset, tenure_col = 'LTM', death_reason_col = "ClosureReason", count_col = 'Count')
+obj$settings$normalize_hazard <- F
+
+obj$get.hazard(reasons = 'External_Refinance')
+obj$get.hazard(reasons = 'External_Refinance', features = 'MFI')
+obj$get.hazard(reasons = 'External_Refinance', features = c('MFI', 'CustomerGender')) %>% head
+
+
+obj$get.hazard(reasons = c('External_Refinance'), feature = 'Occupation') %>% head
+
+
+obj$plot.hazard()
+obj$plot.survival(reasons = c('External_Refinance'), features = 'MFI')
+obj$plot.survival(reasons = c('External_Refinance'), features = 'OriginationChannel')
+obj$plot.survival(reasons = c('External_Refinance'), features = 'Occupation')
+
+obj$plot.survival(features = c('OriginationChannel', 'MFI'))
+
+obj$plot.hazard(reasons = c('External_Refinance', 'Property_Sale'), features = c('OriginationChannel', 'MFI'), smooth_k = 30)
+
+obj$plot.survival(reasons = c('External_Refinance', 'Property_Sale'), features = c('OriginationChannel', 'MFI'))
+obj$plot.survival(reasons = c('External_Refinance', 'Property_Sale'), features = c('OriginationChannel'))
+obj$plot.survival(reasons = c('External_Refinance', 'Property_Sale'))
+
+obj$plot.death(reasons = c('External_Refinance', 'Property_Sale'), t0 = 330)
+
+      
+## iotools projects 
+      pyathena = reticulate::import('pyathena')
+pandas   = reticulate::import('pandas')
+
+buildAthenaConnection = function(bucket = "s3://aws-athena-query-results-192395310368-ap-southeast-2/"){
+  pyathena$connect(s3_staging_dir = bucket, region_name='ap-southeast-2')
+}
+  
+read_s3.athena   = function(con, query){
+  pandas$read_sql(query, con)  
+}
+
+
+buildAthenaDataset = function(conn, dsName = 'dataset'){
+  curser = conn$cursor()
+  qry = paste("CREATE DATABASE", dsName)
+  cursor$execute(qry)
+}
+
+
+buildAthenaTable = function(conn, dsName = 'dataset', tblName = 'data', s3_data_path, drop_if_exists = T, format = c('parquet', 'csv')){
+  cursor = conn$cursor()
+  format = match.arg(format)
+  if(drop_if_exists){
+    # Delete existing table
+    cursor$execute("DROP TABLE if exists " %>% paste0(dsName, '.', tblName))
+  }
+  
+  #create table statement please note that all the columns have string datatype. 
+  #Note that if all files contains column headers column headers will appear as a record in the table. You need to exclude the header while writing the select query
+  # TODO: need to generalize for given structure:
+  # structure    = "(caseID STRING, eventType STRING, eventTime STRING, variable STRING,value STRING)"
+  structure    = "(caseID STRING, eventType STRING, eventTime TIMESTAMP, variable STRING,value FLOAT)"
+  partition    = " PARTITIONED BY(caseid STRING, eventTime TIMESTAMP, )"
+  # s3_data_path = 's3://eventmapper.prod.sticky.westpac.elulaservices.com/run=488f037c-d5c2-475a-8d8f-4372f62e2177/data/'
+  whatsthis    = 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+  if(format == 'parquet'){
+    qry          = paste0("CREATE EXTERNAL TABLE ", dsName, ".", tblName, structure, " STORED AS PARQUET LOCATION '", s3_data_path, "'", " tblproperties ('parquet.compress'='SNAPPY');")
+  } else {
+    qry          = paste0("CREATE EXTERNAL TABLE ", dsName, ".", tblName, structure, " ROW FORMAT SERDE '", whatsthis, "' WITH SERDEPROPERTIES('separatorChar'=',')", " STORED AS TEXTFILE LOCATION '", s3_data_path, "'")
+  }
+
+  cursor$execute(qry)
+}
+
+# Example:
+# acon = buildAthenaConnection()
+# buildAthenaTable(acon, dsName = 'event', tblName = 'eventlogs', s3_data_path = datapath, drop_if_exists = T)
+
+readEventlog4Month = function(conn, year = 2017, month = 1){
+  if(month < 10){month = paste0('0', month)}
+  mnt = paste(year, month, sep = '-')
+  qry = paste0("select * from event.eventlogs where variable <> 'variable' AND substr(eventtime,1,7) = '", mnt, "'")
+  read_s3.athena(conn, query = qry)
+}
+
+# tbc to viser:
+
+df2Network = function(df, id_cols = names(df), value_col){
+  links = NULL
+  for(i in sequence(length(id_cols) - 1)){
+    scr = paste0("df ", "%>% group_by(", id_cols[i], ", ", id_cols[i + 1], ") %>% summarise(value = ", "sum", "(", value_col, ")) %>% select(source = ", id_cols[i], ", target = ", id_cols[i + 1], ", value)")
+    parse(text = scr) %>% eval %>% mutate(svname = id_cols[i], tvname = id_cols[i + 1]) %>% rbind(links) -> links
+  }
+  
+  links %<>% mutate(hovertext = paste0(source, ' --> ', target, ': ', value))
+  
+  links$source = paste(links$svname, links$source, sep = "=")
+  links$target = paste(links$tvname, links$target, sep = "=")
+
+  links %<>% left_join(links %>% group_by(source) %>% summarise(sumval = sum(value)), by = 'source') %>% 
+    mutate(ratio = round(100*value/sumval, digits = 2)) %>% 
+    mutate(hovertext = hovertext %>% paste0(' (', ratio, '%)')) 
+  #links$tooltip = paste()
+  
+  nodes = data.frame(id = c(links$source, links$target)) %>% 
+    distinct(id, .keep_all = T) %>% mutate(label = id)
+  
+  list(nodes = nodes, links = links)
+}
+
+
+## Sankey Charts:
+build_sankey = function(data, id_cols, value_col){
+  if(length(id_cols) == 0) return(NULL)
+  
+  df2Network(data, id_cols = id_cols, value_col = value_col) %>% 
+    viser::viserPlot(key = 'id', linkTooltip = 'hovertext', label = 'label', linkWidth = 'value', source = 'source', target = 'target', plotter = 'networkD3', type = 'sankey')
+}
+      
+      
+      
+ #  maptools.R  
+      
+  postcode2State = function(postcode, country = 'australia'){
+  # Add other countries in the future
+  country = match.arg(country)
+  cut(postcode, 
+      breaks = c(-Inf     ,  200 ,  300     ,  800,  900 ,  1000,  2000,  2600,  2619,  2900,  2920,  3000,  4000,  5000,  5800,  6000,  6800,  7000,  7800,  8000,  9000 ,  10000, Inf),
+      labels = c('Invalid', 'ACT', 'Invalid', 'NT', 'NT' , 'NSW', 'NSW', 'ACT', 'NSW', 'ACT', 'NSW', 'VIC', 'QLD', 'SA' , 'SA' , 'WA' , 'WA' , 'TAS', 'TAS', 'VIC', 'QLD' , 'Invalid'),
+      right = F)
+}
+
+      
+
+
+
+
 ####### Folder banwest ========================
 
 ### promtools2ba.R ------------------
