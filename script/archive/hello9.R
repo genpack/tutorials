@@ -17,6 +17,69 @@ hello <- function() {
   print("Hello, world!")
 }
 
+#### test_survival:
+library(magrittr)
+library(tibble)
+library(dplyr)
+library(dbplyr)
+library(sparklyr)
+# library(gener)
+
+
+source('~/R/packages/gener/gener.R')
+source('~/R/packages/promer/survival.R')
+
+config <- spark_config()
+# config$spark.executor.memory <- "8G"
+config[['sparklyr.shell.driver-memory']] <- "4G"
+config[['sparklyr.shell.executor-memory']] <- "4G"
+config$spark.yarn.executor.memoryOverhead <- "1g"
+sc <- spark_connect(master = "local", config = config)
+
+
+# Local data paths:
+path.el   = 'C:/Users/nima/Documents/data/eventlog'
+### Read Eventlog data:
+el <- sparklyr::spark_read_parquet(sc, name = 'el', path = path.el)
+
+### Specify which variables you like to see in the case profile:
+settings = list(
+  age_varname  = 'LoanTenure', deathReason_varname = 'ClosureReason',
+  cp_variables = c('OriginationChannel', 'MFI', 'Occupation', 'Income', 'InterestRateType', 'LoanGuarantor','MortgageInsuranceFlag', 'CustomerAge'),
+  cp_aggregators = c(lastValue = 'last_value')
+)
+
+obj = SURVIVAL(config = settings)
+
+obj$feed.eventLog(el)
+obj$goto('2017-03-21')
+
+obj$get.caseProfile() %>% colnames
+obj$get.caseProfileTime() %>% colnames
+
+obj$get.caseProfile() %>% sdf_nrow
+
+obj$get.mldata.survival() %>% sdf_partition(training = 0.2, test = 0.1, seed = 1111) -> partitions
+
+
+
+
+# Generates a time-agnostic hazard model using lifelines coxph fitter
+obj$get.caseProfile() %>% sdf_partition(training = 0.01, test = 0.90, seed = 1111) -> partitions
+
+partitions$train %>% sdf_nrow()
+partitions$train %>% collect -> train
+
+partitions$test %>% sdf_partition(training = 0.99, test = 0.01, seed = 1111) -> partest
+
+partest$test %>% sdf_nrow()
+partest$test %>% collect -> test
+
+
+cp2survival(ccp = obj$get.caseProfile(), ccpt = obj$get.caseProfileTime(F), cpt = obj$get.caseProfileTime(T))
+
+
+train = partitions$training %>% collect
 
 
 ###### survival_v4.R
