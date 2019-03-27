@@ -262,6 +262,6 @@ predict.lm.exp = function(w, X){
 }
 
 predict.lm = function(w, X){
-  X   = cbind(1, X) %>% as.matrix
+  X   = cbind(1, X) %>% as.matrixø
   (X %*% w) %>% as.numeric
 }

@@ -7,10 +7,10 @@ library(dplyr)
 library(promer)
 library(viser)
 
-path = 'C:/Users/nima_/OneDrive/Documents/data/tue/Sepsis Cases - Event Log.xes'
+path.win = 'C:/Users/nima_/OneDrive/Documents/data/tue/Sepsis Cases - Event Log.xes'
+path.mac = '~/Documents/data/tue/Sepsis Cases - Event Log.xes'
 
-
-el = read_xes(xesfile = path)
+el = read_xes(xesfile = path.mac)
 cp = read_xes_cases(xesfile = path)
 
 mapping(el)
@@ -23,3 +23,7 @@ ss$feedStatusHistory(el, caseID_col = 'CASE_concept_name', status_col = 'activit
   
 
 plot.process.map(ss) -> map
+plot.statuses.bar(ss, time_unit = 'hour')
+plot.statuses.box(ss)
+
+

@@ -248,3 +248,6 @@ $ aws s3 ls s3://em.prd.stcy.wp.els.com/run=283f037c-d5c2-476a-9c5f-4322f72d4173
 
 ## find all data types in athena sql [18 Feb 2019]:
 https://docs.aws.amazon.com/athena/latest/ug/data-types.html
+
+## find some eventlog sample data for process mining [14 Mar 2019]:
+https://data.4tu.nl/repository/collection:event_logs_real
