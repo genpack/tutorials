@@ -4,7 +4,7 @@ library(keras)
 # build synthetic data:
 x1 = rnorm(10000, mean = 124, sd = 13)
 x2 = runif(10000, min = -10, max = 10)
-x3 = rcauchy(10000, location = 1, scale = 0.3)
+x3 = rexp(10000, rate = 0.001)
 
 y  = rweibull(10000, shape = 0.01*x1 - 0.1*x2 + 0.001*x3 + 2, scale = 0.2*x1 - 0.5*x2 + 0.01*x3 - 1)
 
@@ -26,6 +26,7 @@ abs(mean(y_test, na.rm = T) - y_test) %>% mean(na.rm = T)
 
 # verify with normal regression:
 model  = lm(y_train ~ X_train)
+stats::predict(model, X_test)
 y_pred = -1.46151 +  0.18341*X_test[,'X1'] - 0.48370*X_test[,'X2'] + 0.01013*X_test[,'X3'] 
 y_pred %>% loss.mae(y_test)
 
