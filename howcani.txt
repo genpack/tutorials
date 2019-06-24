@@ -251,3 +251,22 @@ https://docs.aws.amazon.com/athena/latest/ug/data-types.html
 
 ## find some eventlog sample data for process mining [14 Mar 2019]:
 https://data.4tu.nl/repository/collection:event_logs_real
+
+## Get a list of all s3 buckets you have [11 May 2019]:
+$ aws s3 ls
+
+## Get a list of all repositories you have in aws codecommit [11 May 2019]:
+$ aws codecommit list-repositories
+
+## Get detail information of a codecommit repository in aws [11 May 2019]:
+$ aws codecommit get-repository --repository-name <repo_name>
+
+##  install docker on the RHEL machine [30 Jan 2018]:
+Example:
+[Berta@s029ndpl0703 ~]$sudo yum -y install docker --installroot=/mnt/test/ --nogpgcheck
+
+## to find which versions of each software is available on the RHEL system [30 Jan 2018]:
+Examples:
+$sudo yum list docker  --showduplicates | sort -r
+$sudo yum list R  --showduplicates | sort -r
+
