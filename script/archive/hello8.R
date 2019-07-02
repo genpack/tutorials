@@ -2,8 +2,8 @@
 # Header
 # Filename:       global.R
 # Description:    This module reads or generates the the ATM group, updates it and and makes it ready for being visualized in a dashboard
-# Author:         Nima Ramezani Taghiabadi
-# Email:          nima.ramezani@cba.com.au
+# Author:         Nicolas Berta 
+# Email:          nicolas.berta@abc.com
 # Start Date:     18 May 2016
 # Last Revision:  25 January 2017
 # Version:        2.1
@@ -19,11 +19,11 @@ library(dygraphs)
 library(leaflet)
 library(rAmCharts)
 
-library(niragen)
-library(nirats)
-library(nira.storeman)
-library(nira.atmopt)
-library(niravis)
+library(gener)
+library(timser)
+library(storeman)
+library(atmopt)
+library(viser)
 
 figs = c(ATM.ID     = 'ATM ID'      , ATM.Name  = 'ATM Name'     , N.Days   = 'Ndays', 
          Order.Date = 'Order Date'  , Date      = 'Delivery Date',
@@ -100,7 +100,7 @@ getTordsRowNumber = function(TBL, day, id){
 lg = h3("BI&A", span("Off Premise ATM Replenishment Optimization", style = "font-weight: 100"),
         style = "font-family: 'Source Sans Pro'; size: 10;
         color: 'red'; text-align: center; 
-        background-image: url('C:/Nima/R/projects/cba/ATM.opt.dashboard/images/GO_Logo.png');
+        background-image: url('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/images/GO_Logo.png');
         padding: 12px")
 
 source('script/atm.dash.R')
@@ -118,8 +118,8 @@ server <- dash$dashboard.server()
 # Filename:       atm.dash.R
 # Description:    This file creates the first shiny dashboard for visualizing a group of ATMs. 
 #                 More dashboards may be generated in the future 
-# Author:         Nima Ramezani Taghiabadi
-# Email:          nima.ramezani@cba.com.au
+# Author:         Nicolas Berta 
+# Email:          nicolas.berta@abc.com
 # Start Date:     18 May 2016
 # Last Revision:  02 February 2016
 # Version:        3.2.2
@@ -227,8 +227,8 @@ I$atmid  = list(type = 'selectInput', title = h3('ATM ID:'), choices = rownames(
 O$curTotal    = list(type = 'htmlOutput', title = "Total Order")
 
 O$line        = list(type = 'static', object = hr())
-# O$line        = list(type = 'static', object = img(src='C:/Nima/R/projects/cba/ATM.opt.dashboard/images/GO_Line.png', align = "right"))
-# O$logo        = list(type = 'static', object = img(src='C:/Nima/R/projects/cba/ATM.opt.dashboard/images/GO_Logo.png', align = "left"))
+# O$line        = list(type = 'static', object = img(src='C:/Nicolas/R/projects/abc/ATM.opt.dashboard/images/GO_Line.png', align = "right"))
+# O$logo        = list(type = 'static', object = img(src='C:/Nicolas/R/projects/abc/ATM.opt.dashboard/images/GO_Logo.png', align = "left"))
 O$logo        = list(type = 'static', object = lg)
 
 I$all.atms    = list(type = 'actionButton' , title = h4('Include All ATMs'), width = '100%', icon = icon('bullseye', 'fa-2x'), srv.func = "val$tabsel = names(sg$stores)")
@@ -437,13 +437,13 @@ dash = new('DASHBOARD', items = c(I, O), king.layout = list('main'), observers =
 # 16- add table filter
 # 17- add table column selection
 
-### cba.tools.R --------------------
+### abc.tools.R --------------------
 # Header
-# Filename:      cba.tools.R
-# Description:   This library, can be used to read the ATM data with the special format provided by CBA
-#                Everything you need to convert the ATM data into a set of instances of class VIRTUAL.STORE from package nira.storeman
-# Author:        Nima Ramezani Taghiabadi
-# Email :        nima.ramezani@cba.com.au
+# Filename:      abc.tools.R
+# Description:   This library, can be used to read the ATM data with the special format provided by the bank
+#                Everything you need to convert the ATM data into a set of instances of class VIRTUAL.STORE from package storeman
+# Author:        Nicolas Berta 
+# Email :        nicolas.berta@abc.com
 # Start Date:    14 January 2016
 # Last Revision: 24 February 2017
 # Version:       2.2.0
@@ -469,11 +469,11 @@ dash = new('DASHBOARD', items = c(I, O), king.layout = list('main'), observers =
 #                             from a file and adds as additional columns to the 'spec' table.
 # 2.1.1     14 September 2016 Argument 'forecast_err_fn' renamed to 'forerror'
 # 2.1.2     27 October 2016   Function decodeDD() added. Decodes Delivery Days from ATM profile table
-# 2.1.3     06 December 2016  Function readATMProfile() deleted. Function readATMData() modified: calls readODBC() from niraIO.R in niragen
+# 2.1.3     06 December 2016  Function readATMProfile() deleted. Function readATMData() modified: calls readODBC() from io.R in gener
 # 2.1.4     23 January 2017   Function calls readODBC() in readATMData() causes problem: Column ATMID is read as integers. Problem fixed by converting to charachter. 
 # 2.1.5     24 January 2017   Function calls readODBC() in readATMData() causes problem: strings are converted to factors. Problem fixed by setting argument 'stringsAsFactors' to FALSE. 
 # 2.1.6     06 February 2017  Function updateDemandForecast() eliminated. 
-# 2.1.7     06 February 2017  Module removed from package nira.atmopt. All #export roxygen tags removed.
+# 2.1.7     06 February 2017  Module removed from package atmopt. All #export roxygen tags removed.
 # 2.1.8     06 February 2017  ATM table names changed.
 # 2.2.0     24 February 2017  Method prepare4ATMGroup() modified: Relocates the re-banks to their correct places
 
@@ -1090,7 +1090,7 @@ s = segs[1]
 v = versions[1]
 p = periods[1]
 
-data.path = '\\\\flsy04/G_TS_SY$/CDO_MTK_SMT/Business Performance Reporting/Nima Ramezani/SIM_Results_NEW/'
+data.path = '\\\\flsy04/G_TS_SY$/CDO_MTK_SMT/Business Performance Reporting/Nicolas Berta/SIM_Results_NEW/'
 
 R = data.frame()
 
@@ -1130,22 +1130,22 @@ if (inherits(RPT, 'data.frame')){
 write.csv(R, file = 'overall_report.csv')
 
 ### evaluate.R --------------------
-# niragen:
-source('../../libraries/developing_packages/niragen.R')
+# gener:
+source('../../libraries/developing_packages/gener.R')
 source('../../libraries/developing_packages/linalg.R')
-# nira.timser:
+# timser:
 source('../../libraries/developing_packages/deviset.R')
 source('../../libraries/developing_packages/time.series.R')
-# nira.storeman:
+# storeman:
 source('../../libraries/developing_packages/inv.tools.R')
 source('../../libraries/developing_packages/opt.rost.plan.R')
 source('../../libraries/developing_packages/virtual.store.R')
 source('../../libraries/developing_packages/store.group.R')
-# nira.atmopt:
+# atmopt:
 source('../../libraries/developing_packages/atm.tools.R')
 source('../../libraries/developing_packages/virtual.atm.R')
 source('../../libraries/developing_packages/atm.group.R')
-source('../../libraries/developing_packages/cba.tools.R')
+source('../../libraries/developing_packages/abc.tools.R')
 
 library(pipeR)
 path      = '\\\\flsy04/G_TS_SY$/CDO_MTK_SMT/Business Performance Reporting/Tableau Dashboards/VCC/PS/Cash and ATM/Off Premise ATM Cash Rebanks/Opportunity Sizing Presentation/National/Optimization Model/Adelaide/'
@@ -1237,15 +1237,15 @@ sum(RPT$TOT.COST)
 
 'Optimal_Base0K_SEG80_V1_NEW'
 ### evaluate_national.R --------------------
-# niragen:
-# niragen:
-library(niragen)
-# nira.timser:
-library(nira.timser)
-# nira.storeman:
-library(nira.storeman)
-# nira.atmopt:
-library(nira.atmopt)
+# gener:
+# gener:
+library(gener)
+# timser:
+library(timser)
+# storeman:
+library(storeman)
+# atmopt:
+library(atmopt)
 
 
 library(pipeR)
@@ -1344,22 +1344,22 @@ sum(RPT$TOT.COST)
 
 'Optimal_Base0K_SEG80_V1_NEW'
 ### evaluate_pilot2.R --------------------
-# niragen:
-source('../../libraries/developing_packages/niragen.R')
+# gener:
+source('../../libraries/developing_packages/gener.R')
 source('../../libraries/developing_packages/linalg.R')
-# nira.timser:
+# timser:
 source('../../libraries/developing_packages/deviset.R')
 source('../../libraries/developing_packages/time.series.R')
-# nira.storeman:
+# storeman:
 source('../../libraries/developing_packages/inv.tools.R')
 source('../../libraries/developing_packages/opt.rost.plan.R')
 source('../../libraries/developing_packages/virtual.store.R')
 source('../../libraries/developing_packages/store.group.R')
-# nira.atmopt:
+# atmopt:
 source('../../libraries/developing_packages/atm.tools.R')
 source('../../libraries/developing_packages/virtual.atm.R')
 source('../../libraries/developing_packages/atm.group.R')
-source('../../libraries/developing_packages/cba.tools.R')
+source('../../libraries/developing_packages/abc.tools.R')
 
 library(pipeR)
 path      = '\\\\flsy04/G_TS_SY$/CDO_MTK_SMT/Business Performance Reporting/Tableau Dashboards/VCC/PS/Cash and ATM/Off Premise ATM Cash Rebanks/Opportunity Sizing Presentation/National/Optimization Model/Adelaide/'
@@ -1444,8 +1444,8 @@ sum(RPT$TOT.COST)
 # Header
 # Filename:       gensg.R
 # Description:    This module creates the ATM group and makes it ready for being visualized in a dashboard
-# Author:         Nima Ramezani Taghiabadi
-# Email:          nima.ramezani@cba.com.au
+# Author:         Nicolas Berta 
+# Email:          nicolas.berta@abc.com
 # Start Date:     18 May 2016
 # Last Revision:  30 September 2016
 # Version:        1.2
@@ -1459,12 +1459,12 @@ sum(RPT$TOT.COST)
 
 # Requirements:
 library(timeDate)
-library(niragen)
-library(nirats)
-library(nira.storeman)
-library(nira.atmopt)
+library(gener)
+library(timser)
+library(storeman)
+library(atmopt)
 
-source('script/cba.tools.R')
+source('script/abc.tools.R')
 
 data.path = '\\\\flsy04/G_TS_SY$/CDO_MTK_SMT/Business Performance Reporting/Tableau Dashboards/VCC/PS/Cash and ATM/Off Premise ATM Cash Rebanks/Opportunity Sizing Presentation/National/Optimization Model/Adelaide/auxdata/'
 
@@ -1545,22 +1545,22 @@ $(document).on("click", ".go-map", function(e) {
 
 ### newOptimalRosterPlanner.R --------------------
 library(timeDate)
-source('../../libraries/developing_packages/niragen.R')
+source('../../libraries/developing_packages/gener.R')
 
 source('../../libraries/developing_packages/deviset.R')
 source('../../libraries/developing_packages/time.series.R')
-# nira.storeman:
+# storeman:
 source('../../libraries/developing_packages/inv.tools.R')
 source('../../libraries/developing_packages/opt.rost.plan.R')
 source('../../libraries/developing_packages/virtual.store.R')
 source('../../libraries/developing_packages/store.group.R')
-# nira.atmopt:
+# atmopt:
 source('../../libraries/developing_packages/atm.tools.R')
 source('../../libraries/developing_packages/virtual.atm.R')
 source('../../libraries/developing_packages/atm.group.R')
-source('../../libraries/developing_packages/cba.tools.R')
+source('../../libraries/developing_packages/abc.tools.R')
 
-source('C:/Nima/R/projects/cba/cba.atm.optimization (Developing)/script/optRoster.R')
+source('C:/Nicolas/R/projects/abc/abc.atm.optimization (Developing)/script/optRoster.R')
 
 library(pipeR)
 path      = '\\\\flsy04/G_TS_SY$/CDO_MTK_SMT/Business Performance Reporting/Tableau Dashboards/VCC/PS/Cash and ATM/Off Premise ATM Cash Rebanks/Opportunity Sizing Presentation/National/Optimization Model/Adelaide/'
@@ -1569,7 +1569,7 @@ data.path = '\\\\flsy04/G_TS_SY$/CDO_MTK_SMT/Business Performance Reporting/Tabl
 calroster_fn = data.path %+% 'calrostersCurrent.csv'
 feasibles_fn = data.path %+% 'feasibility.csv'
 
-# atmids = readRDS('../cba.atm.optimization (Ver 2.0)/correctATMs.csv')
+# atmids = readRDS('../abc.atm.optimization (Ver 2.0)/correctATMs.csv')
 rejected = c('218189', '202198', '210795', '411299', '412399', '500090', '500093', '514596', '313698',  '601798')
 awe      = c('400080', '500089', '317297', '601397')
 
@@ -1769,22 +1769,22 @@ applyFortRoster = function(vs, start, end, fortRoster, holidays, flexidays, stan
 
 
 ### pilot_v2.R --------------------
-# niragen:
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/niragen.R')
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/linalg.R')
-# nira.timser:
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/deviset.R')
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/time.series.R')
-# nira.storeman:
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/inv.tools.R')
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/opt.rost.plan.R')
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/virtual.store.R')
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/store.group.R')
-# nira.atmopt:
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/atm.tools.R')
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/virtual.atm.R')
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/atm.group.R')
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/cba.tools.R')
+# gener:
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/gener.R')
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/linalg.R')
+# timser:
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/deviset.R')
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/time.series.R')
+# storeman:
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/inv.tools.R')
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/opt.rost.plan.R')
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/virtual.store.R')
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/store.group.R')
+# atmopt:
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/atm.tools.R')
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/virtual.atm.R')
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/atm.group.R')
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/abc.tools.R')
 
 path = 'M:/CDO_MTK_SMT/Business Performance Reporting/Tableau Dashboards/VCC/PS/Cash and ATM/Off Premise ATM Cash Rebanks/Opportunity Sizing Presentation/National/Optimization Model/Adelaide/'
 data.path = 'M:/CDO_MTK_SMT/Business Performance Reporting/Tableau Dashboards/VCC/PS/Cash and ATM/Off Premise ATM Cash Rebanks/Opportunity Sizing Presentation/National/Optimization Model/Adelaide/auxdata/'
@@ -1878,22 +1878,22 @@ write.csv(x, path %+% as.character(as.Date(timeDate(FinCenter = "Sydney"))) %+% 
 figs = c('ATM.ID', 'Date', 'Week.Day', 'Roster', 'Order.Fee', 
          'Order.Date', 'Order', 'O100', 'O50', 'O20', 'Rebank', 'R100', 'R50', 'R20', 'Tdemand', 'TD100', 'TD50', 'TD20', 'Ndys', 'flag', 'Submitted')
 
-# niragen:
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/niragen.R')
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/linalg.R')
-# nira.timser:
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/deviset.R')
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/time.series.R')
-# nira.storeman:
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/inv.tools.R')
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/opt.rost.plan.R')
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/virtual.store.R')
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/store.group.R')
-# nira.atmopt:
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/atm.tools.R')
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/virtual.atm.R')
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/atm.group.R')
-source('C:/Nima/R/projects/cba/ATM.opt.dashboard/libraries/cba.tools.R')
+# gener:
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/gener.R')
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/linalg.R')
+# timser:
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/deviset.R')
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/time.series.R')
+# storeman:
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/inv.tools.R')
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/opt.rost.plan.R')
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/virtual.store.R')
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/store.group.R')
+# atmopt:
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/atm.tools.R')
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/virtual.atm.R')
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/atm.group.R')
+source('C:/Nicolas/R/projects/abc/ATM.opt.dashboard/libraries/abc.tools.R')
 
 library(pipeR)
 path = 'M:/CDO_MTK_SMT/Business Performance Reporting/Tableau Dashboards/VCC/PS/Cash and ATM/Off Premise ATM Cash Rebanks/Opportunity Sizing Presentation/National/Optimization Model/Adelaide/'
@@ -1925,22 +1925,22 @@ saveRDS(sg, path %+% 'dataset.rds')
 path      = '\\\\flsy04/G_TS_SY$/CDO_MTK_SMT/Business Performance Reporting/Tableau Dashboards/VCC/PS/Cash and ATM/Off Premise ATM Cash Rebanks/Opportunity Sizing Presentation/National/Optimization Model/Adelaide/'
 data.path = '\\\\flsy04/G_TS_SY$/CDO_MTK_SMT/Business Performance Reporting/Tableau Dashboards/VCC/PS/Cash and ATM/Off Premise ATM Cash Rebanks/Opportunity Sizing Presentation/National/Optimization Model/Adelaide/auxdata/'
 
-# niragen:
-source('../../libraries/developing_packages/niragen.R')
+# gener:
+source('../../libraries/developing_packages/gener.R')
 source('../../libraries/developing_packages/linalg.R')
-# nira.timser:
+# timser:
 source('../../libraries/developing_packages/deviset.R')
 source('../../libraries/developing_packages/time.series.R')
-# nira.storeman:
+# storeman:
 source('../../libraries/developing_packages/inv.tools.R')
 source('../../libraries/developing_packages/opt.rost.plan.R')
 source('../../libraries/developing_packages/virtual.store.R')
 source('../../libraries/developing_packages/store.group.R')
-# nira.atmopt:
+# atmopt:
 source('../../libraries/developing_packages/atm.tools.R')
 source('../../libraries/developing_packages/virtual.atm.R')
 source('../../libraries/developing_packages/atm.group.R')
-source('../../libraries/developing_packages/cba.tools.R')
+source('../../libraries/developing_packages/abc.tools.R')
 
 frost_fn  = data.path %+% 'feasibility.csv'
 ratec_fn  = data.path %+% 'ratecard.csv'

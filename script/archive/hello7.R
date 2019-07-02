@@ -4,8 +4,8 @@
 # Header
 # Filename:       dash.R
 # Description:    This file creates shiny UI for the SO project. 
-# Author:         Nima Ramezani Taghiabadi
-# Email:          nima.ramezani@cba.com.au
+# Author:         Nicolas Berta 
+# Email:          nicolas.berta@abc.com
 # Start Date:     10 May 2017
 # Last Revision:  02 August 2018
 # Version:        2.8.3
@@ -35,13 +35,13 @@
 # 1.2.5     23 October 2017   Calls agent.bar() function in otavis
 # 1.2.6     24 October 2017   cloths removed from allocation overview plots, space issues fixed
 # 1.2.8     30 October 2017   otavis.R changed to version 1.2.8
-# 1.2.9     27 October 2017   package niravis updated to ver 3.5.4
+# 1.2.9     27 October 2017   package viser updated to ver 3.5.4
 # 1.3.1     30 October 2017   iotools.R changed to version 2.4.1
-# 1.3.2     30 October 2017   package niragen updated to ver 2.2.4
-# 1.3.3     30 October 2017   package niraprom updated to ver 1.7.1
-# 1.3.4     01 Novemebr 2017  package niragen updated to ver 2.2.5
-# 1.3.5     01 November 2017  package niraprom updated to ver 1.7.2
-# 1.3.6     01 November 2017  package niravis updated to ver 3.5.5
+# 1.3.2     30 October 2017   package gener updated to ver 2.2.4
+# 1.3.3     30 October 2017   package promer updated to ver 1.7.1
+# 1.3.4     01 Novemebr 2017  package gener updated to ver 2.2.5
+# 1.3.5     01 November 2017  package promer updated to ver 1.7.2
+# 1.3.6     01 November 2017  package viser updated to ver 3.5.5
 # 1.3.7     06 November 2017  Selected team and date are updated when the app is running on more than one client
 # 1.3.8     06 November 2017  Dropdown list for skills and agents are updated for Manual New Tasks and Manual Lefover tabs
 # 1.3.9     06 November 2017  SLA added to SP Table
@@ -51,7 +51,7 @@
 # 1.5.0     14 November 2017  MLTable changed to matrix form: iotools.r and otavis.r changed accordingly. 
 # 1.6.0     20 November 2017  Layout updated: Sidebar added. 
 # 1.7.0     21 November 2017  Skin color and font styles can now be customized
-# 1.7.1     06 November 2017  Date issues rectified, respecting public holidays by using diffTime() function from niragen
+# 1.7.1     06 November 2017  Date issues rectified, respecting public holidays by using diffTime() function from gener
 # 1.7.2     06 November 2017  Saves session data on exit (logout) and reloads on login
 # 1.7.3     08 November 2017  changed local to session$userData
 # 1.7.4     12 February 2018  iotools.R changes to version 2.6.7
@@ -60,7 +60,7 @@
 # 1.7.7     16 February 2018  Different reactive varioable trigger.cs added for commsee table
 # 1.7.8     16 February 2018  otavis.R changed to version 1.4.5
 # 1.7.9     20 February 2018  sync$trigger is now an integer fired by adding 1 to it
-# 1.8.0     20 February 2018  niraprom updated to version 2.0.1 (Version of other packages: niragen: 2.4.4, niravis: 4.2.0)
+# 1.8.0     20 February 2018  promer updated to version 2.0.1 (Version of other packages: gener: 2.4.4, viser: 4.2.0)
 # 1.8.1     25 February 2018  Maximum for the Agent Table scheduled minutes 
 # 1.8.3     26 February 2018  CommSee tasks table changed to DT (otavis.com changed accordingly)
 # 1.8.4     28 February 2018  Commsee table shows 25 rows per page now
@@ -68,20 +68,20 @@
 # 1.8.6     05 March 2018     Filter added for the new DT CommSee table 
 # 1.8.7     05 March 2018     A bug fixed: Logout issue when logout on Agent profile
 # 1.8.8     06 March 2018     Save session after each allocation and automatically with a given time frequency
-# 1.9.2     09 March 2018     niragen updated to 2.4.7, niraprom updated to 2.2.0 and niravis updated to 4.3.4
-# 1.9.6     13 March 2018     niragen updated to 2.4.8, niraprom updated to 2.2.3
+# 1.9.2     09 March 2018     gener updated to 2.4.7, promer updated to 2.2.0 and viser updated to 4.3.4
+# 1.9.6     13 March 2018     gener updated to 2.4.8, promer updated to 2.2.3
 # 1.9.7     13 March 2018     added bmoguest as a user
 # 1.9.9     19 April 2018     otavis.R changed to version (1.4.7)
 # 2.0.0     19 April 2018     Global variable SPLabels modified: Order of columns now matches the order of metric boxes
 # 2.0.1     19 April 2018     Data Series named Backlog removed from stack bar charts
 # 2.0.2     20 April 2018     iotools.R modified to version 2.6.9
-# 2.2.7     07 May 2018       niragen.R updated to 2.5.0, niraprom updated to 2.4.6
-# 2.3.0     08 May 2018       otavis.R updated to 1.4.9, iotools.R updated to 2.7.1, niraprom updated to 2.4.9
+# 2.2.7     07 May 2018       gener.R updated to 2.5.0, promer updated to 2.4.6
+# 2.3.0     08 May 2018       otavis.R updated to 1.4.9, iotools.R updated to 2.7.1, promer updated to 2.4.9
 # 2.3.1     08 May 2018       Service functions for items write, read, APApply, MNApply, MLApply and ASApply modified: Disables write button until the data has been written
 # 2.3.2     28 May 2018       iotools.R changed to version 2.7.2
-# 2.7.8     05 June 2018      otavis.R updated to 1.5.0, niragen changed to 2.5.7, niraprom updated to 2.6.0, niravis updated to 4.6.1
-# 2.8.1     24 July 2018      Changes made by Tim Pope. iotools changed to version 2.8.1, niraprom changed to otar (ver 4.3.8) (niragen updated to ver 2.6.8) (niravis updated to ver 5.2.2)
-# 2.8.2     01 August 2018    niragen updated to 2.7.8, niravis updated to 5.5.5
+# 2.7.8     05 June 2018      otavis.R updated to 1.5.0, gener changed to 2.5.7, promer updated to 2.6.0, viser updated to 4.6.1
+# 2.8.1     24 July 2018      Changes made by Tim Pope. iotools changed to version 2.8.1, promer changed to otar (ver 4.3.8) (gener updated to ver 2.6.8) (viser updated to ver 5.2.2)
+# 2.8.2     01 August 2018    gener updated to 2.7.8, viser updated to 5.5.5
 # 2.8.3     02 August 2018    hides MLTab if no skills are tagged as manual
 
 
@@ -95,7 +95,7 @@ SPLabels = list('Skill Name' = 'skillName', 'Type' = 'skillType', 'Total Tasks' 
 ######### Service Functions:#########
 prescript      = "if(is.null(sync$trigger)){sync$trigger = 0}"
 
-OTS.srv        = paste(prescript, "session$userData$ota$SP %>% niraPlot(label = SPLabels, config = list(withRowNames = T), plotter = 'DT', type = 'table')", sep = ';')
+OTS.srv        = paste(prescript, "session$userData$ota$SP %>% viserPlot(label = SPLabels, config = list(withRowNames = T), plotter = 'DT', type = 'table')", sep = ';')
 lovrInfo.srv   = paste(prescript, "session$userData$ota %>% leftover.count(rownames(session$userData$ota$SP)[input$OTS_rows_selected])", sep = ';')
 backInfo.srv   = paste(prescript, "session$userData$ota %>% backlog.count(rownames(session$userData$ota$SP)[input$OTS_rows_selected])", sep = ';')                            
 unalInfo.srv   = paste(prescript, "session$userData$ota %>% unallocated.count(rownames(session$userData$ota$SP)[input$OTS_rows_selected])", sep = ';')
@@ -192,7 +192,7 @@ read.srv =
 sync$message <<- 'In Progress ...'
 Sys.sleep(0.5)
 dash$disableItems('read', 'write', 'export')
-dataset = try(loadData(input$getDate, input$getTeam, dsn = 'SODEV', uid = 'rshinyuser', pwd = 'smart1Optimiser2'), silent = T)
+dataset = try(loadData(input$getDate, input$getTeam, dsn = 'SODEV', uid = 'rshinyuser', pwd = 'smrtoptmzr'), silent = T)
 if(inherits(dataset, 'try-error')){
 sync$message <<- as.character(dataset) %>% cleanError
 } else {
@@ -242,7 +242,7 @@ write.srv = paste(
   "dash$disableItems('read', 'write', 'export')",
   "sync$message <<- 'In Progress ...'",
   "Sys.sleep(0.5)",
-  "res = try(exportToDatabase(session$userData$ota, sync$ALCD, sync$ALCT, dsn = 'SODEV', uid = 'rshinyuser', pwd = 'smart1Optimiser2'), silent = T)",
+  "res = try(exportToDatabase(session$userData$ota, sync$ALCD, sync$ALCT, dsn = 'SODEV', uid = 'rshinyuser', pwd = 'smrtoptmzr'), silent = T)",
   "if(inherits(res, 'try-error')){sync$message <<- 'Failed to write: ' %++% cleanError(as.character(res))} else {sync$message <<- messages['written'] %++% as.character(res)}", 
   "dash$enableItems('read', 'write', 'export')", sep = '\n')
 
@@ -257,16 +257,16 @@ export.srv = paste(
   "dash$enableItems('export', 'read', 'write')" , sep = '\n')
 
 ######### Load data, build reactive variables and define initial values: #########
-teamTable = readTeams(dsn = 'SODEV', uid = 'rshinyuser', pwd = 'smart1Optimiser2') %>% column2Rownames('TEAMID')
-holidays  = readHolidays(dsn = 'SODEV', uid = 'rshinyuser', pwd = 'smart1Optimiser2')[,'CALENDARDATE'] %>% as.Date
+teamTable = readTeams(dsn = 'SODEV', uid = 'rshinyuser', pwd = 'smrtoptmzr') %>% column2Rownames('TEAMID')
+holidays  = readHolidays(dsn = 'SODEV', uid = 'rshinyuser', pwd = 'smrtoptmzr')[,'CALENDARDATE'] %>% as.Date
 teams = rownames(teamTable)
 names(teams) = teamTable[,'TEAMNAME']
 
 val = list(ALCD = NULL, ALCT = NULL, trigger = 0)
 
-dataset   = loadData(Sys.Date(), dsn = 'SODEV', uid = 'rshinyuser', pwd = 'smart1Optimiser2')
+dataset   = loadData(Sys.Date(), dsn = 'SODEV', uid = 'rshinyuser', pwd = 'smrtoptmzr')
 
-logt = getLoginTable(dsn = 'SODEV', uid = 'rshinyuser', pwd = 'smart1Optimiser2') %>% column2Rownames('USERNAME')
+logt = getLoginTable(dsn = 'SODEV', uid = 'rshinyuser', pwd = 'smrtoptmzr') %>% column2Rownames('USERNAME')
 names(logt) %<>% tolower
 logt$password %<>% as.character
 logt['bmoguest', 'password'] <- "$2a$12$aWzJhXD8Kq.NgAVG569ABOfB.ptpOc7mxhiW7geW48e.BHxJqxxCa"
@@ -563,9 +563,9 @@ app    <- shinyApp(ui, server)
 # Header
 # Filename:      iotools.R
 # Description:   This module provides functions for extractiion and modfication of data
-#                from GDW, datamart or any other source of data in CBA required for SO project.
-# Authors:       Nima Ramezani Taghiabadi, Timothy Pope, Kelumi Harshika, Mustafizur Rahman
-# Emails :       nima.ramezani@cba.com.au 
+#                from GDW, datamart or any other source of data in abc required for SO project.
+# Authors:       Nicolas Berta , Timothy Pope, Kelumi Harshika, Mustafizur Rahman
+# Emails :       nicolas.berta@abc.com 
 # Start Date:    25 January 2017
 # Last Revision: 21 July 2018
 # Version:       2.8.1
@@ -576,7 +576,7 @@ app    <- shinyApp(ui, server)
 # 1.0.1     01 February 2017   Function to be written 
 # 2.0.0     01 August  2017    Functions obj2Recatives(), reactives2Obj(), dataset2Obj(), ... added.
 # 2.1.0     01 August  2017    read functions generalized by parametrised SQL to provide data for given date and set of teams.
-# 2.1.1     01 August  2017    Functions readAgentHistCount(), readAgentHistCount.discharges(), readAgentRoster.discharges(), readTaskBacklog(), feedCBA.OptimalTaskAllocator()
+# 2.1.1     01 August  2017    Functions readAgentHistCount(), readAgentHistCount.discharges(), readAgentRoster.discharges(), readTaskBacklog(), feedabc.OptimalTaskAllocator()
 # 2.1.2     01 August  2017    extension '.Maneli' removed from function names. argument 'teamstr' added to all functions.
 # 2.1.3     01 August  2017    Function loadData() modified: gets 'teamstr' as an argument. Currently only works for a single team!
 # 2.1.4     29 August  2017    Function readTaskListFromCSV() added. Written by Kelumi
@@ -612,7 +612,7 @@ app    <- shinyApp(ui, server)
 # 2.5.0     14 November 2017   MLTable changed to matrix form
 # 2.6.0     21 November 2017   Export to excel file feature added by Fiz
 # 2.6.1     21 November 2017   Export to excel prompts for selecting a directory for the file to be saved 
-# 2.6.2     21 November 2017   Respects public holidays in computing time difference using function diffTime() from niragen
+# 2.6.2     21 November 2017   Respects public holidays in computing time difference using function diffTime() from gener
 # 2.6.3     11 December 2017   All date-times converted to GMT to avoid daylight change problem
 # 2.6.4     19 December 2017   Fiz added more skills and changed the due date logic for those skills
 # 2.6.5     08 January 2018    (due date = start date + sla) for HLX Sell skill for CCV team: logic is implemented
@@ -628,7 +628,7 @@ app    <- shinyApp(ui, server)
 # -----------------------------------
 
 
-library(niragen)
+library(gener)
 
 support('magrittr', 'dplyr', 'RODBC', 'RODBCext', 'pracma', 'stringr', 'readxl', 'tools')
 
@@ -939,14 +939,14 @@ loadData = function(date = Sys.Date() - 1, teamID =  NULL, ...){
   if(!inherits(date, 'Date')){date %<>% as.Date}
   
   AP    = readAgents(date           , teamID = teamID, ...)
-  niragen::assert(inherits(AP, 'data.frame'), 'Loading list of agents failed! \n' %++% as.character(AP))
+  gener::assert(inherits(AP, 'data.frame'), 'Loading list of agents failed! \n' %++% as.character(AP))
   SP    = readSkills(date           , teamID = teamID, ...)
   SP$RANK %<>% as.numeric 
-  niragen::assert(inherits(SP, 'data.frame'), 'Loading list of skills failed! \n' %++% as.character(SP))
+  gener::assert(inherits(SP, 'data.frame'), 'Loading list of skills failed! \n' %++% as.character(SP))
   AA    = readAgentSchedule(date     , teamID = teamID, ...)
-  niragen::assert(inherits(AA, 'data.frame'), 'Loading agent schedule failed! \n' %++% as.character(AA))
+  gener::assert(inherits(AA, 'data.frame'), 'Loading agent schedule failed! \n' %++% as.character(AA))
   AS    = readAgentTAT(date         , teamID = teamID, ...)
-  niragen::assert(inherits(AS, 'data.frame'), 'Loading agent-skill matrix failed! \n' %++% as.character(AS))
+  gener::assert(inherits(AS, 'data.frame'), 'Loading agent-skill matrix failed! \n' %++% as.character(AS))
   options(warn = -1)
   
   if(is.null(teamID)){
@@ -1667,8 +1667,8 @@ getLoginTable = function (...)
 # Header
 # Filename:     otavis.R
 # Description:  Contains functions to generate visualisation components for task allocation
-# Author:       Nima Ramezani Taghiabadi
-# Email :       nima.ramezani@gmail.com
+# Author:       Nicolas Berta 
+# Email :       nicolas.berta@gmail.com
 # Start Date:   26 May 2017
 # Last change:  09 May 2018
 # Version:      1.5.0
@@ -1699,7 +1699,7 @@ getLoginTable = function (...)
 # 1.3.0     06 November 2017   SLA column added to SPTable
 # 1.3.1     14 November 2017   MNConfig() changed: MNTable start and due times are presented as character, so new validator function validateTime() is added.
 # 1.4.0     14 November 2017   MLConfig() changed: MLTable configured as matrix format.
-# 1.4.1     06 December 2017   Public holidays respected by using function timeDiff() from niragen.
+# 1.4.1     06 December 2017   Public holidays respected by using function timeDiff() from gener.
 # 1.4.2     15 January 2018    TFD3 table configurations updated for CSTable, MLTable and MLTable: Numeric sorting issue fixed.
 # 1.4.3     16 January 2018    Messages modified plus CSTable configuration changed: toggle filters removed.
 # 1.4.4     14 February 2018   Sunburst(Coffeewheel) plot uses status rather than LO as the intermediate categorical column
@@ -1723,7 +1723,7 @@ clrs = c(Leftover = 'grey', notWorkable = 'red', Unallocated = 'lightblue', newA
 
 # Returns a data.frame showing volume of tasks in each age group:
 addAgeProfiles = function(obj){
-  niragen::assert('report' %in% names(obj$TSK), "The task table does not contain report dates! A column of type Date or POSIXlt, labeled as 'report' is required.")
+  gener::assert('report' %in% names(obj$TSK), "The task table does not contain report dates! A column of type Date or POSIXlt, labeled as 'report' is required.")
   # Add Task ages and due ages:
   # obj$TSK$age    = (obj$TSK$report %>% as.POSIXlt) - (obj$TSK$start %>% as.POSIXlt)
   # obj$TSK$dueAge = (obj$TSK$report %>% as.POSIXlt) - (obj$TSK$due %>% as.POSIXlt)
@@ -1761,12 +1761,12 @@ tableDueAgeGroups = function(obj, skills = NULL){
 }
 
 
-skill.bar = function(obj){obj$SP %>% niraPlot(y = 'skillName', x = c('Unallocated', 'Not Workable' = 'notWorkable', 'New Allocated' = 'newAllocated', 'Leftover') %>% intersect(names(obj$SP)) %>% as.list, 
+skill.bar = function(obj){obj$SP %>% viserPlot(y = 'skillName', x = c('Unallocated', 'Not Workable' = 'notWorkable', 'New Allocated' = 'newAllocated', 'Leftover') %>% intersect(names(obj$SP)) %>% as.list, 
                                               color = list('lightblue', 'red', 'lightgreen', 'grey'), config = list(barMode = 'stack', colorize = F), plotter = 'highcharter', type = 'bar')}
 
 agent.bar = function(obj){
   obj$AP %>% mutate(Allocated = newAllocated + Leftover) %>% arrange(Allocated) %>% 
-    niravis::niraPlot(y = list('Agent Full Name' = 'agentName'), x = list('Leftover', 'New Allocated' = 'newAllocated'), color = list('grey', 'lightgreen'), shape = 'bar', config = list(barMode = 'stack', colorize = F), type = 'combo', plotter = 'highcharter')
+    viser::viserPlot(y = list('Agent Full Name' = 'agentName'), x = list('Leftover', 'New Allocated' = 'newAllocated'), color = list('grey', 'lightgreen'), shape = 'bar', config = list(barMode = 'stack', colorize = F), type = 'combo', plotter = 'highcharter')
 }
 
 
@@ -1775,31 +1775,31 @@ allocated.donut = function(obj, skill = NULL){
   if(is.null(skill)){skill = obj$skills}
   tbl = obj$SP[skill, c('Allocated', 'Unallocated'), drop = F] %>% colSums(na.rm = T) %>% as.data.frame %>% appendCol(c('green', 'red')) %>% zero.omit 
   names(tbl) = c('count', 'colour')
-  tbl %>% niraPlot(label = rownames(tbl), theta = 'count', color = 'colour', type = 'pie', config = list(colorize = F), plotter = 'morrisjs')
+  tbl %>% viserPlot(label = rownames(tbl), theta = 'count', color = 'colour', type = 'pie', config = list(colorize = F), plotter = 'morrisjs')
 }
 
 # Cx: Generates donut chart showing age distribution
 age.donut = function(obj, skill){
   obj %>% tableAgeGroups %>% rownames2Column('Age Group') %>% filter(Backlog > 0) %>% 
-    niraPlot(label = 'Age Group', theta = 'Backlog', type = 'pie', plotter = 'morrisjs')
+    viserPlot(label = 'Age Group', theta = 'Backlog', type = 'pie', plotter = 'morrisjs')
 }
 
 dueAge.donut = function(obj){
   obj %>% tableDueAgeGroups %>% rownames2Column('Due Age Group') %>% filter(Backlog > 0) %>% 
-    niraPlot(label = 'Due Age Group', theta = 'Backlog', type = 'pie', plotter = 'morrisjs', color = list(AgeCol = "Backlog"), config = list(colorize = T))
+    viserPlot(label = 'Due Age Group', theta = 'Backlog', type = 'pie', plotter = 'morrisjs', color = list(AgeCol = "Backlog"), config = list(colorize = T))
 }
 
 # Cx: Generates barchart of Age
 age.bar = function(obj, skills = NULL, plotter = 'highcharter'){
   AGP = obj %>% tableAgeGroups(skills = skills)
-  AGP %>% rownames2Column('Age Group') %>% niraPlot(
+  AGP %>% rownames2Column('Age Group') %>% viserPlot(
     x = names(AGP) %>% as.list, y = 'Age Group', type = 'combo', shape = 'bar', color = clrs[names(AGP)] %>% unname %>% as.list,
     config = list(title = 'Age Distribution', barMode = 'stack', colorize = F), plotter = plotter)
 }
 
 dueAge.bar = function(obj, skills = NULL, plotter = 'highcharter'){
   DAGP = obj %>% tableDueAgeGroups(skills = skills)
-  DAGP %>% rownames2Column('Due Age Group') %>% niraPlot(
+  DAGP %>% rownames2Column('Due Age Group') %>% viserPlot(
     x = names(DAGP) %>% as.list, y = 'Due Age Group', shape = 'bar', type = 'combo', color = clrs[names(DAGP)] %>% unname %>% as.list,
     config = list(title = 'Due Age Distribution', barMode = 'stack'), plotter = plotter)
 }
@@ -1807,7 +1807,7 @@ dueAge.bar = function(obj, skills = NULL, plotter = 'highcharter'){
 # C6: Generates bubble chart showing backlog as size (Each bubble represents a skill)
 backlog.bubble = function(obj, skill){
   obj$SP %>% na.omit %>% zero.omit(colname = 'Backlog') %>% 
-    niraPlot(size = 'Backlog', color = 'skillType', tooltip = 'skillName', label = 'skillName', config = list(labelThreshold = 0.1), plotter = 'bubbles', type = 'bubble')
+    viserPlot(size = 'Backlog', color = 'skillType', tooltip = 'skillName', label = 'skillName', config = list(labelThreshold = 0.1), plotter = 'bubbles', type = 'bubble')
 }
 
 # C7: Returns a stack barchart representing agent utilization and reserved time for Leftover
@@ -1816,7 +1816,7 @@ util.bar = function(tbl){
   tbl$Available = tbl$productive - tbl$reserved
   tbl$Available = ifelse(tbl$Available < 0, 0, tbl$Available)
   tbl %>% zero.omit('productive') %>% arrange(productive) %>% 
-    niraPlot(x = list('Available', 'Required for Leftover' = 'reserved'),
+    viserPlot(x = list('Available', 'Required for Leftover' = 'reserved'),
              y = list('Agent Name' = 'agentName'), type = 'combo', plotter = 'highcharter',
              shape = list('bar','bar'), config = list(barMode = 'stack'))
 }
@@ -1827,8 +1827,8 @@ taskList.table = function(obj, skillset = rownames(obj$SP), ...){
     select(Skill, 'Assigned to' = Agent, 
            'Started at' = start, 'Due at' = 'due', 'Report Date' = 'report', 'Age (hrs)' = 'age', 'Due Age (hrs)' = 'dueAge', 
            'Age Group' = 'ageGroup', 'Due Age Group' = 'dueAgeGroup', 'Task Status' = 'status') %>% 
-    niraPlot(plotter = 'DT', type = 'table', filter = 'top', config = list(paging.length = 25, autoWidth = T), ...)
-  # niraPlot(plotter = 'DT', type = 'table', config = list(links = list(mylink)), ...)
+    viserPlot(plotter = 'DT', type = 'table', filter = 'top', config = list(paging.length = 25, autoWidth = T), ...)
+  # viserPlot(plotter = 'DT', type = 'table', config = list(links = list(mylink)), ...)
 }
 
 # C9: generates a coffeewhee showing a complete overview of allocations
@@ -1850,7 +1850,7 @@ allocation.coffeewheel = function(obj){
     mutate(Agent = obj$AP[agent, 'agentName']) %>%
     mutate(Skill = obj$SP[skill, 'skillName'] %>% abbreviate) %>%
     dplyr::group_by(Skill, status, Agent) %>% dplyr::summarize(Count = length(AUT)) %>% as.data.frame %>% 
-    niraPlot(label = list('Skill', 'status', 'Agent'), theta = 'Count', plotter = 'coffeewheel', type = 'sunburst', config = list(treeApplyFunction = ft))
+    viserPlot(label = list('Skill', 'status', 'Agent'), theta = 'Count', plotter = 'coffeewheel', type = 'sunburst', config = list(treeApplyFunction = ft))
 }
 
 
@@ -1870,7 +1870,7 @@ task.scatter = function(obj){
   if(inherits(obj$SP$skillName, c('character', 'factor'))){
     obj$TSK$skillName = obj$SP[obj$TSK$skill, 'skillName']
   } else {obj$TSK$skillName = obj$TSK$skill}
-  obj$TSK %>% niraPlot(x = 'skillName', y = 'priority', color = 'status', shape = 'bubble', type = 'scatter', plotter = 'plotly')
+  obj$TSK %>% viserPlot(x = 'skillName', y = 'priority', color = 'status', shape = 'bubble', type = 'scatter', plotter = 'plotly')
   # todo: adjust colors
 }
 
@@ -1887,7 +1887,7 @@ alloc.pivot = function(obj){
   obj$TSK %>% dplyr::filter(workable) %>% mutate(skill = obj$SP[skill, 'skillName'])  %>%  filter(!is.na(agent)) %>% mutate(agent = obj$AP[agent, 'agentName']) %>%
     select(Skill = skill, Agent = agent, Start = start, Due = due, Status = status, 
            Age = age, AgeGroup = ageGroup, ageDue = dueAge, AgeDueGroup = dueAgeGroup, Priority = priority) %>% 
-    niraPlot(rows = 'Agent', cols = 'Skill', rendererName = 'Heatmap', plotter = 'pivot', type = 'table')
+    viserPlot(rows = 'Agent', cols = 'Skill', rendererName = 'Heatmap', plotter = 'pivot', type = 'table')
 }
 
 backlog.count = function(obj, skill_set = NULL){
@@ -2168,7 +2168,7 @@ MNTable.srvf = function(MNTable, obj){
   rhandsontable(DF)
   
   #if (!is.null(MNTable)){
-  #  hsn = MNTable %>% niraPlot(config = list(width = 1200), plotter = 'rhandsontable', type = 'table', colHeaders = c('Skill ID', 'Skill Name', 'Started at', 'Due at', 'Due Age', 'Work Units', 'report'))
+  #  hsn = MNTable %>% viserPlot(config = list(width = 1200), plotter = 'rhandsontable', type = 'table', colHeaders = c('Skill ID', 'Skill Name', 'Started at', 'Due at', 'Due Age', 'Work Units', 'report'))
   # if (nrow(MNTable) > 0){hsn %<>% hot_col(col = "Skill", type = "dropdown", source = rownames(obj$SP)[obj$SP$skillType == 'Manual'], strict = T)}
   #   return(hsn)
   #}
@@ -2252,9 +2252,9 @@ library(tools)
 library(cellranger)
 library(lpSolve)
 
-library(niragen)
+library(gener)
 library(otar)
-library(niravis)
+library(viser)
 
 # from project
 source('script/iotools.R')
@@ -2280,27 +2280,27 @@ source('script/dash.R')
 # 
 
 
-# cbacran = 'https://artifactory.ai.cba/artifactory/cran-cba/2018-01-05/'
-# noncbacran = 'https://artifactory.ai.cba/artifactory/mran-remote/2018-01-12/'
+# abccran = 'https://artifactory.ai.abc/artifactory/cran-abc/2018-01-05/'
+# nonabccran = 'https://artifactory.ai.abc/artifactory/mran-remote/2018-01-12/'
 # 
-# install.packages("RJDBC", repos = noncbacran)
-# install.packages("rJava", repos = noncbacran)
-# install.packages("progress", repos = noncbacran)
-# install.packages("getPass", repos = noncbacran)
+# install.packages("RJDBC", repos = nonabccran)
+# install.packages("rJava", repos = nonabccran)
+# install.packages("progress", repos = nonabccran)
+# install.packages("getPass", repos = nonabccran)
 # 
-# install.packages("teradata.cba", repos = cbacran)
-# install.packages("dbplyr", repos = noncbacran)
-# install.packages("dplyr", repos = noncbacran)
+# install.packages("teradata.abc", repos = abccran)
+# install.packages("dbplyr", repos = nonabccran)
+# install.packages("dplyr", repos = nonabccran)
 # 
 # library(dplyr)
 # library(dbplyr)
-# library(teradata.cba)
-# # https://confluence.prod.cba/display/ADS/Dplyr+and+teradata.cba
+# library(teradata.abc)
+# # https://confluence.prod.abc/display/ADS/Dplyr+and+teradata.abc
 
-# Connecting via teradata.cba:
+# Connecting via teradata.abc:
 # library(dplyr)
 # library(dbplyr)
-# library(teradata.cba)
+# library(teradata.abc)
 # 
 # con = gdw_connect(uid = 'SUOPSANA01', pwd = 'Service#15Connect', local = T)
 # his = tbl(con, "APPT_STUS_HIST")
@@ -2360,9 +2360,9 @@ parUpload <- function(dataset, upload_destination, dsn_name, delete_query, chunk
 library(magrittr)
 library(dplyr)
 
-source('C:/Nima/RCode/packages/master/niraprom/R/ota.tools.R')
-source('C:/Nima/RCode/packages/master/niraprom/R/ota.R')
-source('C:/Nima/RCode/packages/master/niragen-master/R/niragen.R')
+source('C:/Nicolas/RCode/packages/master/promer/R/ota.tools.R')
+source('C:/Nicolas/RCode/packages/master/promer/R/ota.R')
+source('C:/Nicolas/RCode/packages/master/gener-master/R/gener.R')
 
 
 x = readRDS('data/x_object_20180525.RDS')
@@ -2376,8 +2376,8 @@ x2 = x %>% distributeTasks(flt2IntCnvrsn = 'round')
 # Test SO for BankWest:
 library(magrittr)
 library(dplyr)
-library(niragen)
-library(niraprom)
+library(gener)
+library(promer)
 library(lpSolve)
 
 SP = read.csv('data/BW_HLT/skills.csv')
@@ -2464,9 +2464,9 @@ QNAME, TRUNC(updt_dt),empl_i
 
 library(RODBC)
 library(magrittr)
-library(niragen)
-library(niramath)
-library(niraprom)
+library(gener)
+library(mather)
+library(promer)
 
 channel  = odbcConnect(dsn = 'Teradata_Prod')
 AUH        = sqlQuery(channel = channel, query = qry.1)
@@ -2483,8 +2483,8 @@ write.csv(y$TAT, 'tables/CCV_AUT.csv')
 # Test SO for BankWest:
 library(magrittr)
 library(dplyr)
-library(niragen)
-library(niraprom)
+library(gener)
+library(promer)
 library(lpSolve)
 
 x = readRDS('data/x_object.rds') %>% clearAllocation
@@ -2495,7 +2495,7 @@ x3 = x %>% distributeTasks(Kf = 100.0)
 x4 = x3 %>% balanceWeightedScores(Kf = 100.0)
 
 x5 = x %>% distributeTasks(Kf = 1000.0)
-x5 = x5 %>% niraprom::balanceWeightedScores(Kf = 1000.0)
+x5 = x5 %>% promer::balanceWeightedScores(Kf = 1000.0)
 
 S1 = x1$TSK %>% filter(!is.na(agent)) %>% group_by(agent) %>% summarise(sumScore = sum(score)) 
 S1$rate = 100*S1$sumScore/x1$AP[S1$agent,'utilized']
@@ -2540,8 +2540,8 @@ x2 = x %>% distributeTasks(prioritization = 'timeAdjusted')
 # Header
 # Filename:       dash.R
 # Description:    This file creates the first shiny UI for the bextgen wfo project. 
-# Author:         Nima Ramezani Taghiabadi
-# Email:          nima.ramezani@cba.com.au
+# Author:         Nicolas Berta 
+# Email:          nicolas.berta@abc.com
 # Start Date:     10 May 2017
 # Last Revision:  10 May 2017
 # Version:        0.1.1
@@ -2627,7 +2627,7 @@ O = list()
 
 # Containers:
 
-I$main      = list(type = 'dashboardPage', title = 'BI&A Nextgen Workforce Optimization Toolbox', layout.head = c() ,layout.body = 'tabset', layout.side = c(), header.title = 'BI&A Nextgen Workforce Optimization Toolbox')
+I$main      = list(type = 'dashboardPage', title = 'BI&A nxtgn Workforce Optimization Toolbox', layout.head = c() ,layout.body = 'tabset', layout.side = c(), header.title = 'BI&A nxtgn Workforce Optimization Toolbox')
 
 I$tabset    = list(type = 'tabsetPanel', selected = "Task Overview", layout = c('tab1', 'tab2', 'tab3'))
 I$tab1      = list(type = 'tabPanel' , title = "Task Overview", layout = 'taskPage')
@@ -2636,7 +2636,7 @@ I$tab3      = list(type = 'tabPanel' , title = "Allocation Overview", layout = '
 
 I$taskPage    = list(type = 'fluidPage', layout = list(list('filters', 'ageHist', 'ageDonut'), 'line', list('taskTable', 'skillBubble')))
 I$adminPage   = list(type = 'fluidPage', layout = list('up', 'down'))
-I$allocPage   = list(type = 'fluidPage', layout = list(list('allocDonut', 'allocHeatmap', 'allocBarPie'), list('allocTable', 'allocCW')))
+I$allocPage   = list(type = 'fluidPage', layout = list(list('allocDonut', 'allocHeatmap', 'alloabcrPie'), list('allocTable', 'allocCW')))
 
 I$up   = list(type = 'fluidPage', layout = list(list('APBox', 'SPBox', 'ASBox', 'MLBox', 'MNBox')))  # Metric Boxes
 I$down = list(type = 'navbarPage', layout = c('APTab', 'SPTab', 'ASTab', 'MLTab', 'MNTab'))
@@ -2656,7 +2656,7 @@ I$manual  = list(type = 'fluidPage', layout = list(list('MNTable', 'Panda')))
 # The table item AUTTable is not shown becasue of the name of the item beside it!!!!
 ##### STUPID!!!! change MNDonat to soroosh, Jingool, MLDonar, .... and it will work!!!!!!! 
 ## names that work: Panda, soroosh, Jingool, MLDonar, MLDonut, MLDonuts, ...
-## names that don't work: MLDonut, Nima, looloo, ...
+## names that don't work: MLDonut, Nicolas, looloo, ...
 
 I$filters   = list(type = 'box' , title = 'Filters', width = 'auto', weight = 1, layout = 'getFilters')
 
@@ -2679,7 +2679,7 @@ O$allocTable = list(type = 'tableOutput' , title = 'Allocation Summary', weight 
 O$allocCW    = list(type = 'coffeewheelOutput' , title = 'Allocation Wheel', width = 'auto', weight = 6, service = "x %>% allocation.coffeewheel")
 
 O$skillBubble  = list(type = 'bubblesOutput' , title = 'Skill Bubble', width = 'auto', weight = 4, height = '500px', service = "x %>% backlog.bubble")
-O$allocBarPie  = list(type = 'highcharterOutput' , title = 'Agent Bar', width = 'auto', height = '350px', weight = 6, service = service.agent.bar)
+O$alloabcrPie  = list(type = 'highcharterOutput' , title = 'Agent Bar', width = 'auto', height = '350px', weight = 6, service = service.agent.bar)
 O$allocDonut   = list(type = 'morrisjsOutput' , title = 'Allocated/Unallocated', width = 'auto', height = '350px', weight = 3, service = "x %>% age.donut")
 O$Panda   = list(type = 'morrisjsOutput' , title = 'Age Distribution', service = "x %>% age.donut")
 O$allocHeatmap = list(type = 'plotlyOutput' , title = 'Allocation Heatmap', width = 'auto', height = '350px', weight = 3, service = "x %>% backlog.bar")
@@ -2710,7 +2710,7 @@ shinyApp(ui, server)
 ### dash.Rmd --------------------------
 ---
   title: "BI&A Workforce Optimization Toolbox"
-author: "NIRASOFT"
+author: "NIBESOFT"
 date: "16 March 2017"
 output: 
   flexdashboard::flex_dashboard:
@@ -2870,8 +2870,8 @@ lines(density(X, adjust=0.5), lty="dotted", col="darkgreen", lwd=2)
 # Header
 # Filename:     tavis.R
 # Description:  Contains functions to generate visualisation components for task allocation
-# Author:       Nima Ramezani Taghiabadi
-# Email :       nima.ramezani@gmail.com
+# Author:       Nicolas Berta 
+# Email :       nicolas.berta@gmail.com
 # Start Date:   26 May 2017
 # Last change:  26 May 2017
 # Version:      0.0.1
@@ -2880,7 +2880,7 @@ lines(density(X, adjust=0.5), lty="dotted", col="darkgreen", lwd=2)
 # -----------------------------------
 # 0.0.1     26 May 2016        Initial Issue
 
-source('C:/Nima/RCode/projects/libraries/developing_packages/morrisjs.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/morrisjs.R')
 
 
 # C1: Donut chart showing allocated vs not-allocated
@@ -3000,28 +3000,28 @@ library(nloptr)
 library(lpSolve)
 library(magrittr)
 
-# niragen:
-source('C:/Nima/RCode/projects/libraries/developing_packages/niragen.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/linalg.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/io.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/optim.R')
+# gener:
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/gener.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/linalg.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/io.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/optim.R')
 
 # time series
-source('C:/Nima/RCode/projects/libraries/developing_packages/time.series.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/time.series.R')
 
 # prom
-source('C:/Nima/RCode/projects/libraries/developing_packages/wfo.tools.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/wfo.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/wfo.tools.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/wfo.R')
 
-# niravis:
-source('C:/Nima/RCode/projects/libraries/developing_packages/visgen.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/rAmCharts.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/rCharts.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/highcharter.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/plotly.R')
+# viser:
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/visgen.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/rAmCharts.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/rCharts.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/highcharter.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/plotly.R')
 
 # from project
-source('C:/Nima/RCode/projects/cba/cba.nextgen.wfo (Developing)/script/wfo.cba.tools.R')
+source('C:/Nicolas/RCode/projects/abc/abc.nxtgn.wfo (Developing)/script/wfo.abc.tools.R')
 
 
 extra.1 = c(start = 'START_DT', due = 'DUE_DT', current = 'report_d')
@@ -3145,38 +3145,38 @@ library(DT)
 library(D3TableFilter)
 
 
-# niragen:
-source('C:/Nima/RCode/projects/libraries/developing_packages/niragen.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/linalg.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/io.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/optim.R')
+# gener:
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/gener.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/linalg.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/io.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/optim.R')
 
 # time series
-source('C:/Nima/RCode/projects/libraries/developing_packages/time.series.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/time.series.R')
 
 # prom
-source('C:/Nima/RCode/projects/libraries/developing_packages/wfo.tools.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/wfo.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/wfo.tools.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/wfo.R')
 
-# niravis:
-source('C:/Nima/RCode/projects/libraries/developing_packages/visgen.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/jscripts.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/rscripts.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/dashboard.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/bubbles.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/d3plus.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/morrisjs.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/highcharter.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/plotly.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/dimple.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/DT.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/D3TableFilter.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/coffeewheel.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/niraTree.R')
+# viser:
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/visgen.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/jscripts.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/rscripts.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/dashboard.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/bubbles.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/d3plus.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/morrisjs.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/highcharter.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/plotly.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/dimple.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/DT.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/D3TableFilter.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/coffeewheel.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/nibeTree.R')
 
 # from project
-source('C:/Nima/RCode/projects/cba/cba.nextgen.wfo (Developing) - Paradox/script/wfo.cba.tools.R')
-source('C:/Nima/RCode/projects/cba/cba.nextgen.wfo (Developing) - Paradox/script/tavis.R')
+source('C:/Nicolas/RCode/projects/abc/abc.nxtgn.wfo (Developing) - Paradox/script/wfo.abc.tools.R')
+source('C:/Nicolas/RCode/projects/abc/abc.nxtgn.wfo (Developing) - Paradox/script/tavis.R')
 
 
 
@@ -3203,7 +3203,7 @@ x$SP %>% bubbles.bubble(size = 'Backlog', color = 'SKILL_TYPE', tooltip = 'SKILL
 ### testDash.R --------------------------
 ---
   title: "BI&A Workforce Optimization Toolbox"
-author: "NIRASOFT"
+author: "NIBESOFT"
 date: "14 March 2017"
 output: 
   flexdashboard::flex_dashboard:
@@ -3335,7 +3335,7 @@ output$bub2 <- renderBubbles({bub2})
 ### testDash2.Rmd --------------------------
 ---
   title: "BI&A Workforce Optimization Toolbox"
-author: "NIRASOFT"
+author: "NIBESOFT"
 date: "14 March 2017"
 output: 
   flexdashboard::flex_dashboard:
@@ -3464,13 +3464,13 @@ output$bub2 <- renderBubbles({bub2})
 #renderPlotly({v$plot.history(period = 1:v$N.int, figures = x$agents[1:5], package = 'plotly')})
 ```
 
-### wfo.cba.tools.R --------------------------
+### wfo.abc.tools.R --------------------------
 # Header
-# Filename:      wfo.cba.tools.R
+# Filename:      wfo.abc.tools.R
 # Description:   This module provides functions for extractiion and modfication of data
-#                from GDW, datamart or any other source of data in CBA required for nextGen Work-force optimization project.
-# Author:        Nima Ramezani Taghiabadi
-# Email :        nima.ramezani@cba.com.au
+#                from GDW, datamart or any other source of data in abc required for nxtgn Work-force optimization project.
+# Author:        Nicolas Berta 
+# Email :        nicolas.berta@abc.com
 # Start Date:    25 January 2017
 # Last Revision: 01 February 2017
 # Version:       1.0.1
@@ -3483,8 +3483,8 @@ output$bub2 <- renderBubbles({bub2})
 # Required tables:
 # agentSkill, backlog, agentRoster
 
-source('C:/Nima/RCode/projects/libraries/developing_packages/niragen.R')
-source('C:/Nima/RCode/projects/libraries/developing_packages/io.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/gener.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/io.R')
 library(dplyr)
 library(RODBC)
 
@@ -3651,9 +3651,9 @@ readTaskBacklog = function(dsn = 'Teradata_Prod'){
   return(TB)
 }
 
-# Fills the given OptimalTaskAllocator object with the data read from CBA terradata 
+# Fills the given OptimalTaskAllocator object with the data read from abc terradata 
 # and returns the filled object. Currently works for discharges only.
-feedCBA.OptimalTaskAllocator = function(obj, start = Sys.Date() - 100, end = Sys.Date(), dsn = 'Teradata_Prod'){
+feedabc.OptimalTaskAllocator = function(obj, start = Sys.Date() - 100, end = Sys.Date(), dsn = 'Teradata_Prod'){
   assert(inherits(obj, 'OptimalTaskAllocator'), "Given object is not an instance of class 'OptimalTaskAllocator'!", match.call()[[1]])
   # Read Tables:
   obj$AHC = readAgentHistCount.discharges(start = start, end = end, dsn = dsn)
@@ -3850,8 +3850,8 @@ readManualTaskSummary.leftover.Maneli = function(date = Sys.Date(), dsn = 'Terad
 # Filename:      wfo.R
 # Description:   This module provides functions for the work-force optimization engine within the process manager.
 #                There are functions for local optimal distribution of tasks(activities) among the resources.
-# Author:        Nima Ramezani Taghiabadi
-# Email :        nima.ramezani@cba.com.au
+# Author:        Nicolas Berta 
+# Email :        nicolas.berta@abc.com
 # Start Date:    25 January 2017
 # Last Revision: 25 January 2017
 # Version:       1.0.0
@@ -3869,8 +3869,8 @@ library(reshape2)
 library(MASS)
 library(nloptr)
 
-source('C:/Nima/R/projects/libraries/developing_packages/niragen.R')
-source('C:/Nima/R/projects/libraries/developing_packages/io.R')
+source('C:/Nicolas/R/projects/libraries/developing_packages/gener.R')
+source('C:/Nicolas/R/projects/libraries/developing_packages/io.R')
 
 # D = readODBC(tableName = 'BMO_HL_WIMS', fields = c('WIM_ACTV_TYPE_C', 'WIM_START_DT', 'WIM_COMT_DT', 'WIM_STUS_REAS_TYPE_C', 'PACT_EMPL_M'),
 #                 filter = list(WIM_COMT_DT = list(min = '2017-01-01', max = '2017-01-02', na.rm = T, type = 'time'),
@@ -4070,17 +4070,17 @@ INNER JOIN
   library(lpSolve)
   library(magrittr)
   
-  source('C:/Nima/R/projects/libraries/developing_packages/niragen.R')
-  source('C:/Nima/R/projects/libraries/developing_packages/io.R')
-  source('C:/Nima/R/projects/libraries/developing_packages/optim.R')
+  source('C:/Nicolas/R/projects/libraries/developing_packages/gener.R')
+  source('C:/Nicolas/R/projects/libraries/developing_packages/io.R')
+  source('C:/Nicolas/R/projects/libraries/developing_packages/optim.R')
   
-  source('C:/Nima/R/projects/cba/cba.nextgen.wfo/script/wfo.cba.tools.R')
-  source('C:/Nima/R/projects/libraries/developing_packages/wfo.tools.R')
-  source('C:/Nima/R/projects/libraries/developing_packages/wfo.R')
+  source('C:/Nicolas/R/projects/abc/abc.nxtgn.wfo/script/wfo.abc.tools.R')
+  source('C:/Nicolas/R/projects/libraries/developing_packages/wfo.tools.R')
+  source('C:/Nicolas/R/projects/libraries/developing_packages/wfo.R')
   
-  # niravis:
-  source('C:/Nima/R/projects/libraries/developing_packages/bubbles.R')
-  source('C:/Nima/R/projects/libraries/developing_packages/visgen.R')
+  # viser:
+  source('C:/Nicolas/R/projects/libraries/developing_packages/bubbles.R')
+  source('C:/Nicolas/R/projects/libraries/developing_packages/visgen.R')
   
   # Example:
   # Frequencies
@@ -4162,7 +4162,7 @@ INNER JOIN
   
   ---
 title: 'SO: An introduction to the optimal task allocatoe engine'
-author: "Nima Ramezani Taghiabadi"
+author: "Nicolas Berta "
 date: "2 October 2018"
 output: html_document
 ---
@@ -4367,7 +4367,7 @@ Minimum columns required for the task list are: __Task ID__, __skill(Task Type)_
 ```{r }
 library(magrittr)
 library(dplyr)
-library(niragen)
+library(gener)
 library(otar)
 
 tasklist = data.frame(taskID = 'Task' %>% paste(1:1000), taskType = 'Type' %>% paste(1:10) %>% sample(1000, replace = T) , priority = rnorm(1000), score = 1, agent = as.character(NA), workable = T, stringsAsFactors = F)

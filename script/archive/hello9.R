@@ -19,7 +19,7 @@ sc <- spark_connect(master = "local", config = config)
 
 
 # Local data paths:
-path.el   = 'C:/Users/nima/Documents/data/eventlog'
+path.el   = 'C:/Users/nicolas/Documents/data/eventlog'
 ### Read Eventlog data:
 el <- sparklyr::spark_read_parquet(sc, name = 'el', path = path.el)
 
@@ -369,7 +369,7 @@ buildAthenaTable = function(conn, dsName = 'dataset', tblName = 'data', s3_data_
   # structure    = "(caseID STRING, eventType STRING, eventTime STRING, variable STRING,value STRING)"
   structure    = "(caseID STRING, eventType STRING, eventTime TIMESTAMP, variable STRING,value FLOAT)"
   partition    = " PARTITIONED BY(caseid STRING, eventTime TIMESTAMP, )"
-  # s3_data_path = 's3://eventmapper.prod.sticky.westpac.elulaservices.com/run=488f037c-d5c2-475a-8d8f-4372f62e2177/data/'
+  # s3_data_path = 's3://eventmapper.prod.sky.westpac.esrv.com/run=468f127w-c4e1-891b-3d8f-2471f62f2537/data/'
   whatsthis    = 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
   if(format == 'parquet'){
     qry          = paste0("CREATE EXTERNAL TABLE ", dsName, ".", tblName, structure, " STORED AS PARQUET LOCATION '", s3_data_path, "'", " tblproperties ('parquet.compress'='SNAPPY');")
@@ -501,11 +501,11 @@ y %>%
 
 rs = y %>% resource_specialisation("resource")
 rs = rs[!rs$agent == "Auto User " & !is.na(rs$agent), ]
-rs[order(rs$absolute, decreasing = T)[1:20],] %>% niraPlot(x = 'absolute', y = 'agent', plotter = 'plotly', type = 'bar')
+rs[order(rs$absolute, decreasing = T)[1:20],] %>% viserPlot(x = 'absolute', y = 'agent', plotter = 'plotly', type = 'bar')
 
 
 y %>% resource_involvement("resource") %>% head(n = 20) %>% na.omit %>% filter(agent != "Auto User ") %>% 
-  niraPlot(x = 'relative', y = 'agent', plotter = 'plotly', type = 'bar')
+  viserPlot(x = 'relative', y = 'agent', plotter = 'plotly', type = 'bar')
 
 
 ### test_v1.R ------------------
@@ -515,23 +515,23 @@ library(magrittr)
 library(dplyr)
 library(RODBC)
 
-source('../../packages/master/niragen-master/R/niragen.R')
-source('../../packages/master/niragen-master/R/io.R')
-source('../../packages/master/niragen-master/R/linalg.R')
+source('../../packages/master/gener-master/R/gener.R')
+source('../../packages/master/gener-master/R/io.R')
+source('../../packages/master/gener-master/R/linalg.R')
 
-source('../../packages/master/niraprom-master/R/tstools.R')
-source('../../packages/master/niraprom-master/R/promtools.R')
-source('../../packages/master/niraprom-master/R/transys.R')
-source('../../packages/master/niraprom-master/R/prom.R')
+source('../../packages/master/promer-master/R/tstools.R')
+source('../../packages/master/promer-master/R/promtools.R')
+source('../../packages/master/promer-master/R/transys.R')
+source('../../packages/master/promer-master/R/prom.R')
 
-source('../../packages/master/nirats-master/R/tsdaily.R')
+source('../../packages/master/timser-master/R/tsdaily.R')
 
-source('../../packages/master/niravis-master/R/visgen.R')
-source('../../packages/master/niravis-master/R/plotly.R')
-source('../../packages/master/niravis-master/R/bpexploder.R')
-source('../../packages/master/niravis-master/R/diagramer.R')
-source('../../packages/master/niravis-master/R/visNetwork.R')
-source('../../packages/master/niravis-master/R/niraPlot.R')
+source('../../packages/master/viser-master/R/visgen.R')
+source('../../packages/master/viser-master/R/plotly.R')
+source('../../packages/master/viser-master/R/bpexploder.R')
+source('../../packages/master/viser-master/R/diagramer.R')
+source('../../packages/master/viser-master/R/visNetwork.R')
+source('../../packages/master/viser-master/R/viserPlot.R')
 
 t1 = as.time('2017-02-01 00:00:00')
 t2 = as.time('2017-03-02 00:00:00')
@@ -626,14 +626,14 @@ tl %>% filter(activity %in% team_activities[[team]]) %>% group_by()
 library(magrittr)
 library(dplyr)
 library(RODBC)
-library(niragen)
-library(niraprom)
-library(niravis)
-library(nirats)
+library(gener)
+library(promer)
+library(viser)
+library(timser)
 
-source('C:/Nima/RCode/projects/cba.hlp.simulation/script/banwest/promtools2ba.R')
+source('C:/Nicolas/RCode/projects/abc.hlp.simulation/script/banwest/promtools2ba.R')
 
-source('../../packages/master/nirats-master/R/tsdaily.R')
+source('../../packages/master/timser-master/R/tsdaily.R')
 
 t1 = as.time('2017-02-01 00:00:00')
 t2 = as.time('2017-02-05 00:00:00')
@@ -669,13 +669,13 @@ x$feedEventLog(EL, caseID_col = 'CASE_ID', taskID_col = 'TASK_ORDER_NUM', actGro
 
 ##### Summary of activity processing time:
 x$get.activity.summary.procTime(time_unit = 'hour') %>% 
-  niraPlot(x = 'Total', y = 'activity', plotter = 'highcharter', type = 'bar', config = list(legend.enabled = F, yAxis.label = 'Total Processing Time (hours)'))
+  viserPlot(x = 'Total', y = 'activity', plotter = 'highcharter', type = 'bar', config = list(legend.enabled = F, yAxis.label = 'Total Processing Time (hours)'))
 
 x$get.agent.summary.activityProcTime(time_unit = 'hour')
 x$get.agent.summary.procTime()
 
 x$get.agent.summary.idleTime(time_unit = 'hour') %>% 
-  niraPlot(x = 'Total', y = 'agent', plotter = 'highcharter', type = 'bar')
+  viserPlot(x = 'Total', y = 'agent', plotter = 'highcharter', type = 'bar')
 
 ####### Box plots:
 
@@ -716,26 +716,26 @@ x$tasklist %>%
 library(magrittr)
 library(dplyr)
 
-# library(niragen)
-source('../../packages/master/niragen-master/R/linalg.R')
-source('../../packages/master/niragen-master/R/io.R')
-source('../../packages/master/niragen-master/R/niragen.R')
+# library(gener)
+source('../../packages/master/gener-master/R/linalg.R')
+source('../../packages/master/gener-master/R/io.R')
+source('../../packages/master/gener-master/R/gener.R')
 
-# library(niravis)
-source('../../packages/master/niravis-master/R/visgen.R')
-source('../../packages/master/niravis-master/R/visNetwork.R')
-source('../../packages/master/niravis-master/R/billboarder.R')
-source('../../packages/master/niravis-master/R/highcharter.R')
-source('../../packages/master/niravis-master/R/diagramer.R')
-source('../../packages/master/niravis-master/R/networkD3.R')
-source('../../packages/master/niravis-master/R/niraPlot.R')
-source('../../packages/master/nirats-master/R/time.series.R')
-source('../../packages/master/nirats-master/R/tsdaily.R')
+# library(viser)
+source('../../packages/master/viser-master/R/visgen.R')
+source('../../packages/master/viser-master/R/visNetwork.R')
+source('../../packages/master/viser-master/R/billboarder.R')
+source('../../packages/master/viser-master/R/highcharter.R')
+source('../../packages/master/viser-master/R/diagramer.R')
+source('../../packages/master/viser-master/R/networkD3.R')
+source('../../packages/master/viser-master/R/viserPlot.R')
+source('../../packages/master/timser-master/R/time.series.R')
+source('../../packages/master/timser-master/R/tsdaily.R')
 
 
-# library(niraprom)
-source('../../packages/master/niraprom/R/transys.R')
-source('../../packages/master/niraprom/R/prom.R')
+# library(promer)
+source('../../packages/master/promer/R/transys.R')
+source('../../packages/master/promer/R/prom.R')
 
 D = read.csv('script/discharges/full_discharges_mohammad_Sep_Dec 2016.csv', as.is = T)
 D = D[D$Type == 'PADC',]
@@ -838,8 +838,8 @@ create_fuzzy_map(D_fuzzy)
 # Header
 # Filename:       dash.R
 # Description:    This file creates shiny UI for the process DNA dashboard. 
-# Author:         Nima Ramezani Taghiabadi
-# Email:          nima.ramezani@cba.com.au
+# Author:         Nicolas Berta 
+# Email:          nicolas.Berta@abc.com.au
 # Start Date:     18 September 2018
 # Last Revision:  06 November 2018
 # Version:        0.1.0
@@ -881,7 +881,7 @@ colcloth    = list(type = 'column', weight = 6, align = 'center')
 ######### Main items: #########
 
 I$main       = list(type = 'dashboardPage', layout.head = c(), layout.side = c('getprocess', 'getdates', 'load', 'line', 'getthr', 'saveobj', 'readobj'), sidebar.width = 300, layout.body = c('shinyjs', 'menu'))
-I$main       = list(type = 'dashboardPage', title = 'CBA Homeloan Process View', skin = 'black', layout.head = c() ,layout.body = c('shinyjs', 'procpage'), sidebar.width = 300,
+I$main       = list(type = 'dashboardPage', title = 'Homeloan Process View', skin = 'black', layout.head = c() ,layout.body = c('shinyjs', 'procpage'), sidebar.width = 300,
                     layout.side = c('getprocess', 'getdates', 'load', 'line', 'filters', 'line', 'comp', 'lpsrang', 'freqthr', 'stsdmn', 'strsta', 'endsta', 'apply','reset', 'line', 'saveobj', 'readobj'), header.title = 'CBA Homeloan Process View v 0.0.1', header.title.width = 300, header.title.font = 'tahoma', header.title.font.weight = 'bold', header.title.font.size = 26)
 
 ######### SIDEBAR ###########
@@ -1108,10 +1108,10 @@ library(shinydashboard)
 library(shinythemes)
 library(shinyjs)
 
-library(niragen)
-library(niraprom)
-library(nirats)
-library(niravis)
+library(gener)
+library(promer)
+library(timser)
+library(viser)
 
 mode = 'ODBC'
 
@@ -1166,27 +1166,27 @@ source('script/dna_app/dash.R')
 
 
 
-# cbacran = 'https://artifactory.ai.cba/artifactory/cran-cba/2018-01-05/'
-# noncbacran = 'https://artifactory.ai.cba/artifactory/mran-remote/2018-01-12/'
+# abccran = 'https://artifactory.ai.abc/artifactory/cran-abc/2018-01-05/'
+# nonabccran = 'https://artifactory.ai.abc/artifactory/mran-remote/2018-01-12/'
 # 
-# install.packages("RJDBC", repos = noncbacran)
-# install.packages("rJava", repos = noncbacran)
-# install.packages("progress", repos = noncbacran)
-# install.packages("getPass", repos = noncbacran)
+# install.packages("RJDBC", repos = nonabccran)
+# install.packages("rJava", repos = nonabccran)
+# install.packages("progress", repos = nonabccran)
+# install.packages("getPass", repos = nonabccran)
 # 
-# install.packages("teradata.cba", repos = cbacran)
-# install.packages("dbplyr", repos = noncbacran)
-# install.packages("dplyr", repos = noncbacran)
+# install.packages("teradata.abc", repos = abccran)
+# install.packages("dbplyr", repos = nonabccran)
+# install.packages("dplyr", repos = nonabccran)
 # 
 # library(dplyr)
 # library(dbplyr)
-# library(teradata.cba)
-# # https://confluence.prod.cba/display/ADS/Dplyr+and+teradata.cba
+# library(teradata.abc)
+# # https://confluence.prod.abc/display/ADS/Dplyr+and+teradata.abc
 
-# Connecting via teradata.cba:
+# Connecting via teradata.abc:
 # library(dplyr)
 # library(dbplyr)
-# library(teradata.cba)
+# library(teradata.abc)
 # 
 # con = gdw_connect(uid = 'SUOPSANA01', pwd = 'Service#15Connect', local = T)
 # his = tbl(con, "APPT_STUS_HIST")
@@ -1196,7 +1196,7 @@ source('script/dna_app/dash.R')
 
 
 # To publish via rs connect:
-# url_connect_server <- 'https://connect.aiaa.ai.cba'
+# url_connect_server <- 'https://connect.aiaa.ai.abc'
 # addConnectServer(url_connect_server, 'aiaa-rstudio-connect')
 # connectUser(server='aiaa-rstudio-connect')
 
@@ -1302,17 +1302,17 @@ getStatusesWithName = function(obj, stmap, include_all = F, full = F){
 # STD %>% dplyr::select(STUS_C, STUS_X) %>% write.csv('statusDecode.csv')
 
 runSQL_JDBC <- function(query, uid = 'SUOPSANA01', pwd = 'Service#15Connect', local = T){
-  channel    = teradata.cba::gdw_connect(uid = uid, pwd = pwd, local = local)
-  D          = teradata.cba::run_sql_query(channel, query = query, lower_colnames = FALSE)
-  teradata.cba::gdw_disconnect(channel)
+  channel    = teradata.abc::gdw_connect(uid = uid, pwd = pwd, local = local)
+  D          = teradata.abc::run_sql_query(channel, query = query, lower_colnames = FALSE)
+  teradata.abc::gdw_disconnect(channel)
   return(D)
 }
 
 # Get all process types:
 getAllProcessTypes = function(uid = 'SUOPSANA01', pwd = 'Service#15Connect', local = T){
-  channel  = teradata.cba::gdw_connect(uid = uid, pwd = pwd, local = local)
+  channel  = teradata.abc::gdw_connect(uid = uid, pwd = pwd, local = local)
   qry      = "sel APPT_QLFY_C as processType from PVDATA.APPT group by APPT_QLFY_C order by APPT_QLFY_C"
-  D        = teradata.cba::run_sql_query(channel, qry, lower_colnames = FALSE)
+  D        = teradata.abc::run_sql_query(channel, qry, lower_colnames = FALSE)
   return(D$processType %>% na.omit %>% as.character) 
 }
 
@@ -1328,9 +1328,9 @@ getAllStatuses = function(uid = 'SUOPSANA01', pwd = 'Service#15Connect', local =
 } 
 
 # getAllStatuses = function(uid = 'SUOPSANA01', pwd = 'Service#15Connect', local = T){
-#   channel  = teradata.cba::gdw_connect(uid = uid, pwd = pwd, local = local)
+#   channel  = teradata.abc::gdw_connect(uid = uid, pwd = pwd, local = local)
 #   qry      = "select * from pvdata.TYPE_STUS_CURR"
-#   D        = teradata.cba::run_sql_query(channel, qry, lower_colnames = FALSE) %>% na.omit
+#   D        = teradata.abc::run_sql_query(channel, qry, lower_colnames = FALSE) %>% na.omit
 #   stmap    = D$STUS_X
 #   names(stmap) <- D$STUS_C
 #   
@@ -1412,8 +1412,8 @@ applyFilter = function(obj, complete = NULL, ...){
 # Get and save status decode table:
 
 
-getChannel = function(uid = 'rshinyuser', pwd = 'smart1Optimiser2'){
-  server     <- 's029npcw9515.s4.chp.cba'
+getChannel = function(uid = 'rshinyuser', pwd = 'smrt1optmzr2'){
+  server     <- 's029npcw9515.s4.chp.abc'
   database   <- 'SODEV'
   odbcDriver <- '{ODBC Driver 13 for SQL Server}'
   
@@ -1422,7 +1422,7 @@ getChannel = function(uid = 'rshinyuser', pwd = 'smart1Optimiser2'){
 }
 
 # "select top 100 * from staging.appt_stus_hist"
-runSQL_SODEV <- function(query, uid = 'rshinyuser', pwd = 'smart1Optimiser2'){
+runSQL_SODEV <- function(query, uid = 'rshinyuser', pwd = 'smrt1optmzr2'){
   channel    = getChannel(uid = uid, pwd = pwd)
   D          = sqlQuery(channel, query)
   odbcClose(channel)
@@ -1430,7 +1430,7 @@ runSQL_SODEV <- function(query, uid = 'rshinyuser', pwd = 'smart1Optimiser2'){
 }
 
 # runSQL_SODEV("select top 100 * from staging.appt_stus_hist where APPT_I like 'CSEHL%'")
-getAllProcessTypes = function(uid = 'rshinyuser', pwd = 'smart1Optimiser2'){
+getAllProcessTypes = function(uid = 'rshinyuser', pwd = 'smrt1optmzr2'){
   qry = "select processType from staging.APPT_STUS_HIST group by processType order by processType"
   D   = runSQL_SODEV(qry, uid = uid, pwd = pwd)
   if(inherits(D, 'data.frame')){return(D$processType %>% na.omit %>% as.character)} else {return(D %>% as.character)}
@@ -1514,9 +1514,9 @@ getStatusesWithName = function(obj, stmap, include_all = F, full = F){
 ### dash.R ----------------
 # Header
 # Filename:       dash.R
-# Description:    This file creates shiny UI for the Smart Process Optimiser project. 
-# Author:         Nima Ramezani Taghiabadi
-# Email:          nima.ramezani@cba.com.au
+# Description:    This file creates shiny UI for the Smart Process optmzr project. 
+# Author:         Nicolas Berta 
+# Email:          nicolas.Berta@abc.com.au
 # Start Date:     30 May 2018
 # Last Revision:  18 July 2018
 # Version:        1.0.2
@@ -1542,8 +1542,8 @@ noteCloth  = list(type = 'box' , icon = 'comment-o', offset = 0.5, weight = 12, 
 
 I$main       = list(type = 'dashboardPage', layout.head = c(), layout.side = c('getprocess', 'getteams', 'getskills', 'getdates', 'load', 'line', 'getthr', 'saveobj', 'readobj'), sidebar.width = 300, layout.body = c('shinyjs', 'nvp'))
 
-# div(HTML('<img src=\"can.png\" height=\"40\" > &nbsp;'), 'CBA Smart Process Optimiser v 1.0.0')
-I$nvp        = list(type = 'navbarPage', title = 'CBA Smart Process Optimiser v 1.0.0', 
+# div(HTML('<img src=\"can.png\" height=\"40\" > &nbsp;'), 'CBA Smart Process optmzr v 1.0.0')
+I$nvp        = list(type = 'navbarPage', title = 'CBA Smart Process optmzr v 1.0.0', 
                     theme  = shinytheme("flatly"), 
                     layout = c('MPTAB', 'SPTAB', 'APTAB'))
 
@@ -1588,7 +1588,7 @@ updateSelectInput(session, 'getskills', choices = c('All activity types', getAct
 
 # I$map$service = "obj %>% plot.process(plotter = 'DiagrammeR')"
 
-B = "cat(is.null(input$nima), input$nima, '\n')"
+B = "cat(is.null(input$nicolas), input$nicolas, '\n')"
 ######### Build Dashboard: #########
 dash   <- new('DASHBOARD', items = I, king.layout = list('main'), observers = B, objects = list(pm = readRDS('object.rds')), values = list(trigger = 0))
 ui     <- dash$dashboard.ui()
@@ -1620,9 +1620,9 @@ library(RODBC)
 library(shiny)
 library(shinyjs)
 library(shinythemes)
-library(niragen)
-library(niraprom)
-library(niravis)
+library(gener)
+library(promer)
+library(viser)
 
 source('script/gowims_app/pmAppTools.R')
 
@@ -1939,7 +1939,7 @@ library(plyr)
 library(parsedate)
 library(lubridate)
 library(magrittr)
-library(niragen)
+library(gener)
 
 source("script/PEGA/PEGATools.R")
 
@@ -1998,20 +1998,20 @@ eventlog %>% write.csv('script/PEGA/data/PEGA_eventlog.csv', row.names = F)
 library(magrittr)
 library(dplyr)
 
-source('../../packages/master/niragen-master/R/niragen.R')
+source('../../packages/master/gener-master/R/gener.R')
 
-source('../../packages/master/niraprom-master/R/promtools.R')
-source('../../packages/master/niraprom-master/R/prom.R')
-source('../../packages/master/niraprom-master/R/prosim.R')
+source('../../packages/master/promer-master/R/promtools.R')
+source('../../packages/master/promer-master/R/prom.R')
+source('../../packages/master/promer-master/R/prosim.R')
 
 
-source('../../packages/master/niravis-master/R/visgen.R')
-source('../../packages/master/niravis-master/R/jscripts.R')
+source('../../packages/master/viser-master/R/visgen.R')
+source('../../packages/master/viser-master/R/jscripts.R')
 
-source('../../packages/master/niravis-master/R/dygraphs.R')
-source('../../packages/master/niravis-master/R/plotly.R')
-source('../../packages/master/niravis-master/R/visNetwork.R')
-source('../../packages/master/niravis-master/R/niraPlot.R')
+source('../../packages/master/viser-master/R/dygraphs.R')
+source('../../packages/master/viser-master/R/plotly.R')
+source('../../packages/master/viser-master/R/visNetwork.R')
+source('../../packages/master/viser-master/R/viserPlot.R')
 
 t0 = as.time('2018-03-01 00:00:00')
 t1 = as.time('2018-03-01 08:00:00')
@@ -2111,7 +2111,7 @@ vout.sim = asis.res$taskEventLog %>%  filter(agent %in% agents) %>% mutate(compD
 
 vout = vout.actual %>% inner_join(vout.sim, by = 'compDate')
 
-######## Using Smart Optimiser:
+######## Using Smart optmzr:
 sq = seq(from = t1 %>% setTZ('GMT') %>% as.Date, to = t2 %>% setTZ('GMT') %>% as.Date, by = 1)
 calls = data.frame(callID = character(), agent = character(), callTime = logical() %>% as.POSIXct, compTime = logical() %>% as.POSIXct, taskID = character(), skill = character(), stringsAsFactors = F)
 for(i in sequence(length(sq))){
@@ -2177,20 +2177,20 @@ vout = vout.sim %>% inner_join(vout.sim.so, by = 'compDate')
 library(magrittr)
 library(dplyr)
 
-source('../../packages/master/niragen-master/R/niragen.R')
+source('../../packages/master/gener-master/R/gener.R')
 
-source('../../packages/master/niraprom-master/R/promtools.R')
-source('../../packages/master/niraprom-master/R/prom.R')
-source('../../packages/master/niraprom-master/R/prosim.R')
+source('../../packages/master/promer-master/R/promtools.R')
+source('../../packages/master/promer-master/R/prom.R')
+source('../../packages/master/promer-master/R/prosim.R')
 
 
-source('../../packages/master/niravis-master/R/visgen.R')
-source('../../packages/master/niravis-master/R/jscripts.R')
+source('../../packages/master/viser-master/R/visgen.R')
+source('../../packages/master/viser-master/R/jscripts.R')
 
-source('../../packages/master/niravis-master/R/dygraphs.R')
-source('../../packages/master/niravis-master/R/plotly.R')
-source('../../packages/master/niravis-master/R/visNetwork.R')
-source('../../packages/master/niravis-master/R/niraPlot.R')
+source('../../packages/master/viser-master/R/dygraphs.R')
+source('../../packages/master/viser-master/R/plotly.R')
+source('../../packages/master/viser-master/R/visNetwork.R')
+source('../../packages/master/viser-master/R/viserPlot.R')
 
 t1 = as.time('2018-03-01 08:00:00')
 t2 = as.time('2018-04-01 18:00:00')
@@ -2301,12 +2301,12 @@ cfg = list(color = list(simulation = 'blue', actual = 'red'),
 
 vin.actual
 
-vin %>% niraPlot(x = 'arrDate', y = list('actual', 'simulation'), config = cfg, type = 'combo', plotter = 'dygraphs')
+vin %>% viserPlot(x = 'arrDate', y = list('actual', 'simulation'), config = cfg, type = 'combo', plotter = 'dygraphs')
 
 
 
 
-# Using Smart Optimiser:
+# Using Smart optmzr:
 
 # # Allocate jobs from 9:00 am to 11:00 am:
 AA = data.frame(agent = agents, scheduled = 240)
@@ -2370,17 +2370,17 @@ tasklist %>% filter(!is.na(agent)) %>% nrow
 # out of:
 tasklist %>% nrow
 
-### test_niraprom.R ----------------------------
+### test_promer.R ----------------------------
 
-source('../../packages/master/niragen-master/R/niragen.R')
+source('../../packages/master/gener-master/R/gener.R')
 
-source('../../packages/master/niraprom-master/R/prom.R')
+source('../../packages/master/promer-master/R/prom.R')
 
 
-source('../../packages/master/niravis-master/R/visgen.R')
-source('../../packages/master/niravis-master/R/plotly.R')
-source('../../packages/master/niravis-master/R/visNetwork.R')
-source('../../packages/master/niravis-master/R/niraPlot.R')
+source('../../packages/master/viser-master/R/visgen.R')
+source('../../packages/master/viser-master/R/plotly.R')
+source('../../packages/master/viser-master/R/visNetwork.R')
+source('../../packages/master/viser-master/R/viserPlot.R')
 
 
 # This program, runs a que simulation on actual task arrivals:
@@ -2426,12 +2426,12 @@ x$eventlog %>% dplyr::group_by(skill, compDate) %>% dplyr::summarise(volout = le
 
 ### archive/runSimulation.R ---------------------
 
-### archive/runSmartOptimiser.R ---------------------
+### archive/runSmartoptmzr.R ---------------------
 ### archive/simtest.R ---------------------
 library(magrittr)
 library(dplyr)
-library(niragen)
-library(niraprom)
+library(gener)
+library(promer)
 library(reshape2)
 library(lpSolve)
 
@@ -2562,7 +2562,7 @@ asis.res$taskEventLog %>% filter(!is.na(agent)) %>% nrow
 # out of:
 asis.res$taskEventLog %>% nrow
 
-# Using Smart Optimiser:
+# Using SmrtOpt:
 
 # # Allocate jobs from 9:00 am to 11:00 am:
 AA = data.frame(agent = agents, scheduled = 240)
@@ -2637,8 +2637,8 @@ tasklist %>% nrow
 # Header
 # Filename:       dash.R
 # Description:    This file creates shiny UI for the Smart Process Optimiser project. 
-# Author:         Nima Ramezani Taghiabadi
-# Email:          nima.ramezani@cba.com.au
+# Author:         Nicolas Berta 
+# Email:          nicolas.Berta@abc.com.au
 # Start Date:     30 May 2018
 # Last Revision:  30 May 2018
 # Version:        1.0.0
@@ -2653,19 +2653,19 @@ tasklist %>% nrow
 
 
 
-library(niragen)
+library(gener)
 library(shinythemes)
 library(shinyjs)
 
-source('../../packages/master/niravis-master/R/dashboard.R')
-source('../../packages/master/niravis-master/R/visgen.R')
-source('../../packages/master/niravis-master/R/rscripts.R')
+source('../../packages/master/viser-master/R/dashboard.R')
+source('../../packages/master/viser-master/R/visgen.R')
+source('../../packages/master/viser-master/R/rscripts.R')
 
 
 ######### Service Functions:#########
 prescript    = "if(is.null(sync$trigger)){sync$trigger = 0}"
 
-# OTS.srv        = paste(prescript, "session$userData$pm %>% niraPlot(label = SPLabels, config = list(withRowNames = T), plotter = 'DT', type = 'table')", sep = ';')
+# OTS.srv        = paste(prescript, "session$userData$pm %>% viserPlot(label = SPLabels, config = list(withRowNames = T), plotter = 'DT', type = 'table')", sep = ';')
 # lovrInfo.srv   = paste(prescript, "session$userData$pm %>% leftover.count(rownames(session$userData$ota$SP)[input$OTS_rows_selected])", sep = ';')
 # backInfo.srv   = paste(prescript, "session$userData$pm %>% backlog.count(rownames(session$userData$ota$SP)[input$OTS_rows_selected])", sep = ';')                            
 # unalInfo.srv   = paste(prescript, "session$userData$ota %>% unallocated.count(rownames(session$userData$ota$SP)[input$OTS_rows_selected])", sep = ';')
@@ -2684,16 +2684,16 @@ prescript    = "if(is.null(sync$trigger)){sync$trigger = 0}"
 
 
 ######### Load data, build reactive variables and define initial values: #########
-# teamTable = readTeams(dsn = 'SOTEST', uid = 'rshinyuser', pwd = 'smart1Optimiser2') %>% column2Rownames('TEAMID')
-# holidays  = readHolidays(dsn = 'SOTEST', uid = 'rshinyuser', pwd = 'smart1Optimiser2')[,'CALENDARDATE'] %>% as.Date
+# teamTable = readTeams(dsn = 'SOTEST', uid = 'rshinyuser', pwd = 'smrt1Optimiser2') %>% column2Rownames('TEAMID')
+# holidays  = readHolidays(dsn = 'SOTEST', uid = 'rshinyuser', pwd = 'smrt1Optimiser2')[,'CALENDARDATE'] %>% as.Date
 # teams = rownames(teamTable)
 # names(teams) = teamTable[,'TEAMNAME']
 # 
 # val = list(ALCD = NULL, ALCT = NULL, trigger = 0)
 # 
-# dataset   = loadData(Sys.Date(), dsn = 'SOTEST', uid = 'rshinyuser', pwd = 'smart1Optimiser2')
+# dataset   = loadData(Sys.Date(), dsn = 'SOTEST', uid = 'rshinyuser', pwd = 'smrt1Optimiser2')
 # 
-# logt = getLoginTable(dsn = 'SOTEST', uid = 'rshinyuser', pwd = 'smart1Optimiser2') %>% column2Rownames('USERNAME')
+# logt = getLoginTable(dsn = 'SOTEST', uid = 'rshinyuser', pwd = 'smrt1optmzr2') %>% column2Rownames('USERNAME')
 # names(logt) %<>% tolower
 # logt$password %<>% as.character
 # logt['bmoguest', 'password'] <- "$2a$12$ZcVliB8VHNdS2IFKLPFTe.W6pZk6UsQLwLI4o/rCCUCNEst5D3aum"
@@ -2732,9 +2732,9 @@ O = list()
 
 I$main       = list(type = 'fluidPage', layout = c('shinyjs', 'nvp'))
 
-# div(HTML('<img src=\"can.png\" height=\"40\" > &nbsp;'), 'CBA Smart Process Optimiser v 1.0.0')
+# div(HTML('<img src=\"can.png\" height=\"40\" > &nbsp;'), 'CBA Smart Process optmzr v 1.0.0')
 
-I$nvp        = list(type = 'navbarPage', title = 'CBA Smart Process Optimiser v 1.0.0', 
+I$nvp        = list(type = 'navbarPage', title = 'CBA Smart Process optmzr v 1.0.0', 
                     theme  = shinytheme("flatly"), 
                     layout = c('MPTAB', 'APTAB', 'SPTAB'))
 
@@ -2770,7 +2770,7 @@ app    <- shinyApp(ui, server)
 ### dash.Rmd ---------------------
 ---
   title: "Status Transition System for CBA HL Application Process"
-author: "NIRASOFT"
+author: "NIBESOFT"
 date: "3 March 2017"
 output: 
   flexdashboard::flex_dashboard:
@@ -2924,15 +2924,15 @@ renderSunburst({sun})
 
 
 ### denny.R ---------------------
-# niragen:
-library(niragen)
+# gener:
+library(gener)
 
-# nirats:
-library(nirats)
+# timser:
+library(timser)
 
-# niravis:
-source('C:/Nima/R/projects/libraries/developing_packages/visgen.R')
-library(niravis)
+# viser:
+source('C:/Nicolas/R/projects/libraries/developing_packages/visgen.R')
+library(viser)
 
 D = readODBC(tableName = 'BW_CPS_OUTCOME_VOLUME') 
 
@@ -2960,18 +2960,18 @@ for (i in rownames(A)){
 library(timeDate)
 
 library(magrittr)
-# library(niragen)
-source('C:/Nima/RCode/packages/niragen/R/niragen.R')
-source('C:/Nima/RCode/packages/niragen/R/linalg.R')
-source('C:/Nima/RCode/packages/niragen/R/io.R')
+# library(gener)
+source('C:/Nicolas/RCode/packages/gener/R/gener.R')
+source('C:/Nicolas/RCode/packages/gener/R/linalg.R')
+source('C:/Nicolas/RCode/packages/gener/R/io.R')
 
-# library(niravis)
-source('C:/Nima/RCode/packages/niravis-master/R/visgen.R')
-source('C:/Nima/RCode/packages/niravis-master/R/visNetwork.R')
-source('C:/Nima/RCode/packages/niravis-master/R/networkD3.R')
+# library(viser)
+source('C:/Nicolas/RCode/packages/viser-master/R/visgen.R')
+source('C:/Nicolas/RCode/packages/viser-master/R/visNetwork.R')
+source('C:/Nicolas/RCode/packages/viser-master/R/networkD3.R')
 
-# library(niraprom)
-source('C:/Nima/RCode/packages/niraprom/R/transys.R')
+# library(promer)
+source('C:/Nicolas/RCode/packages/promer/R/transys.R')
 
 
 case.filter.query = sqlScript(tableName = 'APPT', dbName = 'PVDATA', fields = c('APPT_I'), filter = list(APPT_QLFY_C = list(domain = "HL"), APPT_CRAT_D = list(min = '2016-01-01', max = '2016-03-01', type = 'date')))
@@ -3014,7 +3014,7 @@ saveRDS(s, 'data/system.rds')
 
 
 library(shiny)
-library(niravis)
+library(viser)
 
 
 # Expected Columns and their classes:
@@ -3022,7 +3022,7 @@ library(niravis)
 
 
 
-# This functions builds a niravis container for a dialog box in order to get a CSV table and issue out a table with desired column names and classes. 
+# This functions builds a viser container for a dialog box in order to get a CSV table and issue out a table with desired column names and classes. 
 # The returned container includes all service functions for reading and modifying the input table as well as error handling.
 # todo: add Excel tables should be added
 # the function returns a list of items that needs to be appended to any UI(dashboard) on which the dialog box is going to appear.
@@ -3107,7 +3107,7 @@ build.getTableDialogBox = function(name, classes, outputvar = name %>% paste('ou
   return(items)
     }
 
-# This function will be transferred to niravis and all future editions will be done there
+# This function will be transferred to viser and all future editions will be done there
 # 'dialog' is now the name of the dialogbox
 # OUT is the reactive global variable in the system that should not change if file read fails
 # dialog.failmsg is a non-reactive variable in session$userData$temp specifying fail message. If not failed, failmsg = ''
@@ -3135,24 +3135,24 @@ library(magrittr)
 
 # Run local R scripts:
 
-# niragen:
-source('C:/Nima/RCode/packages/niragen/R/niragen.R')
-source('C:/Nima/RCode/packages/niragen/R/linalg.R')
-source('C:/Nima/RCode/packages/niragen/R/io.R')
+# gener:
+source('C:/Nicolas/RCode/packages/gener/R/gener.R')
+source('C:/Nicolas/RCode/packages/gener/R/linalg.R')
+source('C:/Nicolas/RCode/packages/gener/R/io.R')
 
 # time series:
-source('C:/Nima/RCode/packages/nirats/R/time.series.R')
+source('C:/Nicolas/RCode/packages/timser/R/time.series.R')
 
-# niravis
-source('C:/Nima/RCode/packages/niravis-master/R/visgen.R')
-source('C:/Nima/RCode/packages/niravis-master/R/visNetwork.R')
-source('C:/Nima/RCode/packages/niravis-master/R/dygraphs.R')
-source('C:/Nima/RCode/packages/niravis-master/R/networkD3.R')
+# viser
+source('C:/Nicolas/RCode/packages/viser-master/R/visgen.R')
+source('C:/Nicolas/RCode/packages/viser-master/R/visNetwork.R')
+source('C:/Nicolas/RCode/packages/viser-master/R/dygraphs.R')
+source('C:/Nicolas/RCode/packages/viser-master/R/networkD3.R')
 
-# niraprom:
-source('C:/Nima/RCode/packages/niraprom/R/transys.R')
+# promer:
+source('C:/Nicolas/RCode/packages/promer/R/transys.R')
 
-s = readRDS('C:/Nima/R/projects/cba/cba.hlp.simulation/data/system.rds')
+s = readRDS('C:/Nicolas/R/projects/abc/abc.hlp.simulation/data/system.rds')
 
 res = s$getAdjacencies()
 net = adjacency2visNetwork(res$adjacency, res$timeAdjacency)
@@ -3176,26 +3176,26 @@ V = s$getStatusVolume()
 library(magrittr)
 library(dplyr)
 
-# library(niragen)
-source('../../packages/master/niragen-master/R/linalg.R')
-source('../../packages/master/niragen-master/R/io.R')
-source('../../packages/master/niragen-master/R/niragen.R')
+# library(gener)
+source('../../packages/master/gener-master/R/linalg.R')
+source('../../packages/master/gener-master/R/io.R')
+source('../../packages/master/gener-master/R/gener.R')
 
-# library(niravis)
-source('../../packages/master/niravis-master/R/visgen.R')
-source('../../packages/master/niravis-master/R/visNetwork.R')
-source('../../packages/master/niravis-master/R/billboarder.R')
-source('../../packages/master/niravis-master/R/highcharter.R')
-source('../../packages/master/niravis-master/R/diagramer.R')
-source('../../packages/master/niravis-master/R/networkD3.R')
-source('../../packages/master/niravis-master/R/niraPlot.R')
-source('../../packages/master/nirats-master/R/time.series.R')
-source('../../packages/master/nirats-master/R/tsdaily.R')
+# library(viser)
+source('../../packages/master/viser-master/R/visgen.R')
+source('../../packages/master/viser-master/R/visNetwork.R')
+source('../../packages/master/viser-master/R/billboarder.R')
+source('../../packages/master/viser-master/R/highcharter.R')
+source('../../packages/master/viser-master/R/diagramer.R')
+source('../../packages/master/viser-master/R/networkD3.R')
+source('../../packages/master/viser-master/R/viserPlot.R')
+source('../../packages/master/timser-master/R/time.series.R')
+source('../../packages/master/timser-master/R/tsdaily.R')
 
 
-# library(niraprom)
-source('../../packages/master/niraprom/R/transys.R')
-source('../../packages/master/niraprom/R/prom.R')
+# library(promer)
+source('../../packages/master/promer/R/transys.R')
+source('../../packages/master/promer/R/prom.R')
 
 D = read.csv('data/full_discharges_mohammad_Sep_Dec 2016.csv', as.is = T)
 
@@ -3480,7 +3480,7 @@ arima.seven.ahead <- function(my.ts)
     ggplot(aes(x = time, y = value, color = type)) +
     geom_point(alpha = 0.5) +
     geom_line(alpha = 0.5) +
-    scale_color_manual(values = cbastylr_corp()) +
+    scale_color_manual(values = abcstylr_corp()) +
     theme_tq()
   
   accuracy <- data.frame(accuracy(forecastDF$value, actualDF$value))
@@ -3620,7 +3620,7 @@ arima.one.ahead <- function(my.ts)
     ggplot(aes(x = time, y = value, color = type)) +
     geom_point(alpha = 0.5) +
     geom_line(alpha = 0.5) +
-    scale_color_manual(values = cbastylr_corp()) +
+    scale_color_manual(values = abcstylr_corp()) +
     theme_tq()
   
   accuracy <- data.frame(accuracy(forecastDF$value, actualDF$value))
@@ -3679,7 +3679,7 @@ arima.daily.final <- function(my.ts, model, horizon, weekly.data){ # weekly hori
   arimaplot <- ggplot(plot.df, aes(x = Date, y = Volume, colour = Type))  +
     geom_point(alpha = 0.5) +
     geom_line(alpha = 0.5) +
-    scale_color_manual(values = cbastylr_corp()) +
+    scale_color_manual(values = abcstylr_corp()) +
     theme_tq()
   
   list("Forecast" = forecast.df, "Plot" = arimaplot)
@@ -3709,7 +3709,7 @@ arima.weekly.final <- function(my.ts, model, horizon){
   arimaplot <- ggplot(plot.df, aes(x = Date, y = Volume, colour = Type)) +
     geom_point(alpha = 0.5) +
     geom_line(alpha = 0.5) +
-    scale_color_manual(values = cbastylr_corp()) +
+    scale_color_manual(values = abcstylr_corp()) +
     theme_tq()
   
   list("Forecast" = forecast.df, "Plot" = arimaplot)
@@ -3733,7 +3733,7 @@ arima.weekly.final <- function(my.ts, model, horizon){
 library(rJava)
 library(tidyverse)
 library(lubridate)
-library(teradata.cba)
+library(teradata.abc)
 library(DBI)
 library(RJDBC)
 library(tidyverse)
@@ -3752,7 +3752,7 @@ library(zoo)
 library(forecast)
 library(stats)
 library(foreach)
-library(cbastylr)
+library(abcstylr)
 
 source('~/src/snoymary/shinyBMO_1/app/functions/Utilities_for_Time_Series.R')
 source('~/src/snoymary/timeseries-final/ARIMA.comp.R')
@@ -3853,7 +3853,7 @@ plotHLTBench <- benchHLTdf %>%
   ggplot(aes(x = date, y = volume, color = type)) +
   geom_point(alpha = 0.5) +
   geom_line(alpha = 0.5) +
-  scale_color_manual(values = cbastylr_corp()) +
+  scale_color_manual(values = abcstylr_corp()) +
   theme_tq()
 
 accuracyHLTBench <- as.data.frame(accuracy(benchHLTdf$actual, benchHLTdf$forecast))
@@ -3958,7 +3958,7 @@ plotValBench <- benchValdf %>%
   ggplot(aes(x = date, y = volume, color = type)) +
   geom_point(alpha = 0.5) +
   geom_line(alpha = 0.5) +
-  scale_color_manual(values = cbastylr_corp()) +
+  scale_color_manual(values = abcstylr_corp()) +
   theme_tq()
 
 accuracyValBench <- as.data.frame(accuracy(benchValdf$actual, benchValdf$forecast))
@@ -4064,7 +4064,7 @@ plotCMSBench <- benchCMSdf %>%
   ggplot(aes(x = date, y = volume, color = type)) +
   geom_point(alpha = 0.5) +
   geom_line(alpha = 0.5) +
-  scale_color_manual(values = cbastylr_corp()) +
+  scale_color_manual(values = abcstylr_corp()) +
   theme_tq()
 
 accuracyCMSBench <- as.data.frame(accuracy(benchCMSdf$actual, benchCMSdf$forecast))
@@ -4125,7 +4125,7 @@ nnDayCMS$MAPE
 nnDayCMS$Plot
 
 ### RYAN/markov_purrr.R -------------------
-library(niragen)
+library(gener)
 support('rJava', 'tidyverse', 'lubridate', 'timetk', 'zoo', 'DBI', 'RJDBC', 
         'eventminr.analytics', 'igraph', 'xts', 'foreach', 'stats', 'forecast', 
         'caret', 'tidyquant', 'broom', 'modelr', 'matrixStats', 'ggcorrplot', 'rminer')
@@ -4177,7 +4177,7 @@ historical_fuzzy <- create_fuzzy_data(historical_data,
                                       event_label = "status",
                                       timestamp_label = "start_dt")
 
-# niraprom function that creates edge list:
+# promer function that creates edge list:
 s = new('TRANSITION.SYSTEM')
 s$feedStatusHistory(dataset = historical_data %>% as.data.frame, caseID_colname = 'case_id', status_colname = 'status', startTime_colname = 'start_dt', sort_startTime = T, add_ends = T)
 res = s$getAdjacencies()
@@ -4302,7 +4302,7 @@ simulate_eventlog.old <- function(current_backlog, fresh_arrivals_training, mode
 
 simulate_eventlog <- function(current_backlog, fresh_arrivals_training, brackets, mean_time_melt, start_date, target_dt) {
   
-  library(nirats)
+  library(timser)
   
   x = fresh_arrivals_training %>% TIME.SERIES(time_col = 'start_dt')
   x$goto(as.Date(start_date) - 1)
@@ -4519,7 +4519,7 @@ rminer.daily.comp <- function(my.ts, method){
     ggplot(aes(x = date, y = volume, color = type)) +
     geom_point(alpha = 0.5) +
     geom_line(alpha = 0.5) +
-    scale_color_manual(values = cbastylr_corp()) +
+    scale_color_manual(values = abcstylr_corp()) +
     theme_tq()
   
   weeklyAccuracy <- as.data.frame(accuracy(weeklyActual$volume, weeklyForcast$volume))
@@ -4620,7 +4620,7 @@ rminer.weekly.comp <- function(my.ts, method){
   Plot <- plot.df %>% ggplot(aes(x = date, y = value, color = type)) +
     geom_point(alpha = 0.5) +
     geom_line(alpha = 0.5) +
-    scale_color_manual(values = cbastylr_corp()) +
+    scale_color_manual(values = abcstylr_corp()) +
     theme_tq()
   
   actualDF <- select(test_results, Date, y)
@@ -4711,7 +4711,7 @@ rminer.daily.final <- function(my.ts, method, horizon, weekly.data){ #weekly hor
     ggplot(aes(x = date, y = volume, color = type)) +
     geom_point(alpha = 0.5) +
     geom_line(alpha = 0.5) +
-    scale_color_manual(values = cbastylr_corp()) +
+    scale_color_manual(values = abcstylr_corp()) +
     theme_tq()
   
   list("Plot" = weeklyPlot, "Forecast" = weeklyForcast)
@@ -4781,7 +4781,7 @@ rminer.weekly.final <- function(my.ts, method, horizon){ #weekly horizon
     ggplot(aes(x = date, y = volume, color = type)) +
     geom_point(alpha = 0.5) +
     geom_line(alpha = 0.5) +
-    scale_color_manual(values = cbastylr_corp()) +
+    scale_color_manual(values = abcstylr_corp()) +
     theme_tq()
   
   list("Plot" = weeklyPlot, "Forecast" = weeklyForcast)
@@ -4920,16 +4920,16 @@ stand.date <- function(my.ts){
 rm(list=ls())
 library(RODBC)
 library(magrittr)
-library(niragen)
+library(gener)
 library(reshape2)
 library(dplyr)
-library(nirats)
+library(timser)
 
-# source('C:/Nima/RCode/projects/libraries/developing_packages/niragen.R')
+# source('C:/Nicolas/RCode/projects/libraries/developing_packages/gener.R')
 
-# source('C:/Nima/RCode/projects/libraries/developing_packages/time.series.R')
+# source('C:/Nicolas/RCode/projects/libraries/developing_packages/time.series.R')
 
-source('C:/Nima/RCode/projects/cba/wim_forecast/script/tools.R')
+source('C:/Nicolas/RCode/projects/abc/wim_forecast/script/tools.R')
 
 query   = "sel calendar_date,L1_cat_topupevent,sum(vol_in) as vol_in,sum(vol_out) as vol_out, sum(backlog_start ) as backlog
 from udrbscms.HL_Topup_dailyVol_perEvent 
@@ -4979,7 +4979,7 @@ sqrt(sum((yt - prd[,1])^2)/nrow(prd))
 sqrt(sum((v$data[rownames(prd),'Y'] - v$data[rownames(prd),'arima'])^2)/nrow(prd))
 
 v$data[rownames(prd), 'reg'] = prd[,1]
-library(niravis)
+library(viser)
 v$goto(v$N.int)
 v$plot.history(figures = c('Y', 'arima', 'reg'))
 
@@ -4993,13 +4993,13 @@ v$data$best[301:v$N.int] %>% table
 rm(list=ls())
 library(RODBC)
 library(magrittr)
-library(niragen)
+library(gener)
 library(reshape2)
 library(dplyr)
 
-source('C:/Nima/RCode/projects/libraries/developing_packages/niragen.R')
+source('C:/Nicolas/RCode/projects/libraries/developing_packages/gener.R')
 
-source('C:/Nima/RCode/projects/cba/wim_forecast/script/tools.R')
+source('C:/Nicolas/RCode/projects/abc/wim_forecast/script/tools.R')
 
 query   = "SELECT calendar_date , Team_name , sum(vol_in) AS vol_in, sum(vol_out) AS vol_out, sum(backlog_start) AS backlog from UDRBSCMS.HL_Topup_dailyVol1 WHERE calendar_date > '2016-01-01' GROUP BY  calendar_date , Team_name"
 channel = odbcConnect(dsn = 'Teradata_Prod')
@@ -5054,8 +5054,8 @@ debug(evaluate)
 # Filename:     find_predictors.R
 # Description:  We are trying to search and select a set of predictors and their combinations 
 #               in order to predict future candles with maximum adjusted r squared (target: %50)
-# Author:       Nima Ramezani Taghiabadi
-# Email :       N.RamezaniTaghiabadi@uws.edu.au
+# Author:       Nicolas Berta 
+# Email :       N.Berta@uws.edu.au
 # Date:         26 September 2013
 # Version:      3.0
 # Changes from previous version:
@@ -5171,7 +5171,7 @@ evaluate <- function (D, start = 1, history.intervals = floor((nrow(D)-start+1)*
 
 ### script/genTables.R -------------------
 library(RODBC)
-library(niragen)
+library(gener)
 library(reshape2)
 library(dplyr)
 
@@ -5199,10 +5199,10 @@ A[,'A'] %>% vect.shift.down(k = 3, keep.rows=TRUE)
 ### script/nextGenRegModels.R -------------------
 rm(list=ls())
 library(RODBC)
-library(niragen)
+library(gener)
 library(reshape2)
 library(dplyr)
-source('C:/Nima/RCode/projects/cba/wim_forecast/script/tools.R')
+source('C:/Nicolas/RCode/projects/abc/wim_forecast/script/tools.R')
 
 D = readODBC(tableName = 'HL_Topup_dailyVol1', 
              fields = c('calendar_date', 'Team_name', 'WIM_ACTV_TYPE_M', 'vol_in', 'vol_out', 'backlog_start'),
@@ -5367,7 +5367,7 @@ library(modelr)
 library(matrixStats)
 library(ggcorrplot)
 library(zeallot)
-# library(cbastylr)
+# library(abcstylr)
 
 # setwd(dir = "/Users/snoymary/src/snoymary/shinyBMO_2/app")
 
@@ -5411,7 +5411,7 @@ server <- shinyServer(function(input, output, session) {
           ggplot(data = target[[i]], mapping = aes(date, volume)) +
             geom_point(alpha = 0.5) +
             geom_line(alpha = 0.5) +
-            scale_color_manual(values = cbastylr_corp()) +
+            scale_color_manual(values = abcstylr_corp()) +
             theme_tq()
         }
       })
@@ -5577,7 +5577,7 @@ server <- shinyServer(function(input, output, session) {
     adjustPlot <- ggplot(adjusted, aes(x = Date, y = Volume, colour = Type)) + 
       geom_point(alpha = 0.5) +
       geom_line(alpha = 0.5) +
-      scale_color_manual(values = cbastylr_corp()) +
+      scale_color_manual(values = abcstylr_corp()) +
       theme_tq()
     
     
@@ -5802,7 +5802,7 @@ arima.comp <- function(my.ts, max_p = 4, max_q = 4, max_d = 0, max_P = 1, max_Q 
     ggplot(aes(x = time, y = value, color = type)) +
     geom_point(alpha = 0.5) +
     geom_line(alpha = 0.5) +
-    scale_color_manual(values = cbastylr_corp()) +
+    scale_color_manual(values = abcstylr_corp()) +
     theme_tq()
   
   accuracy <- data.frame(accuracy(forecastDF$value, actualDF$value))
@@ -5861,7 +5861,7 @@ arima.final <- function(my.ts, model, horizon){
   arimaplot <- ggplot(plot.df, aes(x = Date, y = Volume, colour = Type)) +
     geom_point(alpha = 0.5) +
     geom_line(alpha = 0.5) +
-    scale_color_manual(values = cbastylr_corp()) +
+    scale_color_manual(values = abcstylr_corp()) +
     theme_tq()
   
   list("Forecast" = forecast.df, "Full" = plot.df, "Plot" = arimaplot)
@@ -6045,7 +6045,7 @@ random.forrest.comp <- function(daily_volumes, horizon){
   Plot <- plot.df %>% ggplot(aes(x = date, y = value, color = type)) +
     geom_point(alpha = 0.5) +
     geom_line(alpha = 0.5) +
-    scale_color_manual(values = cbastylr_corp()) +
+    scale_color_manual(values = abcstylr_corp()) +
     theme_tq()
   
   actualDF <- select(weekly_adjusted, date, actual)
@@ -6229,7 +6229,7 @@ random.forrest.final <- function(daily_volumes, horizon){ #weekly horizon
     ggplot(aes(x = Date, y = Volume, colour = Type)) +
     geom_point(alpha = 0.5) +
     geom_line(alpha = 0.5) +
-    scale_color_manual(values = cbastylr_corp()) +
+    scale_color_manual(values = abcstylr_corp()) +
     theme_tq()
   
   list("Plot" = Plot, "Forecast" = weekly_forecast, "Full" = plot.df)

@@ -724,14 +724,14 @@ library(dplyr)
 library(gener)
 
 # library(viser)
-# library(niraprom)
+# library(promer)
 
 # process Map Examples:
 
 patients %>% process_map(type_nodes = performance('absolute'), type_edges = performance('absolute'))
 
 
-D = read.csv('C:/Nicolas/RCode/projects/cba.hlp.simulation/data/full_discharges_mohammad_Sep_Dec 2016.csv')
+D = read.csv('C:/Nicolas/RCode/projects/abc.hlp.simulation/data/full_discharges_mohammad_Sep_Dec 2016.csv')
 D$APPT_I %<>% as.character
 D$STUS_C %<>% as.character
 D$STRT_S %<>% as.character %>% as.time(target_class = 'POSIXlt') %>% as.POSIXct  
@@ -982,9 +982,9 @@ legend(x=0.7, y=1, legend = rownames(data[-c(1,2),]), bty = "n", pch=20 , col=co
 
 ###### Folder Docker ==================
 ### Dockerfile -----------------
-FROM docker.artifactory.ai.cba/aiaa/r-essential:3.4.2r1-mran
+FROM docker.artifactory.ai.abc/aiaa/r-essential:3.4.2r1-mran
 
-MAINTAINER Nicolas Berta "Nicolas.Berta@cba.com.au"
+MAINTAINER Nicolas Berta "Nicolas.Berta@abc.com.au"
 ################################################################################
 
 COPY shiny-server-1.5.4.869-amd64.deb /tmp/
@@ -992,7 +992,7 @@ COPY shiny-server-1.5.4.869-amd64.deb /tmp/
   COPY myShinyApp/* /projects/
   
   RUN R -e "install.packages('packages/gener_2.4.3.tar.gz', repos = NULL, type = 'source')" && \
-R -e "install.packages(c('devtools', 'roxygen2', 'shiny', 'highcharter'), repos = 'http://cran.dev.cba/')"
+R -e "install.packages(c('devtools', 'roxygen2', 'shiny', 'highcharter'), repos = 'http://cran.dev.abc/')"
 
 EXPOSE 8080
 

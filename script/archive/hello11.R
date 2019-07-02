@@ -7,19 +7,19 @@
 ### pie.R -------------------------------
 library(magrittr)
 library(dplyr)
-library(niragen)
+library(gener)
 
 library(plotly)
 library(billboarder)
 library(morrisjs)
 library(rCharts)
 
-source('../../packages/master/niravis-master/R/plotly.R')
-source('../../packages/master/niravis-master/R/billboarder.R')
-source('../../packages/master/niravis-master/R/coffeewheel.R')
-source('../../packages/master/niravis-master/R/morrisjs.R')
-source('../../packages/master/niravis-master/R/nvd3.R')
-source('../../packages/master/niravis-master/R/rAmCharts.R')
+source('../../packages/master/viser-master/R/plotly.R')
+source('../../packages/master/viser-master/R/billboarder.R')
+source('../../packages/master/viser-master/R/coffeewheel.R')
+source('../../packages/master/viser-master/R/morrisjs.R')
+source('../../packages/master/viser-master/R/nvd3.R')
+source('../../packages/master/viser-master/R/rAmCharts.R')
 
 # Example 1:
 USPersonalExpenditure <- data.frame("Categorie"=rownames(USPersonalExpenditure), USPersonalExpenditure)
@@ -105,7 +105,7 @@ p = plot_ly(x = data$Women, y = data$Men, type = 'scatter', mode = 'markers',
 
 
 
-# niravis Translation:
+# viser Translation:
 
 data %>% plotly.scatter(x = 'Women', y = 'Men', size = 'Gap') # todo: 
 
@@ -113,11 +113,11 @@ data %>% plotly.scatter(x = 'Women', y = 'Men', size = 'Gap') # todo:
 library(plotly)
 library(dplyr)
 
-source('../../packages/master/niragen-master/R/niragen.R')
+source('../../packages/master/gener-master/R/gener.R')
 
-source('../../packages/master/niravis-master/R/visgen.R')
-source('../../packages/master/niravis-master/R/plotly.R')
-source('../../packages/master/niravis-master/R/jscripts.R')
+source('../../packages/master/viser-master/R/visgen.R')
+source('../../packages/master/viser-master/R/plotly.R')
+source('../../packages/master/viser-master/R/jscripts.R')
 
 #####################################
 
@@ -127,7 +127,7 @@ x <- today - tm
 y <- rnorm(length(x))
 p <- plot_ly(x = ~x, y = ~y, mode = 'lines', text = paste(tm, "days from today"))
 
-# niravis translation:
+# viser translation:
 
 data.frame(x = x, y = y) %>% plotly.tsline(x = 'x', y = 'y')
 
@@ -153,13 +153,13 @@ library(dplyr)
 
 library(highcharter)
 
-source('../../packages/master/niragen-master/R/niragen.R')
-source('../../packages/master/niravis-master/R/visgen.R')
-source('../../packages/master/niravis-master/R/highcharter.R')
-source('../../packages/master/niravis-master/R/plotly.R')
-source('../../packages/master/niravis-master/R/niraPlot.R')
-source('../../packages/master/niravis-master/R/jscripts.R')
-source('../../packages/master/niravis-master/R/dygraphs.R')
+source('../../packages/master/gener-master/R/gener.R')
+source('../../packages/master/viser-master/R/visgen.R')
+source('../../packages/master/viser-master/R/highcharter.R')
+source('../../packages/master/viser-master/R/plotly.R')
+source('../../packages/master/viser-master/R/viserPlot.R')
+source('../../packages/master/viser-master/R/jscripts.R')
+source('../../packages/master/viser-master/R/dygraphs.R')
 
 
 # This does not work!
@@ -179,22 +179,22 @@ plot_ly(data, x = ~Animals, y = ~SF_Zoo, type = 'bar', name = 'SF Zoo') %>%
 
 
 # Translation:
-niraPlot(obj = data, x = 'Animals', y = list('SF_Zoo', 'LA_Zoo', 'NY_Zoo', 'DR_Zoo'), shape = 'bar', plotter = 'plotly', type = 'combo')
+viserPlot(obj = data, x = 'Animals', y = list('SF_Zoo', 'LA_Zoo', 'NY_Zoo', 'DR_Zoo'), shape = 'bar', plotter = 'plotly', type = 'combo')
 
 p = c3.combo(obj = data, x = 'Animals', y = list('SF_Zoo', 'LA_Zoo', 'NY_Zoo', 'DR_Zoo'), shape = 'bar')
 
 data %>% melt(id.var = 'Animals') %>% nameColumns(list(Group = 'variable'), classes = list()) %>%
   candela.bar.molten(x = 'Animals', y = 'value', color = 'Group')
 
-p = niraPlot(data, x = 'Animals', y = list('SF_Zoo', 'LA_Zoo', 'NY_Zoo', 'DR_Zoo'), shape = 'bar', plotter = 'dimple', type = 'combo')
+p = viserPlot(data, x = 'Animals', y = list('SF_Zoo', 'LA_Zoo', 'NY_Zoo', 'DR_Zoo'), shape = 'bar', plotter = 'dimple', type = 'combo')
 
-p = niraPlot(data, x = 'Animals', y = list('SF_Zoo', 'LA_Zoo', 'NY_Zoo', 'DR_Zoo'), shape = 'bar', plotter = 'dygraphs', type = 'combo')
+p = viserPlot(data, x = 'Animals', y = list('SF_Zoo', 'LA_Zoo', 'NY_Zoo', 'DR_Zoo'), shape = 'bar', plotter = 'dygraphs', type = 'combo')
 
 p %>% subplot(p, nrows = 3, shareY = T)  # What is this?!
 
 
 # Other types and packages:
-h = niraPlot(data, x = 'Animals', y = list('SF_Zoo', 'LA_Zoo', 'NY_Zoo', 'DR_Zoo'), shape = 'bar', type = 'combo', plotter = 'highcharter')
+h = viserPlot(data, x = 'Animals', y = list('SF_Zoo', 'LA_Zoo', 'NY_Zoo', 'DR_Zoo'), shape = 'bar', type = 'combo', plotter = 'highcharter')
 #d = dygraphs.combo(data, x = 'Animals', y = list('SF_Zoo', 'LA_Zoo', 'NY_Zoo', 'DR_Zoo'), shape = 'bar')
 #r = rCharts.combo(data, x = 'Animals', y = list('SF_Zoo', 'LA_Zoo', 'NY_Zoo', 'DR_Zoo'), shape = 'bar')
 
@@ -218,11 +218,11 @@ library(dygraphs)
 library(shiny)
 library(dplyr)
 
-source('C:/Nima/R/projects/libraries/developing_packages/niragen.R')
-source('C:/Nima/R/projects/libraries/developing_packages/linalg.R')
-source('C:/Nima/R/projects/libraries/developing_packages/visgen.R')
-source('C:/Nima/R/projects/libraries/developing_packages/dygraphs.R')
-source('C:/Nima/R/projects/libraries/developing_packages/plotly.R')
+source('C:/Nicolas/R/projects/libraries/developing_packages/gener.R')
+source('C:/Nicolas/R/projects/libraries/developing_packages/linalg.R')
+source('C:/Nicolas/R/projects/libraries/developing_packages/visgen.R')
+source('C:/Nicolas/R/projects/libraries/developing_packages/dygraphs.R')
+source('C:/Nicolas/R/projects/libraries/developing_packages/plotly.R')
 
 
 subplot(
@@ -425,11 +425,11 @@ library(highcharter)
 library(plotly)
 
 
-source('C:/Nima/RCode/packages/master/niragen-master/R/niragen.R')
-source('C:/Nima/RCode/packages/master/niravis-master/R/visgen.R')
-source('C:/Nima/RCode/packages/master/niravis-master/R/highcharter.R')
-source('C:/Nima/RCode/packages/master/niravis-master/R/plotly.R')
-source('C:/Nima/RCode/packages/master/niravis-master/R/rCharts.R')
+source('C:/Nicolas/RCode/packages/master/gener-master/R/gener.R')
+source('C:/Nicolas/RCode/packages/master/viser-master/R/visgen.R')
+source('C:/Nicolas/RCode/packages/master/viser-master/R/highcharter.R')
+source('C:/Nicolas/RCode/packages/master/viser-master/R/plotly.R')
+source('C:/Nicolas/RCode/packages/master/viser-master/R/rCharts.R')
 
 # Plot 1:
 p <- plot_ly(data = iris, x = ~Sepal.Length, y = ~Petal.Length,
@@ -516,10 +516,10 @@ library(dplyr)
 library(highcharter)
 library(plotly)
 
-source('C:/Nima/R/projects/libraries/developing_packages/niragen.R')
-source('C:/Nima/R/projects/libraries/developing_packages/visgen.R')
-source('C:/Nima/R/projects/libraries/developing_packages/highcharter.R')
-source('C:/Nima/R/projects/libraries/developing_packages/plotly.R')
+source('C:/Nicolas/R/projects/libraries/developing_packages/gener.R')
+source('C:/Nicolas/R/projects/libraries/developing_packages/visgen.R')
+source('C:/Nicolas/R/projects/libraries/developing_packages/highcharter.R')
+source('C:/Nicolas/R/projects/libraries/developing_packages/plotly.R')
 # These examples are old and many of them don't work in the new version!!
 # Example 1: diamonds scatter plot:
 set.seed(100)
@@ -529,7 +529,7 @@ plot_ly(d, x = ~carat, y = ~price, color = ~carat,
 
 # Translation:
 
-d %>% niraPlot(x = 'carat', y = 'price', shape = 'point', color = 'carat', size = 'carat', plotter = 'plotly', type = 'scatter')
+d %>% viserPlot(x = 'carat', y = 'price', shape = 'point', color = 'carat', size = 'carat', plotter = 'plotly', type = 'scatter')
 d %>% highcharter.scatter.molten(x = 'carat', y = 'price', color = list(colour = 'carat'), size = list(Material = 'carat'))
 
 
@@ -634,15 +634,15 @@ library(rAmCharts)
 library(tibble)
 library(dplyr)
 
-source('../../packages/master/niragen-master/R/niragen.R')
-source('../../packages/master/niravis-master/R/visgen.R')
-source('../../packages/master/niravis-master/R/rAmCharts.R')
+source('../../packages/master/gener-master/R/gener.R')
+source('../../packages/master/viser-master/R/visgen.R')
+source('../../packages/master/viser-master/R/rAmCharts.R')
 
 
 # plot. 1
 amBullet(value = 65)
 
-# niravis translation
+# viser translation
 
 amCharts.bullet(y = 65)
 
@@ -651,16 +651,16 @@ library(rAmCharts)
 library(tibble)
 library(dplyr)
 
-source('../../packages/master/niragen-master/R/niragen.R')
-source('../../packages/master/niravis-master/R/visgen.R')
-source('../../packages/master/niravis-master/R/rAmCharts.R')
+source('../../packages/master/gener-master/R/gener.R')
+source('../../packages/master/viser-master/R/visgen.R')
+source('../../packages/master/viser-master/R/rAmCharts.R')
 
 
 # plot. 1
 dataset <- get(x = "ChickWeight", pos = "package:datasets")
 amBoxplot(weight~Diet, data=dataset)
 
-# niravis translation:
+# viser translation:
 
 dataset %>% amCharts.box(y = 'Diet', x = 'weight')
 
@@ -669,9 +669,9 @@ library(rAmCharts)
 library(tibble)
 library(dplyr)
 
-source('../../packages/master/niragen-master/R/niragen.R')
-source('../../packages/master/niravis-master/R/visgen.R')
-source('../../packages/master/niravis-master/R/rAmCharts.R')
+source('../../packages/master/gener-master/R/gener.R')
+source('../../packages/master/viser-master/R/visgen.R')
+source('../../packages/master/viser-master/R/rAmCharts.R')
 
 
 # plot. 1
@@ -728,7 +728,7 @@ head(data_funnel)
 
 amFunnel(data = data_funnel, inverse = TRUE)
 
-# niravis translation:
+# viser translation:
 
 data_funnel %>% amCharts.funnel(y = 'value', label = 'description', config = list(direction = 'down.up'))
 
@@ -743,7 +743,7 @@ bands = data.frame(start = c(0, 40, 60), end = c(40, 60, 100),
 
 amAngularGauge(x = 25, bands = bands)
 
-# niravis translation:
+# viser translation:
 
 zone = list()
 zone[[1]] = list(min = 0 , max = 40 , color = "#00CC00")
@@ -760,9 +760,9 @@ library(dplyr)
 library(tibble)
 library(pipeR)
 
-source('../../packages/master/niragen-master/R/niragen.R')
-source('../../packages/master/niravis-master/R/visgen.R')
-source('../../packages/master/niravis-master/R/amCharts.R')
+source('../../packages/master/gener-master/R/gener.R')
+source('../../packages/master/viser-master/R/visgen.R')
+source('../../packages/master/viser-master/R/amCharts.R')
 
 
 data('data_stock_2')
@@ -829,9 +829,9 @@ library(dplyr)
 library(tibble)
 library(pipeR)
 
-source('../../packages/master/niragen-master/R/niragen.R')
-source('../../packages/master/niravis-master/R/visgen.R')
-source('../../packages/master/niravis-master/R/rAmCharts.R')
+source('../../packages/master/gener-master/R/gener.R')
+source('../../packages/master/viser-master/R/visgen.R')
+source('../../packages/master/viser-master/R/rAmCharts.R')
 
 data("data_pie")
 head(data_pie)
@@ -865,9 +865,9 @@ library(dplyr)
 library(tibble)
 library(pipeR)
 
-source('../../packages/master/niravis-master/R/niragen.R')
-source('../../packages/master/niravis-master/R/visgen.R')
-source('../../packages/master/niravis-master/R/rAmCharts.R')
+source('../../packages/master/viser-master/R/gener.R')
+source('../../packages/master/viser-master/R/visgen.R')
+source('../../packages/master/viser-master/R/rAmCharts.R')
 
 data("data_pie")
 head(data_pie)
@@ -907,9 +907,9 @@ amStockMultiSet(data = data_stock_3)
 # https://hafen.github.io/rbokeh/index.html#preview
 
 library(rbokeh)
-source('C:/Nima/R/projects/libraries/developing_packages/niragen.R')
-source('C:/Nima/R/projects/libraries/developing_packages/visgen.R')
-source('C:/Nima/R/projects/libraries/developing_packages/rbokeh.R')
+source('C:/Nicolas/R/projects/libraries/developing_packages/gener.R')
+source('C:/Nicolas/R/projects/libraries/developing_packages/visgen.R')
+source('C:/Nicolas/R/projects/libraries/developing_packages/rbokeh.R')
 
 # Chart 1:
 figure() %>%
@@ -957,11 +957,11 @@ calheatmap(x = 'date', y = 'pts',
 )
 
 
-# niravis translation:
+# viser translation:
 
-source('../../packages/master/niragen-master/R/niragen.R')
-source('../../packages/master/niravis-master/R/visgen.R')
-source('../../packages/master/niravis-master/R/calheatmap.R')
+source('../../packages/master/gener-master/R/gener.R')
+source('../../packages/master/viser-master/R/visgen.R')
+source('../../packages/master/viser-master/R/calheatmap.R')
 
 dat %>% calheatmap.calendar(t = 'date', color = 'pts')
 
@@ -1332,10 +1332,10 @@ nodes <- data.frame(id = 1:10, group = c("A", "B"))
 
 library(visNetwork)
 library(magrittr)
-source('C:/Nima/R/projects/libraries/developing_packages/niragen.R')
+source('C:/Nicolas/R/projects/libraries/developing_packages/gener.R')
 
-source('C:/Nima/R/projects/libraries/developing_packages/visgen.R')
-source('C:/Nima/R/projects/libraries/developing_packages/visNetwork.R')
+source('C:/Nicolas/R/projects/libraries/developing_packages/visgen.R')
+source('C:/Nicolas/R/projects/libraries/developing_packages/visNetwork.R')
 
 
 # Example 1:
@@ -1523,7 +1523,7 @@ visNetwork(nodes, edges) %>% visNodes(size = 30, title = "I'm a node", borderWid
 #   <html>
 #   <head>
 #   <!--Script Reference[1]-->
-#   <script src="C:/Nima/RCode/packages/master/zingcharts-master/inst/htmlwidgets/lib/zing/zingchart.min.js"></script>
+#   <script src="C:/Nicolas/RCode/packages/master/zingcharts-master/inst/htmlwidgets/lib/zing/zingchart.min.js"></script>
 #   </head>
 #   <body>
 #   <!--Chart Placement[2]-->
