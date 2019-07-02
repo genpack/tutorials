@@ -984,7 +984,7 @@ legend(x=0.7, y=1, legend = rownames(data[-c(1,2),]), bty = "n", pch=20 , col=co
 ### Dockerfile -----------------
 FROM docker.artifactory.ai.abc/aiaa/r-essential:3.4.2r1-mran
 
-MAINTAINER Nicolas Berta "Nicolas.Berta@abc.com.au"
+MAINTAINER Nicolas Berta "Nicolas.Berta@abc.com"
 ################################################################################
 
 COPY shiny-server-1.5.4.869-amd64.deb /tmp/

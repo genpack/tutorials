@@ -839,7 +839,7 @@ create_fuzzy_map(D_fuzzy)
 # Filename:       dash.R
 # Description:    This file creates shiny UI for the process DNA dashboard. 
 # Author:         Nicolas Berta 
-# Email:          nicolas.Berta@abc.com.au
+# Email:          nicolas.Berta@abc.com
 # Start Date:     18 September 2018
 # Last Revision:  06 November 2018
 # Version:        0.1.0
@@ -1516,7 +1516,7 @@ getStatusesWithName = function(obj, stmap, include_all = F, full = F){
 # Filename:       dash.R
 # Description:    This file creates shiny UI for the Smart Process optmzr project. 
 # Author:         Nicolas Berta 
-# Email:          nicolas.Berta@abc.com.au
+# Email:          nicolas.Berta@abc.com
 # Start Date:     30 May 2018
 # Last Revision:  18 July 2018
 # Version:        1.0.2
@@ -2638,7 +2638,7 @@ tasklist %>% nrow
 # Filename:       dash.R
 # Description:    This file creates shiny UI for the Smart Process Optimiser project. 
 # Author:         Nicolas Berta 
-# Email:          nicolas.Berta@abc.com.au
+# Email:          nicolas.Berta@abc.com
 # Start Date:     30 May 2018
 # Last Revision:  30 May 2018
 # Version:        1.0.0
