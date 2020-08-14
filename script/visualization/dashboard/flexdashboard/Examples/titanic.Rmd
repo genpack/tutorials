@@ -1,0 +1,117 @@
+---
+title: "Flexdashboard"
+output:
+  flexdashboard::flex_dashboard:
+  vertical_layout: scroll
+theme: cosmo
+---
+
+This is just minimal code to set up a Dashboard in R using [flexdashboard](http://rmarkdown.rstudio.com/flexdashboard/layouts.html).
+
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+library(readr)
+library(highcharter)
+
+train <- read_csv('train.csv')
+train$Pclass <- as.factor(train$Pclass)
+train$Embarked <- as.factor(train$Embarked)
+```
+
+Sample Layout 1 {data-orientation=rows data-icon="fa-bar-chart"}
+=====================================
+
+## Row 1 {data-height=110}
+
+### Passengers of the Titanic
+
+```{r}
+valueBox(2222, icon = "fa-ship", color="rgb(100,100,100)")
+```
+
+### Percentage of survivors
+
+```{r}
+valueBox("31.6 %", icon = "fa-heart", color="rgb(200,100,100)")
+```
+
+### Water temperature
+
+```{r}
+valueBox("-2°C", icon = "fa-life-ring",color="rgb(26,110,204)")
+```
+
+
+## Row 2 {data-height=500}
+
+### Age
+
+```{r}
+a <- density(train$Age[train$Sex == "female" & !is.na(train$Age)])
+b <- density(train$Age[train$Sex == "male" & !is.na(train$Age)])
+df <- data.frame(Age=c(a$x,b$x),Density=c(a$y,b$y),Sex=c(rep("female",length(a$x)),rep("male",length(b$x))))
+hchart(df,type="area",hcaes(x=Age,y=Density,group=Sex),lineWidth=3, fillOpacity=0.2, color=c("#FFC0Cb","#44AAFF"),marker=list(radius=1))
+```
+
+
+
+## Row 3 {data-height=450}
+
+### Port of Embarkation
+
+```{r}
+ggplot(train,aes(x=Embarked,y=Survived, fill=Embarked)) + geom_bar(stat="summary")
+```
+
+### Passenger Class
+
+```{r}
+ggplot(train,aes(x=Pclass,y=Survived, fill=Pclass)) + geom_bar(stat="summary")
+```
+
+Sample Layout 2 {data-icon="fa-area-chart"}
+=====================================
+
+
+Column {data-width=450}
+-------------------------------------
+
+### Kernel Finished
+
+```{r}
+rate <- 95
+gauge(rate, min = 0, max = 100, symbol = '%', gaugeSectors(
+  success = c(80, 100), warning = c(40, 79), danger = c(0, 39)
+))
+```
+
+### Number of votes
+
+```{r}
+gauge(19, min = 0, max = 30, gaugeSectors(
+  success = c(22, 30), warning = c(12, 21), danger = c(0, 11)
+))
+```
+
+### Passenger Class
+
+```{r}
+ggplot(train,aes(x=Pclass,y=Survived, fill=Pclass)) + geom_bar(stat="summary")
+```
+
+Column {data-width=450}
+-------------------------------------
+
+### Port of Embarkation
+
+```{r}
+ggplot(train,aes(x=Embarked,y=Survived, fill=Embarked)) + geom_bar(stat="summary")
+```
+
+### Chart 3
+
+```{r}
+ggplot(train,aes(x=Age, color=Sex)) + geom_density()
+```

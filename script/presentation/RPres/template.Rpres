@@ -1,0 +1,126 @@
+<style>
+.footer {
+    color: black;
+    background: #E8E8E8;
+    position: fixed;
+    top: 90%;
+    text-align:center;
+    width:100%;
+}
+
+.small-code pre code {
+  font-size: 1em;
+}
+
+.reveal section del {
+  color: yellow;
+}
+
+.reveal h1, .reveal h2, .reveal h3 {
+  word-wrap: normal;
+  -moz-hyphens: none;
+}
+
+.midcenter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+.exclaim .reveal .state-background {
+  background: black;
+} 
+
+.exclaim .reveal h1,
+.exclaim .reveal h2,
+.exclaim .reveal p {
+  color: white;
+}
+
+.pinky .reveal .state-background {
+  background: #FF69B4;
+} 
+.pinky .reveal h1,
+.pinky .reveal h2,
+.pinky .reveal p {
+  color: black;
+}
+</style>
+
+
+Template
+========================================================
+author: Nima Ramezani
+date: 29 April 2020
+autosize: true
+transition: rotate
+transition-speed: slow
+font-family: 'Helvetica'
+<!-- (Other options for font-family: 'Risque') -->
+<!-- Options for transition: none, linear, rotate, fade, zoom, concave, First Slide (Does ot work in preview) -->
+<!-- Options for transition-speed: default, slow, fast (Does ot work in preview) -->
+
+========================================================
+type:exclaim
+
+For more details on authoring R presentations please visit <https://support.rstudio.com/hc/en-us/articles/200486468>.
+
+R Markdown Templates: <https://rmarkdown.rstudio.com/gallery.html>.
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+<div class="footer">This block of text will appear with the 'footer' style</div>
+
+Specific Slide
+========================================================
+class: midcenter
+type: section
+
+~~Some text here~~
+
+Image Slide
+========================================================
+type: sub-section
+
+<div class="midcenter" style="margin-left:-300px; margin-top:-300px;">
+<img src="flowchart_600x600.png"></img>
+</div>
+
+Slide With Code
+========================================================
+id: slidc
+type: alert
+incremental: true
+
+<span style="font-weight:bold; color:red;">This text will appear red and bold</span> 
+
+```{r}
+summary(cars)
+
+```
+
+<div>
+This block of text will be shown with the global 'footer' style, but it will be shifted up by 200 pixels because we have assigned a negative value to the 'margin-top' property in the 'style' argument of the div tag.
+</div>
+
+Slide With Background
+========================================================
+type: pinky
+title: false
+<img class="midcenter" style="margin-left:-400px; margin-top:-200px; background-color:transparent; border:0px; box-shadow:none;" src="olympic-logo_800x400.png"></img>
+
+
+[Go to slide with code](#/slidc)
+
+what I write 
+
+goes on top of the background image
+
+
+Slide With Plot
+========================================================
+
+```{r, echo=FALSE}
+plot(cars)
+```

@@ -34,6 +34,11 @@ $ aws s3 cp s3://staging.dmclnt.elsrvcs.com/bigeventlog.csv ~/Documents/data/stk
 ## see list of all environmental variables in linux shell [27 Dec 2018]:
 $ env
 
+## see the value of an environmental variables in windows shell [22 Jan 2019]:
+Example:
+$ echo %PATH%
+
+
 ## remotely connect to AWS EMR cluster [27 Dec 2018]:
 To connect to an aws EMR cluster:
 1- You need to know the uri of your cluster which is referred to as : Master Public DNS
@@ -269,4 +274,79 @@ Example:
 Examples:
 $sudo yum list docker  --showduplicates | sort -r
 $sudo yum list R  --showduplicates | sort -r
+
+##  install a specific version of a python package [22 Jan 2020]:
+Example:
+$ pip install tensorflow~=1.15.0 --user
+(--user is required when modification access is denied on other folders)
+
+## run a model in the el pipeline [10 Feb 2020]:
+1-pull/checkout/update a local copy of stcky repository:
+2-in folder tools look for credentials.yaml and edit it with a text editor
+3-enter your username and api-key
+4-after setting the credentials, goto tools -> Configs --> Prediction (you can submit other types of job like mlmapper, eventmapper and sampler jobs as well). In each folder, there are some internal folders. Each folder is for a projects(clients). Within each client-folder, there are multiple config-folders with a config.yaml file in it. Open your own config-folder and put your config.yaml file in it.
+5-In folder tools, there are jupyter notebook files named as: 01_Obs_Mapper.ipynb, 02_Event_Mapper.ipynb, .... Open file 05_Prediction.ipynb
+6-Install all the packages you need. yaml must be version 5.1.2
+$pip install --ignore-installed pyyaml==5.1.2
+7-Choose client, choose your config file and submit model after verifying 
+8-click on get jobs to see the result
+
+## merge a develop branch to the master with git command line [24 Feb 2020]:
+# Example:
+git checkout branch -> git status -> git add -> git commit -m "something" -> git pull -> git push origin develop -> git checkout master -> git merge develop -> git push origin master
+If you want to add a tag: 
+# example: (when in master branch) git tag (shows you all the existing tags) -> git tag v5.11.2 -> git push --tags
+
+## delete a tag with git command line [24 Feb 2020]:
+# Example: git tag -d v5.9.3
+
+## see all existing tags with git command line [24 Feb 2020]:
+$ git tag
+
+## see the commit log on a branch [24 Feb 2020]:
+$ git log <branch_name>
+#Example:
+$ git log master
+
+## to get the value of a config variable with git command line [24 Feb 2020]:
+# Example: git config --get user.email
+
+## to set the value of a config variable with git command line [24 Feb 2020]:
+# Example: git config user.email nicolas.berta@gmail.com
+# If you want to do it on all repositories:
+# Example: git config --global user.email nicolas.berta@gmail.com
+
+## install lightgbm python package [25 Feb 2020]:
+# pip install lightgbm
+# if failed with error: "Library not loaded: /usr/local/opt/libomp/lib/libomp.dylib", then:
+# in mac: brew install libomp
+
+## find the version of an installed pythonn package in python environment [25 Feb 2020]:
+# Example:
+>>> import sklearn
+>>> print(sklearn.__version__)
+
+## use pipenv to create a virtualenv for your project and install new packages [02 Mar 2020]:
+# install pipenv:
+# $ pip install pipenv 
+# or in Mac:
+# $ brew install pipenv
+# go to the root directory of your project and install a package using pipenv:
+# Example:
+$ cd project_root_dir
+$ pipenv install tensorflow~=1.15.0
+# to find out where the new environment python is:
+$ pipenv shell
+$ which python
+$ exit
+
+
+## to sync your python project with packages in the Pipfile.lock using pipenv [02 Mar 2020]:
+# pipenv sync --dev
+# This syncs/installs all the project packages in the Pipfile.lock for the project specific python environment
+
+
+# fix matplotlib backend issue in Mac [02 Mar 2020]:
+$ cat > ~/.matplotlib/matplotlibrc
+backend: TkAgg
 

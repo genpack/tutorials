@@ -1,0 +1,69 @@
+Problem 1: Two points along a drinking straw are picked at random. The straw is then bent at these points. What is the probability that the two ends meet up to make a triangle?
+
+The length of the middle section must be less than sum of lengths of the side sections.
+Re-state the problem:
+two random real numbers are picked from uniform distribution between 0 and 1.
+Find the probability that |x-y| < 0.5
+Re-state the descritized problem, assuming n = 10:
+two integer numbers are randomly picked between 1 and 10. What is the probability that |x-y| < 5 ?
+
+All possible variations = 10^2 = 100
+
+acceptable variations:
+if x = 1:   y = {1,2,3,4,5,6}            (6 variations)
+if x = 2:   y = {1,2,3,4,5,6,7}          (7 variations)  
+...
+if x = 5:   y = {1,2,3,4,5,6,7,8,9,10}   {10 variations}
+if x = 6:   y = {1,2,3,4,5,6,7,8,9,10}   {10 variations}
+if x = 7:   y = {2,3,4,5,6,7,8,9,10}     {9 variations}
+...
+if x = 10:  y = {5,6,7,8,9,10}           {6 variations}
+
+total number of acceptable variations: 2*(6 + 7 + 8 + 9 + 10)
+
+extending it to n, it will be: 2*[(1+2+...+n) - (1 + 2 + ... + n/2)] = n*(1 + n) - (n/2)*(1 + n/2) = 3*n^2/4 + n/2 
+and probability becomes:
+
+  3*n^2/4 + n/2
+----------------- = 3/4 + 1/(2n)
+       n^2
+
+
+
+
+
+
+
+Problem 2: There are 27 cars among which you need to find out the fastest 3 cars. 
+You can conduct race among at most 6 cars to rank their speed. 
+At no point you can find out the actual speed of the car in a race. 
+Find out how many races are required to get the top 3 cars.
+
+Solution:
+a1 a2 a3 a4 a5 a6
+b1 b2 b3 b4 b5 b6
+c1 c2 c3 c4 c5 c6 
+d1 d2 d3 d4 d5 d6
+e f g
+ 
+run a/b/c/d, note the top 3 of each (4)
+ 
+run winners and e/f. 
+if e/f place its trivial
+ 
+say a1/b1/c1 come 1/2/3, run 2nd and 3rd from a, 2nd from b and c1 with g.
+ 
+a, and top 2 from race 6 are your fastest 3
+  
+  
+Problem 3: A donkey is attached by a rope to a point on the perimeter of a circular field. How long should the rope be so that the donkey can eat exactly half the grass in the field?
+
+Problem 4: Letters I,V,X represent a different digit between 1 and 9. If  VI * X = VVV, what are I, V and X?
+
+
+Problem 5: You are given a bar of chocolate made up of 15 small blocks aranges in a 3X5 grid.
+You want to snap the chocolate bar into 15 individual pieces. What is the fewest number of snaps that you need to break the bar?
+
+Problem 6:
+There are 8 bottles, one has poison and you have a number of rats for testing. 
+What's the minimum number of rats you need to find the poison bottle in time T, and how? (You get the rats you need all at once, feed them all at the same time, and poison kills them after time T)

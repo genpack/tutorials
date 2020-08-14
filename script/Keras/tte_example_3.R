@@ -46,7 +46,7 @@ y_pred = model$predict(X_test)
 cbind(y_pred, y_test)
 abs(y_pred - y_test) %>% mean
 
-# let's see how a customized loss can we passed
+# let's see how a customized loss can be passed
 myloss = function(y_true, y_pred){
   K <- backend()
   landa = 0.5*(K$abs(y_pred) + y_pred) + 0.00001

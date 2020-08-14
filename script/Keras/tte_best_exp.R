@@ -8,7 +8,7 @@ history <- model %>% defit(X = X_train, y = y_train)
 
 plot(history, metrics = "loss", smooth = FALSE)
 
-y_pred = pred.exp.landa(model$predict(X_test))
+y_pred = convert.exp.landa(model$predict(X_test))
 
 # y_pred = model$predict(X_test)
 # y_pred = mean(y_test, na.rm = T)

@@ -2769,7 +2769,7 @@ app    <- shinyApp(ui, server)
 
 ### dash.Rmd ---------------------
 ---
-  title: "Status Transition System for CBA HL Application Process"
+title: "Status Transition System for CBA HL Application Process"
 author: "NIBESOFT"
 date: "3 March 2017"
 output: 

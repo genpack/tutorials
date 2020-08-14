@@ -1,0 +1,91 @@
+improve_churn_model
+========================================================
+author: Nima Ramezani
+date: 
+autosize: true
+
+Goals
+========================================================
+
+- More Correct Sticky List (Improve Model Perfromace)
+  - Features
+  - Modelling
+  - Sampling
+  - Exclusions/Rules
+  - Segmentation
+
+- More Valuable List of Customers
+  - Predict Other Events (Change Target)
+  - Customer Satisfaction Trend
+
+- Cost Reduction
+
+Features (Get more information from event-log)
+========================================================
+  - How to find the best Aggregators and best values of Sliding Windows Size, and Lags. Run an optimisation algorithm.
+    
+  - Capturing History Trend Patterns:
+      - Differences and similarities in trend patterns (Using cosine dissimilarity in Metric Learning)
+      - Clustering trend patterns
+
+Features (Non-Linear Combinations)
+========================================================
+
+  - Group Sums  
+  - Division/Multiplication 
+    (Write a list of pairs of features/group-sums for division/multiplication)
+  - Encode categorical features with the aggregated value of a numeric feature 
+    (Combine categorical and numerical features with various aggregators)
+  - Division/Multiplication by the encoded values
+  
+
+Features (Buisiness Understanding 1)
+========================================================
+  - Outstanding Balance and Monthly Payments (Correlation to Closure by Natural Pay-off)
+  - Is the customer in some kind of financial hardship? 
+  - Is the customer's current estimated LVR lower than 80%?
+    - Estimate of current property value
+    - Estimate of Customer's equity
+    - Customer's overall debt
+    
+Features (Buisiness Understanding 2)
+========================================================
+  - Where is the customer's current rate among competitor's rates offered to similar customers?
+    - Grouping (Clustering based on Credit, Income, Occupation, Property Type or what?)
+    - Get Competitor's Rates by time for each group
+    - Distribution of competitor's rates
+    - Compute probability that customer is offered a lower rate, and use it as a feature
+    
+  - Where is the customer's current rate among rates offered to similar customers in the same bank?
+
+Modeling 1:
+========================================================
+
+  - Train XGBoost on TTE
+    - Find a distribution to build Loss
+    - Change loss in XGBoost
+    - Train the model
+    - Convert Model Output to probabilities and test
+    
+  - Metric Learning on pattern dissimilarities
+  - Incremental Modelling: Greedy Algorithm by Gradient Boosting
+    - Various model types
+    - Avoid overfitting
+    
+Modeling 2:
+========================================================
+  - Event-based Modelling (long-term, short-term impact)
+  - How to improve ensembling
+  - Segmentation
+    - Feature Importance for various types of customers
+
+Cost Reduction
+========================================================
+  - Avoid Large Datasets
+
+    - Less features by Combine ML-Mapper and Subset-Scorer
+      - Capturea all combinations of aggregators, sliding window sizes and lags
+      - Stepwise Elimination of insignificant features 
+      - Employ greedy algorithm by gradient boosting and transformers
+     
+     

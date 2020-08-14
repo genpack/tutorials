@@ -59,11 +59,13 @@ abs(y_pred - y_test) %>% mean
 ###### customized loss based on exponential distribution and censorage:
 myloss = function(y_true, y_pred, c_true = c_train){
   K <- backend()
-  landa = 0.5*(K$abs(y_pred) + y_pred) + 0.00001
-  x     = y_true + 0.00001
+  # landa = 0.5*(K$abs(y_pred) + y_pred) + 0.00001
+  landa = y_pred + .Machine$double.eps
+  
+  x     = y_true + .Machine$double.eps
   # K$mean(K$pow(K$pow(y_pred, -1) - y_true, 2))
   # K$mean(landa*x - c_true*K$log(landa))
-  K$mean(c_true*landa*x - K$log(landa))
+  K$mean((1.0-c_true)*(landa*x - K$log(landa)) - c_true*K$log(1.0 - K$exp(- landa*x)))
   # K$mean( K$abs( K$log( K$relu(y_true *1000 ) + 1 ) - K$log( K$relu(y_pred*1000 ) + 1)))
 }
 
