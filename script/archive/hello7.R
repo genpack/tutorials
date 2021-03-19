@@ -1,5 +1,7 @@
 ###### ROOT FOLDER: =======================
 
+
+
 ### dash.R ---------------------
 # Header
 # Filename:       dash.R
@@ -3023,7 +3025,6 @@ source('C:/Nicolas/RCode/projects/libraries/developing_packages/plotly.R')
 # from project
 source('C:/Nicolas/RCode/projects/abc/abc.nxtgn.wfo (Developing)/script/wfo.abc.tools.R')
 
-
 extra.1 = c(start = 'START_DT', due = 'DUE_DT', current = 'report_d')
 extra.2 = c(start = 'START_DT', due = 'DUE_DT', current = 'REPORT_D')
 
@@ -4598,3 +4599,2134 @@ The default value for this argument is 10 unit times.
 By setting ```autTolerance``` to zero, the allocation is not expected to change so much because it is already optimized in using agent's time for maximum priority coverage. The only exception is when argument ```prioritization``` is set to ```'zFactorExponential'``` or count of clusters is lower than optimal for being trimmed to a maximum set by argument ```maxClusters```.
 
 ## Summary
+
+
+
+
+# otar version 4.3.8
+
+
+# Header
+# Filename:      ota.R
+# Version   Date               Action
+# -----------------------------------
+# 1.0.0     25 January 2017    Initial issue
+# 1.1.0     06 March 2017      Definition of S3 class OPTIMAL.TASK.ALLOCATOR for workforce optimization
+# 2.0.0     22 March 2017      A major change in the code: All tables reduced to two: taskList, AsM Agent-Skill Matrix, Many variable names changed!
+# 2.0.1     30 March 2017      Functions feedAgentProfile() and feedSkillPrifile() added.
+# 2.0.2     30 March 2017      Functions feedAgents() and feedSkills can now accept data.frames as well as character setrings
+# 2.0.3     30 March 2017      Function feedTasks() adds new tasks to the existing task list and only creates a new task list if no prior task list is fed
+# 2.0.4     11 April 2017      Function distributeTasks() modified: Now breaks task priorities to categories and genertaes classes of skill-priority level to be treated as virtual skills
+# 2.0.5     09 May 2017        Function feedTasks() modified: Tasks with duplicated IDs are eliminated.
+# 2.0.6     09 May 2017        Function feedAgentTurnaroundTime() modified: Agents which are not already fed will be eliminated!
+# 2.1.0     26 May 2017        Columns Allocated, Unallocated, Leftover and Backlog added for both agent and skill profile tables before and after task distribution
+# 2.1.1     03 July 2017       Argument workable_col added to function feedTasks()
+# 2.1.3     03 July 2017       Functions feedTasks() and distributeTasks() modified: Aggregates on 'Unallocated', 'newAllocated', 'Leftover', 'Non-workable' and 'Backlog'
+# 2.1.4     12 July 2017       Name changed to ota.R denoting: Optimal Task Allocator
+# 2.1.5     24 July 2017       Function calcAgentTAT() exported
+# 2.1.6     26 July 2017       Function updateAgentUtilization() added
+# 2.1.8     26 July 2017       feedAgentProductiveTime() renamed to feedAgentSchedule() and modified: Argument utilFactor_col added
+# 2.1.9     27 July 2017       Function updateTaskCounts() added
+# 2.2.0     10 August 2017     Functions addAgeProfiles(), tableAgeGroups() and tableDueAgeGroups() removed
+# 2.2.1     11 August 2017     Function updateAgentUtilization() modified: Small bug removed
+# 2.2.2     16 August 2017     Function updateAgentUtilization() modified: Small bug removed
+# 2.2.3     21 August 2017     Function updateAgentCounts() modified: Updates ALC as well! Alos, ALC update removed from distributeTasks()
+# 2.2.4     29 August 2017     Function clearAllocation() added.
+# 2.2.5     30 August 2017     Function feedAgentSchedule() modified: Calls updateAgentUtilization() before returning the object
+# 2.2.7     31 August 2017     Bug in function distributeTasks() rectified! Did not allocate when only one skill with single priority level existd.
+#                              Changes applied in accordance with modifications in functions optimTaskDistribute() and optimTaskAllocate.LP() in ota.tools.R
+# 2.2.8     05 September 2017  Bug in function updateAgentUtilization() rectified! Used to keep reserved time for non-workable tasks!
+# 2.2.9     06 September 2017  Function clearAllocation() exported!
+# 2.3.0     12 September 2017  All feed functions modified! Arguments feedNewAgents and feedNewSkills added.
+# 2.3.1     12 September 2017  Functions updateAgentUtilization() and updateTaskCounts() exported.
+# 2.3.2     18 September 2017  Function updateAgentSchedule() modified: A bug was rectified: The whole agent schedule table was emptied when agent IDs are introduced as rownames!
+#                              to rectify, check for feedNewAgents scripts moved to after converting agent ID column to rownames of agent_SCH. intersects agids with obj$agents
+# 2.3.3     22 September 2017  Functions feedTasks() modified: Argument stringsAsFactors set to FALSE when calling data.frame to generate the task list
+# 2.3.4     26 September 2017  Functions feedAgentTurnaroundTime() modified: Converts 0 values to NA
+# 2.3.5     26 September 2017  Functions updateAgentUtilization() modified:In obj$TAT and obj$TSK$AUT, zero values are converted to NA
+# 2.3.6     05 October 2017    Function distributeTasks() modified: passes argument 'prioritization' to function optimTaskDistribute() ota.tools.R
+# 2.3.7     09 October 2017    Function feedTasks() modified: Argument feedNewAgents added.
+# 2.3.8     10 October 2017    All agent_col arguments renamed to agentID_col, all skill_col renamed to skillID_col.
+# 2.3.9     12 October 2017    Function clearAllocation() modified: Used to fail when obj$TSK was empty. Fixed now!
+# 2.4.0    16 October 2017    Function updateAgentUtilization() modified! Does nothing if agent profile table is empty
+# 2.4.2     17 October 2017    Function feedTasks() modified! Removing duplicates is implemented after removing tasks with unknown skills or agents
+# 2.4.2     30 October 2017    Function feedTasks() modified! column agent comes before column priority
+# 2.4.3     01 November 2017   Function updateTaskCounts() modified! Resets counts in SP if TSK is empty
+# 2.4.4     02 November 2017   Function feedSkillProfile() modified! Ignores if rownames of given argument 'skill' is sequential
+# 2.4.5     04 December 2017   Function feedTasks() modified! Uses simple rbind rather than dplyr::bind_rows() because bind_rows changes the time zone for POSIXct columns.
+#                              This change, requires for the new task table, all the columns to be identical to the existing obj$TSK to be able to merge
+# 2.4.6     04 December 2017   all calls to assert() changed to niragen::assert() to avoid conflict with package gtools
+# 2.4.7     09 January 2018    Function distributeTasks() modified: passes coefficients to optimTaskDistribute for non-linear optimization
+# 2.4.8     01 March 2018      Function feedSkills() modified: adds column 'score' to the skill profile table by default
+# 2.4.9     08 March 2018      Function distributeTasks() modified: does not pass argument ss (skill scores) when calls optimTaskDistribute()
+# 2.5.0     08 March 2018      Function updateAgentUtilisation() modified: Fills TSK$score from SO$score only if the column does not exist in TSK table. If any column exists, keeps it intact.
+# 2.5.1     07 May 2018        Function updateAgentUtilisation() modified: Computes task AUT times in a more memory-efficient way to avoid high memory allocation.
+# 2.5.2     08 May 2018        Function clearAllocation() modified: Only runs if there is any allocated non-leftover tasks.
+# 2.5.3     08 May 2018        Function clearAllocation() modified: Argument 'update' added. If TRUE(default) runs updateUtilisation() and updateTaskCounts()
+# 2.5.4     08 May 2018        Function feedTasks() modified: Argument 'update' added. If TRUE(default) runs updateUtilisation() and updateTaskCounts()
+# 2.5.5     25 May 2018        Function correctAllocation() added. Not exported!
+# 2.5.6     25 May 2018        Documentation added for functions OptimalTaskAllocator(), feedAgents(),  updateTaskCounts(), updateAgentUtilization() and feedSkills()
+# 2.5.7     28 May 2018        Documentation added for functions feedTasks(), feedAgentSchedule() and feedAgentTurnaroundTime()
+# 2.5.8     28 May 2018        Function correctAllocation() modified: Shows progress bar enabled with argument 'show_progress'
+# 2.5.9     28 May 2018        Function distributeTasks() modified: Argument 'silent'. Shows consequent stages of allocation on the console. The argument is passed to functions optimTaskDistribute() and correctAllocation().
+# 2.6.0     28 May 2018        Initial documentation draft added for function distributeTasks()
+# 2.6.1     28 May 2018        Small syntax error in functions feedAgents() and feedSkills() rectified.
+# 2.6.2     04 June 2018       Function updateAgentUtilization() modified: A bug rectified: task scores could not be set from skill profile for the second task feed. Now it sets the scores from SP if task score is missing. score
+# 2.6.3     09 July 2018       Function distributeTasks() modified: does not call function correctAllocation after allocation of tasks.
+# 2.6.4     09 July 2018       Function correctAllocation() modified: if no task is left unallocated, does not show progress_bar and writes a message.
+# 2.6.5     09 July 2018       Documentation added for functions: correctAllocation() and clearAllocation()
+# 2.6.6     13 July 2018       Function correctAllocation() modified: Runs faster as it breaks in the middle of the loop if max priority of unallocated tasks becomes lower than min priority of allocated ones
+# 2.6.7     13 July 2018       Function shuffle() added: Respecting count of allocated tasks to each employee, shuffles the tasks requiring equal time among agents randomly to have a better mix of skills and priorities
+# 2.6.8     13 July 2018       Function forceAllocation() added: Allocating from scratch, forces allocation of tasks only based on highest priority, ignoring time (very sub-optimal for productivity)
+
+
+
+tltpCols4Agents  = c('Agent ID' = 'AgentID', 'Average Speed' = 'speed', 'Average TAT' = 'C.AUT', 'Allocated' = 'C.Allocated')
+tltpUnits4Agents = c('', 'task/Hr', 'min', 'tasks')
+tltpCols4Skills  = c('Task Type' = 'skillID', 'Total Backlog' = 'Backlog', 'Allocated' = 'C.Allocated', 'Coverge' = 'coverage', 'Average Speed' = 'speed', 'Average TAT' = 'C.AUT')
+tltpUnits4Skills = c('', 'tasks', 'tasks', '%', 'task/Hr', 'min')
+
+# Class Constructor:
+#' Abstract constructor for S3 class \code{OptimalTaskAllocator}
+#'
+#' @param agents character vector: Should contain unique names or IDs of agents (resources or employees).
+#' @param skills character vector: Should contain unique names or IDs of skills (task types)
+#' @param vf boolean: Should input arguments be checked?
+#' @return an object of class \code{OptimalTaskAllocator}
+#' @examples
+#' x = OptimalTaskAllocator()
+#' class(x)
+#'
+#' @export
+OptimalTaskAllocator = function(agents = NULL, skills = NULL, vf = TRUE){
+  obj = list()
+  class(obj) <- 'OptimalTaskAllocator'
+  
+  obj$AP = data.frame()
+  obj$SP = data.frame()
+  obj$TAT = data.frame()
+  obj$ALC = data.frame()
+  
+  if(vf){
+    agents %<>% verify('character') %>% unique
+    skills %<>% verify('character') %>% unique
+  }
+  
+  if (!is.null(agents)){obj %<>% feedAgents(agents)}
+  if (!is.null(skills)){obj %<>% feedSkills(skills)}
+  
+  if (is.empty(obj$AP)){obj$AP = data.frame(scheduled = numeric(), utilFactor = numeric(), reserved = numeric(), productive = numeric(), available = numeric(), utilized = numeric(),
+                                            AUT = numeric(), Allocated = integer(), Leftover = integer(), newAllocated = integer(), notWorkable = integer())}
+  
+  if (is.empty(obj$SP)){obj$SP = data.frame(PRW = numeric(), AUT = numeric(), Allocated = integer(), Unallocated = integer(), Leftover = integer(),
+                                            newAllocated = integer(), notWorkable = integer(), Backlog = integer())}
+  
+  if (is.empty(obj$TSK)){obj$TSK = data.frame(skill = character(), agent = character(), priority = numeric(), workable = logical(), LO = logical(), status = factor(), AUT = numeric())}
+  
+  return(obj)
+}
+
+# Feeds list of Agents
+#' Use this function to add a list of agents to the model
+#'
+#' @param obj input object: Should be an object of class \code{OptimalTaskAllocator},
+#' @param agents character vector or data.frame: Should contain unique names or IDs of agents (resources or employees). If a data.frame is given,
+#' it must have rownames which specify unique names or IDs of the agents. Columns of the given table will be added to the agent profile \code{obj$AP}
+#' @param vf boolean: Should input arguments be checked?
+#' @return an object of class \code{OptimalTaskAllocator} with given agents added
+#' @examples
+#' x = OptimalTaskAllocator() %>% feedAgents(c('Bill', 'Michael', 'Chris'))
+#' x$agents
+#'
+#' @export
+feedAgents = function(obj, agents, vf = T, ...){
+  if(vf){agents %<>% verify(c('character', 'data.frame'), fix = T)}
+  if (inherits(agents, 'character')){
+    agents = agents %-% rownames(obj$AP)
+    if (!is.empty(agents)){
+      obj$AP[agents, ]  <- NA
+      obj$TAT[agents, ] <- NA
+      obj$ALC[agents, ] <- NA
+    }
+    obj$agents <- rownames(obj$AP)
+    return(obj)
+  } else if (inherits(agents, 'data.frame')){
+    return(obj %>% feedAgentProfile(agents, ...))
+  } else {stop("Invalid class for argument 'agents'!")}
+}
+
+#' @export
+feedAgentProfile = function(obj, agents, agentID_col = NULL, extra_col = NULL){
+  # Verifications
+  verify(agents, 'data.frame', varname = 'agents')
+  nms = names(agents)
+  niragen::assert(!is.null(nms), 'Given table agents must have column labels', match.call()[[1]])
+  
+  agentID_col %<>% verify('character', domain = nms, lengths = 1, varname = 'agentID_col')
+  extra_col   %<>% verify('character', domain = nms, default = nms %-% agentID_col, varname = 'extra_col')
+  
+  if (is.null(agentID_col)){
+    agids = rownames(agents)
+    niragen::assert(!is.null(agids) & !identical(agids, as.character(sequence(nrow(agents)))), 'Given table agents must have row labels. When argument agentID_col is not specified, agent IDs should be aspecified as rownames', match.call()[[1]])
+  } else {
+    agids  = agents[, agentID_col] %>% as.character
+    keep   = !duplicated(agids)
+    agids  = agids[keep]
+    agents = agents[keep, ]
+  }
+  obj %<>% feedAgents(agids)
+  
+  if(extra_col %>% names %>% is.null){names(extra_col) <- extra_col}
+  
+  for (fig in names(extra_col)){
+    obj$AP[agids, fig] <- agents[, extra_col[fig]]
+  }
+  return(obj)
+}
+
+#' Updates task counts in the object tables.
+#'
+#' Task statuses in \code{obj$TSK} and counts of various task statuses in tables: \code{obj$SP} and \code{obj$AP} are updated.
+#' Also, updates the allocation matrix \code{obj$ALC}. This function should be called after any change in task allocation status.
+#' @param obj input object: Should be an object of class \code{OptimalTaskAllocator},
+#' @return an object of class \code{OptimalTaskAllocator} with updated tables
+#' @export
+updateTaskCounts = function(obj){
+  if(!is.empty(obj$TSK)){
+    obj$TSK$status = 'newAllocated'
+    obj$TSK$status[obj$TSK$agent %>% is.na] = 'Unallocated'
+    obj$TSK$status[obj$TSK$LO] = 'Leftover'
+    obj$TSK$status[!obj$TSK$workable] = 'notWorkable'
+    
+    sksum = obj$TSK %>% reshape2::dcast(skill ~ status, fun.aggregate = length, value.var = 'skill') %>% column2Rownames('skill')
+    nms   = sksum %>% names
+    
+    obj$SP$Unallocated    = chif('Unallocated' %in% nms, sksum[obj$skills, 'Unallocated'], 0) %>% na2zero
+    obj$SP$Leftover      = chif('Leftover' %in% nms, sksum[obj$skills, 'Leftover'], 0) %>% na2zero
+    obj$SP$newAllocated   = chif('newAllocated' %in% nms, sksum[obj$skills, 'newAllocated'], 0) %>% na2zero
+    obj$SP$notWorkable    = chif('notWorkable' %in% nms, sksum[obj$skills, 'notWorkable'], 0) %>% na2zero
+    obj$SP$Backlog        = rowSums(sksum)[obj$skills] %>% na2zero
+    obj$SP$Allocated      = obj$SP$Leftover + obj$SP$newAllocated
+    
+    agsum = obj$TSK %>% filter(!is.na(agent)) %>% group_by(agent) %>% dplyr::summarize(Allocated = sum(!is.na(agent)), Leftover = sum(LO & workable), newAllocated = sum(!LO & workable), notWorkable = sum(!workable)) %>% as.data.frame %>% column2Rownames('agent')
+    
+    obj$AP$Allocated     = agsum[obj$agents , 'Allocated'] %>% na2zero
+    obj$AP$Leftover      = agsum[obj$agents , 'Leftover'] %>% na2zero
+    obj$AP$newAllocated  = agsum[obj$agents , 'newAllocated'] %>% na2zero
+    obj$AP$notWorkable   = agsum[obj$agents , 'notWorkable'] %>% na2zero
+    
+    asal = reshape2::dcast(obj$TSK, agent ~ skill, value.var = 'AUT', fun.aggregate = length) %>% na.omit %>% column2Rownames('agent') # asal: agent skill allocated
+    ags  = obj$agents %^% rownames(asal)
+    sks  = obj$skills %^% colnames(asal)
+    obj$ALC[ , ] <- 0
+    obj$ALC[ags, sks] = asal[ags, sks]
+    obj$ALC[obj$ALC %>% is.na] <- 0
+  } else {
+    if(!is.empty(obj$SP)){
+      obj$SP$Allocated    = 0
+      obj$SP$Unallocated  = 0
+      obj$SP$Leftover     = 0
+      obj$SP$newAllocated = 0
+      obj$SP$notWorkable  = 0
+      obj$SP$Backlog      = 0
+    }
+    if(!is.empty(obj$AP)){
+      obj$AP$Allocated    = 0
+      obj$AP$Leftover     = 0
+      obj$AP$newAllocated = 0
+      obj$AP$notWorkable  = 0
+    }
+  }
+  return(obj)
+}
+
+#' Updates agent utilization measures in table \code{obj$AP}
+#'
+#' These measures include: scheduled time, productive time, reserved time, utilized time, available time.
+#' Also updates column \code{score} in the agent profile table \code{obj$AP}.
+#' Also updates column \code{AUT} in the task list \code{obj$TSK} containing average processing unit times.
+#' If utilization factor is not already given (via function \code{feedAgentSchedule()}), it will be set as \code{1.0} for all agents.
+#' @param obj input object: Should be an object of class \code{OptimalTaskAllocator},
+#' @return an object of class \code{OptimalTaskAllocator} with updated tables
+#' @export
+updateAgentUtilization = function(obj){
+  if(obj$AP %>% is.empty){
+    obj$AP$reserved  = numeric()
+    obj$AP$utilized  = numeric()
+    obj$AP$available = numeric()
+    obj$AP$score     = numeric()
+    return(obj)
+  }
+  obj$AP$scheduled  %<>% na2zero
+  obj$AP$utilFactor[is.na(obj$AP$utilFactor)] <- 1.0
+  obj$AP$productive = obj$AP$scheduled*obj$AP$utilFactor
+  
+  if(is.empty(obj$TSK)){
+    obj$AP$reserved = 0
+    obj$AP$score    = 0
+  } else {
+    obj$TSK$AUT   = obj$TSK %>% apply(1, function(xx){obj$TAT[xx['agent'], xx['skill']]})
+    if(is.null(obj$TSK$score)){stc = obj$TSK %>% nrow %>% sequence} else {stc = which(is.na(obj$TSK$score))}
+    obj$TSK$score[stc] = obj$SP[obj$TSK$skill[stc] %>% as.character, 'score']
+    RSVD = obj$TSK %>% filter(LO & workable) %>% dplyr::group_by(agent) %>% dplyr::summarise(AUT = sum(AUT, na.rm = T)) %>% as.data.frame %>% column2Rownames('agent')
+    UTLD = obj$TSK %>% filter(!is.na(agent) & workable) %>% dplyr::group_by(agent) %>% dplyr::summarise(AUT = sum(AUT, na.rm = T)) %>% as.data.frame %>% na2zero %>% column2Rownames('agent')
+    SCRS = obj$TSK %>% filter(!is.na(agent) & workable) %>% dplyr::group_by(agent) %>% dplyr::summarise(score = sum(score, na.rm = T)) %>% as.data.frame %>% na2zero %>% column2Rownames('agent')
+    
+    obj$AP$reserved = RSVD[obj$agents, 'AUT'] %>% na2zero
+    obj$AP$utilized = UTLD[obj$agents, 'AUT'] %>% na2zero
+    obj$AP$score    = SCRS[obj$agents, 'score'] %>% na2zero
+  }
+  
+  obj$AP$available = obj$AP$productive - obj$AP$reserved
+  obj$AP$available[obj$AP$available < 0] <- 0
+  
+  obj$TAT[obj$TAT == 0] <- NA
+  obj$TSK$AUT[obj$TSK$AUT == 0] <- NA
+  
+  return(obj)
+}
+
+#' Use this function to add a list of skills (task types) to the model
+#'
+#' @param obj input object: Should be an object of class \code{OptimalTaskAllocator},
+#' @param skills character vector or data.frame: Should contain unique names or IDs of skills (task types). If a data.frame is given,
+#' it must have rownames which specify unique names or IDs of the skills. Columns of the given table will be added to the skill profile \code{obj$SP}
+#' @param vf boolean: Should input arguments be checked?
+#' @return an object of class \code{OptimalTaskAllocator} with given skills added
+#' @examples
+#' x = OptimalTaskAllocator() %>% feedSkills(c('Document Verification', 'Certification', 'Aftercare Sealing'))
+#' x$skills
+#'
+#' @export
+feedSkills = function(obj, skills, vf = T, ...){
+  if(vf){skills %<>% verify(c('character', 'data.frame'), fix = T)}
+  if (inherits(skills, 'character')){
+    skills = skills %-% rownames(obj$SP)
+    if (!is.empty(skills)){
+      obj$SP[skills,]   <- NA
+      obj$SP[skills, 'score'] = 1.0
+      obj$TAT[, skills] <- NA
+      obj$ALC[, skills] <- NA
+    }
+    obj$skills <- rownames(obj$SP)
+    return(obj)
+  } else if (inherits(skills, 'data.frame')){
+    return(obj %>% feedSkillProfile(skills, ...))
+  } else {stop("Invalid class for argument 'skills'!")}
+}
+
+#' @export
+feedSkillProfile = function(obj, skills, skillID_col = NULL, score_col = NULL, extra_col = NULL){
+  # Verifications
+  verify(skills, 'data.frame', varname = 'skills')
+  nms = names(skills)
+  niragen::assert(!is.null(nms), 'Given table skills must have column labels', match.call()[[1]])
+  
+  skillID_col %<>% verify('character', domain = nms, lengths = 1, varname = 'skillID_col')
+  score_col   %<>% verify('character', domain = nms, lengths = 1, varname = 'score_col')
+  extra_col   %<>% verify('character', domain = nms, default = nms %-% c(skillID_col, score_col), varname = 'extra_col')
+  
+  if (is.null(skillID_col)){
+    skids = rownames(skills)
+    niragen::assert(!is.null(skids), 'Given table skills must have row labels. When argument skillID_col is not specified, skill IDs should be aspecified as rownames', match.call()[[1]])
+  } else {
+    skids  = skills[, skillID_col] %>% as.character
+    keep   = !duplicated(skids)
+    skids  = skids[keep]
+    skills = skills[keep, ]
+  }
+  
+  obj %<>% feedSkills(skids)
+  
+  if(extra_col %>% names %>% is.null){names(extra_col) <- extra_col}
+  
+  for (fig in names(extra_col)){
+    obj$SP[skids, fig] <- skills[, extra_col[fig]]
+  }
+  
+  if (is.null(score_col)){obj$SP$score = chif(is.empty(obj$SP), numeric(), 1.0)} else {obj$SP[skids, 'score'] = skills[, score_col]}
+  
+  return(obj)
+}
+
+#' @export
+feedAgentCountHistory = function(obj, agentCH, date_col = 'date', agentID_col = 'agentID', skillID_col = 'skill', taskCount_col = 'count', feedNewAgents = F, feedNewSkills = F){
+  verify(agentCH, 'data.frame', names_include = c(date_col, agentID_col, skillID_col, taskCount_col), varname = 'agentCH')
+  
+  if(feedNewAgents){obj %<>% feedAgents((agentCH[, agentID_col] %>% unique %>% as.character) %-% obj$agents)} else {
+    keep    = agentCH[, agentID_col] %in% obj$agents
+    agentCH = agentCH[keep,]
+    ndel    = sum(!keep)
+    warnif(ndel > 0, ndel %++% ' records were removed because their agent IDs were not defined!')
+  }
+  
+  if(feedNewSkills){obj %<>% feedSkills((agentCH[, skillID_col] %>% unique %>% as.character) %-% obj$skills)} else {
+    keep    = agentCH[, skillID_col] %in% obj$skills
+    agentCH = agentCH[keep,]
+    ndel    = sum(!keep)
+    warnif(ndel > 0, ndel %++% ' records were removed because their skill IDs were not defined!')
+  }
+  
+  obj$ACH = data.frame(date = agentCH[,date_col], agentID = agentCH[, agentID_col], skill =  agentCH[, skillID_col], count = agentCH[, taskCount_col], stringsAsFactors = F)
+  
+  obj$ACH$date    %<>% as.Date
+  obj$ACH$agentID %<>% as.character
+  obj$ACH$skill   %<>% as.character
+  obj$ACH$count   %<>% as.integer
+  
+  return(obj)
+}
+
+#' Use this function to feed tasks to the model (including leftover tasks).
+#'
+#' @param obj input object: Should be an object of class \code{OptimalTaskAllocator},
+#' @param tasks data.frame: Should contain list of tasks to be allocated. The table must contain task IDs, skill(task types), agent (resource or employee ID) for leftover tasks
+#' task priority, and a workable flag specifying whether the task is workable or not.
+#' @param taskID_col Single character: Specifies the column name containing task IDs in the table passed o argument \code{tasks}.
+#' If NULL, rownames of the table must contain task IDs.
+#' @param skillID_col Single character: Specifies the column name containing skill IDs or skill names in the table passed o argument \code{tasks}.
+#' @param priority_col Single character: Specifies the column name containing task priority values in the table passed o argument \code{tasks}.
+#' @param agentID_col Single character: Specifies the column name containing agent(resource) IDs or names in the table passed o argument \code{tasks}.
+#' If agent is not specified for a task (Value NA in column agent) means the task is not allocated and needs to be allocated by the allocator engine as a result of optimization.
+#' @param workable_col Single character: Specifies the column name containing logical flags for the tasks which determines whether the task is workable or not.
+#' @param extra_col character vector: Which other columns of table \code{tasks} should be added to the task list?
+#' @param feedNewSkills logical: If there are new skills in the given task list that are not already fed to the model, should they be added to the skill profile?
+#' If \code{FALSE} (default), tasks with unknown skills will be eliminated from the list.
+#' @param feedNewAgents logical: If there are new agents in the given task list that are not already fed, should they be added to the agent profile?
+#' If \code{FALSE} (default), tasks with unknown agents will be eliminated from the list.
+#' @param vf boolean: Should input arguments be checked?
+#' @return an object of class \code{OptimalTaskAllocator} with given tasks added to the task list (table \code{obj$TSK}).
+#'
+#' @export
+feedTasks = function(obj, tasks, taskID_col = NULL, skillID_col = 'skill', priority_col = 'priority', agentID_col = NULL, workable_col = NULL, extra_col = NULL, feedNewSkills = F, feedNewAgents = F, update = T){
+  verify(tasks, 'data.frame', names_include = c(taskID_col, skillID_col, priority_col, agentID_col, workable_col), varname = 'tasks')
+  # todo: use function nameColumns from niragen
+  if(!is.null(taskID_col)){tasks[,taskID_col]   %<>% as.character}
+  if(!is.null(agentID_col)){tasks[,agentID_col] %<>% as.character}
+  if(!is.null(workable_col)){tasks[,workable_col] %<>% as.logical}
+  tasks[,skillID_col] %<>% as.character
+  tasks[,priority_col] %<>% as.numeric %>% verify(err_msg = "Argument priority must refer to a numeric column", err_src = match.call()[[1]])
+  
+  nms = names(tasks)
+  extra_col %<>% verify('character', domain = nms, default = nms %-% c(taskID_col, skillID_col, priority_col, agentID_col, workable_col), varname = 'extra_col')
+  
+  if(feedNewSkills){obj %<>% feedSkills((tasks[, skillID_col] %>% unique %>% as.character) %-% obj$skills)} else {
+    keep  = tasks[, skillID_col] %in% obj$skills
+    tasks = tasks[keep,]
+    ndel  = sum(!keep)
+    warnif(ndel > 0, ndel %++% ' tasks were removed because their skills were not defined!')
+  }
+  
+  newAgents = (tasks[, agentID_col] %>% na.omit %>% unique %>% as.character) %-% obj$agents
+  if(length(newAgents) > 0){
+    if(feedNewAgents){obj %<>% feedAgents(newAgents)} else {
+      tbd   = tasks[, agentID_col] %in% newAgents
+      tasks = tasks[!tbd,]
+      ndel  = sum(tbd)
+      warnif(ndel > 0, ndel %++% ' tasks were removed because their agents were not defined!')
+    }
+  }
+  
+  if (is.null(taskID_col)){
+    rnmstsks = rownames(tasks)
+    niragen::assert(!is.null(rnmstsks), "When argument 'taskID_col' is not specified, task IDs should be specified as rownames of argument 'tasks'!", match.call()[[1]])
+  } else {
+    dps = duplicated(tasks[, taskID_col])
+    ndp = sum(dps)
+    warnif(ndp > 0, 'Warning: There are ' %++% ndp  %++% ' tasks with duplicated IDs which are removed!')
+    tasks = tasks[!dps,]
+    rownames(tasks) <- tasks[, taskID_col]
+  }
+  
+  if(is.empty(tasks)){
+    tt = data.frame(skill = character(), agent = character(), priority = numeric(), workable = logical(), stringsAsFactors = FALSE)
+  } else {
+    tt = data.frame(skill    = tasks[, skillID_col],
+                    agent    = chif(is.empty(agentID_col), NA, tasks[, agentID_col]),
+                    priority = tasks[, priority_col],
+                    workable = chif(is.empty(workable_col),T, tasks[, workable_col]),
+                    stringsAsFactors = F)
+  }
+  
+  
+  if(extra_col %>% names %>% is.null){names(extra_col) <- extra_col}
+  
+  tt %<>% appendCol(tasks[, extra_col], names(extra_col))
+  rownames(tt) <- rownames(tasks)
+  
+  tt$skill    %<>% as.character
+  tt$priority %<>% as.numeric
+  options(warn = -1)
+  if(is.null(obj$TSK)){obj$TSK = tt}
+  else {
+    # P = bind_rows(tibble::rownames_to_column(tt), tibble::rownames_to_column(obj$TSK)) %>%
+    #   distinct(rowname, .keep_all = T)
+    # obj$TSK <- tibble::column_to_rownames(P) %>% as.data.frame
+    obj$TSK = tt %>% rownames2Column('TaskID') %>% bind_rows(obj$TSK %>% rownames2Column('TaskID')) %>%
+      distinct(TaskID, .keep_all = T) %>% column2Rownames('TaskID')
+  }
+  options(warn = 1)
+  
+  loindx = !is.na(obj$TSK$agent)
+  obj$TSK$LO[ loindx] <- TRUE
+  obj$TSK$LO[!loindx] <- FALSE
+  
+  if(update){obj %<>% updateAgentUtilization %>% updateTaskCounts}
+  
+  return(obj)
+}
+
+#' @export
+feedAgentUtilizationHistory = function(obj, agentUH, date_col = 'date', agentID_col = 'agentID', prodTime_col = 'prodTime', feedNewAgents = F){
+  verify(agentUH, 'data.frame', names_include = c(date_col, agentID_col, prodTime_col), varname = 'agentUH')
+  
+  if(feedNewAgents){obj %<>% feedAgents((agentUH[, agentID_col] %>% unique %>% as.character) %-% obj$agents)} else {
+    keep    = agentUH[, agentID_col] %in% obj$agents
+    agentUH = agentUH[keep,]
+    ndel    = sum(!keep)
+    warnif(ndel > 0, ndel %++% ' records were removed because their agent IDs were not defined!')
+  }
+  
+  obj$AUH = agentUH[, c(date_col, agentID_col, prodTime_col)]
+  names(obj$AUH) <- c('date', 'agentID', 'prodTime')
+  return(obj)
+}
+
+#' Use this function to feed scheduled time for the agents(resources).
+#'
+#' @param obj input object: Should be an object of class \code{OptimalTaskAllocator},
+#' @param agentSCH data.frame: Should contain list of agents (resources or employees) with scheduling information.
+#' The table must contain agent IDs, scheduled time and utilisation factors. Scheduled time must be given in minutes and
+#' utilisation factor is a value between \code{0} and \code{1} specifying for each agent, what percentatge of the scheduled time they are productive and can be utilised.
+#' @param agentID_col single character: Specifies the column name containing agent(resource) IDs or names in the table passed o argument \code{agentSCH}.
+#' @param scheduled_col single character: Specifies the column name containing values of scheduled time in minutes.
+#' @param utilFactor_col single character: Which column in table \code{agentSCH} contains utilisation factor values?
+#' @param feedNewAgents logical: If there are new agents in the given table \code{agentSCH} that are not already fed, should they be added to the agent profile?
+#' If \code{FALSE} (default), rows with unknown agents will be eliminated from the table.
+#' @param vf boolean: Should input arguments be checked?
+#' @return an object of class \code{OptimalTaskAllocator} with scheduling information added to the agent profile table (\code{obj$AP}).
+#'
+#' @export
+feedAgentSchedule = function(obj, agentSCH, agentID_col = NULL, scheduled_col = NULL, utilFactor_col = NULL, feedNewAgents = F, vf = T){
+  if(vf){
+    verify(agentID_col    , 'character', domain = names(agentSCH), varname = 'agentID_col')
+    verify(scheduled_col, 'character', domain = names(agentSCH), varname = 'scheduled_col', null_allowed = F)
+    verify(utilFactor_col, 'character', domain = names(agentSCH), varname = 'utilFactor_col')
+  }
+  if(is.empty(agentSCH)){return(obj)}
+  if(is.null(utilFactor_col)){
+    utilFactor_col     = 'utilFactor'
+    agentSCH$utilFactor = 1.0
+  }
+  
+  if(!is.null(agentID_col)){
+    agentSCH <- agentSCH[!duplicated(agentSCH[, agentID_col]),]
+    rownames(agentSCH) <- agentSCH[, agentID_col]
+    agentSCH[, agentID_col] <- NULL
+  } else {
+    niragen::assert(!is.null(rownames(agentSCH)), "Agent IDs should be aspecified as rownames of table 'agentSCH'!", match.call()[[1]])
+  }
+  
+  agids = rownames(agentSCH)
+  
+  if(feedNewAgents){obj %<>% feedAgents(agids %-% obj$agents)} else {
+    keep     = agids %in% obj$agents
+    agentSCH = agentSCH[keep,]
+    ndel     = sum(!keep)
+    warnif(ndel > 0, ndel %++% ' records were removed because their agent IDs were not defined!')
+    agids    = agids %^% obj$agents
+  }
+  
+  obj$AP[agids, 'scheduled']  <- agentSCH[, scheduled_col]
+  obj$AP[agids, 'utilFactor'] <- agentSCH[, utilFactor_col]
+  
+  return(obj %>% updateAgentUtilization)
+}
+
+#' Use this function to add agent-skill average turnaround time (processing time) data.
+#'
+#' @param obj input object: Should be an object of class \code{OptimalTaskAllocator},
+#' @param ATT data.frame: Should contain list of agent turnaround times. This table specifies the average time each agent has spent on each skill (task type).
+#' The table must contain agent IDs, skill ids and average processing time (turnaround time) values in minutes.
+#' @param agentID_col single character: Specifies the column name containing agent(resource) IDs or names in the table passed o argument \code{ATT}.
+#' Rows with new agents not in the agent profile, will be eliminamted.
+#' @param skillID_col single character: Specifies the column name containing skill IDs or names in the table passed to argument \code{ATT}.
+#' Rows with new skills not in the skill profile, will be eliminamted.
+#' @param tat_col single character: Which column in table \code{TAT} contains average processing time values?
+#' @return an object of class \code{OptimalTaskAllocator} with updated agent-skill processing time matrix (\code{obj$TAT}).
+#'
+#' @export
+feedAgentTurnaroundTime = function(obj, ATT, agentID_col, skillID_col, tat_col){
+  # todo: new skills/agents?
+  if(is.empty(ATT)){return(obj)}
+  # Verifications
+  verify(ATT, 'data.frame', varname = 'ATT')
+  verify(agentID_col, 'character', domain = names(ATT), lengths = 1, varname = 'agentID_col')
+  verify(skillID_col, 'character', domain = names(ATT), lengths = 1, varname = 'skillID_col')
+  verify(tat_col, 'character'  , domain = names(ATT), lengths = 1, varname = 'tat_col')
+  
+  ATT %<>% reshape2::dcast(as.formula(paste(agentID_col, '~', skillID_col)), value.var = tat_col, fun.aggregate = mean)
+  rownames(ATT)    <- ATT[, agentID_col] %>% as.character
+  ATT[, agentID_col] <- NULL
+  agnts = obj$agents %^% rownames(ATT)
+  sklls = obj$skills %^% colnames(ATT)
+  obj$TAT[agnts, sklls] = ATT[agnts, sklls]
+  obj$TAT[obj$TAT == 0] <- NA
+  obj$AP$AUT = (obj$TAT %>% rowMeans(na.rm = T))
+  obj$SP$AUT = (obj$TAT %>% colMeans(na.rm = T))
+  
+  obj %<>% updateAgentUtilization
+  return(obj)
+}
+### 2- Adding computed data:
+
+smartMapTaskPriorities = function(obj, n = 10){
+  niragen::assert(!is.null(obj$TSK), "Task list (backlog data) is not fed!", match.call()[[1]])
+  
+  obj$TSK$priority <- smartMap(obj$TSK$priority, n = n)
+  return(obj)
+}
+
+#' @export
+calcAgentTAT = function(obj){
+  niragen::assert(!is.null(obj$ACH), "Agent task count history data is not fed! Call method  feedAgentCountHistory() with data to feed first.", match.call()[[1]])
+  niragen::assert(!is.null(obj$AUH), "Agent utilization history data is not fed! Call method  feedAgentUtilizationHistory() with data to feed first.", match.call()[[1]])
+  
+  agents           = obj$ACH$agentID %^% obj$AUH$agentID
+  
+  AHC.DateChar = as.character(obj$ACH$date)
+  AR.DateChar  = as.character(obj$AUH$date)
+  dates        = AHC.DateChar %^% AR.DateChar
+  
+  obj$ACH  = obj$ACH[(AHC.DateChar %in% dates) & (obj$ACH$agentID %in% agents),]
+  obj$AUH = obj$AUH[(AR.DateChar %in% dates) & (obj$AUH$agentID %in% agents),]
+  
+  agents       = unique(obj$ACH$agentID)
+  # Over all the agents: Average time spent on each task:
+  landa = sum(obj$AUH$prodTime)/sum(obj$ACH$count)
+  
+  X = data.frame()
+  
+  #Generate agentSkillTable
+  for (k in agents){
+    cat('Agent ', k, ' started ... \n \n \n')
+    
+    ACHk = obj$ACH[obj$ACH$agentID == k,]
+    ACHk = reshape2::dcast(ACHk, date ~ skill, mean, value.var = 'count')
+    ACHk[is.na(ACHk)] <- 0
+    rownames(ACHk) <- as.character(ACHk$date)
+    ACHk = ACHk[, -1, drop = F]  # This is Count History matrix for agent k(casted matrix) and is the first input to function agentTaskTimeEstimate()
+    
+    ARk = obj$AUH[obj$AUH$agent == k,]
+    rownames(ARk) <- as.character(ARk$date)
+    
+    a     = colSums(ACHk)
+    b     = sum(ARk$prodTime)
+    x0    = rep(landa, length(a))
+    names(x0) <- names(a)
+    xk    = findNearestVect(x0, a, b , lb = rep(landa, length(a)))
+    warnif((sum(b) == 0) & (sum(a) > 0), paste("Agent ID", k, "had totally zero utilization time but has done", sum(a), "tasks! The global average skill has been set for this agent."))
+    for (tsk in names(xk)){X[k, tsk] <- xk[tsk]}
+  }
+  
+  obj$TAT[rownames(X), colnames(X)] = X
+  
+  obj$SP$AUT <- colMeans(obj$TAT, na.rm = T)
+  obj$AP$AUT <- rowMeans(obj$TAT, na.rm = T)
+  
+  a = obj$ALC > 0
+  a[is.na(a)]<- F
+  t = obj$TAT
+  t[!a] <- NA
+  
+  obj$AP$AUT.Allocated <- rowMeans(t, na.rm = T) # Average Turn-around time in allocated tasks for each agent
+  obj$SP$AUT.Allocated <- colMeans(t, na.rm = T) # Average Turn-around time in allocated tasks for each skill
+  
+  return(obj)
+}
+
+#' This function runs the main task allocation engine. Call this function to distribute unallocated tasks to the agents (resources).
+#'
+#' @param obj input object: Should be an object of class \code{OptimalTaskAllocator},
+#' @param prioritization single character: Specifies how task priorities change before being fed to the optimisation algorithm. Must be one of these options: \cr
+#' \code{'ZFactorExponential'} (default): Standardise priority values to Z factors and map via exponential function. \cr
+#' \code{'rankBased'}: Modifies priority values so that the minimum priority within a cluster is higher than sum of of all priorities in the next lower ranked cluster. \cr
+#' \code{'timeAdjusted'}: Multiplies each task priority by the average processing time of its skill.
+#' This conversion, eliminates the impact of average unit time in allocation and gives higher weight to task priorities rather than processing time.
+#' Note: This option, leads to a sub-optimal task distribution, however,
+#' ensures each task is allocated when all other tasks in the list with higher priorities are not left unallocated. \cr
+#' @param silent single logical: If \code{FALSE}, consequent steps in task allocation will be shown on the console.
+#' @param flt2IntCnvrsn single character: Specifies how optimal count of allocated tasks should be converted from float to integer. Must be one of these three options:
+#' \code{ceiling}: Convert float values to the next higher integer
+#' \code{round} (default): Convert float values to the closest integer
+#' \code{floor}:  Convert float values to the next lower integer
+#' @param fill_gap_time single logical: If \code{TRUE}, tries to find tasks to fill the gap time to increase utilisation. Default is \code{TRUE}.
+#' @param Kf single numeric: Specifies weight of fairness of score sharing. Default is \code{0}
+#' @param Ku single numeric: Specifies weight of balanced utilisation. Default is \code{0}
+#' @return an object of class \code{OptimalTaskAllocator} with allocated tasks.
+#'
+#' @export
+distributeTasks = function(obj, prioritization = 'ZFactorExponential', silent = F, ...){
+  
+  if(!silent){
+    cat('Task allocation procedure started.', '\n')
+    cat('Preparing data for allocation ...')
+  }
+  newt = obj$TSK[!obj$TSK$LO & obj$TSK$workable, ]
+  
+  # maxcnt = 0
+  # for(e in unique(obj$TSK$agent) %>% na.omit){
+  #   maxcnt = maxcnt + ceiling(obj$AP[e, 'productive'] / min(obj$TAT[e,], na.rm = T))
+  # }
+  #
+  # newt = newt[order(newt$priority, decreasing = T)[min(maxcnt, nrow(newt)) %>% sequence], ]
+  
+  agentUtil        <- obj$AP$available
+  names(agentUtil) <- obj$agents
+  agentUtil0       <- obj$AP$reserved
+  names(agentUtil0) <- obj$agents
+  
+  
+  skills = newt$skill %-% names(which(colSums(!is.na(obj$TAT)) == 0))
+  niragen::assert(length(skills) > 0, "No agent with required skills found!", match.call()[[1]])
+  
+  agents = obj$agents[which(agentUtil > 0)] %-% names(which(rowSums(!is.na(obj$TAT[, skills, drop = F])) == 0))
+  niragen::assert(length(agents) > 0, "Not any agent with free time has the required skills!", match.call()[[1]])
+  
+  agentSkill  = obj$TAT[agents, skills, drop = F]
+  taskBacklog = newt[newt$skill %in% skills,]
+  agentUtil   = agentUtil[agents]
+  agentUtil0  = agentUtil0[agents]
+  agentScore0 = obj$AP[agents, 'score']
+  names(agentScore0) = agents
+  
+  if(!silent){cat(' Done!', '\n')}
+  
+  taskBacklog %<>% optimTaskDistribute(aut = agentSkill, u0 = agentUtil0, u = agentUtil, as0 = agentScore0, prioritization = prioritization, silent = silent, ...)
+  
+  obj$TSK[rownames(taskBacklog), 'agent'] <- taskBacklog$agent
+  
+  # Adding count of Allocated, Loftovers and Assigned and Unallocateds to the Skill Profile and Agent Profile
+  
+  
+  obj %<>% updateAgentUtilization %>% updateTaskCounts
+  
+  if(!silent){cat('Task allocation procedure ended.', '\n')}
+  return(obj)
+}
+
+#' Corrects allocation of tasks by replacing some higher-priority unallocated tasks with lower-priority allocated ones.
+#'
+#' This treatment makes the allocation sub-optimal, but ensures higher priority tasks are not left unallocated.
+#' Note that this treatment can leed to exceeding 100% utilization of some agents.
+#' You can control this effect by argument 'autTolerance'.
+#' @param obj input object: Should be an object of class \code{OptimalTaskAllocator},
+#' @param autTolerance single numeric: Specifies maximum allowed tolerance in AUT time (in minutes).
+#' Tasks are swapped only if the average unit times (AUT) difference between them
+#' are lower than the value in this argument. Default value is 10 minutes.
+#' @param show_progress single logical: If \code{FALSE}, progress is not shown in the console.
+#' @return an object of class \code{OptimalTaskAllocator} with allocated tasks.
+#'
+#' @export
+correctAllocation = function(obj, autTolerance = 10, show_progress = F){
+  # For all allocated tasks, check and see if the agent can do any task with higher priority?
+  obj$TSK = obj$TSK[order(obj$TSK$priority, decreasing = T),]
+  al      = which(!is.na(obj$TSK$agent) & !obj$TSK$LO) %>% rev
+  if(length(al) > 0){
+    if(show_progress){
+      cat('Correcting allocations for perfect priority alignment ...', '\n')
+      pb = txtProgressBar(min = 0, max = length(al), style = 3)
+      cnt = 0
+    }
+    N = length(al); i = 1; j = 1
+    while((length(j) > 0) & i <= N){
+      if(show_progress){cnt = cnt + 1; setTxtProgressBar(pb, cnt)}
+      # pick a subset of unallocated tasks with priorities higher than task i:
+      j = which(is.na(obj$TSK$agent) & !obj$TSK$LO & obj$TSK$priority > obj$TSK$priority[al[i]])
+      if (length(j) > 0){
+        e     = obj$TSK$agent[al[i]] # who is the agent?
+        # what skill(s) he/she has which require almost equal time to the task he/she has been allocated?
+        cando = obj$skills[obj$TAT[e, ] %>% niragen::equal(obj$TAT[e, obj$TSK$skill[al[i]]], tolerance = autTolerance) %>% which]
+        # which of the unallocated tasks can be replaced with this task? Pick the one with highest priority:
+        # jj contains index of the unallocated task with highest priority which can be done by the agent in question
+        jj = j %^% which(obj$TSK$skill %in% cando) %>% first
+        if(!is.na(jj)){
+          # replace tasks:
+          obj$TSK$agent[jj] = e
+          obj$TSK$agent[al[i]]  = NA
+        }
+      }
+      i = i + 1
+    }
+    if(show_progress){cat(' Done!', '\n')}
+    obj %<>% updateAgentUtilization %>% updateTaskCounts
+  } else {
+    if(show_progress){
+      cat('No task is left unallocated! Correction skipped.', '\n')
+    }
+  }
+  return(obj)
+}
+
+genAgentUtilTimeSeries = function(obj){
+  niragen::assert(!is.null(obj$AUH), "Agent history utilities data is not fed! Call method  feedAgentHistoryUtil() with data to feed first.", match.call()[[1]])
+  
+  v = reshape2::dcast(obj$AUH, date ~ agentID, mean, value.var = 'prodTime')
+  
+  TIME.SERIES(v, time_col = 'date')
+}
+
+# Bins the agent skill values (durations) to n bins based on quantiles
+# If breaks are not unique, duplicated quantiles will be eliminated!
+# For example if minimum, 1st Quartile and median are the same, then only min, 3rd quartile and max will remain as cut breaks.
+binAgentSkills = function(obj, n = 4){
+  if (is.null(obj$sklvl)){
+    u = obj %>% getSkillMatrix %>% as.matrix %>% as.numeric
+    q = quantile(u, probs = seq(0, 1, 1/n), na.rm = T) %>% unique
+    niragen::assert(length(q) > 1, 'Number of bins too low!', err_src = match.call()[[1]])
+    obj$sklvl = u %>% cut(breaks = q, labels = sequence(length(q) - 1)) %>%
+      matrix(nrow = nrow(obj$skls), dimnames = list(rownames(obj$skls), colnames(obj$skls))) %>% as.data.frame
+  }
+  return(obj)
+}
+
+#' Clears allocation for the given object
+#'
+#' @param update single logical: Should tables agent profile \code{(obj$AP)}, skill profile \code{(obj$SP)} and allocation matrix \code{(obj$ALC)}
+#' @return an object of class \code{OptimalTaskAllocator} with allocated tasks.
+#' be updated?
+#'
+#' @export
+clearAllocation = function(obj, update = T){
+  tbc = which(!obj$TSK$LO & !is.na(obj$TSK$agent))
+  if(length(tbc) > 0){
+    obj$TSK[tbc, 'agent'] = NA
+    if(update){obj %<>% updateAgentUtilization %>% updateTaskCounts}
+  }
+  return(obj)
+}
+
+#' @export
+shuffle = function(obj){
+  # make a copy of the tasks:
+  TSK = obj$TSK[obj$TSK$workable & !obj$TSK$LO & !is.na(obj$TSK$agent),]
+  
+  for(NN in unique(TSK$AUT)){
+    alNN = which(TSK$AUT == NN)
+    APNN = TSK[alNN,] %>% group_by(agent) %>% summarise(count = length(agent)) %>% as.data.frame %>% column2Rownames('agent')
+    #skills involved in alNN group:
+    sk = TSK[alNN, 'skill'] %>% unique
+    # agents involved in alNN group:
+    ag = TSK[alNN, 'agent'] %>% unique
+    
+    TSK$agent[alNN] = NA
+    for (agi in ag){
+      # For agent agi:
+      # Which skills among the tasks in group alNN does this agent have?
+      subsk = obj$skills[which(obj$TAT[agi, ] == NN)] %^% sk
+      # take unallocated tasks with skills in subsk:
+      tl = TSK[TSK$skill %in% subsk & is.na(TSK$agent),]
+      tlids = rownames(tl)
+      # How many tasks can this agent have? APNN[agi, 'count']
+      # choose APNN[agi, 'count'] tasks from alNN randomly to give to agi:
+      tsk4agi = sample(tlids, size = min(length(tlids), APNN[agi, 'count']))
+      # allocate these tasks to agi:
+      TSK[tsk4agi, 'agent'] <- agi
+    }
+  }
+  
+  obj$TSK[rownames(TSK), 'agent'] = TSK$agent
+  
+  obj %>% updateAgentUtilization %>% updateTaskCounts
+  
+}
+
+#' @export
+forceAllocation = function(obj){
+  TL = obj$TSK[which(is.na(obj$TSK$agent) & (!obj$TSK$LO) & obj$TSK$workable),]
+  ord = order(TL$priority, decreasing = T)
+  for (i in ord){
+    # cat(i, '-')
+    # which agents are able to do it?
+    ag = rownames(obj$TAT)[which(!is.na(obj$TAT[, TL$skill[i]]))]
+    # which agents have time?
+    ag = ag[which(obj$AP[ag,'available'] > obj$TAT[ag, TL$skill[i]])]
+    if(length(ag) > 1){
+      # Among these agents, which one(s) has the lowest score?
+      minscore = min(obj$AP[ag, 'score'])
+      ag = ag[which(obj$AP[ag, 'score'] == minscore)]
+    }
+    # if more than one agent have lowest scores, which of them is the fastest?
+    if(length(ag) > 1){
+      mintime = min(obj$TAT[ag, TL$skill[i]])
+      ag = ag[which(obj$TAT[ag, TL$skill[i]] == mintime)][1]
+    }
+    # Allocate the task to the agent:
+    if(length(ag) == 1){
+      obj$TSK$agent[i] <- ag
+      # Correct available time:
+      obj$AP[ag, 'available'] = obj$AP[ag, 'available'] - obj$TAT[ag, TL$skill[i]]
+      obj$AP[ag, 'utilized']  = obj$AP[ag, 'utilized'] + obj$TAT[ag, TL$skill[i]]
+      obj$AP[ag, 'score']     = obj$AP[ag, 'score']    + obj$TSK[i, 'score']
+    }
+  }
+  
+  return(obj %>% updateAgentUtilization %>% updateTaskCounts)
+}
+
+
+
+
+# Header
+# Filename:      otatools.R
+# Version   Date               Action
+# -----------------------------------
+# 1.0.0     25 January 2017    Initial issue renamed from wfo.tools.R
+# 1.0.1     27 July 2017       Function taskSummary2TaskList() modified: timediff objects converted to numeric!
+# 1.0.2     28 July 2017       Function customizeTaskPriorities() modified: Priorities are scaled and converted by exponential function
+# 1.0.3     28 July 2017       Function optimTaskDistribute() modified: Priority level is now based on logarithm of task priorities
+# 1.0.4     21 August 2017     Function customizeTaskPriorities() modified: Rounding priorities to 2 digits deactivated to avoid changing very small values to zero
+# 1.1.0     21 August 2017     Function balanceAgentUtilization() added: Re-distributed the tasks to balance utilization time. Requires a bit  more work!
+# 1.1.1     21 August 2017     Function balanceAgentUtilization() works reliably: Just need to take care of a few unallocated tasks due to rounding non-integer allocation values to integer
+# 1.1.3     21 August 2017     functions distVertical() and distHorizontal() added: Currently only distVertical() is used for task allocation
+# 1.1.4     22 August 2017     functions balanceAgentUtilization() modified: A big bug is rectified! Used to allocate tasks to agents with no productive time. Maximum available time added as an inequality constraint to the quadratic optimization model.
+# 1.1.6     31 August 2017     An important bug rectified: Could not allocate in case there is only one skill and one priority level. Functions optimTaskDistribute() and optimTaskDistribute.LP() modified.
+# 1.2.0     20 September 2017  Uses clustering to determine priority level
+# 1.2.1     21 September 2017  function customizeTaskPriorities() modified again: removes exponential change
+# 1.2.2     25 September 2017  function optimTaskDistribute() modified: tl$priority is computed as exponentials of Z factors to avoid large values
+# 1.2.3     26 September 2017  function balanceAgentUtilization() modified: A small problem rectified: When re-distributing for each skill, agents with zero available time were be eliminated even though they had been allocated some tasks of the skill for which re-distribution is being implemented!
+#                              Now, if an agent is allocated with at least one task of the skill for which we want to redistribute, that agent is included for re-distribution even though his/her available time is zero!
+# 1.3.0     05 October 2017    function optimTaskDistribute() modified: A new method of priority mapping is introduced:
+#                              Argument prioritization added specifying priority mapping method. Two options are:
+#                              'ZFactorExponential' (default) and 'rankBased' in which the priority of each rank is higher than sum of priorities of all tasks in the lower rank
+# 1.3.1     09 October 2017    function optimTaskDistribute() modified: Skips clustering if all priorities are equal (single cluster)
+# 1.3.2     09 October 2017    function optimTaskDistribute() modified: Bug fixed! Clustering and static split come to unique prLevels and Cluster centers (CCenters)
+# 1.3.3     09 October 2017    function optimTaskAllocate.LP() modified: Bug fixed! When there is only one skill-priority level, the matrix changed class to numeric! Problem fixed!
+# 1.3.4     10 October 2017    All agent_col arguments renamed to agentID_col, all skill_col renamed to skillID_col.
+# 1.3.5     14 November 2017   Function taskSummary2TaskList() modified: Argument 'prefix' added.
+# 1.3.6     28 November 2017   Function customizeTaskPriorities() removed!
+# 1.3.8     08 January 2018    Function optimTaskAllocate.NLP() added: Non-linear programming optimization added to maximize a non-linear weigheted ojective function based on: Fairness of allocation and Balanced Utilization percentage
+# 1.3.9     09 January 2018    Function optimTaskDistribute() modified: Non-linear optimization is called when coefficients Kf and/or Ku are non-zero
+# 1.4.0     11 January 2018    Function optimTaskAllocate.NLP() modified: Added appropriate weghting to the main objective function
+# 1.4.2     19 January 2018    Function optimTaskAllocate.NLP() modified: Balances score rates rather than absolute score values. Score rate: score per minute = total score/total scheduled time (if the denominator is utilized time, it would be better but adds much complexity)
+# 1.4.3     19 January 2018    Function optimTaskAllocate.NLP() modified: floors all the allocations rather than round.
+# 1.4.4     19 January 2018    Function optimTaskDistribute() modified: Corrects allocations by balancing score rates to improve fairness
+# 1.4.5     25 January 2018    Function optimTaskAllocate.NLP() modified: Respects scores and utilization time from pre-allocated tasks in calculating score rates. Two input arguments added.
+# 1.4.6     25 January 2018    Function dist.vertical() modified: Allocates some unallocated tasks if any time is left
+# 1.4.7     29 January 2018    Function optimTaskAllocate.NLP() modified: A warning added when non-linear optimisation fails for any reason!
+# 1.4.8     30 January 2018    Function dist.vertical() modified: A bug rectified: free agent time (variables utt and frt) are now being updated in the loop
+# 1.4.9     19 February 2018   Function optimTaskDistribute() modified: In the post allocation correction, takes care of the bug when scj is empty
+# 1.5.0     19 February 2018   Function optimTaskDistribute() modified: Uses multiplication of score rate and utilisation rate as objective value to be balanced for the post allocation algorithm
+# 1.5.1     07 March 2018      Function swapImpact() added: returns the impact of swapping two tasks on the variance of the total agent weighted scores
+# 1.5.2     08 March 2018      Function balanceWeightedScores() added. Minimizes variance of weighted Scores distributed among the agents
+# 1.5.3     08 March 2018      Function optimTaskDistribute() does not require argument ss to be passed by its caller optimTaskDistribute(). Calculates ss(skill scores) itself from tasklist scores.
+# 1.5.5     09 March 2018      Functions swapImpact() and balanceWeightedScores() modified: A bug rectified. Thre was an error in calculating the impact of swapping tasks on the variance of the weighted scores
+# 1.5.6     12 March 2018      Functions optimTaskDistribute() modified: rankBased prioritization changed. priorities are sent to smartMap to be mapped to range (0,1)
+# 1.5.7     13 March 2018      Functions optimTaskDistribute() modified: timeAdjusted prioritization added.
+# 1.5.8     10 April 2018      Functions optimTaskAllocate.NLP() and optimTaskAllocate.LP() modified. A bug removed: Used for loop to build tmr vector rather than using diag() function which sometimes runs memory error if the built matrix is huge
+# 1.5.9     10 April 2018      Functions balanceWeightedScores() modified: Argument Ksa added to balance the average scores rather than score rates
+# 1.6.0     04 May 2018        Functions optimTaskAllocate.NLP() renamed to optimTaskAllocate(): Runs non-linear optimisation if either Kf or Ku are non-zero
+# 1.6.1     05 May 2018        Functions optimTaskDistribute() modified: If clustering fails, binning is applied to the Z factors of the property rather than to itself. split points changed
+# 1.6.2     28 May 2018        Argument 'silent' added to function optimTaskDistribute() to show consequent steps of allocation. The argument is passed to function distVertical(). Todo: should be passed to function optimTaskAllocate() as well.
+# 1.6.3     28 May 2018        Arguments 'fill_gap_time' and 'flt2IntCnvrsn' can now be transferred from function distributeTasks(). 'fill_gap_time' is disabled if 'flt2IntCnvrsn' is set to 'ceiling'.
+# 1.6.4     05 June 2018       Function distVertical() modified: skips filling gap time procedure if all tasks are allocated.
+# 1.6.5     09 July 2018       Function optimTaskDistribute() modified: Argument 'swap' added. Skips swapping the tasks after allocation for unweighted score rate and utilisation balancing if argument 'swap' is FALSE.
+# 1.6.6     09 July 2018       Documentation added for function balanceWeightedScores()
+# 1.6.8     10 July 2018       Functions balanceWeightedScores() and swapImpact() modified: Argument Ksv added for sum of score variability metric
+# 1.7.0     11 July 2018       Functions balanceWeightedScores() and swapImpact() modified: Argument max_utilization added
+
+
+if (!require(niragen)){
+  cat(paste("\n", "Package 'niragen' is not available! Please install it before using 'otar'!", "\n", "\n"))
+  stop()
+}
+
+niragen::support('magrittr','tibble', 'dplyr', 'reshape2')
+
+# This function computes the average time required for each task by one agent
+# input 1: Count of tasks completed by the agent in each day
+# input 2: total time spent for the tasks on each day for the agent or Productive Time per day (in seconds)
+# output: returns a named vector (same colnames of given table taskCount) containing average time spent by each agent
+agentTaskTimeEstimate = function(taskCount, prodTime, dateColName = 'Date'){
+  # Verifications:
+  # Check taskCount and prodTime are numeric matrices
+  # Check the rownames of both taskCount and prodTime are convertible to Date
+  # Make sure Date column does not have any duplicated values
+  # Make sure number of common dates are sufficient (higher than # columns of taskCount)
+  # Make sure the first column of 'prodTime' is a numeric column. This column contains task time (usually in seconds)
+  n = dim(taskCount)[1]
+  m = dim(taskCount)[2]
+  
+  dates = rownames(prodTime) %^% rownames(taskCount)
+  
+  b = as.numeric(prodTime[dates, 1])
+  A = as.matrix(taskCount[dates, ])
+  
+  # A.inv = ginv(A)
+  # x0 = A.inv %*% b
+  
+  eval_f <- function( x ) {
+    f = A %*% x - b
+    return( list( "objective" = sum(f^2),
+                  "gradient"  = 2*(t(A) %*% f)))
+  }
+  
+  local_opts <- list( "algorithm" = "NLOPT_LD_MMA",
+                      "xtol_rel" = 1.0e-7 )
+  opts <- list( "algorithm" = "NLOPT_LD_AUGLAG",
+                "xtol_rel" = 1.0e-7,
+                "maxeval" = 1000,
+                "print_level" = 1,
+                "local_opts" = local_opts )
+  
+  x0 = rep(max(sum(b)/sum(A), 100), m)
+  
+  res = nloptr( x0 = x0, eval_f = eval_f, eval_grad_f = eval_grad_f, lb = rep(100,m), opts = opts)
+  x   = res$solution
+  names(x) <- names(taskCount)
+  return(x)
+}
+
+
+# Given:
+#   matrix  F (n x m) (Frequencies),
+#   matrix  S (n x m)(Speed),
+#   vector  w (k) (Priority Weights) = 1/rank
+#   vector  t (k) tasks types
+#   vector  u (n) (total utilization time)
+# Where:
+# m: Number of task types/skilles/ques
+# n: Number of agents
+# k: Number of tasks/WIMs/activities
+# Step 1: find matrix X (n x m) (Allocations)
+# Step 2: Distribute X[each agent, each task] through the tasks
+
+# to Maximize: sigma colSums(X) or
+# to maximize coverage: sum(X)
+#
+# subject to:  rowSums(X/S) <= u
+# and:         rowSums(F^2)*rowSums(X^2) = rowSums(X*F)^2
+# and:         X[is.na(F)] = 0
+# and:         0 < X[, j] <= B[j] where B[j] = sum[t == j]
+optimTaskAllocate.simple = function(FF,SS, ww, util){
+  assert(identical(is.na(FF), is.na(SS)), "Given matrices FF and SS are not compatible!")
+  agents = rownames(SS)
+  skills = colnames(SS)
+  tasks  = cbind(id = seq(tt), type = tt, priority = ww)
+  tasks  = tasks[order(tasks[, 'priority'], decreasing = T),]
+  assert(skills %==% colnames(SS))
+  
+  # This gives agents for each task sorted by their skill:
+  task.skilled = t(apply(SS, 2, function(x){agents[order(x, decreasing = T)]}))
+  AGENT = list()
+  avail = rep(T, length(agents))
+  names(avail) <- agents
+  for (i in agents){AGENT[[i]] = list(q = numeric(), t = 0)}
+  nTask = nrow(tasks)
+  i     = 0
+  while ((i < nTask) & (sum(avail) > 0)){
+    i = i + 1
+    cat(i, '...')
+    # Find the most skillful agent:
+    f = !is.na(TT[,tasks[i, 'type']]) & avail
+    if (sum(f) > 0){
+      a = names(which(avail[task.skilled[tasks[i,'type'], ]])[1])
+      AGENT[[a]]$q = c(AGENT[[a]]$q, tasks[i,'id'])
+      AGENT[[a]]$t = AGENT[[a]]$t + TT[a, tasks[i, 'type']]
+      avail[a]     =  AGENT[[a]]$t < util[a]
+    }
+  }
+  return(AGENT)
+  # rn  = integer()
+  # cn  = integer()
+  # XX  = matrix()
+  # cnt = 0
+  # for (i in nrow(FF)){
+  #   for (j in ncol(FF)){
+  #     if(!is.na(FF[i,j])){
+  #       cnt = cnt + 1
+  #       rn[cnt] = i
+  #       cn[cnt] = j
+  #       XX[i,j] = cnt
+  #     }
+  #   }
+  # }
+  
+}
+
+# scores : skill scores: Conversion Rate, probability of customer outcome
+# as0    : total agent scores coming from pre-allocated(leftover) tasks
+# util0  : total agent utilized time from pre-allocated(leftover) tasks
+# util   : total agent available time
+# Assert that names(as0), names(util), rownames(TT) and names(as0) are identical.
+
+optimTaskAllocate = function(TT, tasks, util0, util, scores0, scores, Ku = 0, Kf = 0, Ks = 0, flt2IntCnvrsn = 'round'){
+  agents = rownames(TT)
+  skills = colnames(TT)
+  tasks  = tasks[order(tasks[, 'priority'], decreasing = T),]
+  
+  n = length(agents)
+  m = length(skills)
+  
+  SW = aggregate(priority ~ skill, data = tasks, FUN = mean)
+  sw = SW$priority
+  names(sw) <- SW$skill
+  
+  p   = sum(!is.na(TT)) # Number of unknown variables to be determined through optimization
+  sp  = sequence(p)
+  x   = rep(0,p) # vector of unknown variables pre-filled by zeros
+  VN  = TT
+  VN[!is.na(TT)] <- sp # matrix returning variable number given row number and column number
+  I   = matrix(sequence(m*n), nrow = n, dimnames = list(agents, skills)) # matrix of variable indexes (returns variable index given row number and column number)
+  iu  = I[!is.na(TT)] # vector returning index given the variable number
+  rnu = agents[rep(sequence(n),m)] # vector returning row number given variable index
+  cnu = c()
+  for (i in sequence(m)){cnu = c(cnu, rep(i, n))} # vector returning column number given variable index
+  cnu = skills[cnu]
+  rn  = rnu[iu[sp]] # vector returning row    number given variable number
+  cn  = cnu[iu[sp]] # vector returning column number given variable number
+  
+  # Check for i in 1:p    VN[rn[i], cn[i]] = i
+  
+  tms = numeric()
+  for(ii in sp){tms[ii] = TT[rn[ii], cn[ii]]}
+  
+  const.mat.1 = matrix(rep(tms, n), nrow = n, byrow = T, dimnames = list(agents, paste(rn[sp], cn[sp], sep = '-')))
+  for (i in agents){
+    const.mat.1[i, which(rn[sp] != i)] <- 0
+  }
+  const.mat.2 = matrix(1, nrow = m, ncol = p, dimnames = list(skills, colnames(const.mat.1)))
+  for (i in skills){
+    const.mat.2[i, which(cn[sp] != i)] <- 0
+  }
+  
+  const.rhs.2 = rep(0, m)
+  names(const.rhs.2) <- skills
+  tbl = table(tasks$skill)
+  const.rhs.2[names(tbl)] <- tbl
+  
+  support('lpSolve')
+  res = lp(direction = "max", objective.in = sw[cn[sp]], const.mat = rbind(const.mat.1, const.mat.2),
+           const.dir = rep("<=", n + m), const.rhs = c(util, const.rhs.2))
+  
+  if((Kf != 0) | (Ku != 0)){
+    # Allocation for Fairness
+    convrate = scores %>% verify('numeric', lengths = m, default = rep(1.0, m), varname = 'scores')
+    names(convrate) = skills
+    crext = convrate[cn[sp]] %>% unname
+    swext = sw[cn[sp]] %>% unname
+    const.mat = rbind(const.mat.1, const.mat.2)
+    const.rhs = c(util, const.rhs.2)
+    PWC0  = sum(res$solution*swext)
+    ec0   = numeric()
+    
+    for (j in agents){
+      cnt = VN[j, skills] %>% na.omit %>% as.integer
+      xx0 = res$solution[cnt]
+      ec0[j] = (sum(xx0*crext[cnt]) + scores0[j])/(util[j] + util0[j])  # This is nothing but the score rate
+    }
+    
+    ec0bar = mean(ec0)
+    Ff0    = mean((ec0 - ec0bar)^2)
+    
+    
+    objFunList   = function(x, Ku = 0, Kf = 0){
+      # Priority Weighted Coverage:
+      
+      PWC   = sum(x*swext)/PWC0
+      PWC_G = swext/PWC0
+      
+      eco = numeric()
+      UUU = numeric()
+      
+      for (j in agents){
+        cnt = VN[j, skills] %>% na.omit %>% as.integer
+        xxx = x[cnt]
+        eco[j] = (sum(xxx*crext[cnt]) + scores0[j])/(util[j] + util0[j])
+        UUU[j] = (sum(xxx*tms[cnt]) + util0[j])/(util[j] + util0[j])
+      }
+      ecobar = mean(eco)
+      UUUbar = mean(UUU)
+      
+      # Fairness:
+      Ff   = mean((eco - ecobar)^2)/Ff0
+      Ff_G = 2*crext*(eco[rn[sp]] - ecobar)/(n*Ff0*(util[rn[sp]] + util0[rn[sp]]))
+      
+      # Balanced Utilization:
+      Fu   = mean((UUU - UUUbar)^2)
+      Fu_G = 2*tms*(UUU[rn[sp]] - UUUbar)/(n*util[rn[sp]])
+      
+      list(objective = Ku*Fu + Kf*Ff - PWC, gradient = Ku*Fu_G + Kf*Ff_G - PWC_G)
+    }
+    
+    objFunDetail = function(x, Ku = 0, Kf = 0){
+      PWC   = sum(x*swext)/PWC0
+      PWC_G = swext/PWC0
+      
+      eco = numeric()
+      UUU = numeric()
+      
+      for (j in agents){
+        cnt = VN[j, skills] %>% na.omit %>% as.integer
+        xxx = x[cnt]
+        eco[j] = (sum(xxx*crext[cnt]) + scores0[j])/(util[j] + util0[j])
+        UUU[j] = (sum(xxx*tms[cnt]) + util0[j])/(util[j] + util0[j])
+      }
+      ecobar = mean(eco)
+      UUUbar = mean(UUU)
+      
+      # Fairness:
+      Ff   = mean((eco - ecobar)^2)/Ff0
+      Ff_G = 2*crext*(eco[rn[sp]] - ecobar)/(n*Ff0*(util[rn[sp]] + util0[rn[sp]]))
+      
+      # Balanced Utilization:
+      Fu   = mean((UUU - UUUbar)^2)
+      Fu_G = 2*tms*(UUU[rn[sp]] - UUUbar)/(n*util[rn[sp]])
+      
+      list(Objective = PWC - Kf*Ff - Ku*Fu, SUM = sum(x), PWC = sum(x*swext), Fu = Fu, Ff = Ff, ECO = eco, Util = UUU)
+    }
+    
+    inqFunList  = function(x, Ku = 0, Kf = 0){
+      list(constraints = (const.mat %*% x - const.rhs) %>% as.numeric, jacobian = const.mat)
+    }
+    
+    support('nloptr')
+    fit = try(nloptr(x0 = res$solution,
+                     eval_f = objFunList,
+                     lb = rep(0.0, length(x)),
+                     eval_g_ineq = inqFunList,
+                     opts = list(algorithm = "NLOPT_LD_MMA", check_derivatives = F, maxeval = 200, maxtime = 10),
+                     Kf = Kf, Ku = Ku), silent = T)
+    
+    if(inherits(fit, 'nloptr')){
+      fitsol = fit$solution}
+    else {
+      warnif(T, 'Non-linear Optimisation failed!' %++% as.character(fit) %++% 'Linear programming method used instead. Non-linear objectives are ignored!')
+      fitsol = res$solution}
+    
+    sol    = fitsol
+    
+  } else {sol = res$solution}
+  
+  flt2IntCnvrsn %<>% verify('character', domain = c('floor', 'round', 'ceiling'), default = 'round')
+  if(flt2IntCnvrsn == 'round'){sol %<>% round} else if (flt2IntCnvrsn == 'floor'){sol %<>% round} else if(flt2IntCnvrsn == 'ceiling'){sol %<>% ceiling}
+  
+  # if(avucr){ # Forces satisfaction of utilization constraint after rounding: Avoid violation of utilization constraint due to rounding AVUCR
+  #   fitinq = sol %>% inqFunList
+  #   thr    = 0 # threshould
+  #   cns    = sequence(n) # floor rather than round to make sure these constraints are satisfied
+  #   while (sum(fitinq$constraint[cns] >= 1) > 0 & thr < 1){
+  #     thr = thr + 0.1
+  #     w = which(fitsol - floor(fitsol) < thr)
+  #     sol = fitsol
+  #     sol[w] <- floor(sol[w])
+  #     sol    <- round(sol)
+  #     fitinq = sol %>% inqFunList
+  #   }
+  # }
+  #
+  
+  return(sol[VN] %>% matrix(nrow = n, dimnames = list(agents, skills)))
+}
+
+optimTaskAllocate.LP  = function(TT, tasks, util){
+  agents = rownames(TT)
+  skills = colnames(TT)
+  tasks  = tasks[order(tasks[, 'priority'], decreasing = T),]
+  
+  n = length(agents)
+  m = length(skills)
+  
+  SW = aggregate(priority ~ skill, data = tasks, FUN = mean)
+  sw = SW$priority
+  names(sw) <- SW$skill
+  
+  p   = sum(!is.na(TT)) # Number of unknown variables to be determined through optimization
+  sp  = sequence(p)
+  x   = rep(0,p) # vector of unknown variables pre-filled by zeros
+  VN  = TT
+  VN[!is.na(TT)] <- sp # matrix returning variable number given row number and column number
+  I   = matrix(sequence(m*n), nrow = n, dimnames = list(agents, skills)) # matrix of variable indexes (returns variable index given row number and column number)
+  iu  = I[!is.na(TT)] # vector returning index given the variable number
+  rnu = agents[rep(sequence(n),m)] # vector returning row number given variable index
+  cnu = c()
+  for (i in sequence(m)){cnu = c(cnu, rep(i, n))} # vector returning column number given variable index
+  cnu = skills[cnu]
+  rn  = rnu[iu[sp]] # vector returning row    number given variable number
+  cn  = cnu[iu[sp]] # vector returning column number given variable number
+  
+  # Check for i in 1:p    VN[rn[i], cn[i]] = i
+  
+  # tms         = diag(TT[rn[sp], , drop = F][,cn[sp], drop = F])
+  tms = numeric()
+  for(ii in sp){tms[ii] = TT[rn[ii], cn[ii]]}
+  
+  const.mat.1 = matrix(rep(tms, n), nrow = n, byrow = T, dimnames = list(agents, paste(rn[sp], cn[sp], sep = '-')))
+  for (i in agents){
+    const.mat.1[i, which(rn[sp] != i)] <- 0
+  }
+  const.mat.2 = matrix(1, nrow = m, ncol = p, dimnames = list(skills, colnames(const.mat.1)))
+  for (i in skills){
+    const.mat.2[i, which(cn[sp] != i)] <- 0
+  }
+  
+  const.rhs.2 = rep(0, m)
+  names(const.rhs.2) <- skills
+  tbl = table(tasks$skill)
+  const.rhs.2[names(tbl)] <- tbl
+  
+  res = lp(direction = "max", objective.in = sw[cn[sp]], const.mat = rbind(const.mat.1, const.mat.2),
+           const.dir = rep("<=", n + m), const.rhs = c(util, const.rhs.2))
+  X = res$solution[VN] %>% round %>% matrix(nrow = n, dimnames = list(agents, skills))
+  return(X)
+}
+
+# aut: agent-skill matrix
+# u  : agents' available time for new tasks
+# u0 : agents' reserved time for leftover(pre-allocated) tasks
+# ss0: agents' pre-allocated scores
+# ss : skill scores
+optimTaskDistribute = function(tl, aut, u0, u, as0, Ku = 0, Kf = 0, prioritization = 'ZFactorExponential', silent = F, flt2IntCnvrsn = 'round', fill_gap_time = T, swap = F){
+  if(!silent){cat('Clustering priority levels ...')}
+  aut %<>% as.matrix
+  
+  tl$skill  %<>% as.character
+  tl$taskID <- rownames(tl)
+  
+  agents = names(u) %^% rownames(aut)
+  skills = tl$skill %^% colnames(aut)
+  
+  aut  = aut[agents, skills, drop = F]
+  tl   = tl[tl$skill %in% skills,]
+  u    = u[agents]
+  
+  #
+  MNC = tl$priority %>% table %>% length %>% min(25)
+  if (MNC > 1){
+    res = try(suppressWarnings(tl$priority %>% elbow(MNC, doPlot = F)), silent = T)
+    if(inherits(res, c('try-error', 'NULL'))){
+      rng = max(tl$prLevel) - min(tl$prLevel)
+      tl$prLevel = cut(tl$priority %>% scale, breaks = c(-Inf,-3, -2, -1, 0, 1, 2, 3, Inf)) %>% as.factor %>% droplevels %>% as.numeric
+      CCenters   = aggregate(tl$priority, by = list(tl$prLevel), FUN = mean)$x
+    } else {
+      tl$prLevel = res$clst[[res$bnc]]$cluster
+      CCenters   = res$clst[[res$bnc]]$centers
+    }
+    
+    if(prioritization == 'rankBased'){
+      nt = tl$prLevel %>% table
+      pv = numeric()
+      ord = CCenters %>% order
+      nc  = length(CCenters)
+      for(j in sequence(nc)){
+        if(j == 1){pv[ord[j]] = 0.0000001} else {
+          pv[ord[j]] = pv[ord[j-1]]*nt[ord[j-1]] + 0.0000001
+        }
+      }
+      tl$priority = pv[tl$prLevel] %>% smartMap(n = 25)
+    } else if (prioritization == 'ZFactorExponential'){
+      tl$priority = CCenters[tl$prLevel] %>% scale %>% as.numeric %>% exp
+    } else if(prioritization == 'timeAdjusted'){
+      skillaut = aut %>% colMeans(na.rm = T) %>% na2zero
+      tl$AUT = skillaut[tl$skill]
+      tl$priority = smartMap(tl$priority, n = 25)*tl$AUT
+    }
+    else {stop('Given prioritization not known!')}
+  } else {
+    tl$prLevel  = 1
+    tl$priority = 1.0
+  }
+  tl$tsktp   = tl$skill
+  tl$skill   = paste(tl$prLevel, tl$tsktp, sep = '-') %>% as.factor
+  tType <- data.frame(tsktp = tl$tsktp, skill = tl$skill, stringsAsFactors = F) %>% distinct(skill, .keep_all = T) %>% column2Rownames('skill')
+  # vTAT  <- matrix(nrow = length(agents), ncol = nrow(tType), dimnames = list(agents, rownames(tType)))
+  vTAT  <- aut[agents, tType$tsktp, drop = F] %>% as.matrix
+  vSkills    = rownames(tType)
+  colnames(vTAT) <- vSkills
+  
+  SC = tl %>% group_by(skill) %>% summarise(score = mean(score)) %>% as.data.frame
+  ss = SC$score; names(ss) <- SC$skill
+  
+  if(!silent){cat(' Done!', '\n', 'Run optimization engine ...')}
+  
+  AT = optimTaskAllocate(TT = vTAT, tasks = tl, util0 = u0, util = u, scores0 = as0, scores = ss, Kf = Kf, Ku = Ku, flt2IntCnvrsn = flt2IntCnvrsn)
+  
+  if(!silent){cat(' Done!', '\n')}
+  
+  scores = ss # Virtual-Skill Scores
+  # Loop start:
+  
+  if(swap){
+    if(!silent){cat('Swapping tasks for unweighted simultaneous score rate and utilisation balancing ...')}
+    # Initial values of metrics:
+    utt = rowSums(AT*vTAT, na.rm = T)  # total utilized time
+    utr = (utt+u0)/(u + u0)
+    frt = u - utt
+    tsc = apply(AT, 1, function(x) {ss = x*scores; return(ss %>% sum(na.rm = T))}) + as0 # Total Scores new allocated to each agent + pre-allocated scores
+    # scr = sort(tsc/(utt + u0), decreasing = T) #  Score Rates for each agent
+    scr = tsc/(u + u0)  #  Score Rates for each agent
+    obf = sort(scr*utr, decreasing = T) #  Value of the objective function for each agent (sorted descending)
+  }
+  
+  allowed = swap
+  while(allowed){
+    sdobf = sd(obf)
+    j = names(obf)[1]
+    scj = (AT[j, ] > 0)*scores*vTAT[j,]
+    scj = scj[!is.na(scj) & scj > 0] %>% sort(decreasing = T) # scj cannot be empty. (can it?) Yes it can be! If all tasks are taken from an agent and that agent still has the highest score rate due to high scored pre-allocated (leftover) tasks, this can happen!
+    if(length(scj) > 0){
+      hvsj = names(scj)[1] # is the v-skill with the highest score allocated to agent j (Highest Virtual Skill j)
+      avag = scr[which(vTAT[, hvsj] > 0 & frt >= vTAT[, hvsj]) %>% names] %>% sort %>% names  # Which agents can also do this vskill and have free time to do it (sorted ascending by score rate currently gained)?
+      if (length(avag) > 0){
+        nttj  = min(AT[j, hvsj], length(avag)) # Number of tasks taken from agent j to be re-distributed
+        nttjs = sequence(nttj)
+        AT[j, hvsj] = AT[j, hvsj] - nttj # Take nttj tasks from agent j
+        AT[avag[nttjs], hvsj] = AT[avag[nttjs], hvsj] + 1 # add one task to nttj agents each
+        # cat(nttj, ' tasks taken from ', j, ' given to: ', paste(avag[nttjs], collapse = ' & '), ' sd = ', sdscr ,'\n')
+        # Update metrics:
+        utt = rowSums(AT*vTAT, na.rm = T)  # utilized time
+        utr = (utt+u0)/(u + u0)
+        frt = u - utt
+        tsc = apply(AT, 1, function(x) {ss = x*scores; return(ss %>% sum(na.rm = T))}) + as0 # Total Scores for each agent
+        # scr = sort(tsc/(utt + u0), decreasing = T)  # Score Rates for each agent
+        scr = tsc/(u + u0)  #  Score Rates for each agent
+        obf = sort(scr*utr, decreasing = T) #  Value of the objective function for each agent (sorted descending)
+      }
+    }
+    allowed = sd(obf) < sdobf
+  }
+  
+  # Todos: Leftover scores are not computed ... Done!
+  # Todos: Leftover utilization is not respected in the rates ... Done!
+  # Todos: Balancing utilization must be parallel (respecting leftovers) ... Done!
+  
+  if(!silent & swap){cat(' Done!', '\n')}
+  
+  return(tl %>% distVertical(AT, agents, vSkills, vTAT, u0, u, as0, scores, fill_gap_time = fill_gap_time, silent = silent))
+  # avl = (x$AP[, 'available', drop = F] %>% toVectorList)[['available']]
+  # return(tl %>% distHorizontal(AT, agents, vSkills, vTAT, avl))
+}
+
+distVertical = function(tl, AT, agents, vSkills, vTAT, u0, u, as0, scores, fill_gap_time = T, silent = F){
+  if(!silent){cat('Distributing skills among agents ...')}
+  tl$agent = NA
+  for (j in vSkills){
+    for (i in agents[order(vTAT[,j], na.last = NA)]){
+      if (AT[i,j] > 0){
+        ind = which(tl$skill == j & is.na(tl$agent))
+        prs = tl$priority[ind]
+        ord = order(prs, decreasing = T)
+        tba = ind[ord[sequence(AT[i,j])]] %>% na.omit #Indexes of tasks 2b allocated to agent i
+        tl[tba, 'agent'] <- i
+      }
+    }
+  }
+  
+  if(!silent){cat(' Done!', '\n')}
+  
+  # Additional allocations to fill remained time:
+  if(fill_gap_time){
+    tl$skill %<>% as.character
+    
+    tl2 = tl[is.na(tl$agent),]
+    
+    nrtl2 = nrow(tl2)
+    
+    if(nrtl2 > 0){
+      if(!silent){
+        cat(' Additional allocations to fill gap time ...', '\n')
+        pb = txtProgressBar(min = 0, max = nrow(tl2), style = 3)
+        cnt = 0
+      }
+      
+      tl2 = tl2[order(tl2$priority, decreasing = T),]
+      for(i in nrtl2 %>% sequence){
+        if(!silent){cnt = cnt + 1; setTxtProgressBar(pb, cnt)}
+        # Who can do task i?
+        utt = rowSums(AT*vTAT, na.rm = T)  # utilized time
+        frt = u - utt
+        cando = which(vTAT[, tl2$skill[i]] < frt) %>% names
+        if(length(cando) > 0){
+          # What is the value of fairness(the objective) if any of these agents do task i?
+          tsc = apply(AT, 1, function(x) {ss = x*scores; return(ss %>% sum(na.rm = T))}) + as0 # Total Scores for each agent
+          obval = numeric()
+          for(ag in cando){
+            tscag = tsc
+            tscag[ag] = tscag[ag] + scores[tl2$skill[i]]
+            scrag     = sort(tscag/(u + u0), decreasing = T)  # Score Rates for each agent when agent ag has been given task i
+            obval     = c(obval, sd(scrag))
+          }
+          names(obval) = cando
+          
+          winner = (obval %>% sort %>% names)[1]
+          # Allocate task i to the winner:
+          tl2[i, 'agent'] = winner
+          AT[winner, tl2$skill[i]] = AT[winner, tl2$skill[i]] + 1
+        }
+      }
+      tl = tl[!is.na(tl$agent),] %>% rbind(tl2)
+      if(!silent){cat(' Done!', '\n')}
+    } else {if(!silent){cat('All workable tasks already allocated. No need to fill gap time.', '\n')}}
+  }
+  
+  return(tl)
+}
+
+distHorizontal = function(tl, AT, agents, vSkills, vTAT, avl){
+  tl$agent = NA
+  
+  for (j in vSkills){
+    ind  = which(tl$skill == j & is.na(tl$agent))
+    prs  = tl$priority[ind]
+    ord  = order(prs, decreasing = T)
+    tba  = ind[ord[sequence(AT[,j] %>% sum(na.rm = T))]] %>% na.omit #Indexes of tasks 2b allocated to agents for task j
+    
+    agsj = agents[order(vTAT[,j], na.last = NA)]
+    avlj = avl[agsj]
+    avlj = avlj[avlj > 0]
+    agsj = names(avlj)
+    # avl = x$AP[, 'available', drop = F]
+    M   = length(agsj)
+    N   = length(tba)
+    if(M > 0){
+      k = 1
+      i = 1
+      while(i <= N){
+        if(!is.empty(avlj)){
+          agsj = agsj[order(avlj, decreasing = T)]
+          if(avl[agsj[k]] - vTAT[agsj[k], j] > 0){
+            tl[tba[i],'agent'] = agsj[k]
+            avl[agsj[k]]  = avl[agsj[k]] - vTAT[agsj[k], j]
+            avlj[agsj[k]] = avl[agsj[k]]
+          }
+          i = i + 1
+        }
+      }
+    }
+  }
+  return(tl)
+}
+
+# cc = sw[cn[sp]]
+# bb = c(util, const.rhs.2)
+# A  = rbind(const.mat.1, const.mat.2)
+# x0 = rep(1,p)
+
+#' @export
+taskSummary2TaskList = function(TS, skillID_col, count_col, priority_col, agentID_col = NULL, extra_col = NULL, prefix = '', start_id = 1, id_length = 5, vf = T){
+  # Verifications
+  if(vf){
+    nms = names(TS)
+    start_id %<>% as.integer %>% verify('integer', lengths = 1, err_msg = 'Argument start_id must be convertible to integer', err_src = match.call()[[1]])
+    verify(skillID_col, 'character', lengths = 1, domain = nms, varname = 'skillID_col', null_allowed = F)
+    verify(count_col, 'character', lengths = 1, domain = nms, varname = 'count_col', null_allowed = F)
+    verify(priority_col, 'character', lengths = 1, domain = nms, varname = 'priority_col', null_allowed = F)
+    verify(agentID_col, 'character', lengths = 1, domain = nms, varname = 'agentID_col')
+    verify(extra_col, 'character', domain = nms, varname = 'extra_col')
+  }
+  
+  TS[, skillID_col]    %<>% coerce('character')
+  TS[, agentID_col]    %<>% coerce('character')
+  TS[, count_col]    %<>% coerce('integer')
+  TS[, priority_col] %<>% coerce('numeric')
+  
+  if(!is.null(agentID_col)){TS[, agentID_col] %<>% as.character}
+  TL = data.frame(taskID = character(), skillID = character(), priority = numeric(), alctdAgent = character(), workable = logical())
+  if(!is.null(extra_col)){TL %<>% cbind(TS[c(),extra_col])}
+  
+  cnt = max(start_id %>% as.integer, 1)
+  for (i in sequence(nrow(TS))){
+    N = TS[i, count_col] %>% as.integer
+    if(N > 0){
+      A = data.frame(
+        taskID     = sequence(N) + cnt  - 1,
+        skillID    = TS[i,skillID_col],
+        priority   = TS[i,priority_col] %>% as.numeric
+      )
+      if(!is.null(agentID_col)){A$alctdAgent <- TS[i, agentID_col]}
+      if(!is.empty(extra_col)){A = cbind(A, TS[rep(i, nrow(A)), extra_col])}
+      TL = chif(is.empty(TL), A, TL %>% rbind(A))
+      
+      cnt <- cnt + N
+    }
+  }
+  rownames(TL)  <- TL$taskID %>% as.character %>% extend.char(id_length, fillChar = '0', left = F)
+  if(nrow(TL) > 0){rownames(TL) <-  prefix %++% rownames(TL)}
+  TL[,'taskID'] <- NULL
+  return (TL)
+}
+
+#' @export
+balanceAgentUtilization = function(obj){
+  assert(require(nloptr), "Package 'nloptr' is not installed. Please install before running this function.", err_src = 'niraprom::balanceAgentUtilization')
+  AAA = reshape2::dcast(obj$TSK %>% filter(!LO), agent ~ skill, value.var = 'AUT', fun.aggregate = length) %>% na.omit %>% column2Rownames('agent') # asal: agent skill allocated
+  ALC.all = obj$ALC
+  ALC.new = obj$ALC
+  ALC.new[,] = 0
+  agents = rownames(AAA) %^% obj$agents
+  skills = colnames(AAA) %^% obj$skills
+  ALC.new[agents, skills] = AAA[agents, skills]
+  ALC.lvr = obj$ALC - ALC.new
+  avl = (obj$AP[, 'productive', drop = F] %>% toVectorList)[['productive']]
+  
+  AUT.all = ALC.all*obj$TAT
+  AUT.new = ALC.new*obj$TAT   # Total time required for new allocated tasks
+  # obj$AUT = obj$ALC*obj$TAT
+  # among skills from which we have at least one new task:
+  for(sk in colnames(ALC.new)[colSums(ALC.new) > 0]){
+    # Which agents are skilled in sk?
+    skilledAgents = (obj$agents[which(avl > 0)] %U% obj$agents[which(ALC.new[,sk] > 0)]) %^% obj$agents[which(!is.na(obj$TAT[ ,sk]))]
+    skn = which(names(obj$ALC) == sk)
+    
+    # How much time required for new allocated(non-leftovers) of skill sk?
+    util = rowSums(AUT.all, na.rm = T)[skilledAgents]
+    b    = util - AUT.new[skilledAgents, sk]
+    names(b) = skilledAgents
+    
+    a = obj$TAT[skilledAgents, sk]
+    names(a) <- skilledAgents
+    objfun = function(x){
+      u  = a*x + b
+      ub = mean(u)
+      sum((u - ub)^2)
+    }
+    grad = function(x){
+      u  = a*x + b
+      ub = mean(u)
+      N  = length(x)
+      2*(N - 1)*a*(u - ub)/N
+    }
+    
+    equality = function(x){sum(x) - sum(ALC.new[, sk])}
+    # inequality = function(x){u  = a*x + b - avl[skilledAgents]}
+    # ineq_grad  = function(x){a}
+    
+    local_opts <- list("algorithm" = "NLOPT_LD_MMA", "xtol_rel" = 1.0e-7 )
+    opts <- list( "algorithm" = "NLOPT_LD_AUGLAG",
+                  "xtol_rel" = 1.0e-7,
+                  "maxeval" = 1000,
+                  "print_level" = 0,
+                  "local_opts" = local_opts )
+    
+    ub  = round((avl[skilledAgents] - b)/a)
+    x0  = ALC.new[skilledAgents, sk]
+    tch = which(ub < x0)
+    ub[tch] = x0[tch]
+    
+    fit = try(nloptr(x0 = ALC.new[skilledAgents, sk],
+                     eval_f = objfun,
+                     eval_grad_f = grad,
+                     lb = rep(0, length(a)),
+                     ub = ub,
+                     eval_g_eq = equality,
+                     eval_jac_g_eq = function(x){rep(1.0, length(x))},
+                     opts = opts), silent = T)
+    if(fit %>% inherits('nloptr')){
+      ALC.new.2 = ALC.new
+      ALC.new.2[skilledAgents, sk] = fit$solution %>% round
+      diff = (ALC.new[skilledAgents, sk] %>% na2zero %>% sum) - (ALC.new.2[skilledAgents, sk] %>% sum)
+      diff %<>% as.integer
+      if (diff > 0){
+        w    = which(ub > ALC.new.2[skilledAgents, sk])
+        if(length(w) >= diff){w = w[diff]}
+        ALC.new.2[skilledAgents[w], sk] = ALC.new.2[skilledAgents[w], sk] + 1
+      }
+      diff = (ALC.new[skilledAgents, sk] %>% na2zero %>% objfun) - (ALC.new.2[skilledAgents, sk] %>% objfun)
+      if (diff > 1){
+        ALC.new = ALC.new.2
+        AUT.new = ALC.new*obj$TAT
+        ALC.all = ALC.lvr + ALC.new
+        AUT.all = ALC.all*obj$TAT
+      }
+    }
+  }
+  
+  t2ba = which(obj$TSK$workable & !obj$TSK$LO)
+  tl   = obj$TSK[t2ba, ]
+  tl$agent = NA
+  
+  ALC.new %<>% na2zero
+  # assert(nrow(tl) == sum(ALC.new), "May happen?!")
+  
+  for (j in obj$skills){
+    for (i in obj$agents[order(obj$TAT[,j], na.last = NA)]){
+      if (ALC.new[i,j] > 0){
+        ind = which(tl$skill == j & is.na(tl$agent))
+        prs = tl$priority[ind]
+        ord = order(prs, decreasing = T)
+        tba = ind[ord[sequence(ALC.new[i,j])]] %>% na.omit #Indexes of tasks 2b allocated to agent i
+        tl[tba, 'agent'] <- i
+      }
+    }
+  }
+  
+  obj$TSK$agent[t2ba] = tl$agent
+  
+  obj %<>% updateAgentUtilization
+  obj %<>% updateTaskCounts
+  
+  # assert(sum(obj$ALC != ALC.all, na.rm = T) == 0)
+  return(obj)
+}
+
+# tij: process time of task i for agent aj
+
+old.swapImpact = function(row, a1, s1, sk1, t11, S, TAT, Kf, Ku, Ksa){
+  var1 = mean((S$objFunValue - mean(S$objFunValue, na.rm = T))^2, na.rm = T)
+  a2  = row[1]
+  if(a1 == a2){return(0)}
+  sk2 = row[2]
+  s2  = as.numeric(row[3])
+  t22 = as.numeric(row[4])
+  
+  t21 = TAT[a1, sk2]
+  t12 = TAT[a2, sk1]
+  
+  S[a1, 'score']    = S[a1, 'score'] - s1 + s2
+  S[a2, 'score']    = S[a2, 'score'] - s2 + s1
+  S[a1, 'utilized'] = S[a1, 'utilized'] - t11 + t21
+  S[a2, 'utilized'] = S[a2, 'utilized'] - t22 + t12
+  
+  S[a1, 'utilisation'] = 100*S[a1, 'utilized']/S[a1, 'scheduled']
+  S[a2, 'utilisation'] = 100*S[a2, 'utilized']/S[a2, 'scheduled']
+  
+  S$scoreRate   = 100*S$score/S$utilized
+  S$scoreAvg    = 100*S$score/S$Allocated
+  S$objFunValue = Kf*S$scoreRate + Ku*S$utilisation + Ksa*S$scoreAv
+  
+  var2 = mean((S$objFunValue - mean(S$objFunValue, na.rm = T))^2, na.rm = T)
+  if(S[a2, 'utilisation'] > 110 | S[a1, 'utilisation'] > 110)(return(NA))
+  return(var2 - var1)
+}
+
+
+
+old.balanceWeightedScores = function(obj, silent = F, Kf = 1.0, Ku = 0.0, Ksa = 0.0, improvement_threshold = 0.01){
+  Kf = abs(Kf)
+  Ku = abs(Ku)
+  if(Kf + Ku + Ksa == 0){return(obj)}
+  AP = obj$AP
+  TL = obj$TSK %>% rownames2Column('taskID') %>% mutate(taskID = as.character(taskID), scoreRate = 100*score/AP[agent,'utilized'], scoreAvg = 100*score/AP[agent,'Allocated']) %>% mutate(utilRate = 100*AUT/AP[agent,'scheduled']) %>%
+    mutate(objFunValue = Kf*scoreRate + Ku*utilRate + Ksa*scoreAvg) %>% column2Rownames('taskID', remove = F)
+  
+  AP$utilisation = 100*AP$utilized/AP$scheduled
+  AP$scoreRate   = 100*AP$score/AP$utilized
+  AP$scoreAvg    = 100*AP$score/AP$Allocated
+  AP$objFunValue = Kf*AP$scoreRate + Ku*AP$utilisation + Ksa*AP$scoreAvg
+  
+  # todo: modify updateAgentUtilisation to add util percentage and ofun. Weights can be determined in settings
+  improvement = 1
+  of1  = sd(AP$objFunValue, na.rm = T)
+  cnt  = 1
+  go   = T
+  while(go & improvement > improvement_threshold){
+    # WHICH AGENT HAS THE HIGHEST OFUN VALUE?
+    agord = order(AP$objFunValue, decreasing = T)
+    
+    suc = F
+    # i is counting agents from agord
+    i = 1
+    while(!suc & i < length(agord)){
+      e = obj$agents[agord[i]] # This is the id of agent i
+      
+      # what skills does agent e have?
+      skillse = obj$skills[which(obj$TAT[e, ] > 0)]
+      
+      # extract his/her tasks:
+      TLi = TL[which(TL$agent == e & !TL$LO & TL$workable),] %>% arrange(desc(objFunValue))
+      
+      # from tasks of agent i, starting from the task with the highest ofun value:
+      # ii is counting tasks of agent i from TLi
+      ii  = 1
+      while(!suc & ii < nrow(TLi)){
+        # Which agents can also do this task?
+        w = which(obj$TAT[, TLi[ii, 'skill']] > 0)
+        # sort them ascending by scoreRate and convert to ids:
+        w = obj$agents[w[order(AP[w, 'objFunValue'])]]
+        # k counts agents who can do task i from w
+        k   = 1
+        while(!suc & k < length(w)){
+          # which tasks from agent k can be swapped by agent e?
+          # must be not a leftover, must be workable and its skill must be in skills of e
+          wk  = which((TL$agent == w[k])  & (!TL$LO) & TL$workable & (TL$skill %in% skillse))
+          TLk = TL[wk, c('agent', 'skill', 'score', 'AUT')]
+          suc = nrow(TLk) > 0
+          if(suc){
+            imp = TLk %>% apply(1, swapImpact, e, TLi$score[ii], TLi$skill[ii], TLi$AUT[ii], AP, obj$TAT, Kf = Kf, Ku = Ku, Ksa = Ksa)
+            
+            ord = order(imp)[1]
+            low = imp[ord]
+            suc = (!is.na(low))
+            if(suc){suc = low < 0}
+            if(suc){
+              jj  = wk[ord] # jj contains the index of task allocated to agent k that needs to be swaped with task ii allocated to agent i, counts from TL
+              ### swap Tasks:
+              ai = TLi[ii, 'agent'] # must be the same as e
+              ti = TLi[ii, 'AUT']
+              si = TLi[ii, 'score']
+              
+              aj = TL[jj, 'agent']  # must be the same as w[k]
+              tj = TL[jj, 'AUT']
+              sj = TL[jj, 'score']
+              
+              TL[TLi$taskID[ii], 'agent'] = aj
+              TL[TLi$taskID[ii], 'AUT']   = obj$TAT[aj, TLi$skill[ii]]
+              TL[jj, 'agent'] = ai
+              TL[jj, 'AUT']   = obj$TAT[ai, TL$skill[jj]]
+              
+              AP[ai, 'score']    = AP[ai, 'score'] - si + sj
+              AP[aj, 'score']    = AP[aj, 'score'] - sj + si
+              AP[ai, 'utilized'] = AP[ai, 'utilized'] - ti + obj$TAT[ai, TL$skill[jj]]
+              AP[aj, 'utilized'] = AP[aj, 'utilized'] - tj + obj$TAT[aj, TLi$skill[ii]]
+              
+              AP[ai, 'utilisation'] = 100*AP[ai, 'utilized']/AP[ai, 'scheduled']
+              AP[aj, 'utilisation'] = 100*AP[aj, 'utilized']/AP[aj, 'scheduled']
+              
+              AP[ai, 'scoreRate']   = 100*AP[ai, 'score']/AP[ai, 'utilized']
+              AP[aj, 'scoreRate']   = 100*AP[aj, 'score']/AP[aj, 'utilized']
+              
+              AP[ai, 'scoreAvg']   = 100*AP[ai, 'score']/AP[ai, 'Allocated']
+              AP[aj, 'scoreAvg']   = 100*AP[aj, 'score']/AP[aj, 'Allocated']
+              
+              AP[ai,'objFunValue'] = Kf*AP[ai, 'scoreRate'] + Ku*AP[ai, 'utilisation'] + Ksa*AP[ai, 'scoreAvg']
+              AP[aj,'objFunValue'] = Kf*AP[aj, 'scoreRate'] + Ku*AP[aj, 'utilisation'] + Ksa*AP[aj, 'scoreAvg']
+              
+              TL[TLi$taskID[ii], 'scoreRate'] <- 100*si/AP[aj, 'utilized']
+              TL[jj, 'scoreRate']             <- 100*sj/AP[ai, 'utilized']
+              
+              TL[TLi$taskID[ii], 'scoreAvg']  <- 100*si/AP[aj, 'Allocated']
+              TL[jj, 'scoreAvg']              <- 100*sj/AP[ai, 'Allocated']
+              
+              TL[TLi$taskID[ii], 'utilRate'] <- 100*tj/AP[aj, 'scheduled']
+              TL[jj, 'utilRate']             <- 100*ti/AP[ai, 'scheduled']
+              
+              TL[TLi$taskID[ii], 'objFunValue'] <- Kf*TL[TLi$taskID[ii], 'scoreRate'] + Ku*TL[TLi$taskID[ii], 'utilRate'] + Ksa*TL[TLi$taskID[ii], 'scoreAvg']
+              TL[jj, 'objFunValue']             <- Kf*TL[jj, 'scoreRate'] + Ku*TL[jj, 'utilRate'] + Ksa*TL[jj, 'scoreAvg']
+            }
+          }
+          k = k + 1
+        }
+        ii = ii + 1
+      }
+      i = i + 1
+    }
+    go = suc
+    cnt = cnt + 1
+    of2 = sd(AP$objFunValue, na.rm = T)
+    improvement = of1 - of2
+    of1 = of2
+    if(!silent){cat('Iteration: ', cnt, ' sd = ', of2, '\n')}
+  }
+  
+  cols = colnames(TL) %^% colnames(obj$TSK)
+  obj$TSK[TL$taskID, cols] = TL[,cols]
+  return(obj %>% updateAgentUtilization %>% updateTaskCounts)
+}
+
+
+swapImpact = function(row, a1, s1, sk1, t11, S, TAT, Kf, Ku, Ksa, Ksv, mul){
+  
+  var1  = Kf*sd(S$scoreRate, na.rm = T) + Ku*sd(S$utilisation, na.rm = T) + Ksa*sd(S$scoreAvg, na.rm = T) + Ksv*mean(S$scoreSD, na.rm = T)
+  a2  = row[1]
+  if(a1 == a2){return(0)}
+  sk2 = row[2]
+  s2  = as.numeric(row[3])
+  t22 = as.numeric(row[4])
+  
+  t21 = TAT[a1, sk2]
+  t12 = TAT[a2, sk1]
+  
+  S[a1, 'score']    = S[a1, 'score'] - s1 + s2
+  S[a2, 'score']    = S[a2, 'score'] - s2 + s1
+  
+  S[a1, 'scoreSQ']    = S[a1, 'scoreSQ'] - s1^2 + s2^2
+  S[a2, 'scoreSQ']    = S[a2, 'scoreSQ'] - s2^2 + s1^2
+  
+  S[a1, 'utilized'] = S[a1, 'utilized'] - t11 + t21
+  S[a2, 'utilized'] = S[a2, 'utilized'] - t22 + t12
+  
+  S[a1, 'utilisation'] = S[a1, 'utilized']/S[a1, 'scheduled']
+  S[a2, 'utilisation'] = S[a2, 'utilized']/S[a2, 'scheduled']
+  
+  S[a1, 'scoreRate'] = S[a1, 'score']/S[a1, 'utilized']
+  S[a2, 'scoreRate'] = S[a2, 'score']/S[a2, 'utilized']
+  
+  S[a1, 'scoreAvg'] = S[a1, 'scoreAvg'] + (s2 - s1)/S[a1, 'Allocated']
+  S[a2, 'scoreAvg'] = S[a2, 'scoreAvg'] + (s1 - s2)/S[a2, 'Allocated']
+  
+  if(S[a1, 'Allocated'] > 1){S[a1, 'scoreSD'] = sqrt((S[a1, 'scoreSQ'] - S[a1, 'score']^2/S[a1, 'Allocated'])/(S[a1, 'Allocated'] - 1)) %>% na2zero} else {S[a1, 'scoreSD'] = 0}
+  if(S[a2, 'Allocated'] > 1){S[a2, 'scoreSD'] = sqrt((S[a2, 'scoreSQ'] - S[a2, 'score']^2/S[a2, 'Allocated'])/(S[a2, 'Allocated'] - 1)) %>% na2zero} else {S[a2, 'scoreSD'] = 0}
+  
+  
+  S[a1,'objFunValue'] = Kf*S[a1, 'scoreRate'] + Ku*S[a1, 'utilisation'] + Ksa*S[a1, 'scoreAvg'] + Ksv*S[a1, 'scoreSD']
+  S[a2,'objFunValue'] = Kf*S[a2, 'scoreRate'] + Ku*S[a2, 'utilisation'] + Ksa*S[a2, 'scoreAvg'] + Ksv*S[a2, 'scoreSD']
+  
+  var2  = Kf*sd(S$scoreRate, na.rm = T) + Ku*sd(S$utilisation, na.rm = T) + Ksa*sd(S$scoreAvg, na.rm = T) + Ksv*mean(S$scoreSD, na.rm = T)
+  # if swapping tasks leads to exceeding more than 110% utilization, ignore it!
+  if(S[a2, 'utilisation'] > mul | S[a1, 'utilisation'] > mul)(return(NA))
+  return(var2 - var1)
+}
+
+#' Changes allocation by reducing or increasing variability of a weighted combination of metrics among agents.
+#'
+#' These metrics are:
+#' \itemize{
+#'   \item{Score Rate : Total scores gained by agents per unit time. Giving higher weight to this metric, leads to a fairer task allocation which has a balanced load sharing (weighted by argument \code{Kf})}
+#'   \item{Utilization Rate: Utilized time as a percentage of schedule time (weighted by argument \code{Ku})}
+#'   \item{Score Average: Mean of task scores gained by agents (weighted by argument \code{Ksa})}
+#'   \item{Score Variability: Sum of standard deviations of task scores gained by each agent (weighted by argument \code{Ksv})}
+#' }
+#' Note that this treatment leads to a sub-optimal allocation but can provide a customized distribution of tasks like
+#' more balanced load sharing and utilization among employees. A positive coefficient decreases variability and a positive one increases variability.
+#' @param obj input object: Should be an object of class \code{OptimalTaskAllocator},
+#' @param Kf single numeric: Weighting Coefficient for score rate variability (fair load sharing)
+#' @param Ku single numeric: Weighting Coefficient for utilization rate variability
+#' @param Ksa single numeric: Weighting Coefficient for average score variability
+#' @param Ksv single numeric: Weighting Coefficient for sum of score variabilities
+#' @param improvement_threshold Iterations stop if improvement in reducing the standard deviation of the weighted objective function is less than this value.
+#' @param max_utilization Single numeric: specifies maximum utilization percentage.
+#' The swapping will not be done if it leads to a utilization ratio higher than this, .
+#' @return an object of class \code{OptimalTaskAllocator} with modified allocated tasks.
+#'
+#' @export
+balanceWeightedScores = function(obj, silent = F, Kf = 0.0, Ku = 0.0, Ksa = 0.0, Ksv = 0.0, max_utilization = 1.1, improvement_threshold = 0.0001){
+  if(abs(Kf) + abs(Ku) + abs(Ksa) + abs(Ksv) == 0){return(obj)}
+  AP  = obj$AP[obj$AP$productive > 0, ]
+  TL  = obj$TSK %>% rownames2Column('taskID') %>% mutate(taskID = as.character(taskID)) %>% filter(!is.na(agent) & !LO & workable)
+  SCL = TL %>% dplyr::group_by(agent) %>% dplyr::summarise(scoresum = sum(score, na.rm = T), scoresq = sum(score^2, na.rm = T), scorevar = sd(score, na.rm = T)) %>% as.data.frame %>% column2Rownames('agent')
+  AP$scoreSQ     = SCL[rownames(AP), 'scoresq']  %>% na2zero
+  AP$scoreSD     = SCL[rownames(AP), 'scorevar'] %>% na2zero
+  AP$utilisation = AP$utilized/AP$scheduled
+  AP$scoreRate   = AP$score/AP$utilized
+  AP$scoreAvg    = AP$score/AP$Allocated
+  AP$objFunValue = Kf*AP$scoreRate + Ku*AP$utilisation + Ksa*AP$scoreAvg + Ksv*AP$scoreSD
+  
+  TL %<>%
+    mutate(scoreRate = score/AP[agent,'utilized'], scoreAvg = score/AP[agent,'Allocated'], scoreSQ = score^2, scoreSD = AP[agent,'scoreSD']) %>%
+    mutate(utilRate = AUT/AP[agent,'scheduled']) %>%
+    mutate(objFunValue = Kf*scoreRate + Ku*utilRate + Ksa*scoreAvg + Ksv*scoreSD) %>% column2Rownames('taskID', remove = F)
+  
+  # todo: modify updateAgentUtilisation to add util percentage and ofun. Weights can be determined in settings
+  improvement = 1
+  of1  = Kf*sd(AP$scoreRate, na.rm = T) + Ku*sd(AP$utilisation, na.rm = T) + Ksa*sd(AP$scoreAvg, na.rm = T) + Ksv*mean(AP$scoreSD, na.rm = T)
+  cnt  = 1
+  go   = T
+  while(go & improvement > improvement_threshold){
+    # WHICH AGENT HAS THE HIGHEST OFUN VALUE?
+    agord = order(AP$objFunValue, decreasing = T)
+    
+    suc = F
+    # i is counting agents from agord
+    i = 1
+    while(!suc & i < length(agord)){
+      e = rownames(AP)[agord[i]] # This is the id of agent i
+      
+      # what skills does agent e have?
+      skillse = obj$skills[which(obj$TAT[e, ] > 0)]
+      
+      # extract his/her tasks:
+      TLi = TL[which(TL$agent == e),] %>% arrange(desc(objFunValue))
+      
+      # from tasks of agent i, starting from the task with the highest ofun value:
+      # ii is counting tasks of agent i from TLi
+      ii  = 1
+      while(!suc & ii < nrow(TLi)){
+        # Which agents other than e can also do this task and are in AP (means have available time because AP is already filtered)?
+        w = which(obj$TAT[, TLi[ii, 'skill']] > 0)
+        w = (rownames(obj$TAT)[w] %^% rownames(AP)) %-% e
+        # sort them ascending by scoreRate and convert to ids:
+        w = w[order(AP[w, 'objFunValue'])]
+        # k counts agents who can do task i from w
+        k   = 1
+        while(!suc & k <= length(w)){
+          # which tasks from agent k can be swapped by agent e?
+          # must be not a leftover, must be workable and its skill must be in skills of e
+          wk  = which((TL$agent == w[k]) & (TL$skill %in% skillse))
+          # shrink the tasks even more:
+          # if score-rate and utilization are not to be balanced, then swapping tasks with equal scores to task ii won't help! so remove them from TLk:
+          if((abs(Kf) == 0) & (abs(Ku) == 0)){
+            wk  = wk %^% which(TL$score != TLi$score[ii])
+          }
+          suc = length(wk) > 0
+          if(suc){
+            TLk = TL[wk, c('agent', 'skill', 'score', 'AUT')]
+            options(warn = -1)
+            imp = TLk %>% apply(1, swapImpact, e, TLi$score[ii], TLi$skill[ii], TLi$AUT[ii], AP, obj$TAT, Kf = Kf, Ku = Ku, Ksa = Ksa, Ksv = Ksv, mul = max_utilization)
+            options(warn = 1)
+            
+            ord = order(imp)[1]
+            low = imp[ord]
+            suc = (!is.na(low))
+            if(suc){suc = low < 0}
+            if(suc){
+              jj  = wk[ord] # jj contains the index of task allocated to agent k that needs to be swaped with task ii allocated to agent i, counts from TL
+              ### swap Tasks:
+              ai = TLi[ii, 'agent'] # must be the same as e
+              ti = TLi[ii, 'AUT']
+              si = TLi[ii, 'score']
+              
+              aj = TL[jj, 'agent']  # must be the same as w[k]
+              tj = TL[jj, 'AUT']
+              sj = TL[jj, 'score']
+              
+              TL[TLi$taskID[ii], 'agent'] = aj
+              TL[TLi$taskID[ii], 'AUT']   = obj$TAT[aj, TLi$skill[ii]]
+              TL[jj, 'agent'] = ai
+              TL[jj, 'AUT']   = obj$TAT[ai, TL$skill[jj]]
+              
+              AP[ai, 'score']    = AP[ai, 'score'] - si + sj
+              AP[aj, 'score']    = AP[aj, 'score'] - sj + si
+              
+              AP[ai, 'scoreSQ']    = AP[ai, 'scoreSQ'] - si^2 + sj^2
+              AP[aj, 'scoreSQ']    = AP[aj, 'scoreSQ'] - sj^2 + si^2
+              
+              AP[ai, 'utilized'] = AP[ai, 'utilized'] - ti + obj$TAT[ai, TL$skill[jj]]
+              AP[aj, 'utilized'] = AP[aj, 'utilized'] - tj + obj$TAT[aj, TLi$skill[ii]]
+              
+              AP[ai, 'utilisation'] = AP[ai, 'utilized']/AP[ai, 'scheduled']
+              AP[aj, 'utilisation'] = AP[aj, 'utilized']/AP[aj, 'scheduled']
+              
+              AP[ai, 'scoreRate']   = AP[ai, 'score']/AP[ai, 'utilized']
+              AP[aj, 'scoreRate']   = AP[aj, 'score']/AP[aj, 'utilized']
+              
+              AP[ai, 'scoreAvg']   = AP[ai, 'score']/AP[ai, 'Allocated']
+              AP[aj, 'scoreAvg']   = AP[aj, 'score']/AP[aj, 'Allocated']
+              
+              options(warn = -1)
+              if(AP[ai, 'Allocated'] > 1){AP[ai, 'scoreSD']    = sqrt((AP[ai, 'scoreSQ'] - AP[ai, 'score']^2/AP[ai, 'Allocated'])/(AP[ai, 'Allocated'] - 1)) %>% na2zero} else {AP[ai, 'scoreSD'] = 0}
+              if(AP[aj, 'Allocated'] > 1){AP[aj, 'scoreSD']    = sqrt((AP[aj, 'scoreSQ'] - AP[aj, 'score']^2/AP[aj, 'Allocated'])/(AP[aj, 'Allocated'] - 1)) %>% na2zero} else {AP[aj, 'scoreSD'] = 0}
+              options(warn = 1)
+              
+              AP[ai,'objFunValue'] = Kf*AP[ai, 'scoreRate'] + Ku*AP[ai, 'utilisation'] + Ksa*AP[ai, 'scoreAvg'] + Ksv*AP[ai, 'scoreSD']
+              AP[aj,'objFunValue'] = Kf*AP[aj, 'scoreRate'] + Ku*AP[aj, 'utilisation'] + Ksa*AP[aj, 'scoreAvg'] + Ksv*AP[aj, 'scoreSD']
+              
+              TL[TLi$taskID[ii], 'scoreRate'] <- si/AP[aj, 'utilized']
+              TL[jj, 'scoreRate']             <- sj/AP[ai, 'utilized']
+              
+              TL[TLi$taskID[ii], 'scoreAvg']  <- si/AP[aj, 'Allocated']
+              TL[jj, 'scoreAvg']              <- sj/AP[ai, 'Allocated']
+              
+              TL[TLi$taskID[ii], 'utilRate']  <- tj/AP[aj, 'scheduled']
+              TL[jj, 'utilRate']              <- ti/AP[ai, 'scheduled']
+              
+              TL[TLi$taskID[ii], 'objFunValue'] <- Kf*TL[TLi$taskID[ii], 'scoreRate'] + Ku*TL[TLi$taskID[ii], 'utilRate'] + Ksa*TL[TLi$taskID[ii], 'scoreAvg'] + Ksv*TL[TLi$taskID[ii], 'scoreSD']
+              TL[jj, 'objFunValue']             <- Kf*TL[jj, 'scoreRate'] + Ku*TL[jj, 'utilRate'] + Ksa*TL[jj, 'scoreAvg'] + Ksv*TL[jj, 'scoreSD']
+            }
+          }
+          k = k + 1
+        }
+        ii = ii + 1
+      }
+      i = i + 1
+    }
+    go = suc
+    cnt = cnt + 1
+    of2 = Kf*sd(AP$scoreRate, na.rm = T) + Ku*sd(AP$utilisation, na.rm = T) + Ksa*sd(AP$scoreAvg, na.rm = T) + Ksv*mean(AP$scoreSD, na.rm = T)
+    improvement = of1 - of2
+    of1 = of2
+    if(!silent){cat('iteration: ', cnt, ' obj. fun. value = ', of2, ' improvement: ', improvement, '\n')}
+  }
+  
+  cols = colnames(TL) %^% colnames(obj$TSK)
+  obj$TSK[TL$taskID, cols] = TL[,cols]
+  return(obj %>% updateAgentUtilization %>% updateTaskCounts)
+}
+
+
+# otavis.R
+
+
+#' OTAR: Optimal Task Allocation with R
+#'
+#' otar is a workforce optimisation tool using advanced optimisation techniques to improve operational efficiency of teams
+#' by optimal allocation of work (tasks) to available employees(agents). It aims to maximize productivity while respects for additional constraints
+#' like balanced load sharing or employee utilization. The package has defined S3 class \code{OptimalTaskAllocator} inheriting a list which holds all required tables as data-frames.
+#' These tables are:
+#' \itemize{
+#'  \item{'AP' (data.frame)}{ Agent Profile: Contains all information about agents like their IDs, names, scheduled time, productive time,
+#'  time reserved for leftover tasks, count of leftoves, allocated tasks, utilized time and total scores gained from allocation}
+#'  \item{'SP' (data.frame)}{ Skill Profile: Contains all information about skills.}
+#'  \item{'TAT' (data.frame)}{ Turn-Around Time: This is the agent-skill matrix containing average unit times (AUT).}
+#'  \item{'ALC' (data.frame)}{ Allocation Matrix: An agent-skill matrix showing total count of allocated tasks.}
+#'  \item{'TSK' (data.frame)}{ List of all fed tasks}
+#'  \item{'agents' (character)}{ Contains names or IDs of the agents fed to the model.}
+#'  \item{'skills' (character)}{ Contains names or IDs of the skills fed to the model.}
+#' }
+#' @docType package
+
+#' @name otar
+#'
+#' @include ota.R
+#' @include otatools.R
+
+# Current Version: 4.3.8
+# Issue Date: 04 April 2017
+# Last Issue: 13 July 2018
+
+# Version     Date                 Action
+# --------------------------------------------------------------------
+# 0.1.0       04 April 2017        Initial issue
+# 0.2.0       20 April 2017        wfo.R & wfo.tools.R added. These are part of the work-force optimization plugins within the niraprom package
+# 1.0.0       12 July 2017         wfo.R & wfo.tools.R updated and renamed to ota.R and otatools.R
+# 2.1.5       24 July 2017         ota.R modified to version 2.1.5: Function calcAgentTAT() exported
+# 3.1.8       27 July 2017         otatools.R modified to version 1.0.3
+# 3.2.3       10 August 2017       ota.R modified to version 2.2.0
+# 3.2.4       11 August 2017       ota.R modified to version 2.2.1
+# 3.2.5       16 August 2017       ota.R modified to version 2.2.2
+# 3.3.2       21 August 2017       otatools.R modified to version 1.1.0
+# 3.3.3       21 August 2017       ota.R modified to version 2.2.3
+# 3.3.6       21 August 2017       otatools.R modified to version 1.1.3
+# 3.3.7       22 August 2017       otatools.R modified to version 1.1.4
+# 3.3.9       31 August 2017       otatools.R modified to version 1.1.6
+# 3.4.3       31 August 2017       ota.R modified to version 2.2.7
+# 3.4.4       05 September 2017    ota.R modified to version 2.2.8
+# 3.5.5       06 September 2017    ota.R modified to version 2.2.9
+# 3.4.6       12 September 2017    ota.R modified to version 2.3.0
+# 3.4.7       12 September 2017    ota.R modified to version 2.3.1
+# 3.4.8       18 September 2017    ota.R modified to version 2.3.2
+# 3.5.3       21 September 2017    otatools.R modified to version 1.2.1
+# 3.5.4       22 September 2017    ota.R modified to version 2.3.3
+# 3.5.5       25 September 2017    otatools.R modified to version 1.2.2
+# 3.5.7       26 September 2017    ota.R modified to version 2.3.5
+# 3.5.8       26 September 2017    otatools.R modified to version 1.2.3
+# 3.6.3       05 October 2017      otatools.R modified to version 1.3.0
+# 3.6.6       05 October 2017      ota.R modified to version 2.3.6
+# 3.6.7       09 October 2017      ota.R modified to version 2.3.7
+# 3.6.8       09 October 2017      otatools.R modified to version 1.3.2
+# 3.6.9       09 October 2017      otatools.R modified to version 1.3.3
+# 3.7.1       10 October 2017      ota.R modified to version 2.3.8
+# 3.7.2       10 October 2017      otatools.R modified to version 1.3.4
+# 3.7.3       12 October 2017      ota.R modified to version 2.3.9
+# 3.7.4       16 October 2017      ota.R modified to version 2.4.0
+# 3.7.5       17 October 2017      ota.R modified to version 2.4.1
+# 3.7.6       30 October 2017      ota.R modified to version 2.4.2
+# 3.7.7       01 November 2017     ota.R modified to version 2.4.3
+# 3.7.8       02 November 2017     ota.R modified to version 2.4.4
+# 3.7.9       14 November 2017     otatools.R modified to version 1.3.5
+# 3.8.0       28 November 2017     otatools.R modified to version 1.3.6
+# 3.8.2       04 Decemebr 2017     ota.R modified to version 2.4.6
+# 3.8.5       09 January 2018      otatools.R modified to version 1.3.9
+# 3.8.6       09 January 2018      ota.R modified to version 2.4.7
+# 3.8.7       11 January 2018      otatools.R modified to version 1.4.0
+# 3.9.1       19 January 2018      otatools.R modified to version 1.4.4
+# 3.9.3       25 January 2018      otatools.R modified to version 1.4.6
+# 3.9.4       29 January 2018      otatools.R modified to version 1.4.7
+# 3.9.5       30 January 2018      otatools.R modified to version 1.4.8
+# 3.9.6       19 February 2018     otatools.R modified to version 1.4.9
+# 3.9.7       19 February 2018     otatools.R modified to version 1.5.0
+# 4.0.2       08 March 2018        otatools.R modified to version 1.5.3 & ota.R to version 2.4.9
+# 4.0.6       13 March 2018        otatools.R modified to version 1.5.7
+# 4.0.8       10 April 2018        otatools.R modified to version 1.5.9
+# 4.1.0       05 May 2018          otatools.R modified to version 1.6.1
+# 4.1.7       25 May 2018          ota.R modified to version 2.5.6
+# 4.2.1       28 May 2018          ota.R modified to version 2.6.0
+# 4.2.3       28 May 2018          otatools.R modified to version 1.6.3
+# 4.2.5       04 June 2018         ota.R modified to version 2.6.2
+# 4.2.6       05 June 2018         otatools.R modified to version 1.6.4
+# 4.3.1       09 July 2018         otatools.R modified to version 1.6.6, ota.R modified to ver 2.6.5
+# 4.3.5       11 July 2018         otatools.R modified to version 1.7.0
+# 4.3.8       13 July 2018         ota.R modified to version 2.6.8
+
+NULL
+#> NULL
+

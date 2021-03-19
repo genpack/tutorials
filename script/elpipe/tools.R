@@ -14,12 +14,12 @@ elpipe.model_to_transformer = function(tname, model_config, inputs = NULL){
     root_transformers = list(model_config$features)
   } else {
     root_transformers = names(tlist) %-% (tlist %>% list.pull('transform_kill_after_use') %>% which %>% names)
-    if((length(tlist) == 1) & (tlist[[1]]$class == 'elulalib.Transformations.local.CategoricalDecomposer')){
+    if((length(tlist) == 1) & (tlist[[1]]$class == 'elb.Transformations.local.CategoricalDecomposer')){
       root_transformers %<>% as.list %>% list.add(model_config$features)
     }
   }
   list(
-    elulalib.Transformations.local.WrapperModelAsTransformer = 
+    elb.Transformations.local.WrapperModelAsTransformer = 
     list(transform_name = tname,
          transform_columns = root_transformers,
          name = model_config$model$name,
@@ -49,7 +49,7 @@ elpipe.hierarchical_transformer_list = function(tnames, flat, features){
   
   for(trn in tnames){
     tr = flat[[trn]]
-    if(tr$class == 'elulalib.Transformations.local.WrapperModelAsATransformer'){
+    if(tr$class == 'elb.Transformations.local.WrapperModelAsATransformer'){
       tr_class = tr$name
     } else {
       tr_class = tr$class
@@ -118,28 +118,28 @@ elpipe.extract_transformers_from_hierarchical = function(hc){
 
 elpipe.class_mapping = c(
   sklearn.preprocessing.OneHotEncoder = 'CFG.SCIKIT.OHE',
-  elulalib.Transformations.local.KMeansTransformer = 'CFG.ELULALIB.KM',
+  elb.Transformations.local.KMeansTransformer = 'CFG.ELB.KM',
   sklearn.decomposition.PCA = 'CFG.SCIKIT.PCA',
-  elulalib.Transformations.local.AddTrainedModelProbabilities = 'CFG.ELULALIB.ATMP',
+  elb.Transformations.local.AddTrainedModelProbabilities = 'CFG.ELB.ATMP',
   category_encoders.TargetEncoder = 'CFG.CATEGORY_ENCODERS.TE',
-  elulalib.Transformations.local.CategoricalDecomposer = 'CFG.ELULALIB.OHE',
+  elb.Transformations.local.CategoricalDecomposer = 'CFG.ELB.OHE',
   sklearn.preprocessing.MinMaxScaler = 'CFG.SCIKIT.MMS',
   sklearn.preprocessing.MaxAbsScaler = 'CFG.SCIKIT.MAS',
   sklearn.preprocessing.RobustScaler = 'CFG.SCIKIT.RS',
   sklearn.preprocessing.StandardScaler = 'CFG.SCIKIT.ZFS',
-  ClassificationModels.local.WrapperLightGBM = 'CFG.ELULALIB.LGBM',
-  ClassificationModels.local.WrapperLogisticRegression = 'CFG.ELULALIB.LR',
-  elulalib.Transformations.mlpy.LogisticRegressionTransformer = 'CFG.SCIKIT.LR',
-  ClassificationModels.local.WrapperXGBoost = 'CFG.ELULALIB.XGB', 
+  ClassificationModels.local.WrapperLightGBM = 'CFG.ELB.LGBM',
+  ClassificationModels.local.WrapperLogisticRegression = 'CFG.ELB.LR',
+  elb.Transformations.mlpy.LogisticRegressionTransformer = 'CFG.SCIKIT.LR',
+  ClassificationModels.local.WrapperXGBoost = 'CFG.ELB.XGB', 
   sklearn.cluster.KMeans = 'CFG.SCIKIT.KM')
 
 
 maler.class_mapping = c(
   sklearn.preprocessing.OneHotEncoder = 'ENC.SCIKIT.OHE',
-  elulalib.Transformations.local.KMeansTransformer = 'BIN.MALER.KMEANS',
+  elb.Transformations.local.KMeansTransformer = 'BIN.MALER.KMEANS',
   sklearn.decomposition.PCA = 'MAP.SCIKIT.PCA',
   category_encoders.TargetEncoder = 'ENC.CATEGORY_ENCODERS.TE',
-  elulalib.Transformations.local.CategoricalDecomposer = 'ENC.FASTDUMMIES.OHE',
+  elb.Transformations.local.CategoricalDecomposer = 'ENC.FASTDUMMIES.OHE',
   sklearn.preprocessing.MinMaxScaler = 'MAP.SCIKIT.NR',
   ClassificationModels.local.WrapperLightGBM = 'CLS.SPARKLYR.GBT',
   ClassificationModels.local.WrapperLogisticRegression = 'CLS.SCIKIT.LR',

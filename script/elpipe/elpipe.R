@@ -74,7 +74,7 @@ MODEL_CONFIG = setRefClass('MODEL_CONFIG',
            mode     = 'train',
            optimise = TRUE,
            verbose  = as.integer(1),
-           max_memory_GB = 2,
+           # max_memory_GB = 2,
            model = list(
              name = type,
              parameters = parameters,
@@ -157,7 +157,7 @@ CFG.ELULALIB.CATB = setRefClass('CFG.ELULALIB.CATB', contains = 'MODEL_CONFIG',
                                   }
                                 )
 )
-CFG.SCIKIT.MMS = setRefClass('CFG.SCIKIT.MMS', contains = 'MODEL_CONFIG', 
+CFG.SKLEARN.MMS = setRefClass('CFG.SKLEARN.MMS', contains = 'MODEL_CONFIG', 
    methods = list(
      initialize = function(...){
        callSuper(...)
@@ -166,7 +166,7 @@ CFG.SCIKIT.MMS = setRefClass('CFG.SCIKIT.MMS', contains = 'MODEL_CONFIG',
      }
    )
 )
-CFG.SCIKIT.MAS = setRefClass('CFG.SCIKIT.MAS', contains = 'MODEL_CONFIG', 
+CFG.SKLEARN.MAS = setRefClass('CFG.SKLEARN.MAS', contains = 'MODEL_CONFIG', 
                              methods = list(
                                initialize = function(...){
                                  callSuper(...)
@@ -175,7 +175,7 @@ CFG.SCIKIT.MAS = setRefClass('CFG.SCIKIT.MAS', contains = 'MODEL_CONFIG',
                                }
                              )
 )
-CFG.SCIKIT.RS = setRefClass('CFG.SCIKIT.RS', contains = 'MODEL_CONFIG', 
+CFG.SKLEARN.RS = setRefClass('CFG.SKLEARN.RS', contains = 'MODEL_CONFIG', 
                              methods = list(
                                initialize = function(...){
                                  callSuper(...)
@@ -184,7 +184,7 @@ CFG.SCIKIT.RS = setRefClass('CFG.SCIKIT.RS', contains = 'MODEL_CONFIG',
                                }
                              )
 )
-CFG.SCIKIT.ZFS = setRefClass('CFG.SCIKIT.ZFS', contains = 'MODEL_CONFIG', 
+CFG.SKLEARN.ZFS = setRefClass('CFG.SKLEARN.ZFS', contains = 'MODEL_CONFIG', 
                              methods = list(
                                initialize = function(...){
                                  callSuper(...)
@@ -194,7 +194,7 @@ CFG.SCIKIT.ZFS = setRefClass('CFG.SCIKIT.ZFS', contains = 'MODEL_CONFIG',
                              )
 )
 
-CFG.SCIKIT.LR = setRefClass('CFG.SCIKIT.LR', contains = 'MODEL_CONFIG', 
+CFG.SKLEARN.LR = setRefClass('CFG.SKLEARN.LR', contains = 'MODEL_CONFIG', 
                             methods = list(
                               initialize = function(...){
                                 callSuper(...)
@@ -237,7 +237,7 @@ CFG.ELULALIB.ATMP = setRefClass('CFG.ELULALIB.ATMP', contains = 'MODEL_CONFIG', 
   }
 ))
 
-CFG.SCIKIT.PCA = setRefClass('CFG.SCIKIT.PCA', contains = 'MODEL_CONFIG', methods = list(
+CFG.SKLEARN.PCA = setRefClass('CFG.SKLEARN.PCA', contains = 'MODEL_CONFIG', methods = list(
   initialize = function(...){
     callSuper(...)
     type <<- 'sklearn.decomposition.PCA'
@@ -255,7 +255,7 @@ CFG.ELULALIB.KMEANS = setRefClass('CFG.ELULALIB.KMEANS', contains = 'MODEL_CONFI
   }
 ))
 
-CFG.SCIKIT.OHE = setRefClass('CFG.SCIKIT.OHE', contains = 'MODEL_CONFIG', methods = list(
+CFG.SKLEARN.OHE = setRefClass('CFG.SKLEARN.OHE', contains = 'MODEL_CONFIG', methods = list(
   initialize = function(...){
     callSuper(...)
     type <<- 'sklearn.preprocessing.OneHotEncoder'
@@ -263,7 +263,7 @@ CFG.SCIKIT.OHE = setRefClass('CFG.SCIKIT.OHE', contains = 'MODEL_CONFIG', method
   }
 ))
 
-CFG.SCIKIT.KMEANS = setRefClass('CFG.SCIKIT.KMEANS', contains = 'MODEL_CONFIG', methods = list(
+CFG.SKLEARN.KMEANS = setRefClass('CFG.SKLEARN.KMEANS', contains = 'MODEL_CONFIG', methods = list(
   initialize = function(...){
     callSuper(...)
     type <<- 'sklearn.cluster.KMeans'

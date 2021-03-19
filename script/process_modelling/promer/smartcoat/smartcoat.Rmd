@@ -1,22 +1,21 @@
 ---
-title: "Process Mining analysis on SmartCoat sqample data"
+title: "Process Mining analysis on SmartCoat sample data"
 author: "Nima Ramezani Taghiabadi"
 date: "17/08/2020"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = F)
-if(!require("bupaR")) install.packages("bupaR")
-if(!require("edeaR")) install.packages("edeaR")
-if(!require("eventdataR")) install.packages("eventdataR")
-if(!require("eventdataR")) install.packages("processmapR")
-if(!require("processmonitR")) install.packages("processmonitR")
-if(!require("processmapR")) install.packages("processmapR")
-if(!require("xesreadR")) install.packages("xesreadR")
-if(!require("petrinetR")) install.packages("petrinetR")
-if(!require("daqapo")) install.packages("daqapo")
-if(!require("processanimateR")) install.packages("processanimateR")
+knitr::opts_chunk$set(echo = F, warning = F)
+library("bupaR")
+library("edeaR")
+library("eventdataR")
+library("processmapR")
+library("processmonitR")
+library("xesreadR")
+library("petrinetR")
+library("daqapo")
+library("processanimateR")
 
 library(magrittr)
 library(dplyr)
@@ -69,7 +68,7 @@ a **complete** tag to all activities as the activity life-cycle stage.
 data %<>% mutate(actstage = 'complete')
 ```
 
-Given that the data is in the required format, an event log object can be created. This object will be used later to generate all desired process mining analytics.
+Given that the data is in the required format, an event log object can be created. This object will be used later to generate all desired process mining analytics. Below you see a summary of the event-log:
 
 ```{r el_object}
 el = eventlog(eventlog = data, case_id = "Case.ID", activity_id = "Activity.description", timestamp = 'Timestamp',
@@ -170,7 +169,7 @@ A **precendence diagram** is a matrix showing the flows between activities. It c
 * Relative frequency of flows, for each consequent task
   For example, given token enters task B, it is preceded x% of the time by task A
 
-Below, an example of Relative frequency matrix is shown:
+Below, an example of absolute frequency matrix is shown:
 
 ```{r diagram_1}
 el %>% precedence_matrix(type = "absolute") %>% plot
@@ -196,13 +195,12 @@ The most important metrics describing a process can be categorised to five group
 + idle time: the time when no activity instance is active
   To get the idle-time report, we need to make sure every activity of the resources is logged in the event-log. If resources do something which takes some time and those activities are missing from the event-log, an idle-times report, will be inaccurate. For this example, since we do not have task life-cycle stages in this sample data (like start and end of an activity) we cannot generate report of resource idle time.
   
-## Live Dashboard (Process Monitoring)
+<!-- ## Live Dashboard (Process Monitoring) -->
 
-We can provide a live dashboard where you can see various insights all in one place.
-This dashboard can be customized based on the specific business requirements and priorities.
+<!-- We can provide a live dashboard where you can see various insights all in one place. -->
+<!-- This dashboard can be customized based on the specific business requirements and priorities. -->
 
-In a live dashboard, the user will be able to customize the visualisation to what he/she wants.
-You can filter cases on whatever features you desire, and select whatever type of process map you like to generate.
+<!-- In a live dashboard, the user will be able to customize the visualisation to what he/she wants. -->
+<!-- You can filter cases on whatever features you desire, and select whatever type of process map you like to generate. -->
 
-Other than what shown here, there are many more visualisations and insights you can get from process mining.
-
+<!-- Other than what shown here, there are many more visualisations and insights you can get from process mining. -->

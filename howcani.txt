@@ -350,3 +350,18 @@ $ exit
 $ cat > ~/.matplotlib/matplotlibrc
 backend: TkAgg
 
+# install a python package from package source [12 Nov 2020]:
+$ pip install /path/to/package/folder/
+In an environment:
+$ cd path/to/environment/folder
+$ pipenv run pip install path/to/package/folder/
+
+# test a prediction job in elp
+$ cd prediction
+$ pipenv install pytest
+$ pipenv run pytest -k CASE_XGBOOST_TRAIN_FULL .
+
+# install a python package ignoring the installed version [21 Jan 2021]:
+# Example:
+$ pip install llvmlite --ignore-installed
+
