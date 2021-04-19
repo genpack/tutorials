@@ -155,9 +155,6 @@ build_labels = function(id_set, label_dataset){
 
 build_training_pack = function(orders, products, order_products_prior, cutpoint_split = 'last_order', customer_subset = NULL){
   
-  products$cluster_id[is.na(products$cluster_id)] <- 0
-  
-  if(is.null(products$cluster_id)){products$cluster_id <- 1}
   order_products = order_products_prior %>% 
     left_join(products, by = 'product_id') %>%
     left_join(orders %>% 

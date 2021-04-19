@@ -19,28 +19,12 @@ dat_raw %>%
 vt = VIRTUAL.TRADER(data = dat_i)
 vt$spread = 0
 
-pm = default.parameters("neg_lin")
-pm$tp.pips  = 2000
-pm$gap.pips = 1000
-pm$pend_man = T
-pm$tp_man = T
-pm$n.above = 10
-pm$n.below = 10
-pm$lot = 0.01
-# This means 10000 shares each time
-# equity/profit is given in cents
-pm$hyper_sl = 10000
-pm$hyper_tp = 20000
+s = MILK(tp.pips = 2000, gap.pips = 1000, pend_man = T, tp_man = T, n.above = 10, n.below = 10, lot = 0.01, hyper_sl = 10000, hyper_tp = 20000)
 
-################## test #####################
-# vt$take.buy()
-# vt$jump(2)
-# vt$position
-# vt$current.price
-#######################################
-# debug(neg_lin)
+# lot = 0.01 means 1000 shares each time
+
 vt$current.time
-neg_lin(vt, pm = pm)
+s$run(vt)
 
 vt$current.time
 vt$equity()
