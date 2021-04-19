@@ -1,0 +1,141 @@
+---
+title: "Exploratory Data Analysis"
+author: "Nima Ramezani"
+date: "07/04/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("~/Documents/software/R/projects/instacard/data/instacard_data.RData")
+library(magrittr)
+library(dplyr)
+library(rml)
+library(rutils)
+library(highcharter)
+library(tm)
+
+
+
+
+source('~/Documents/software/R/projects/instacard/tools.R')
+
+### Load NLP Clustering:
+tx = readRDS('data/tm_object.rds')
+tx$data$dataset$cluster_id = tx$data$CLS
+products_pp = products %>% left_join(tx$data$dataset %>% 
+                          rename(product_id = ID) %>% 
+                          mutate(product_id = as.integer(as.character(product_id))) %>% 
+                          select(product_id, cluster_id), by = c('product_id'))
+
+### Split:
+user_subset_train = orders$user_id %>% unique %>% sample(5000)
+user_subset_test  = orders$user_id %>% unique %>% setdiff(user_subset_train) %>% sample(2000)
+
+train_pack = build_training_pack(orders, products_pp, order_products_prior, customer_subset = user_subset_train)
+test_pack  = build_training_pack(orders, products_pp, order_products_prior, customer_subset = user_subset_test)
+
+### Build Features and Labels:
+X_train = build_features(train_pack$feature_dataset)
+X_test  = build_features(test_pack$feature_dataset)
+
+y_train = X_train %>% select(user_id, product_id) %>% build_labels(train_pack$label_dataset)
+y_test  = X_test %>% select(user_id, product_id) %>% build_labels(test_pack$label_dataset)
+```
+
+### Product Profile:
+Let's have a closer look into our products:
+
+# List of top 20 most popular products:
+```{r most_popular_products}
+pp1 = X_train %>% distinct(product_id, TotalProductOrdered) %>% 
+  left_join(products_pp) %>% arrange(desc(TotalProductOrdered))
+
+pp1 %>% arrange(desc(TotalProductOrdered)) %>% head(20) %>% knitr::kable()
+```
+Terms **Organic** appears a lot among the most popular products. 
+It can also be observed that 
+banana, strawberry, baby spinach, avocado and limes are among the most wanted products. 
+These are mostly fruit and vegetable. 
+It would be good to have a look at the keywords in the names of the most popular products.
+Building a document-term matrix from the text of product titkes would be useful.
+We can create a word-cload to see which terms are mostly used:
+
+```{r product_wordcload}
+texer::TEXT.MINER(pp1, text_col = 'product_name', id_col = 'product_id') -> tx
+tx$settings$sparsity = 0.98
+
+tx$plot.wordCloud()
+```
+It can be observed that words organic Chocolate, cheese and free are used more often in naming the products. However, this word cloud does not consider the popularity of the products.
+So we created a weighted wordcloud which multiplies each word by the total number of orders of the product 
+in which the term is used:
+```{r product_popularity_wordcloud}
+pp1 %>% 
+  left_join(tx$data$dataset %>% 
+    mutate(rn = sequence(nrow(.)),
+           product_id = as.integer(as.character(ID))) %>% 
+      select(product_id, rn), 
+    by = 'product_id') -> pp2
+  
+dtm = tx$get.dtm() %>% as.matrix %>% {.[pp2$rn,]}
+tdm = t(dtm)
+wfq = t(pp2$TotalProductOrdered*tdm) %>% colSums(na.rm = T)
+data.frame(word = names(wfq), freq = wfq) %>% arrange(desc(freq)) %>% head(500) %>% wordcloud2::wordcloud2()
+```
+
+## Unsupervised NLP clustering on product names:
+
+We know that the likelihood of a customer buying a product can depend on 
+wether of not a similar product was ordered in the customer's previous order or older orders before that. 
+But how can we determine which products are **similar**?
+Products are grouped in aisles which are expected to have similar products. 
+It is good to consider count of products ordered within the aisle associated with the product in the previous customer orders.
+However, there might be many non-similar products in a single aisle, so 
+we need a more accurate grouping of features to ensure each group contain really similar products.
+NLP clustering and topic modelling are two ways to adress this problem.
+
+With NLP clustering we cluster products based on the similarity of their names. 
+<!-- We use **binary** metric to quantify the similarity between products. -->
+The more words two products' names have in common, the closer they are.
+We use k-means to cluster the products with an elbow plot to determine the best number of clusters.
+
+
+
+
+```{r customer_profile}
+clusters = tx$clust(nc = 200)
+```
+
+
+```{r product_profile_2}
+product_profile$TotalProductOrdered %>% hist
+```
+Distribution of **TotalProductOrdered** looks like exponential. However exponential is too simple and cannot explain the shape completely. Let's have a look at the tail of the distribution (least popular products):
+```{r product_profile_2}
+product_profile$TotalProductOrdered %>% {.[.<1000]} %>% hist(breaks = 1000)
+```
+Looking at the distribution of **TotalProductOrdered** in logarithmic scale, gives a better understanding of the distribution:
+```{r product_profile_3}
+product_profile$TotalProductOrdered %>% log(base = 10) %>% hist(breaks = 10000)
+```
+
+
+## Popularity vs Reorders
+
+More popular products have been more reordered which is expected:
+
+```{r product_profile_3}
+product_profile %>% plotly::plot_ly(x = ~ProductReordersNormalized, y = ~ProductPopularity, type = 'scatter')
+```
+
+## Most popular products of each aisle:
+
+```{r product_profile_4}
+product_profile %>% 
+  mutate(product_name = as.factor(product_name)) %>% 
+  group_by(aisle_id) %>% 
+  mutate(ProductPerAislePopularity = TotalProductOrdered/sum(TotalProductOrdered)) %>% 
+  do({arrange(., desc(ProductPerAislePopularity)) %>% head(10)}) %>% 
+  ungroup
+```

@@ -1,0 +1,366 @@
+---
+title: "Instacard Project: Modelling 1"
+author: "Nima Ramezani"
+date: "19/04/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
+library(magrittr)
+library(dplyr)
+library(rml)
+library(rutils)
+
+load("data/instacard_data.RData")
+
+## Some utility functions:
+next_last = function(v){
+  if(length(v) < 2) return(-1) else return(v[length(v) - 1])
+}
+
+# Inverse of cumulative sum 
+uncumsum = function(v){
+  nn = length(v)
+  if(nn < 2) return(-1) else return(c(v[1], v[-1] - v[-nn]))
+}
+
+```
+
+In this module we build a general model which for each customer, can estimate the likelihood of all products that 
+he/she has at least once purchased.
+Product id, here, becomes a categorical feature and 
+there is only one target: probability of the product type in the feature being in the next customer order or not.
+
+So we convert a multi-class classification model into a binary classification.
+In this modelling, each product for each customer is one training row in the dataset and for each customer.
+We only include products that the customer has at least ordered once.
+If we include all products for all customers both train and test sets will be huge and the target becomes extremely imbalanced.
+
+* Disadvantages:
+  You cannot include customer's behaviour in regards to other products as features for predicting a particular product
+
+* Advantages:
++ One model for all products rather than multiple models for multile products
++ Fewer features but long training dataset
+
+# Customer Sampling:
+
+Including all customers leads to a huge training dataset which takes longer to be built and may not fit in memory.
+So we first pick a sample of customers randomly, and do the modelling.
+We will check later to see if adding more customers can improve model performance or not.
+
+```{r pick_customer_subsets}
+user_subset_train = orders$user_id %>% unique %>% sample(1000)
+user_subset_test  = orders$user_id %>% unique %>% setdiff(user_subset_train) %>% sample(300)
+```
+
+# Split for features and labels:
+Since orders exact dates are not known, 
+we need to pick an order number (usually last order number) for each customer 
+as the last order number up to the cutpoint for labeling.
+
+All events prior to the cutpoint order numbers are used for building features and
+events associated with cutpoint order numbers make labels for the training dataset.
+
+For example for one customer, if we pick order number 6 as the cutpoint,
+then we use information in orders 1 to 5 to create features for that customer at that point in time
+and contents of order 6 is used to generate label for the training dataset for that customer.
+ 
+If last order is picked as cutpoint (rather than random), 
+we will have the maximum number of rows in the training data. 
+However, we can pick multiple order numbers as labeling cut-point and 
+generate training data based on those picked cutpoint order numbers.
+Then row bind the generated training datasets to make a bigger and richer training dataset. 
+Here we only use the last orders as cutpoints and generate one trainig dataset from that.
+
+Function `build_training_pack` splits order-product events into feature_set and label_set and returns them back in a list pack:
+
+```{r build_training_pack_function}
+build_training_pack = function(orders, products, order_products_prior, cutpoint_split = 'last_order', customer_subset = NULL){
+  
+  order_products = order_products_prior %>% 
+    left_join(products, by = 'product_id') %>%
+    left_join(orders %>% 
+                # filter(eval_set == 'prior') %>% 
+                select(-eval_set) %>% 
+                arrange(user_id, order_number) %>% 
+                mutate(day_number = days_since_prior_order %>% na2zero) %>% 
+                rutils::column.cumulative.forward(col = 'day_number', id_col = 'user_id')
+              , by = 'order_id')
+  if(!is.null(customer_subset)){
+    order_products %<>% filter(user_id %in% customer_subset)
+  }
+  
+  ### Pick cutpoint order numbers:
+  order_products %>% 
+    arrange(user_id, order_number) %>% 
+    group_by(user_id) %>% 
+    summarise(cutpoint_order_number = max(order_number),
+              cutpoint_order_id = last(order_id)) %>% 
+    ungroup -> cutpoint_orders
+  
+  order_products %<>% 
+    left_join(cutpoint_orders, by = 'user_id') %>% 
+    mutate(flag_label = order_number == cutpoint_order_number,
+           flag_feature = order_number < cutpoint_order_number)
+  
+  ind_features = which(order_products$flag_feature)
+  ind_labels   = which(order_products$flag_label)
+  
+  cat('\n', '%s rows total, %s rows for feature aggregation, %s rows for labeling, %s rows removed!' %>% 
+        sprintf(nrow(order_products), 
+                length(ind_features),
+                length(ind_labels),
+                nrow(order_products) - length(ind_features) - length(ind_labels)))
+
+  return(list(feature_dataset = order_products[ind_features,], label_dataset = order_products[ind_labels,], cutpoint_orders = cutpoint_orders))
+}
+
+```
+
+Now we use this function to make two separate dataset packs for train and test:
+
+```{r build_training_pack}
+#train_pack = build_training_pack(orders, products, order_products_prior, customer_subset = user_subset_train)
+#test_pack  = build_training_pack(orders, products, order_products_prior, customer_subset = user_subset_test)
+#head(train_pack$feature_dataset)
+
+# saveRDS(train_pack, 'data/train_pack.rds')
+# saveRDS(test_pack, 'data/test_pack.rds')
+train_pack =  readRDS('data/train_pack.rds')
+test_pack  =  readRDS('data/test_pack.rds')
+```
+
+# Building Features from datasets
+
+Function `build_features` extracts features from the pack returned by function `build_training_pack`.
+This function is fully explained in the feature engineering report.
+
+```{r build_features_function, echo = FALSE}
+build_features = function(dataset){
+  dataset %>% 
+    mutate(order_hour_of_day = as.numeric(order_hour_of_day)) %>% 
+    group_by(user_id, order_number, days_since_prior_order, order_hour_of_day, order_dow) %>% 
+    summarise(OrderSize = length(product_id), ## Order Size: Number of products/purchases in an order
+              ReorderSize = sum(reordered)) %>% 
+    ungroup %>% 
+    arrange(user_id, order_number) %>% 
+    group_by(user_id) %>% 
+    summarise(CustomerPurchaseFrequency  = sum(OrderSize),
+              CustomerOrderFrequency     = length(order_number), # TotalCountCustomerOrders
+              CustomerReorderFrequency   = sum(ReorderSize), # TotalCountCustomerReorderedProducts
+              CustomerAverageOrderGap    = mean(days_since_prior_order, na.rm = T), # CustomerAverageDaysBetweenOrders
+              CustomerMaximumOrderGap    = max(days_since_prior_order, na.rm = T), # CustomerMaximumDaysBetweenOrders
+              CustomerVarianceOrderGap   = var(days_since_prior_order, na.rm = T),
+              CustomerAverageOrderSize   = mean(OrderSize),
+              CustomerMaximumOrderSize   = max(OrderSize),
+              CustomerMinimumOrderSize   = min(OrderSize),
+              CustomerLatestOrderSize    = last(OrderSize),
+              CustomerAverageReorderSize = mean(ReorderSize),
+              CustomerMaximumReorderSize = max(ReorderSize),
+              CustomerLatestReorderSize  = last(ReorderSize),
+              CustomerPreferredOrderHour = most_frequent(order_hour_of_day),
+              CustomerLatestOrderHour    = max(order_hour_of_day, na.rm = T),
+              CustomerEarliestOrderHour = min(order_hour_of_day, na.rm = T),
+              CustomerPreferredDOW = most_frequent(order_dow)) %>% 
+    mutate(CustomerOrderPace = 1.0/CustomerAverageOrderGap,
+           CustomerReorderRate = CustomerReorderFrequency/CustomerPurchaseFrequency) -> customer_orders_behaviour 
+  
+  # Customer Profile:
+  dataset %>% 
+    group_by(user_id) %>% 
+    summarise(current_order_id     = last(order_id),
+              current_order_number = max(order_number),
+              current_day_number   = max(day_number),
+              CustomerPurchaseDiversity = length(unique(product_id))) %>% 
+    ungroup %>% 
+    left_join(customer_orders_behaviour, by = 'user_id') %>% 
+    na2zero %>% 
+    {.[(. == Inf) | (. == -Inf)] <- 0;.} -> customer_profile
+
+  dataset %>% 
+    left_join(customer_profile %>% select(user_id, current_order_id), by = 'user_id') %>% 
+    arrange(user_id, order_number) %>% 
+    group_by(user_id, product_id) %>% 
+    summarise(CustomerProductOrderFrequency = length(order_id),
+              CustomerProductReorderFrequency = sum(reordered),
+              CustomerProductFirstSelectionFrequency = sum(add_to_cart_order == 1),
+              CustomerProductFirstTwoSelectionsFrequency = sum(add_to_cart_order < 3),
+              CustomerProductFirstThreeSelections = sum(add_to_cart_order < 4),
+              CustomerProductAverageOrderGap  = mean(uncumsum(day_number), na.rm = T),
+              CustomerProductVarianceOrderGap = var(uncumsum(day_number), na.rm = T),
+              CustomerProductIsInCurrentOrder = sum(order_id == current_order_id),
+              day_number_last_product_ordered = last(day_number),
+              day_number_nextlast_product_ordered = next_last(day_number),
+              order_number_last_product_ordered = last(order_number),
+              order_number_nextlast_product_ordered = next_last(order_number)) -> customer_product_profile
+  
+  dataset %>% 
+    left_join(customer_profile %>% select(user_id, current_order_id), by = 'user_id') %>% 
+    group_by(user_id, aisle_id) %>% 
+    summarise(CustomerAisleOrderFrequency = length(order_id),
+              CustomerAisleInCurrentOrderFrequency = sum(order_id == current_order_id)) %>% 
+    ungroup -> customer_aisle_profile
+  
+  dataset %>% 
+    left_join(customer_profile %>% select(user_id, current_order_id), by = 'user_id') %>% 
+    group_by(user_id, department_id) %>% 
+    summarise(CustomerDepartmentOrderFrequency = length(order_id),
+              CustomerDepartmentInCurrentOrderFrequency = sum(order_id == current_order_id)) %>% 
+    ungroup -> customer_department_profile
+  
+  dataset %>% 
+    mutate(order_hour_of_day = as.numeric(order_hour_of_day)) %>% 
+    group_by(product_id) %>% 
+    summarise(ProductPopularity         = length(order_id), # TotalProductPurchased
+              ProductReorderFrequency   = sum(reordered), # TotalProductReordered
+              ProductPreferredOrderHour = most_frequent(order_hour_of_day, na.rm = T),
+              ProductLatestOrderHour    = max(order_hour_of_day, na.rm = T),
+              ProductEarliestOrderHour  = min(order_hour_of_day, na.rm = T),
+              ProductPreferredDOW       = most_frequent(order_dow)) %>% 
+    ungroup %>% 
+    mutate(ProductReorderRate = ProductReorderFrequency/ProductPopularity) %>% 
+    left_join(products, by = 'product_id') -> product_profile
+  
+  customer_product_profile %>% 
+    group_by(product_id) %>% 
+    summarise(
+      ProductAverageOrderGap    = mean(CustomerProductAverageOrderGap),
+      ProductFirstSelectionFrequency = sum(CustomerProductFirstSelectionFrequency)) %>% 
+    mutate(ProductOrderPace = 1.0/ProductAverageOrderGap) -> product_profile_2
+  
+  product_profile %<>% left_join(product_profile_2, by = 'product_id')
+  
+  dataset %>% 
+    group_by(aisle_id) %>% 
+    summarise(
+      AislePopularity = length(order_id),
+      AisleReorderFrequency  = sum(reordered)) %>% 
+    ungroup -> aisle_profile
+  
+  dataset %>% 
+    group_by(department_id) %>% 
+    summarise(
+      DepartmentPopularity = length(order_id),
+      DepartmentReorderFrequency  = sum(reordered)) %>% 
+    ungroup -> department_profile
+  
+  customer_product_profile %>%
+    left_join(product_profile, by = 'product_id') %>% 
+    # left_join(products %>% select(product_id, aisle_id, department_id), by = 'product_id') %>% 
+    left_join(customer_profile, by = 'user_id') %>% 
+    left_join(customer_aisle_profile, by = c('user_id', 'aisle_id')) %>% 
+    left_join(customer_department_profile, by = c('user_id', 'department_id')) %>% 
+    left_join(aisle_profile, by = 'aisle_id') %>% 
+    left_join(department_profile, by = 'department_id') %>% 
+    mutate(CustomerProductPerOrderRate = CustomerProductOrderFrequency/CustomerOrderFrequency,
+           CustomerWithinAislePerOrderRate = CustomerAisleOrderFrequency/CustomerOrderFrequency,
+           CustomerWithinDepartmentPerOrderRate = CustomerDepartmentOrderFrequency/CustomerOrderFrequency,
+           CustomerProductPerAisleRate = CustomerProductOrderFrequency/CustomerAisleOrderFrequency,
+           CustomerProductPerDepartmentRate = CustomerProductOrderFrequency/CustomerDepartmentOrderFrequency,
+           CustomerProductFirstSelectionRate = ProductFirstSelectionFrequency/CustomerProductOrderFrequency,
+           CustomerWithinAisleRate = CustomerAisleOrderFrequency/CustomerPurchaseFrequency,
+           CustomerWithinDepartmentRate = CustomerDepartmentOrderFrequency/CustomerPurchaseFrequency,
+           CustomerAislePerDepartmentRate = CustomerAisleOrderFrequency/CustomerDepartmentOrderFrequency,
+           ProductPerAislePopularity = ProductPopularity/AislePopularity,
+           ProductPerDepartmentPopularity = ProductPopularity/DepartmentPopularity,
+           AislePerDepartmentPopularity = AislePopularity/DepartmentPopularity,
+           DaysSinceLastProductOrdered = day_number_last_product_ordered - day_number_nextlast_product_ordered, 
+           OrdersSinceLastProductOrdered = order_number_last_product_ordered - order_number_nextlast_product_ordered - 1) -> X_train
+}
+
+```
+
+```{r build_features}
+train = build_features(train_pack$feature_dataset)
+test  = build_features(test_pack$feature_dataset)
+exclude_columns = colnames(train) %>% charFilter('_')
+X_train = train[colnames(train) %-% exclude_columns]
+X_test  = test[colnames(test) %-% exclude_columns]
+```
+
+Function `build_labels` extracts labels from the pack returned by function `build_training_pack`
+by joining the labeling dataset of to a given list of `user_id`s and `product_id`s.
+If there is no event in the `labeling_dataset` for a user and profile, 
+the value of any column joined will be missing 
+and we use this flag to build a binary label for each customer and profile:
+
+```{r build_labels_function}
+build_labels = function(id_set, label_dataset){
+  id_set %>% 
+    left_join(label_dataset[, c('user_id', 'product_id', 'reordered')], by = c('user_id', 'product_id')) %>% 
+    mutate(label = as.numeric(!is.na(reordered))) %>% 
+    pull(label)
+}
+```
+
+We build labels for both train and test datasets:
+
+```{r build_labels}
+y_train = train %>% select(user_id, product_id) %>% build_labels(train_pack$label_dataset)
+y_test  = test %>% select(user_id, product_id) %>% build_labels(test_pack$label_dataset)
+```
+
+## XGBoost model
+
+We have now what we need to build a classifier model. 
+We use the R package **RML** to train a XGBoost model with default hyper-parameters and
+evaluate model performance with test data:
+
+```{r build_model_xgb}
+xgb = rml::CLS.SKLEARN.XGB(name = 'xgb_v1', n_jobs = 8, fe.enabled = T)
+
+xgb$fit(X_train, y_train)
+
+xgb$performance(X_test, y_test, 
+                metrics = c('gini', 'precision', 'recall', 'lift', 'accuracy', 'f1'), 
+                quantiles = c(0.02, 0.05, 0.1, 0.2, 0.5)) %>% 
+as.data.frame %>% t %>% {colnames(.) <- 'Value';.} %>% knitr::kable()
+
+
+```
+
+Here is the ROC-curve for the prediction:
+
+```{r roc_curve_xgb}
+plot(AUC::roc(predictions = xgb$predict(X_test)[,1], labels = y_test %>% as.factor))
+```
+
+Let's have a look at the most 20 Important Features:
+
+```{r roc_curve_xgb}
+xgb$objects$features %>% arrange(desc(importance)) %>% head(20) %>% 
+  rename(Feature = fname, Importance = importance) %>% 
+  plotly::plot_ly(y = ~Feature, x = ~Importance, type = 'bar')
+```
+
+
+```{r build_model_xgb}
+
+threshold = 0.5
+
+test %>% 
+  as.data.frame %>% 
+  cbind(xgb$predict(X_test), label = y_test) %>% 
+  group_by(user_id) %>% 
+  summarise(order_size_expected = sum(label, na.rm = T), 
+            tp = sum((xgb_v2_probs > threshold) & (label == 1)),
+            fp = sum((xgb_v2_probs > threshold) & (label == 0)),
+            tn = sum((xgb_v2_probs < threshold) & (label == 0)),
+            fn = sum((xgb_v2_probs < threshold) & (label == 1))) %>% 
+  ungroup %>% 
+  mutate(precision = tp/(tp + fp), recall = tp/(tp + fn)) %>% 
+  left_join(actual_order_sizes, by = 'user_id') %>% 
+  mutate(f1 = 2*precision*recall/(precision + recall)) %>% 
+  arrange(desc(f1), desc(order_size)) %>% 
+  {rownames(.) <- NULL;.} -> res
+
+res %>% DT::datatable()
+```
+
+Histogram of f1 scores based on 50% probability boundary cut:
+
+```{r f1_hist_xgb}
+res %>% filter(order_size_expected > 0) %>% pull(f1) %>% hist(breaks = 1000, main = 'Histogram of F1 Scores XGB Model')
+```

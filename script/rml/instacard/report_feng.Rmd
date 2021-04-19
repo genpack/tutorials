@@ -1,0 +1,518 @@
+---
+title: 'Instacard Project: Feature Engineering'
+author: "Nima Ramezani"
+date: "07/04/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
+library(magrittr)
+library(dplyr)
+library(rml)
+library(rutils)
+library(highcharter)
+library(tm)
+source('tools_v2.R')
+
+# readRDS('data/feng_dataset.rds') -> dataset
+
+load("data/instacard_data.RData")
+user_subset = orders$user_id %>% unique %>% sample(50000)
+ 
+# tx = readRDS('data/tm_object.rds')
+# tx$data$dataset$cluster_id = tx$data$CLS
+# products_pp = products %>% left_join(tx$data$dataset %>% 
+#                           rename(product_id = ID) %>% 
+#                           mutate(product_id = as.integer(as.character(product_id))) %>% 
+#                           select(product_id, cluster_id), by = c('product_id'))
+# 
+data_pack = build_training_pack(orders, products, order_products_prior, customer_subset = user_subset)
+dataset   = data_pack$feature_dataset
+```
+## Customer Profile
+These features represent characteristics of customer purchasing and ordering behaviour. 
+Customer profile table has one row per customer and contain aggregated values in customer level.
+
+```{r customer_profile}
+dataset %>% 
+  mutate(order_hour_of_day = as.numeric(order_hour_of_day)) %>% 
+  group_by(user_id, order_number, days_since_prior_order, order_hour_of_day, order_dow) %>% 
+  summarise(OrderSize = length(product_id), ## Order Size: Number of products/purchases in an order
+            ReorderSize = sum(reordered)) %>% 
+  ungroup %>% 
+  arrange(user_id, order_number) %>% 
+  group_by(user_id) %>% 
+  summarise(CustomerPurchaseFrequency  = sum(OrderSize),
+            CustomerOrderFrequency     = length(order_number), # TotalCountCustomerOrders
+            CustomerReorderFrequency   = sum(ReorderSize), # TotalCountCustomerReorderedProducts
+            CustomerAverageOrderGap    = mean(days_since_prior_order, na.rm = T), # CustomerAverageDaysBetweenOrders
+            CustomerMaximumOrderGap    = max(days_since_prior_order, na.rm = T), # CustomerMaximumDaysBetweenOrders
+            CustomerVarianceOrderGap   = var(days_since_prior_order, na.rm = T),
+            CustomerAverageOrderSize   = mean(OrderSize),
+            CustomerMaximumOrderSize   = max(OrderSize),
+            CustomerMinimumOrderSize   = min(OrderSize),
+            CustomerLatestOrderSize    = last(OrderSize),
+            CustomerAverageReorderSize = mean(ReorderSize),
+            CustomerMaximumReorderSize = max(ReorderSize),
+            CustomerLatestReorderSize  = last(ReorderSize),
+            CustomerPreferredOrderHour = most_frequent(order_hour_of_day),
+            CustomerLatestOrderHour    = max(order_hour_of_day, na.rm = T),
+            CustomerEarliestOrderHour = min(order_hour_of_day, na.rm = T),
+            CustomerPreferredDOW = most_frequent(order_dow)) %>% 
+  mutate(CustomerOrderPace = 1.0/CustomerAverageOrderGap,
+         CustomerReorderRate = CustomerReorderFrequency/CustomerPurchaseFrequency) -> customer_orders_behaviour 
+
+# Customer Profile:
+dataset %>% 
+  group_by(user_id) %>% 
+  summarise(current_order_id     = last(order_id),
+            current_order_number = max(order_number),
+            current_day_number   = max(day_number),
+            CustomerPurchaseDiversity = length(unique(product_id))) %>% 
+  ungroup %>% 
+  left_join(customer_orders_behaviour, by = 'user_id') %>% 
+  na2zero %>% 
+  {.[(. == Inf) | (. == -Inf)] <- 0;.} -> customer_profile
+```
+Here is a list of customer profile features:
+
+### Customers **Frequency and Diversity of Purchase** behaviour:
+These could be the most important features in the customer profile as
+they shows a major aspect of customer behaviour:
+
+| Feature Name| Description|
+|-------------|------------|
+|`CustomerPurchaseFrequency`|How many products has the customer purchased in all previous orders?|
+|`CustomerPurchaseDiversity`|How many unique product names has the customer purchased in all previous orders?|
+|`CustomerOrderFrequency`|How many total orders has the customer issued?|
+|`CustomerReorderFrequency`|How many products has the customer reordered totally?|
+|`CustomerReorderRate`|Ratio of total reordered products to total products purchased|
+|`CustomerAverageOrderGap`|Average number of days between consequent orders|
+|`CustomerMaximumOrderGap`|Maximum number of days between consequent orders|
+|`CustomerVarianceOrderGap`|Variance of number of days (gap) between consequent orders. (Consistency of order pace)|
+|`CustomerOrderPace`| Inverse of CustomerAverageOrderGap. How frequent does the customer order?|
+|`CustomerAverageOrderSize`| In average, how many products does the customer purchase in each order?|
+|`CustomerMaximumOrderSize`| The maximum number of products customer purchased in one order|
+|`CustomerMinimumOrderSize`| The minimum number of products customer purchased in one order|
+|`CustomerLatestOrderSize`| Number of products in the customer's last order|
+|`CustomerAverageReorderSize`| In average, how many reordered products does the customer purchase in each order?|
+|`CustomerMaximumReorderSize`| The maximum number of reordered products customer purchased in one order|
+|`CustomerLatestReorderSize`| Number of reordered products in the customer's last order|
+|`CustomerPreferredOrderHour`| The most frequent hour of day at which customer issued orders|
+|`CustomerLatestOrderHour`| The latest hour of day at which customer issued an order|
+|`CustomerEarliestOrderHour`| The earliest hour of day at which customer issued an order|
+|`CustomerPreferredDOW`|On which day of week has the customer issued orders mostly?|
+
+Now that we introduced customer-profile features, it's good to have a look at the distribution of the values:
+
+#### Distribution of customer order frequency: How many orders our customers issue?
+
+```{r cp_order_freq_hist}
+hist(customer_profile$CustomerOrderFrequency, breaks = 1000)
+```
+
+As one can see, the distribution is mainly exponential. The majority of customers have very few orders in total.
+There is a hypothesis that customers with too few orders (less than three) do not provide much behavioral learning information because to learn the ordering behaviour of one individual, 
+you need to have sufficient data from his/her multiple consequent orders.
+It may be useful to remove these customers. 
+Furthermore, the values of some of the features for example `AverageOrderGap`, 
+are not true representative of the actual feature value as 
+there are not enough observations to have a meaningful measure.
+
+Based on experience, we know that 
+in many time-series modelling projects, increasing number of cases after a certain level 
+do not necessarily improve model performances.
+In this project, we have more than enough customers and 
+eliminating customers with few orders cannot damage model performance.
+
+So we will test this hypothesis by training models with such customers eliminated:
+
+```{r customers_with_few_order_freq}
+loworder_users = customer_profile %>% filter(CustomerOrderFrequency < 5) %>% pull(user_id) %>% unique
+# customer_profile %>% filter(!(user_id %in% loworder_users))
+```
+
+#### Distribution of customer purchase frequency: How many products each customer has purchased totally?
+
+```{r cp_purchase_freq_hist}
+customer_profile %>% 
+  filter(!(user_id %in% loworder_users)) %>% 
+  pull(CustomerPurchaseFrequency) -> CustomerPurchaseFrequency 
+hist(CustomerPurchaseFrequency, breaks = 1000)
+```
+
+Distributin of CustomerAverageOrderGap:
+
+```{r cp_CustomerOrderPace_boxplot}
+customer_profile %>% 
+  filter(!(user_id %in% loworder_users)) %>% 
+  pull(CustomerAverageOrderGap) -> CustomerAverageOrderGap 
+hist(CustomerAverageOrderGap, breaks = 1000)
+```
+
+There are many customers that purchase almost monthtly. 
+It is possible that some of these customers are on a subscription and buy same things in each order.
+Targeting these customers as a separate segment could possibly give us a better performance.
+In other words, we can train a different model for this segment of customers.
+Maybe that model performs better than the global model.
+
+#### Customer Profile Feature Correlations
+
+```{r cp_cor_heatmap}
+customer_profile %>% 
+  filter(!(user_id %in% loworder_users)) %>% 
+  select(- user_id, - current_order_id, - current_order_number) %>% 
+  as.matrix %>% cor %>% as.data.frame %>% 
+  d3heatmap::d3heatmap(xaxis_height = 200, xaxis_font_size = 12, yaxis_width = 220, yaxis_font_size = 12)
+```
+
+Looking at this correlation heatmap, some of the high correlations are expected. 
+For example negative correlation between `CustomerMaximumOrderGap` and `CustomerOrderPace` is not unexpected.
+However, there are some correlations which may reveal some causalties.
+For example, negative correlation between `CustomerMaximumOrderSize` and `CustomerAverageOrderGap` is interesting.
+
+Let's have a closer look at the relationship between these two features in a scatter plot:
+
+```{r cp_CustomerMaximumOrderSize_vs_CustomerAverageOrderGap_scatter}
+customer_profile %>% 
+  filter(!(user_id %in% loworder_users)) %>% 
+  select(CustomerMaximumOrderSize, CustomerAverageOrderGap) %>% 
+  plot
+```
+
+
+### Customer Order Pace:
+
+How frequently does a customer issue orders? 
+and how consistent is him/her in that pace?
+The mean and variance of days_since_prior_order provide two features that describe this:
+*  `avgDaysBetweenCustomerOrders`
+*  `varDaysBetweenCustomerOrders`
+
+```{r cp_CustomerVarianceOrderGap_hist}
+customer_profile %>% 
+  filter(!(user_id %in% loworder_users)) %>% 
+  pull(CustomerVarianceOrderGap %>% {.[.>0]}) -> CustomerVarianceOrderGap
+hist(CustomerVarianceOrderGap, breaks = 1000)
+```
+
+## Customer-Product Profile
+
+These features represent behaviour of each customer with respect to each product he/she has once purchased.
+
+```{r customer_product_profile}
+dataset %>% 
+  left_join(customer_profile %>% select(user_id, current_order_id), by = 'user_id') %>% 
+  arrange(user_id, order_number) %>% 
+  group_by(user_id, product_id) %>% 
+  summarise(CustomerProductOrderFrequency = length(order_id),
+            CustomerProductReorderFrequency = sum(reordered),
+            CustomerProductFirstSelectionFrequency = sum(add_to_cart_order == 1),
+            CustomerProductFirstTwoSelectionsFrequency = sum(add_to_cart_order < 3),
+            CustomerProductFirstThreeSelections = sum(add_to_cart_order < 4),
+            CustomerProductAverageOrderGap  = mean(uncumsum(day_number), na.rm = T),
+            CustomerProductVarianceOrderGap = var(uncumsum(day_number), na.rm = T),
+            CustomerProductIsInCurrentOrder = sum(order_id == current_order_id),
+            day_number_last_product_ordered = last(day_number),
+            day_number_nextlast_product_ordered = next_last(day_number),
+            order_number_last_product_ordered = last(order_number),
+            order_number_nextlast_product_ordered = next_last(order_number)) -> customer_product_profile
+```
+
+| Feature Name| Description|
+|-------------|------------|
+|`CustomerProductOrderFrequency`| How many products of this type was purchased by this customer?|
+|`CustomerProductReorderFrequency`|How many times did the customer reorder this product?|
+|`CustomerProductFirstSelectionFrequency`|Number of customer orders in which this product is the first selection|
+|`CustomerProductFirstTwoSelectionsFrequency`|Number of customer orders in which this product is in the first two selections|
+|`CustomerProductFirstThreeSelectionsFrequency`|Number of customer orders in which this product is in the first three selections| 
+|`CustomerProductAverageOrderGap`|Average days between consequent purchases of this product by the customer| 
+|`CustomerProductVarianceOrderGap`|Variance of days between consequent purchases of this product by the customer| 
+|`CustomerProductIsInCurrentOrder`|Is this product in the latest(current) customer order or not?| 
+
+## Customer-Aisle Profile
+
+Bahaviour of each individual customer with respect to the products within an aisle.
+Products are grouped into aisles and ususally similar products are placed in one aisle. 
+It is good to see how each customer deals with products of each aisle in total.
+
+```{r customer_aisle_profile}
+dataset %>% 
+    left_join(customer_profile %>% select(user_id, current_order_id), by = 'user_id') %>% 
+    group_by(user_id, aisle_id) %>% 
+    summarise(CustomerAisleOrderFrequency = length(order_id),
+              CustomerAisleInCurrentOrderFrequency = sum(order_id == current_order_id)) %>% 
+    ungroup -> customer_aisle_profile
+```
+
+Similar to the customer-product profile, 
+one can generate aggregated features for any grouping of products 
+like, aisle or department:
+
+| Feature Name| Description|
+|-------------|------------|
+|`CustomerAisleOrderFrequency`  | How many products within this aisle was purchased by the customer?|
+|`CustomerAisleReorderFrequency`| How many times did the customer reorder a product within this aisle?|
+|`CustomerAisleInCurrentOrderFrequency`| How many products within this aisle are in the latest(current) customer order?| 
+
+## Customer-department profile:
+
+Similar to customer-aisle product, 
+we can have customer-department profile
+which contains customer ordering behaviour in respect with each department.
+Similar features to customer-aisle profile:
+
+```{r customer_department_profile}
+dataset %>% 
+    left_join(customer_profile %>% select(user_id, current_order_id), by = 'user_id') %>% 
+    group_by(user_id, department_id) %>% 
+    summarise(CustomerDepartmentOrderFrequency = length(order_id),
+              CustomerDepartmentInCurrentOrderFrequency = sum(order_id == current_order_id)) %>% 
+    ungroup -> customer_department_profile
+```
+
+| Feature Name| Description|
+|-------------|------------|
+|`CustomerDepartmentOrderFrequency`  | How many products within this department was purchased by the customer?|
+|`CustomerDepartmentReorderFrequency`| How many times did the customer reorder a product within this department?|
+|`CustomerDepartmentInCurrentOrderFrequency`| How many products within this department are in the latest(current) customer order?| 
+
+## Product Profile
+
+These features represent characteristics of individual products and 
+The show the behaviour of the entire society of customers in regards to each product. 
+Product profile table has one row per product ID and contain aggregated values in product level.
+
+```{r product_profile}
+dataset %>% 
+  mutate(order_hour_of_day = as.numeric(order_hour_of_day)) %>% 
+  group_by(product_id) %>% 
+  summarise(ProductPopularity         = length(order_id), # TotalProductPurchased
+            ProductReorderFrequency   = sum(reordered), # TotalProductReordered
+            ProductPreferredOrderHour = most_frequent(order_hour_of_day, na.rm = T),
+            ProductLatestOrderHour    = max(order_hour_of_day, na.rm = T),
+            ProductEarliestOrderHour  = min(order_hour_of_day, na.rm = T),
+            ProductPreferredDOW       = most_frequent(order_dow)) %>% 
+  ungroup %>% 
+  mutate(ProductReorderRate = ProductReorderFrequency/ProductPopularity) %>% 
+  left_join(products, by = 'product_id') -> product_profile
+
+customer_product_profile %>% 
+  group_by(product_id) %>% 
+  summarise(
+    ProductAverageOrderGap    = mean(CustomerProductAverageOrderGap),
+    ProductFirstSelectionFrequency = sum(CustomerProductFirstSelectionFrequency)) %>% 
+  mutate(ProductOrderPace = 1.0/ProductAverageOrderGap) -> product_profile_2
+
+product_profile %<>% left_join(product_profile_2, by = 'product_id')
+
+head(product_profile)
+```
+
+
+| Feature Name| Description|
+|-------------|------------|
+|`ProductPopularity`| Product Purchase Frequency. How many products of this type have totally been purchased?|
+|`ProductReorderFrequency`|How many products of this type have totally been re-ordered?|
+|`ProductReorderRate`|What percentage of purchases of this product was purchased before by the associated customer?|
+|`ProductAverageOrderGap`|Average number of days between consequent product purchases|
+|`ProductFirstSelectionFrequency`|Total number of orders in which this product was the first selection|
+|`ProductOrderPace`| Inverse of ProductAverageOrderGap. How frequent is the product being purchased by any customer?|
+|`ProductPreferredOrderHour`| The most frequent hour of day at which product is purchased|
+|`ProductLatestOrderHour`| The latest hour of day at which product is purchased|
+|`ProductEarliestOrderHour`| The earliest hour of day at which product is purchased|
+|`ProductPreferredDOW`|The most frequent day of week on which the product is purchased?|
+
+#### List of top 20 most popular products:
+
+```{r most_popular_products}
+product_profile %>%  
+  arrange(desc(ProductPopularity)) %>% 
+  head(20) %>% 
+  select(product_id, product_name, ProductPopularity) %>% 
+  mutate(product_id = factor(product_id, levels = product_id)) %>% 
+  plotly::plot_ly(y = ~product_id, x = ~ProductPopularity, type = 'bar', text = ~product_name)
+```
+
+It seems that term **Organic** appears a lot among the most popular products. 
+It can also be observed that 
+banana, strawberry, baby spinach, avocado and limes are among the most wanted products. 
+These are mostly fruit and vegetable. 
+It would be good to have a look at the keywords in the names of the most popular products.
+Building a document-term matrix from the text of product titles would be useful.
+We can create a word-cload to see which terms are mostly used:
+
+```{r product_wordbar}
+product_profile %>% 
+  select(product_id, product_name) %>% 
+  texer::TEXT.MINER(text_col = 'product_name', id_col = 'product_id') -> tx
+tx$settings$sparsity = 0.98
+tx$plot.wordBar()
+```
+
+It can be observed that words **organic**, **chocolate**, **cheese** and **free** are used more often in naming the products. However, this word cloud does not consider the popularity of the products.
+So we created a weighted wordcloud which multiplies each word by the total number of orders of the product 
+in which the term is used:
+
+```{r product_popularity_wordcloud}
+product_profile %>% 
+  left_join(tx$data$dataset %>% 
+    mutate(rn = sequence(nrow(.)),
+           product_id = as.integer(as.character(ID))) %>% 
+      select(product_id, rn), 
+    by = 'product_id') -> pp2
+  
+dtm = tx$get.dtm() %>% as.matrix %>% {.[pp2$rn,]}
+tdm = t(dtm)
+wfq = t(pp2$ProductPopularity*tdm) %>% colSums(na.rm = T)
+data.frame(word = names(wfq), freq = wfq) %>% arrange(desc(freq)) %>% head(500) %>% wordcloud2::wordcloud2()
+```
+The weighted frequencies of words in this wordcload return to both the count of products on which's name this term has been used as well as popularity of those products (count of orders of those products).
+This shows that popularity of the terms in the name of the product may add more information to the training data.
+Furthermore, the likelihood of a customer ordering a particular product can depend on the
+count of products ordered by that customer that share same or similar terms in their names with the product in question. 
+
+For example if customer has ordered organic bananas in his/her last order, it could be less likely 
+that he/she order another product with term banana in its name.
+We can build additional features from the term-document matrix in our training dataset.
+
+<!-- To find out which specific terms in product names are most popular, -->
+<!-- we created the second word cloud which for each term,  -->
+<!-- divides the total purchases of products using that term by the number of unique products in which the term is used. -->
+<!-- The results is interesting: -->
+
+<!-- ```{r term_popularity_wordcloud} -->
+<!-- tab = tx$get.dtm() %>% colSums(na.rm = T) %>% as.data.frame() -->
+<!-- colnames(tab) <- 'numUniqueProd' -->
+<!-- tab[names(wfq), 'numProdPurchased'] <- wfq -->
+<!-- tab %>% rownames2Column('word') %>%  -->
+<!--   mutate(freq = numProdPurchased/numUniqueProd) %>%  -->
+<!--   select(word, freq) %>% wordcloud2::wordcloud2() -->
+<!-- ``` -->
+
+#### Distribution of product popularity: How much of each product was sold?
+
+```{r pp_popularity_hist}
+ProductPopularity = product_profile$ProductPopularity
+hist(ProductPopularity, breaks = 1000)
+```
+
+Distribution of `ProductPopularity` looks like exponential. 
+However exponential is too simple and cannot explain the shape completely. 
+
+Looking at the distribution in logarithmic scale, gives a better understanding of the distribution:
+
+```{r product_profile_3}
+ProductPopularityLog = product_profile$ProductPopularity %>% log(base = 10)
+hist(ProductPopularityLog, breaks = 10000)
+```
+
+#### Product Profile Feature Correlations
+
+```{r pp_cor_heatmap}
+product_profile %>% 
+  {.[(. == Inf)|(. == -Inf)] <- NA;.} %>% 
+  na.omit %>% 
+  select(- product_id, -aisle_id, -department_id, -product_name) %>% 
+  as.matrix %>% cor %>% as.data.frame %>% 
+  d3heatmap::d3heatmap(xaxis_height = 200, xaxis_font_size = 12, yaxis_width = 220, yaxis_font_size = 12)
+```
+
+#### Popularity vs Reorders
+
+More popular products have been more reordered which is expected:
+
+```{r pp_scatter}
+product_profile %>% plotly::plot_ly(x = ~ProductPopularity, y = ~ProductReorderFrequency, type = 'scatter')
+```
+
+## Aisle Profile:
+
+We can aggregate order frequencies within each aisle and 
+obtain aisle-specific features representing the behaviour of all customers with respect to each aisle.
+The aisle profile has one row per aisle.
+
+```{r aisle_profile}
+dataset %>% 
+    group_by(aisle_id) %>% 
+    summarise(
+      AislePopularity = length(order_id),
+      AisleReorderFrequency  = sum(reordered)) %>% 
+    ungroup -> aisle_profile
+```
+
+| Feature Name| Description|
+|-------------|------------|
+|`AislePopularity`| Total count of product purchases within this aisle|
+|`AisleReorderFrequency`|Total count of product reorders within this aisle|
+
+## Department Profile:
+
+Similar to the aisle profile, we can have department profile and 
+obtain department-specific features representing the behaviour of all customers with respect to each department.
+
+```{r department_profile}
+dataset %>% 
+    group_by(department_id) %>% 
+    summarise(
+      DepartmentPopularity = length(order_id),
+      DepartmentReorderFrequency  = sum(reordered)) %>% 
+    ungroup -> department_profile
+```
+
+| Feature Name| Description|
+|-------------|------------|
+|`DepartmentPopularity`| Total count of product purchases within this department|
+|`DepartmentReorderFrequency`|Total count of product reorders within this department|
+
+## Build training data:
+
+To make the final training dataset, 
+we start with customer-product profile and join all other profile tables to bring all the features in a single wide table:
+
+```{r additional_features}
+customer_product_profile %>%
+    left_join(product_profile, by = 'product_id') %>% 
+    # left_join(products %>% select(product_id, aisle_id, department_id), by = 'product_id') %>% 
+    left_join(customer_profile, by = 'user_id') %>% 
+    left_join(customer_aisle_profile, by = c('user_id', 'aisle_id')) %>% 
+    left_join(customer_department_profile, by = c('user_id', 'department_id')) %>% 
+    left_join(aisle_profile, by = 'aisle_id') %>% 
+    left_join(department_profile, by = 'department_id') %>% 
+    mutate(CustomerProductPerOrderRate = CustomerProductOrderFrequency/CustomerOrderFrequency,
+           CustomerWithinAislePerOrderRate = CustomerAisleOrderFrequency/CustomerOrderFrequency,
+           CustomerWithinDepartmentPerOrderRate = CustomerDepartmentOrderFrequency/CustomerOrderFrequency,
+           CustomerProductPerAisle = CustomerProductOrderFrequency/CustomerAisleOrderFrequency,
+           CustomerProductPerDepartmentRate = CustomerProductOrderFrequency/CustomerDepartmentOrderFrequency,
+           CustomerProductFirstSelectionRate = ProductFirstSelectionFrequency/CustomerProductOrderFrequency,
+           CustomerWithinAisleRate = CustomerAisleOrderFrequency/CustomerPurchaseFrequency,
+           CustomerWithinDepartmentRate = CustomerDepartmentOrderFrequency/CustomerPurchaseFrequency,
+           CustomerAislePerDepartmentRate = CustomerAisleOrderFrequency/CustomerDepartmentOrderFrequency,
+           ProductPerAislePopularity = ProductPopularity/AislePopularity,
+           ProductPerDepartmentPopularity = ProductPopularity/DepartmentPopularity,
+           AislePerDepartmentPopularity = AislePopularity/DepartmentPopularity,
+           DaysSinceLastProductOrdered = day_number_last_product_ordered - day_number_nextlast_product_ordered, 
+           OrdersSinceLastProductOrdered = order_number_last_product_ordered - order_number_nextlast_product_ordered - 1) -> X_train
+```
+
+## Additional Features, Rates and Ratios:
+
+| Feature Name| Description|
+|-------------|------------|
+|`CustomerProductPerOrderRate`| What percentage of customer orders contain this product?|
+|`CustomerAislePerOrderRate`| What percentage of customer orders are within this aisle?|
+|`CustomerDepartmentPerOrderRate`| What percentage of customer orders are within this department?|
+|`CustomerProductPerAisleRate`| Count of Customer Products Ordered to Count of Customer Within Aisle Ordered|
+|`CustomerProductPerDepartmentRate`| Count of Customer Product  to CustomerDepartmentOrderFrequency|
+|`CustomerProductFirstSelectionRate`| ProductFirstSelectionFrequency to Count of Customer Product Ordered|
+|`CustomerWithinAisleRate`| CustomerAisleOrderFrequency to CustomerPurchaseFrequency|
+|`CustomerWithinDepartmentRate`| CustomerDepartmentOrderFrequency to CustomerPurchaseFrequency|
+|`CustomerAislePerDepartmentRate`| CustomerAisleOrderFrequency to CustomerDepartmentOrderFrequency|
+|`ProductPerAislePopularity`| ProductPopularity to AislePopularity|
+|`ProductPerDepartmentPopularity`| ProductPopularity to DepartmentPopularity|
+|`AislePerDepartmentPopularity`| AislePopularity to DepartmentPopularity|
+|`DaysSinceLastProductOrdered`| day_number_last_product_ordered - day_number_nextlast_product_ordered| 
+|`OrdersSinceLastProductOrdered`| order_number_last_product_ordered - order_number_nextlast_product_ordered - 1|
+
+

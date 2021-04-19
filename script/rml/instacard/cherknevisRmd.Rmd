@@ -1,0 +1,45 @@
+---
+title: "Cherknevis"
+author: "Nima Ramezani"
+date: "18/04/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("~/Documents/software/R/projects/instacard/data/instacard_data.RData")
+user_subset = orders$user_id %>% unique %>% sample(2000)
+
+tx = readRDS('data/tm_object.rds')
+tx$data$dataset$cluster_id = tx$data$CLS
+products_pp = products %>% left_join(tx$data$dataset %>%
+                          rename(product_id = ID) %>%
+                          mutate(product_id = as.integer(as.character(product_id))) %>%
+                          select(product_id, cluster_id), by = c('product_id'))
+
+data_pack = build_training_pack(orders, products_pp, order_products_prior, customer_subset = user_subset)
+dataset   = data_pack$feature_dataset
+
+dataset %>% saveRDS('data/feng_dataset.rds')
+```
+
+## crosstalk
+
+Let's have a closer look at the relationship between these two features in a scatter plot:
+
+```{r cp_CustomerMaximumOrderSize_vs_CustomerVarianceOrderGap_scatter}
+customer_profile %>% 
+  select(CustomerMaximumOrderSize, CustomerVarianceOrderGap, CustomerLatestOrderHour) %>% 
+  crosstalk::SharedData$new() -> cp_shared
+
+crosstalk::bscols(
+  list(
+    list(
+         crosstalk::filter_slider('CustomerVarianceOrderGap', 'CustomerVarianceOrderGap', cp_shared, ~CustomerVarianceOrderGap),
+    cp_shared %>% d3scatter::d3scatter(x = ~CustomerLatestOrderHour, y = ~CustomerMaximumOrderSize)
+  )))  
+
+  
+```
+
+customer_profile$CustomerReorderFrequency) %>% plot(customer_profile$CustomerAverageOrderGap)
