@@ -7,7 +7,7 @@ autosize: true
 Goals
 ========================================================
 
-- More Correct Sticky List (Improve Model Perfromace)
+- More Correct St List (Improve Model Perfromace)
   - Features
   - Modelling
   - Sampling

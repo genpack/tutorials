@@ -3,6 +3,7 @@
 library(magrittr)
 library(dplyr)
 library(trader)
+library(rutils)
 
 load("~/Documents/software/R/projects/tutorials/script/trader/stocker/data/dat_raw_historical_until_15_01_2021.RData")
 
@@ -15,6 +16,7 @@ dat_raw %>%
   mutate(time = as.POSIXct(time)) %>% 
   select(time, open, low, high, close, volume) -> dat_i
 
+#################
 
 vt = VIRTUAL.TRADER(data = dat_i)
 vt$spread = 0
@@ -29,3 +31,16 @@ s$run(vt)
 vt$current.time
 vt$equity()
 vt$position %>% View
+
+#################
+vt = VIRTUAL.TRADER(data = dat_i)
+vt$spread = 0
+
+s = REDLINE(lot = 0.01, hyper_sl = 1000, hyper_tp = 2000)
+vt$current.time
+s$run(vt)
+
+vt$current.time
+vt$equity()
+vt$position %>% View
+

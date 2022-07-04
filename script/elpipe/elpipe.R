@@ -29,7 +29,7 @@ MODEL_CONFIG = setRefClass('MODEL_CONFIG',
                  transform_columns = root_transformers) %>% list.clean
       
       if(type %in% el_model_types){
-        class = 'elulalib.Transformations.local.WrapperModelAsATransformer'
+        class = 'ellib.Transformations.local.WrapperModelAsATransformer'
         out$name = type
         out$parameters = parameters
         out$logit = logit
@@ -67,7 +67,7 @@ MODEL_CONFIG = setRefClass('MODEL_CONFIG',
     
     get.elpipe_config = function(){
       tl = list(Y_transforms = list(
-        list(elulalib.Transformations.local.ClassificationTarget = c())
+        list(ellib.Transformations.local.ClassificationTarget = c())
       ))
       tl$X_transforms = get.el_transformers()
       list(dataset  = config$dataset,
@@ -114,7 +114,7 @@ MODEL_CONFIG = setRefClass('MODEL_CONFIG',
 )    
 
 
-CFG.ELULALIB.XGB = setRefClass('CFG.ELULALIB.XGB', contains = 'MODEL_CONFIG', 
+CFG.ELLIB.XGB = setRefClass('CFG.ELLIB.XGB', contains = 'MODEL_CONFIG', 
     fields = list(logit = 'logical'),                           
     methods = list(
       initialize = function(...){
@@ -125,7 +125,7 @@ CFG.ELULALIB.XGB = setRefClass('CFG.ELULALIB.XGB', contains = 'MODEL_CONFIG',
     )
 )
 
-CFG.ELULALIB.LR = setRefClass('CFG.ELULALIB.LR', contains = 'MODEL_CONFIG', 
+CFG.ELLIB.LR = setRefClass('CFG.ELLIB.LR', contains = 'MODEL_CONFIG', 
   fields = list(logit = 'logical'),
   methods = list(
     initialize = function(...){
@@ -136,7 +136,7 @@ CFG.ELULALIB.LR = setRefClass('CFG.ELULALIB.LR', contains = 'MODEL_CONFIG',
   )
 )
 
-CFG.ELULALIB.LGBM = setRefClass('CFG.ELULALIB.LGBM', contains = 'MODEL_CONFIG', 
+CFG.ELLIB.LGBM = setRefClass('CFG.ELLIB.LGBM', contains = 'MODEL_CONFIG', 
   fields = list(logit = 'logical'),
   methods = list(
     initialize = function(...){
@@ -147,7 +147,7 @@ CFG.ELULALIB.LGBM = setRefClass('CFG.ELULALIB.LGBM', contains = 'MODEL_CONFIG',
   )
 )
 
-CFG.ELULALIB.CATB = setRefClass('CFG.ELULALIB.CATB', contains = 'MODEL_CONFIG', 
+CFG.ELLIB.CATB = setRefClass('CFG.ELLIB.CATB', contains = 'MODEL_CONFIG', 
                                 fields = list(logit = 'logical'),
                                 methods = list(
                                   initialize = function(...){
@@ -198,17 +198,17 @@ CFG.SKLEARN.LR = setRefClass('CFG.SKLEARN.LR', contains = 'MODEL_CONFIG',
                             methods = list(
                               initialize = function(...){
                                 callSuper(...)
-                                type <<- 'elulalib.Transformations.mlpy.LogisticRegressionTransformer'
+                                type <<- 'ellib.Transformations.mlpy.LogisticRegressionTransformer'
                                 if(is.empty(name)){name <<- 'SKLR' %>% paste0(sample(10000:99999, 1))}
                               }
                             )
 )
-CFG.ELULALIB.OHE = setRefClass('CFG.ELULALIB.OHE', contains = 'MODEL_CONFIG', 
+CFG.ELLIB.OHE = setRefClass('CFG.ELLIB.OHE', contains = 'MODEL_CONFIG', 
   methods = list(
     initialize = function(...){
       callSuper(...)
       if(is.empty(name)){name <<- 'ELOHE' %>% paste0(sample(10000:99999, 1))}
-      type <<- 'elulalib.Transformations.local.CategoricalDecomposer'
+      type <<- 'ellib.Transformations.local.CategoricalDecomposer'
       
       if(is.null(config$encodings)){
         config$encodings <<- "params['encodings']"
@@ -229,10 +229,10 @@ CFG.CATEGORY_ENCODERS.TE = setRefClass('CFG.CATEGORY_ENCODERS.TE', contains = 'M
   }
 ))
 
-CFG.ELULALIB.ATMP = setRefClass('CFG.ELULALIB.ATMP', contains = 'MODEL_CONFIG', methods = list(
+CFG.ELLIB.ATMP = setRefClass('CFG.ELLIB.ATMP', contains = 'MODEL_CONFIG', methods = list(
   initialize = function(...){
     callSuper(...)
-    type <<- 'elulalib.Transformations.local.AddTrainedModelProbabilities'
+    type <<- 'ellib.Transformations.local.AddTrainedModelProbabilities'
     if(is.empty(name)){name <<- 'ELATMP' %>% paste0(sample(10000:99999, 1))}
   }
 ))
@@ -246,10 +246,10 @@ CFG.SKLEARN.PCA = setRefClass('CFG.SKLEARN.PCA', contains = 'MODEL_CONFIG', meth
   }
 ))
 
-CFG.ELULALIB.KMEANS = setRefClass('CFG.ELULALIB.KMEANS', contains = 'MODEL_CONFIG', methods = list(
+CFG.ELLIB.KMEANS = setRefClass('CFG.ELLIB.KMEANS', contains = 'MODEL_CONFIG', methods = list(
   initialize = function(...){
     callSuper(...)
-    type <<- 'elulalib.Transformations.local.KMeansTransformer'
+    type <<- 'ellib.Transformations.local.KMeansTransformer'
     if(is.empty(name)){name <<- 'ELKM' %>% paste0(sample(10000:99999, 1))}
     parameters$num_clusters <<- parameters$num_clusters %>% verify(c('integer', 'numeric'), lengths = 1, domain = c(2,100), default = 5) %>% as.integer
   }

@@ -8,7 +8,7 @@ library(sparklyr)
 
 
 source('~/R/packages/gener/gener.R')
-source('~/R/packages/promer/survival.R')
+source('~/R/packages/rprom/survival.R')
 
 config <- spark_config()
 # config$spark.executor.memory <- "8G"
@@ -519,10 +519,10 @@ source('../../packages/master/gener-master/R/gener.R')
 source('../../packages/master/gener-master/R/io.R')
 source('../../packages/master/gener-master/R/linalg.R')
 
-source('../../packages/master/promer-master/R/tstools.R')
-source('../../packages/master/promer-master/R/promtools.R')
-source('../../packages/master/promer-master/R/transys.R')
-source('../../packages/master/promer-master/R/prom.R')
+source('../../packages/master/rprom-master/R/tstools.R')
+source('../../packages/master/rprom-master/R/promtools.R')
+source('../../packages/master/rprom-master/R/transys.R')
+source('../../packages/master/rprom-master/R/prom.R')
 
 source('../../packages/master/timser-master/R/tsdaily.R')
 
@@ -627,7 +627,7 @@ library(magrittr)
 library(dplyr)
 library(RODBC)
 library(gener)
-library(promer)
+library(rprom)
 library(viser)
 library(timser)
 
@@ -733,9 +733,9 @@ source('../../packages/master/timser-master/R/time.series.R')
 source('../../packages/master/timser-master/R/tsdaily.R')
 
 
-# library(promer)
-source('../../packages/master/promer/R/transys.R')
-source('../../packages/master/promer/R/prom.R')
+# library(rprom)
+source('../../packages/master/rprom/R/transys.R')
+source('../../packages/master/rprom/R/prom.R')
 
 D = read.csv('script/discharges/full_discharges_mohammad_Sep_Dec 2016.csv', as.is = T)
 D = D[D$Type == 'PADC',]
@@ -1109,7 +1109,7 @@ library(shinythemes)
 library(shinyjs)
 
 library(gener)
-library(promer)
+library(rprom)
 library(timser)
 library(viser)
 
@@ -1621,7 +1621,7 @@ library(shiny)
 library(shinyjs)
 library(shinythemes)
 library(gener)
-library(promer)
+library(rprom)
 library(viser)
 
 source('script/gowims_app/pmAppTools.R')
@@ -2000,9 +2000,9 @@ library(dplyr)
 
 source('../../packages/master/gener-master/R/gener.R')
 
-source('../../packages/master/promer-master/R/promtools.R')
-source('../../packages/master/promer-master/R/prom.R')
-source('../../packages/master/promer-master/R/prosim.R')
+source('../../packages/master/rprom-master/R/promtools.R')
+source('../../packages/master/rprom-master/R/prom.R')
+source('../../packages/master/rprom-master/R/prosim.R')
 
 
 source('../../packages/master/viser-master/R/visgen.R')
@@ -2179,9 +2179,9 @@ library(dplyr)
 
 source('../../packages/master/gener-master/R/gener.R')
 
-source('../../packages/master/promer-master/R/promtools.R')
-source('../../packages/master/promer-master/R/prom.R')
-source('../../packages/master/promer-master/R/prosim.R')
+source('../../packages/master/rprom-master/R/promtools.R')
+source('../../packages/master/rprom-master/R/prom.R')
+source('../../packages/master/rprom-master/R/prosim.R')
 
 
 source('../../packages/master/viser-master/R/visgen.R')
@@ -2370,11 +2370,11 @@ tasklist %>% filter(!is.na(agent)) %>% nrow
 # out of:
 tasklist %>% nrow
 
-### test_promer.R ----------------------------
+### test_rprom.R ----------------------------
 
 source('../../packages/master/gener-master/R/gener.R')
 
-source('../../packages/master/promer-master/R/prom.R')
+source('../../packages/master/rprom-master/R/prom.R')
 
 
 source('../../packages/master/viser-master/R/visgen.R')
@@ -2431,7 +2431,7 @@ x$eventlog %>% dplyr::group_by(skill, compDate) %>% dplyr::summarise(volout = le
 library(magrittr)
 library(dplyr)
 library(gener)
-library(promer)
+library(rprom)
 library(reshape2)
 library(lpSolve)
 
@@ -2970,8 +2970,8 @@ source('C:/Nicolas/RCode/packages/viser-master/R/visgen.R')
 source('C:/Nicolas/RCode/packages/viser-master/R/visNetwork.R')
 source('C:/Nicolas/RCode/packages/viser-master/R/networkD3.R')
 
-# library(promer)
-source('C:/Nicolas/RCode/packages/promer/R/transys.R')
+# library(rprom)
+source('C:/Nicolas/RCode/packages/rprom/R/transys.R')
 
 
 case.filter.query = sqlScript(tableName = 'APPT', dbName = 'PVDATA', fields = c('APPT_I'), filter = list(APPT_QLFY_C = list(domain = "HL"), APPT_CRAT_D = list(min = '2016-01-01', max = '2016-03-01', type = 'date')))
@@ -3149,8 +3149,8 @@ source('C:/Nicolas/RCode/packages/viser-master/R/visNetwork.R')
 source('C:/Nicolas/RCode/packages/viser-master/R/dygraphs.R')
 source('C:/Nicolas/RCode/packages/viser-master/R/networkD3.R')
 
-# promer:
-source('C:/Nicolas/RCode/packages/promer/R/transys.R')
+# rprom:
+source('C:/Nicolas/RCode/packages/rprom/R/transys.R')
 
 s = readRDS('C:/Nicolas/R/projects/abc/abc.hlp.simulation/data/system.rds')
 
@@ -3193,9 +3193,9 @@ source('../../packages/master/timser-master/R/time.series.R')
 source('../../packages/master/timser-master/R/tsdaily.R')
 
 
-# library(promer)
-source('../../packages/master/promer/R/transys.R')
-source('../../packages/master/promer/R/prom.R')
+# library(rprom)
+source('../../packages/master/rprom/R/transys.R')
+source('../../packages/master/rprom/R/prom.R')
 
 D = read.csv('data/full_discharges_mohammad_Sep_Dec 2016.csv', as.is = T)
 
@@ -4177,7 +4177,7 @@ historical_fuzzy <- create_fuzzy_data(historical_data,
                                       event_label = "status",
                                       timestamp_label = "start_dt")
 
-# promer function that creates edge list:
+# rprom function that creates edge list:
 s = new('TRANSITION.SYSTEM')
 s$feedStatusHistory(dataset = historical_data %>% as.data.frame, caseID_colname = 'case_id', status_colname = 'status', startTime_colname = 'start_dt', sort_startTime = T, add_ends = T)
 res = s$getAdjacencies()

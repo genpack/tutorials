@@ -16,42 +16,42 @@ source('~/Documents/software/R/packages/maler/R/classifiers.R')
 source('~/Documents/software/R/packages/maler/R/transformers.R')
 source('~/Documents/software/R/packages/maler/R/gentools.R')
 
-pred_path_best_xgb  = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/best_xgb"
-pred_path_base_xgb  = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/baseline_xgb"
-pred_path_t2_lgbm   = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/T2_LightGBM"
-pred_path_t2_catb   = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/T2_Catboost"
+pred_path_best_xgb  = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/best_xgb"
+pred_path_base_xgb  = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/baseline_xgb"
+pred_path_t2_lgbm   = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/T2_LightGBM"
+pred_path_t2_catb   = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/T2_Catboost"
 
-pred_path_11        = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/nima_config_11"
-pred_path_12        = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/nima_config_12"
-pred_path_13        = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/nima_config_13"
+pred_path_11        = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/nima_config_11"
+pred_path_12        = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/nima_config_12"
+pred_path_13        = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/nima_config_13"
 
 sampler_path = list()
-sampler_path$dec18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Sampler/CUA/dec18"
-sampler_path$nov18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Sampler/CUA/nov18"
-sampler_path$oct18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Sampler/CUA/oct18"
-sampler_path$sep18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Sampler/CUA/sep18"
-sampler_path$aug18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Sampler/CUA/aug18"
-sampler_path$jul18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Sampler/CUA/jul18"
-sampler_path$jun18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Sampler/CUA/jun18"
-sampler_path$may18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Sampler/CUA/may18"
-sampler_path$apr18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Sampler/CUA/apr18"
-sampler_path$mar18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Sampler/CUA/mar18"
-sampler_path$feb18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Sampler/CUA/feb18"
-sampler_path$jan18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Sampler/CUA/jan18"
+sampler_path$dec18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Sampler/CLEINT/dec18"
+sampler_path$nov18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Sampler/CLEINT/nov18"
+sampler_path$oct18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Sampler/CLEINT/oct18"
+sampler_path$sep18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Sampler/CLEINT/sep18"
+sampler_path$aug18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Sampler/CLEINT/aug18"
+sampler_path$jul18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Sampler/CLEINT/jul18"
+sampler_path$jun18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Sampler/CLEINT/jun18"
+sampler_path$may18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Sampler/CLEINT/may18"
+sampler_path$apr18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Sampler/CLEINT/apr18"
+sampler_path$mar18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Sampler/CLEINT/mar18"
+sampler_path$feb18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Sampler/CLEINT/feb18"
+sampler_path$jan18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Sampler/CLEINT/jan18"
 
 pred_path = list()
-pred_path$dec18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/dec18"
-pred_path$nov18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/nov18"
-pred_path$oct18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/oct18"
-pred_path$sep18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/sep18"
-pred_path$aug18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/aug18"
-pred_path$jul18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/jul18"
-pred_path$jun18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/jun18"
-pred_path$may18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/may18"
-pred_path$apr18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/apr18"
-pred_path$mar18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/mar18"
-pred_path$feb18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/feb18"
-pred_path$jan18     = "~/Documents/software/Python/projects/sticky/Tools/Configs/Prediction/CUA/jan18"
+pred_path$dec18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/dec18"
+pred_path$nov18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/nov18"
+pred_path$oct18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/oct18"
+pred_path$sep18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/sep18"
+pred_path$aug18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/aug18"
+pred_path$jul18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/jul18"
+pred_path$jun18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/jun18"
+pred_path$may18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/may18"
+pred_path$apr18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/apr18"
+pred_path$mar18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/mar18"
+pred_path$feb18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/feb18"
+pred_path$jan18     = "~/Documents/software/Python/projects/event_prediction_platform/Tools/Configs/Prediction/CLEINT/jan18"
 
 best_xgb_runs = list(jan18 = list(agent = '480b5fe8-6e3a-4dc9-818a-e648807bf116', model = '091f7301-08b3-4cd9-80dc-15ca64d3e835'),
                      feb18 = list(agent = '2ce151b1-f042-42bf-bb2e-db0943b2db78', model = '633e0b6f-7da2-4c91-b70b-55c19d294782'),
@@ -71,7 +71,7 @@ yaml.load_file(pred_path_best_xgb %>% paste('config.yml', sep = '/')) -> cfg_bes
 yaml.load_file(pred_path_t2_catb %>% paste('config.yml', sep = '/')) -> cfg_catb
 yaml.load_file(pred_path_t2_lgbm %>% paste('config.yml', sep = '/')) -> cfg_lgbm
 
-bfet = read.csv('~/Documents/data/fetlists/bf_xgb_cua_sep18.csv') %>% {.[,1]} %>% as.character
+bfet = read.csv('~/Documents/data/fetlists/bf_xgb_CLEINT_sep18.csv') %>% {.[,1]} %>% as.character
 removed  = bfet %>% charFilter('applicationamount', 'mortgagetype', 'numborrowers', 'codearea', 'population', 'securitytype', 'estimatedlvr', and = F)
 bfet = bfet %-% removed %>% c("currentNumBorrowers", "currentSecurityType", "estimatedLVR")
 
@@ -102,7 +102,7 @@ month = 'jan18'
 
 
 ################### Recipe 1: ##################
-xgb  = CFG.ELULALIB.XGB(name = 'best', parameters = cfg_best$model$parameters, features = bfet, config = list(dataset = samplerids[month]))
+xgb  = CFG.ELLIB.XGB(name = 'best', parameters = cfg_best$model$parameters, features = bfet, config = list(dataset = samplerids[month]))
 xgb$write.elpipe_config(filename = 'config.yml', path = pred_path[[month]])
 
 ################### Recipe 2: ##################
@@ -110,73 +110,73 @@ mms   = CFG.SCIKIT.MMS(features = bfet %-% cats)
 rs    = CFG.SCIKIT.RS(features = bfet)
 
 te    = CFG.CATEGORY_ENCODERS.TE(features = 'currentSecurityPostcodeSA4')
-km    = CFG.ELULALIB.KMEANS(transformers = list(te), parameters = list(num_clusters = 9, keep_columns = F))
+km    = CFG.ELLIB.KMEANS(transformers = list(te), parameters = list(num_clusters = 9, keep_columns = F))
 ohe   = CFG.SCIKIT.OHE(transformers = list(km))
 
 pca  = CFG.SCIKIT.PCA(parameters = list(n_components = 5), transformers = list(rs))
 
-xgbl = CFG.ELULALIB.ATMP(parameters = list(agent = best_xgb_runs[[month]]$agent, model = best_xgb_runs[[month]]$model, logit = T))
+xgbl = CFG.ELLIB.ATMP(parameters = list(agent = best_xgb_runs[[month]]$agent, model = best_xgb_runs[[month]]$model, logit = T))
 lr_1 = CFG.SCIKIT.LR(parameters = list(penalty = 'l1', solver = 'liblinear'), transformers = list(ohe, pca, xgbl))
-xgb  = CFG.ELULALIB.XGB(name = 'best', parameters = cfg_best$model$parameters, features = bfet)
-lr_2 = CFG.ELULALIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
+xgb  = CFG.ELLIB.XGB(name = 'best', parameters = cfg_best$model$parameters, features = bfet)
+lr_2 = CFG.ELLIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
                        transformers = list(mms, lr_1, xgb), config = list(dataset = samplerids[month]))
 
 ################### Recipe 3 V1: ##################
 mms   = CFG.SCIKIT.MMS(features = bfet %-% cats)
-xgbl  = CFG.ELULALIB.ATMP(parameters = list(agent = best_xgb_runs[[month]]$agent, model = best_xgb_runs[[month]]$model, logit = T))
-lr_2  = CFG.ELULALIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
+xgbl  = CFG.ELLIB.ATMP(parameters = list(agent = best_xgb_runs[[month]]$agent, model = best_xgb_runs[[month]]$model, logit = T))
+lr_2  = CFG.ELLIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
                        transformers = list(mms, xgbl), config = list(dataset = samplerids[month]))
 ################### Recipe 3 V2: ##################
-xgb   = CFG.ELULALIB.XGB(parameters = cfg_best$model$parameters)
-lr_2  = CFG.ELULALIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
+xgb   = CFG.ELLIB.XGB(parameters = cfg_best$model$parameters)
+lr_2  = CFG.ELLIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
                        transformers = list(mms, xgb), config = list(dataset = samplerids[month]))
 
 ################### Recipe 3 V3: ##################
-xgb  = CFG.ELULALIB.XGB(parameters = cfg_best$model$parameters, logit = T)
-lr_2 = CFG.ELULALIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
+xgb  = CFG.ELLIB.XGB(parameters = cfg_best$model$parameters, logit = T)
+lr_2 = CFG.ELLIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
                        transformers = list(mms, xgb), config = list(dataset = samplerids[month]))
 ################### Recipe 4: ##################
 mms   = CFG.SCIKIT.MMS(features = bfet %-% cats)
 rs    = CFG.SCIKIT.RS(features = bfet %-% cats)
-xgbl  = CFG.ELULALIB.ATMP(parameters = list(agent = best_xgb_runs[[month]]$agent, model = best_xgb_runs[[month]]$model, logit = T))
+xgbl  = CFG.ELLIB.ATMP(parameters = list(agent = best_xgb_runs[[month]]$agent, model = best_xgb_runs[[month]]$model, logit = T))
 
 pca  = CFG.SCIKIT.PCA(parameters = list(n_components = 25), transformers = list(rs))
 
 te   = CFG.CATEGORY_ENCODERS.TE(features = 'currentSecurityPostcodeSA4')
-km   = CFG.ELULALIB.KMEANS(transformers = list(te), parameters = list(num_clusters = 9, keep_columns = F))
+km   = CFG.ELLIB.KMEANS(transformers = list(te), parameters = list(num_clusters = 9, keep_columns = F))
 ohe  = CFG.SCIKIT.OHE(transformers = list(km))
 
-lr_2 = CFG.ELULALIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
+lr_2 = CFG.ELLIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
                        transformers = list(mms, xgbl, pca, ohe), config = list(dataset = samplerids[month]))
 
 ################### Recipe 5: ##################
 mms   = CFG.SCIKIT.MMS(features = bfet %-% cats)
-xgbl  = CFG.ELULALIB.ATMP(parameters = list(agent = best_xgb_runs[[month]]$agent, model = best_xgb_runs[[month]]$model, logit = T))
+xgbl  = CFG.ELLIB.ATMP(parameters = list(agent = best_xgb_runs[[month]]$agent, model = best_xgb_runs[[month]]$model, logit = T))
 
 rs    = CFG.SCIKIT.RS(features = bfet %-% cats)
 pca  = CFG.SCIKIT.PCA(parameters = list(n_components = 5), transformers = list(rs))
 
 te   = CFG.CATEGORY_ENCODERS.TE(features = 'currentSecurityPostcodeSA4')
-km   = CFG.ELULALIB.KMEANS(transformers = list(te), parameters = list(num_clusters = 9, keep_columns = F))
+km   = CFG.ELLIB.KMEANS(transformers = list(te), parameters = list(num_clusters = 9, keep_columns = F))
 ohe  = CFG.SCIKIT.OHE(transformers = list(km))
 
-lr_2 = CFG.ELULALIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
+lr_2 = CFG.ELLIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
                        transformers = list(mms, xgbl, pca, ohe), config = list(dataset = samplerids[month]))
 
 ################### Recipe 6: ##################
 zfs   = CFG.SCIKIT.ZFS(features = bfet)
 
 te    = CFG.CATEGORY_ENCODERS.TE(features = 'currentSecurityPostcodeSA4')
-km    = CFG.ELULALIB.KMEANS(transformers = list(te), parameters = list(num_clusters = 9, keep_columns = F))
+km    = CFG.ELLIB.KMEANS(transformers = list(te), parameters = list(num_clusters = 9, keep_columns = F))
 ohe   = CFG.SCIKIT.OHE(transformers = list(km))
 
-xgbl = CFG.ELULALIB.ATMP(parameters = list(agent = best_xgb_runs[[month]]$agent, model = best_xgb_runs[[month]]$model, logit = T))
-lr_2 = CFG.ELULALIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
+xgbl = CFG.ELLIB.ATMP(parameters = list(agent = best_xgb_runs[[month]]$agent, model = best_xgb_runs[[month]]$model, logit = T))
+lr_2 = CFG.ELLIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
                         transformers = list(zfs, xgbl, ohe), config = list(dataset = samplerids[month]))
 
 ################### Recipe 6V2: ##################
-xgb  = CFG.ELULALIB.XGB(parameters = cfg_best$model$parameters, logit = F)
-lr_2 = CFG.ELULALIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
+xgb  = CFG.ELLIB.XGB(parameters = cfg_best$model$parameters, logit = F)
+lr_2 = CFG.ELLIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
                        transformers = list(zfs, xgbl, ohe), config = list(dataset = samplerids[month]))
 
 ################### Recipe 7: ##################
@@ -184,28 +184,28 @@ lr_2 = CFG.ELULALIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', u
 zfs   = CFG.SCIKIT.ZFS(features = bfet %-% cats)
 ohe   = CFG.SCIKIT.OHE(features = cats %-% longcats)
 lr_1  = CFG.SCIKIT.LR(parameters = list(penalty = 'l1', solver = 'liblinear'), transformers = list(ohe, zfs))
-xgbl  = CFG.ELULALIB.ATMP(parameters = list(agent = best_xgb_runs[[month]]$agent, model = best_xgb_runs[[month]]$model, logit = T))
-lr_2  = CFG.ELULALIB.XGB(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
+xgbl  = CFG.ELLIB.ATMP(parameters = list(agent = best_xgb_runs[[month]]$agent, model = best_xgb_runs[[month]]$model, logit = T))
+lr_2  = CFG.ELLIB.XGB(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
                        transformers = list(xgbl, lr_1), config = list(dataset = samplerids[month]))
 
 ################### Recipe 8: ##################
-lgbm  = CFG.ELULALIB.LGBM(parameters = cfg_lgbm$model$parameters)
-xgbl  = CFG.ELULALIB.ATMP(parameters = list(agent = best_xgb_runs[[month]]$agent, model = best_xgb_runs[[month]]$model, logit = T))
-lr_2  = CFG.ELULALIB.XGB(parameters = cfg_best$model$parameters, features = bfet, 
+lgbm  = CFG.ELLIB.LGBM(parameters = cfg_lgbm$model$parameters)
+xgbl  = CFG.ELLIB.ATMP(parameters = list(agent = best_xgb_runs[[month]]$agent, model = best_xgb_runs[[month]]$model, logit = T))
+lr_2  = CFG.ELLIB.XGB(parameters = cfg_best$model$parameters, features = bfet, 
                          transformers = list(xgbl, lgbm), config = list(dataset = samplerids[month]))
 ################### Recipe 9: ##################
 rs    = CFG.SCIKIT.RS(features = bfet %-% cats)
-catb  = CFG.ELULALIB.CATB(parameters = cfg_catb$model$parameters)
-base  = CFG.ELULALIB.XGB(parameters = cfg_base$model$parameters)
-xgbl  = CFG.ELULALIB.ATMP(parameters = list(agent = best_xgb_runs[[month]]$agent, model = best_xgb_runs[[month]]$model, logit = T))
-lr_2  = CFG.ELULALIB.XGB(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
+catb  = CFG.ELLIB.CATB(parameters = cfg_catb$model$parameters)
+base  = CFG.ELLIB.XGB(parameters = cfg_base$model$parameters)
+xgbl  = CFG.ELLIB.ATMP(parameters = list(agent = best_xgb_runs[[month]]$agent, model = best_xgb_runs[[month]]$model, logit = T))
+lr_2  = CFG.ELLIB.XGB(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
                          transformers = list(rs, catb, base, xgbl), config = list(dataset = samplerids[month]))
 
 ################### Recipe 10: ##################
 zfs  = CFG.SCIKIT.ZFS(features = bfet %-% cats)
-gbm  = CFG.ELULALIB.LGBM(parameters = cfg_lgbm$model$parameters, logit = T)
-xgb  = CFG.ELULALIB.XGB(parameters = cfg_best$model$parameters, logit = T)
-lr_2 = CFG.ELULALIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
+gbm  = CFG.ELLIB.LGBM(parameters = cfg_lgbm$model$parameters, logit = T)
+xgb  = CFG.ELLIB.XGB(parameters = cfg_best$model$parameters, logit = T)
+lr_2 = CFG.ELLIB.LR(parameters = list(penalty = 'l1', solver = 'liblinear', use_SGD = F), features = bfet, 
                        transformers = list(zfs, gbm, xgb), config = list(dataset = samplerids[month]))
 
 ################
@@ -223,9 +223,9 @@ build_sampler_config(ml_id = '42892553-6776-4684-9f8d-b6d8eb288aa3', test_date =
 
 ################
 
-read.csv('/Users/nima/Documents/software/Python/projects/sticky/Tools/runs/CUA/Prediction/runs.csv', as.is = T) -> runs
+read.csv('/Users/nima/Documents/software/Python/projects/event_prediction_platform/Tools/runs/CLEINT/Prediction/runs.csv', as.is = T) -> runs
 
-runs %>% filter(user == "nima.ramezani@elulagroup.com", state == 'SUCCEEDED') %>% 
+runs %>% filter(user == "nima.ramezani@elgroup.com", state == 'SUCCEEDED') %>% 
   mutate(month = description %>% substr(1, 5), recipe = description %>% substr(10, 10), mapperid = description %>% substr(20, 27)) %>% 
   filter(month %in% months) %>% 
 #  select(agentrunid, runid, description, month, recipe, state, gini_coefficient, lift_2, f_1) %>% 
@@ -238,9 +238,9 @@ View(runs2)
 runs2 %>% reshape2::dcast(month ~ recipe, value.var = 'gini_coefficient', fun.aggregate = mean_narm) %>% 
   {colnames(.) <- paste('Recipe', colnames(.));.} %>% View
 
-runs %>% filter(user == "nima.ramezani@elulagroup.com", state == 'FAILED') %>% arrange(desc(start)) %>% 
+runs %>% filter(user == "nima.ramezani@elgroup.com", state == 'FAILED') %>% arrange(desc(start)) %>% 
   select(agentrunid, runid, description) %>% {.[1,]} -> lf
-from_prediction_to_local(agent_run_id = lf$agentrunid, model_run_id = lf$runid, client = 'cua', profile = 'write@cua-sticky')
+from_prediction_to_local(agent_run_id = lf$agentrunid, model_run_id = lf$runid, client = 'CLEINT', profile = 'write@CLEINT-event_prediction_platform')
 
 from_sampler_to_local(run_id = samplerids[[month]], target = 'D:/Users/nima.ramezani/Documents/data/samplers')
 

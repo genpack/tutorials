@@ -5,7 +5,7 @@ date: "07/04/2021"
 output: html_document
 ---
 
-```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+```{r setup, include=TRUE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
 library(magrittr)
 library(dplyr)
@@ -18,7 +18,7 @@ source('tools_v2.R')
 # readRDS('data/feng_dataset.rds') -> dataset
 
 load("data/instacard_data.RData")
-user_subset = orders$user_id %>% unique %>% sample(50000)
+user_subset = orders$user_id %>% unique %>% sample(206000)
  
 # tx = readRDS('data/tm_object.rds')
 # tx$data$dataset$cluster_id = tx$data$CLS

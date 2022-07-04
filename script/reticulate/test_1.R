@@ -3,24 +3,24 @@ library(dplyr)
 library(reticulate)
 use_python("/Users/nima/anaconda3/bin/python")
 
-sticky_scripts_path = "~/Documents/software/Python/projects/sticky/scripts"
-sticky_data_path    = "~/Documents/software/Python/projects/sticky/Datasets"
+event_prediction_platform_scripts_path = "~/Documents/software/Python/projects/event_prediction_platform/scripts"
+event_prediction_platform_data_path    = "~/Documents/software/Python/projects/event_prediction_platform/Datasets"
 # use_virtualenv("myenv")
 # use_condaenv("myenv")
 
 import('pandas', as = 'pd')
 
-el = import('elulalib')
+el = import('ellib')
 
 class(el)
 
-# source_python(sticky_scripts_path %>% paste('orangeDataFrameCreator.py', sep = "/"))
+# source_python(event_prediction_platform_scripts_path %>% paste('orangeDataFrameCreator.py', sep = "/"))
 
-xgb = import('elulalib.ClassificationModels.e_xgboost')
+xgb = import('ellib.ClassificationModels.e_xgboost')
 
 model = xgb$XGBoostClassify()
 
-D = read.csv(sticky_data_path %>% paste('Kaggle Bank Churn.csv', sep = '/') , as.is = T)
+D = read.csv(event_prediction_platform_data_path %>% paste('Kaggle Bank Churn.csv', sep = '/') , as.is = T)
 
 train_x     = D %>% select(CreditScore, Geography, Gender, Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember) %>% r_to_py
 train_label = D %>% select(Exited) %>% r_to_py

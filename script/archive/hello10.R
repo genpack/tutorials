@@ -723,8 +723,8 @@ library(magrittr)
 library(dplyr)
 library(gener)
 
-# library(viser)
-# library(promer)
+# library(rvis)
+# library(rprom)
 
 # process Map Examples:
 

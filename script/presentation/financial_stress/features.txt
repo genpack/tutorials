@@ -1,0 +1,39 @@
+Income : Obviously, patients who have lower income might be at greater risk
+insurance coverage
+Illness, history of illness, 
+Money spent on midicine
+everyday offset account
+brief surveys that score their financial toxicity.
+
+
+Features indicating financial stress in businesses:
+1- Company Profitability features:
+  1.1: Gross Profit rate, Return on Sales, Return on Assets, return on stock-holders??? Equity, Turnover Ratio and Return on Capital Employed (ROCE) ratio
+2- Company Liquidity (Ability to pay off debts)
+Current liquidity ratio, Acid Test ratio, Cash ratio and Working Capital rule
+3- Company Management Efficiency: (how well companies utilize their assets to generate earnings)
+Days Sales Outstanding, Inventory Turnover, Days Inventory Outstanding and Operating Cycle
+4- Company Leverage: how much capital comes in the form of debt (loans)
+  
+5- Industrial Sector (Which industry is the company working in?) Industry Health Factor
+Like: agriculture, mining, construction, manufacturing, transportation, wholesale, retail, finance, services, public administration and others?
+How many people working in this industry have faced hardship?
+  
+6- Company Size: How big is the company
+Number of employees, total assest
+
+7- Arrears: Frequency, amount, duration
+Increased or excessive past due accounts,  Unexpected overdrafts or declines in cash balance,   Increase in purchasing inventory but no increase in sales (for companies)
+Recurring negative cash flows
+
+Free dataset:
+- SEC EDGAR (2017) dataset: containng at least three years of financial data between 1996 and 2016
+
+Techniques:
+Multiple discriminant analysis (https://en.wikipedia.org/wiki/Multiple_discriminant_analysis)
+
+
+
+
+
+ 

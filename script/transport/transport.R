@@ -129,8 +129,8 @@ colcloth    = list(type = 'column', weight = 6, align = 'center')
 
 ######### Main items: #########
 
-I$main       = list(type = 'dashboardPage', title = 'ELULA Melbourne Metro Train - Process View v 0.0.1', skin = 'black', layout.head = c() ,layout.body = c('shinyjs', 'procpage'), sidebar.width = 300,
-                    layout.side = c('getprocess', 'getline','getdir', 'getdates', 'eventtype', 'load', 'line', 'filters', 'line', 'freqthr', 'stsdmn', 'strsta', 'endsta', 'apply','reset', 'line', 'saveobj', 'readobj'), header.title = 'ELULA Melbourne Metro Train - Process View v 0.0.1', header.title.width = 300, header.title.font = 'tahoma', header.title.font.weight = 'bold', header.title.font.size = 26)
+I$main       = list(type = 'dashboardPage', title = 'EL Metro Train - Process View v 0.0.1', skin = 'black', layout.head = c() ,layout.body = c('shinyjs', 'procpage'), sidebar.width = 300,
+                    layout.side = c('getprocess', 'getline','getdir', 'getdates', 'eventtype', 'load', 'line', 'filters', 'line', 'freqthr', 'stsdmn', 'strsta', 'endsta', 'apply','reset', 'line', 'saveobj', 'readobj'), header.title = 'EL Melbourne Metro Train - Process View v 0.0.1', header.title.width = 300, header.title.font = 'tahoma', header.title.font.weight = 'bold', header.title.font.size = 26)
 
 ######### SIDEBAR ###########
 I$getprocess = list(type = 'selectInput', title = 'Select Group', choices = all_groups(atcon), selected = 'DNG', service = "lines = all_lines(atcon, group = input$getprocess); updateSelectInput(session, 'getline', choices = lines, selected = lines[1])")
@@ -492,7 +492,7 @@ day_run = function(simdate, rt = 0.92, dt = 0.985){
   base    = hist[1,]
   base$id = 'error'
   
-  result = foreach(i = 1:300, .combine = rbind, .packages = c('dplyr', 'tibble', 'magrittr', 'stringr', 'promer)) %dopar% {
+  result = foreach(i = 1:300, .combine = rbind, .packages = c('dplyr', 'tibble', 'magrittr', 'stringr', 'rprom')) %dopar% {
     source('tools.R')
     
     hist = try(execute(ss), silent = T)

@@ -1,0 +1,73 @@
+---
+title: "Comparing rprom and bupaR"
+author: "Nima Ramezani"
+date: "27/07/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE, echo = F}
+knitr::opts_chunk$set(warning = F)
+library(magrittr)
+library(dplyr)
+
+library(bupaR)
+library(eventdataR)
+
+library(rbig)
+library(rutils)
+library(rprom)
+
+```
+
+# Introduction
+
+[bupaR](https://www.bupar.net/index.html) 
+is an open-source, integrated suite of R-packages for the handling and analysis of business process data. 
+It currently consists of 8 packages, including the central package, supporting different stages of a process mining workflow.
+
+[rprom](https://github.com/genpack/rprom) 
+is a package for any type of process modelling and event prediction which also 
+provides some of the insights and visualisations that \code{bupaR} provides.  
+
+In this document we want to compare some visualisations.
+
+# Process maps:
+
+The function ```process_map``` can be used very easily to create a process map of an event log. Below, an example of a process map for the patients event log can be found.
+
+#### bupar:
+
+```{r process_map_bupar}
+patients %>% process_map(width = '800px')
+```
+
+#### rprom:
+
+```{r process_map_rprom}
+x = new('TRANSYS')
+x$feed.eventlog(patients %>% as.data.frame %>% filter(registration_type == 'complete'), caseID_col = 'patient', status_col = 'handling', startTime_col = 'time')
+
+x %>% plot_process_map(config = list(direction = 'left.right'), width = '800px')
+```
+
+## Map profiles
+
+### Frequency profile
+
+By default, the process map is annotated with frequencies of activities and flows. The is what is called the frequency profile, and can be created explicitly using the frequency function. This function has a value argument, which can be used to adjust the frequencies shown, for instance using relative frequencies instead of the default absolute ones.
+
+#### bupar:
+
+```{r freq_profile_bupar, echo=T}
+patients %>% process_map(type = frequency("relative"))
+```
+
+#### rprom:
+
+```{r freq_profile_rprom, echo=T}
+x %>% plot_process_map(measure = 'rate', config = list(direction = 'left.right'), width = '800px')
+```
+
+### Performance profile
+
+

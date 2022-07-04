@@ -1,13 +1,13 @@
 library(magrittr)
 
 # run a task with these arguments:
-awsTaskLaunch = function(taskName, profile, region = 'ap-southeast-2', cluster = 'sticky', launchType = 'FARGATE', variables){
+awsTaskLaunch = function(taskName, profile, region = 'ap-southeast-2', cluster = 'event_prediction_platform', launchType = 'FARGATE', variables){
   cov = list(
     containerOverrides = list(list(
       name        = taskName,
       environment = list(list(
         name  = 'config',
-        value = 's3://sticky.dummy.elula.ai/config.sample.yml'
+        value = 's3://event_prediction_platform.dummy.el.ai/config.sample.yml'
       ))
     ))
   )

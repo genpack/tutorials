@@ -1,10 +1,9 @@
 library(magrittr)
 library(dplyr)
 source('~/Documents/software/R/projects/tutorials/templib.R')
-load_gener()
-load_maler()
-
-path = "/Users/nima/Documents/data/miscellaneous/test_train_example"
+library(rutils)
+library(rml)
+path = "/Users/nima/Documents/data/kaggle/test_train_example"
 
 X_train <- read.csv(path %>% paste('x_train.csv', sep = '/'))
 y_train <- read.csv(path %>% paste('y_train.csv', sep = '/')) %>% pull('churn')
@@ -28,16 +27,16 @@ colnames(X_train) %>% sapply(function(i) X_train[,i] %>% unique %>% length) %>%
     X_train %>% as.matrix %>% apply(2, quantile, probs = 0.01*(0:100)) %>% t) -> finfo
 
 
-mms = MAP.MALER.MMS()
-lr1 = CLS.SCIKIT.LR(penalty = 'l1', transformers = mms)
+mms = MAP.RML.MMS()
+lr1 = CLS.SKLEARN.LR(penalty = 'l1', transformers = mms, return = 'logit')
 pca = MAP.STATS.PCA(transformers = list(mms, lr1))
-lr2 = CLS.SCIKIT.KNN(name = 'KNN', transformers = pca)
-xgb = CLS.SCIKIT.XGB(return = 'logit', transformers = list(lr1, lr2, pca, mms))
+lr2 = CLS.SKLEARN.KNN(name = 'KNN', transformers = pca)
+xgb = CLS.SKLEARN.XGB(return = 'logit', transformers = list(lr1, lr2, pca, mms))
 
 xgb$fit(X_train, y_train)
 xgb$performance(X_test, y_test)
 
-xgb_raw = CLS.SCIKIT.XGB()
+xgb_raw = CLS.SKLEARN.XGB()
 xgb_raw$fit(X_train, y_train)
 xgb_raw$performance(X_test, y_test)
 
@@ -82,7 +81,7 @@ info_transformers = function(model){
 
 info_transformers(xgb) %>% View
 
-library(viser)
+library(rvis)
 nodes = info_transformers(xgb)
 rownames(nodes) <- nodes$name
 nodes['INPUT', 'name'] <- 'INPUT'
@@ -101,11 +100,11 @@ nodes$description = paste(nodes$class, nodes$description, nodes$type, sep = '\n'
 links = gen_edgelist(xgb) %>% {colnames(.) <- c('source', 'target');.} %>% as.data.frame %>% 
   mutate(source = as.character(source), target = as.character(target)) %>% 
   left_join(nodes %>% select(source = name, outputs), by = 'source')
-visNetwork.graph(list(nodes = nodes, links = links), source = 'source', target = 'target', linkWidth = 'outputs', key = 'name', label = 'description', 
+rvis::rvisPlot(plotter = 'visNetwork', type = 'graph', obj = list(nodes = nodes, links = links), source = 'source', target = 'target', linkWidth = 'outputs', key = 'name', label = 'description', 
           color = 'type', config = list(direction = 'left.right', node.shape = 'box', layout = 'hierarchical'), linkLabel = 'outputs')
 
 ###################
-### maler translation:
+### rml translation:
 xgb$plot.network(plotter = 'visNetwork', direction = 'right.left', node.shape = 'box', layout = 'hierarchical')
 
 xgb$plot.network(plotter = 'grviz', direction = 'left.right', node.shape = 'box', node.size = 2.1, link.label.size = 18, node.label.size = 15, link.arrow.size = 2, link.color = 'blue')

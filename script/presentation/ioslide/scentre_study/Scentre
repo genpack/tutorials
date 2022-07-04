@@ -1,0 +1,84 @@
+I just want to mention various methodologies, not to prescribe a specific solution for each question
+
+segmentation of products can be done based on various quantified qualities:
+  - product name/description
+  - customer's behaviour
+    - number of purchases
+    - amount of purchase
+  - price (per unit price)
+  - Department Hierarchy
+  - 
+
+Main Challenge: how to quantify goodness of clustering? What is a good groupiong?
+
+How much does this product belong to a specific category (like Health for example?)
+
+
+Supervised (Multi-Class Classifier)  requires labelled data
+
+Non-supervised (Clustering)
+
+2- Feature-based (KMEANS)
+
+1- Metric-based
+
+distance between two cities : A and B
+
+meric = distance
+Longitide and Latitude (x and y coordinates in a 2D space) -> Euclidean(Physical) distance
+
+non-coordinate distance
+
+Venn Diagram for products  P and Q
+
+same for customers: A, B
+
+metric values are dynamic(time-dependant) 
+Monthly similarities, last n months (sliding/cumulative window)
+
+
+Metric-based Clustering algorithms
+
+(input: distance matrix)
+metric-kmeans
+Multi-dimensional scaling 
+Example: 3 cities, find locations
+
+Hierarchical clustering
+
+
+Suggested Metrics for products
+
+1- NLP-based metrics: Product Name/Product Description
+  Binary, Cosine dissimilarity (Spherical), Minkovski, Canbera, ...
+2- Purchase Recency (most recent average daily sales)
+3- Common Depth in the Existing Department/Hierarchy 
+4- Feature-based (trends):  "These features can be generated for various time-line windows""
+      ProductPopularity	(Cumulative Total Product Purchase Frequency)
+      Product Purchase Frequency (mean/median/max)
+      CustomerProductPurchaseRate (what percentage of customers purchased this product recently)
+      Unit Price
+      Amount Purchased Recently (last 7 days)
+      Average/Median Purchase Gap among customers
+      ...
+      
+Metric Learning:
+
+Find the weights of each metric feature
+each training row represents a pair of products
+Label: are they in the same category?
+
+Advantages: 
+1- handles imbalanced binary label (handles problem of very few positive lables in binary classification)
+2- uses metric features as well as specific features
+3- Helps to obtain a global weighted metric for overall similarity ranking
+drawbacks:
+1- high prediction(not training) computational cost
+
+
+
+
+
+
+
+

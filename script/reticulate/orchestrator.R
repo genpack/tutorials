@@ -11,7 +11,7 @@ boto  = import('boto3')
 urlp  = import('urllib.parse') 
 # yaml  = import('yaml') 
 # tme   = import('time')
-el    = import('elulalib')
+el    = import('ellib')
 # jsn   = import('json')
 
 py_run_string("import os")
@@ -20,7 +20,7 @@ py_run_string("import os")
 # aws_s3  = boto$client('s3')
 # aws_ecs = boto$client('ecs')
 
-botsec  = boto$session$Session(profile_name= 'write@sticky')
+botsec  = boto$session$Session(profile_name= 'write@event_prediction_platform')
 aws_s3  = botsec$client('s3')
 aws_ecs = botsec$client('ecs')
 
@@ -33,7 +33,7 @@ environ = Sys.getenv()
 
 if (!'config' %in% names(environ)){
   cat('no config file location in environment variables specified.')
-  "s3://sticky.dummy.elula.ai/config.sample.yml"-> environ[['config']]
+  "s3://event_prediction_platform.dummy.el.ai/config.sample.yml"-> environ[['config']]
 }
 
 o = urlp$urlparse(environ[['config']])

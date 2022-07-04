@@ -88,3 +88,8 @@ get.plot = function(bins){
 
 dash = new('DASHBOARD', items = I, king.layout = list('main'))
 shinyApp(dash$dashboard.ui(), dash$dashboard.server())
+
+# Change the working directory to the example root
+inputs = yaml::read_yaml('config.yml')
+dash = new('DASHBOARD', items = inputs, king.layout = list('main'))
+shinyApp(dash$dashboard.ui(), dash$dashboard.server())

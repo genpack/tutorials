@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(magrittr)
 library(zeallot)
 library(keras)
-# source('~/Documents/software/Python/projects/prediction/elulalib/DistributionModels/R_test/tools.R')
+# source('~/Documents/software/Python/projects/prediction/ellib/DistributionModels/R_test/tools.R')
 source('~/Documents/software/R/projects/tutorials/script/Keras/tools.R')
 ```
 
@@ -35,7 +35,7 @@ We may get a better result now comparing to when regressing the output variable 
 Note that this is not what we refer to as likelihood maximization. However, if the distribution of the observed data is too complicated, this could be a better way to train the model.
 
 ## Likelihood Maximization:
-You may have faced with situations where the output label is highly biased or unbalanced (in classification) or in regression, you may observe outliers or unspecific values. For example there might exist cases where you don't have the label value but can only know the it is greater than or lower than a certain value. This is especially the case in sticky project where you want to include samples of customers who have not churned until the current time. Using classic Machine Learning models, you will need to remove lots of training data samples (and unforetunately, the most recent ones) due to uncertainty of the label.
+You may have faced with situations where the output label is highly biased or unbalanced (in classification) or in regression, you may observe outliers or unspecific values. For example there might exist cases where you don't have the label value but can only know the it is greater than or lower than a certain value. This is especially the case in an event prediction platform project where you want to include samples of customers who have not churned until the current time. Using classic Machine Learning models, you will need to remove lots of training data samples (and unforetunately, the most recent ones) due to uncertainty of the label.
 Likelihood Maximization and distribution modelling is a way to adress this problem where you include all data in training which may lead to better accuracy rates.
 
 Likelihood Maximization or Maximum Likelihood Estimation is a method that determines values for the parameters of a model so that the likelihood of the observed data with respect to the assumed distribution is maximized. Distributions are indexed by their underlying parameters. Thus, as long as we know the parameter, we know the entire distribution. For instance, for Normal distributions $N(μ,σ)$, if we know $μ$ and $σ$, the entire distribution is determined. In machine learning with Likelihood Maximization, we try to regress parameters of the distribution underlying the observed data rather than its value directly. For normal (Gaussian) distributions, 

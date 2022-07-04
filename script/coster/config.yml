@@ -1,0 +1,490 @@
+Salary:
+  El: ElSalary
+  CBA: SalarySTAFFDEPARTMENT
+Rent:
+  Rent: RobertEdwardsReal
+Restaurant:
+  MadMex: MadMex
+  Pakwaan: PAKWAAN
+  Farma: Farma
+  MottoMotto: MOTTOMOTTO
+  GozlemeKings: GozlemeKings
+  Starbucks: STARBUCKS
+  HottoMotto: HottoMotto 
+  FratelliFresh: ffdarlingharbour
+  GLORIAJEANS: GloriaJeans
+  FrankeysCafe: FRANKYSCAFE
+  SAHARAGRILL: SaharaGrill
+  TheFlyBarMelbourneAirport: THEFLYBARMELBOURNEAIR
+  ChelseaChatswood: CHELSEAOPERATIONSPCHATSWOOD
+  IaaacHoldings: ISAACHOLDINGS
+  HMSHostAmsterdamAirport: HMSHOSTAMSTERDAM
+  Oporto: 
+  - Oporto
+  - yhh
+  PappaRich: PappaRich
+  TheYorkStreetEatery: TheYorkStreetEat
+  Lime: Lime
+  Delicious: Delicious
+  Aloonak: Aloonak
+  McDonalds: McDonalds
+  Subway: Subway
+  ButterSaltPepper: ButterSaltPepper
+  SaharaStreetFood: SaharaStreetFood
+  JoesSandwichBar: JoesSandwichBar
+  LeWrap: LeWrap
+  GreenOriental(SoulOrigin): GreenOriental(SoulOrigin)
+  HaxGlow: HaxGlow
+  LaOng: LaOng
+  MissingPieceCafe: MissingPieceCafe
+  NokNok: NokNok
+  Trinity: Trinity
+  RobinKitchen: RobinKitchen
+  MrSnail: MrSnail
+  Nandos: Nandos
+  Tomtin(UrbanTastyFood): Tomtin(UrbanTastyFood)
+  Kahii: Kahii
+  Broadway: SCHNITZ
+  HotChoc: HotChoc
+  OceanBeachEatery: OceanBeachEatery
+  Oikos: Oikos
+  TheSteakHouseTaupo: TheSteakHouseTaupo
+  HamiltonGardensCafe: HamiltonGardensCafe
+  MudbrickVineyard: MudbrickVineyard
+  SoulBar&BistroAuckland: SoulBar&BistroAuckland
+  BMJFoods: BMJFoods
+  LANTERN: LANTERNXPRESS
+  JASJOSH: JASJOSHGROUP
+  SydneyFishMarket: 
+  - SydneyFishMarket
+  - DOYLESPYRMONT
+  Sambal: 'THESAMBAL'
+  Saffron: SAFFRONRESTAURANT
+  UmaiSushi: 
+  - UMAISUSHI
+  - umisushi
+  AlanaCafe: AlanaCafe
+  CocoRicoCafe: CocoRicoCafe
+  ACupOfLifeCafe: ACupOfLifeCafe
+  WiseMonkeyCafe: WiseMonkeyCafe
+  CoffeeClub: COFFEECLUBRYDE
+  RoseTurkishGozleme: RoseTurkishGozleme
+  SoulOrigin:
+  - GreenOriental
+  - SoulOrigin
+  UrbanTastyFood: Tomtin
+  SoulBarAndBistroAuckland: 'SoulBar&BistroAuckland'
+  SindbadKebab:
+  - SINDBADKEBAB
+  - SindbadKebab
+  GrandTowers: GRANDTOWERSGRPPL
+  CoogeeGround: CoogeeGround
+  ALaTurko: ALATURKO
+  CraftyCuts: CraftyCuts
+  KAHII: KAHII
+  Grilld: GRILLDPTYLTD
+  CaffeAmici: CaffeAmici
+  BellesTake: BellesTake
+  HongKongFlavours: HONGKONGFLAVOURS
+  Delisse: MBGP
+  FastFoodChain: HZFASTFOODCHAIN
+  TheChook: TheChook
+  Sesoni: SESONI
+  RomeosFoodHall:
+  - RomeosFoodHall
+  - romeosFoodHall
+  NightStars: NIGHTSTARSPTYLTD
+  MarsfieldMediterranian: MARSFIELDMEDITERRAN
+  Guzman:
+  - GUZMANYGOMEZ
+  - gyg
+  MacquarieCentralCafe: kinbyus
+  HungryJack:
+  - HungryJack
+  - hj
+  ShirazIceCream: ShirazIceCream
+  PizzaAtish:
+  - IMANZADEHSARABI
+  - ImaNZADEHSARABI
+  PontoonBar: PontoonBar
+  WaterfrontCafeChurchPoint: ZINAENTERPRISESPTY
+  KubeInvestments: KUBEINVESTMENTSPTQPS
+  TheNorthSpoon: THENORTHSPOONMCMAHONS
+  TheLureSeaFood: JAUNCEYGROWTHPTYLIMCOOGEE
+  BondiPizza: BONDIPIZZA
+  District1: DISTRICT1HCMC
+  AlexLeeKitchen: AlexLeeKitchen
+  SaltDish: SaltDishGERALDTONWA
+  TsHay: TSHAYPTYLTDGREGORYWA
+  DomeEastend: DOMEEASTENDPERTH
+  MurrayStreetGrill: MURRAYSTREETGRILL
+  VeloceExpresso: VELOCEEXPRESSO
+  Pasargad: PASARGADRESTAURANT
+  SushiHubQVB: SushiHubQVB
+  CoolabahTree: COOLABAHTREEWYONG
+  HaxGlowBarBroadway: HaxGlowptyltd
+  AndersensIceCream: ANDERSEN
+  Nikku: NikkuMacquariePark
+  UnknownCafe: cafe
+  Unknown:
+  - lunch
+  - bbq
+  - grill
+  - bar
+  - restaurant
+  - dinner
+  - breakfast
+  - Pizza
+  - sushi
+  - dining
+  - pork
+  - chicken
+  - kitchen
+PublicTransport:
+  TransportForNSW:
+  - TransportForNSW
+  - TFNSWRAIL
+  - TfnswRAIL
+  - tfnswRAIL
+Car-Tolls:
+  RMS-Etoll:
+  - RMSEtoll
+  - RMS-Etoll
+Car-Insurance:
+  BudgetDirect: BudgetDirect
+  Allianz: Allianz
+  Aami: Aami
+  QBE: QBE
+  RealInsurance: RealInsur
+  Unknown: ctp
+Interest:
+  CreditCardInterest: InterestCharges
+  DebitInterest:
+  - DebitInterest
+  - DebitExcessInterest
+House-Office:
+  OfficeWorks: OFFICEWORKS
+House-Landscape:
+  Hooshang: 
+  - '4fence'
+House-Gardening:
+  SydneyPlantMarket:
+  - KENTHURSTGROUP
+  - SydneyPlantMarket
+  - SYDNEYSPLANTMARKET
+  Daiso: Daiso
+  FlowerPower: FlowerPower
+  SwanesNurseries: SWANESNURSERIES
+  Eden: EDENGARDENS
+Car-Parking:
+  NationalParksNSW:
+  - SERVICENSW
+  - NationalParksNSW
+  - oeh
+  FaganPark: cnclFagan
+  CityOfSydneyParking: CityOfSydneyParking
+  WilsonParking: WilsonParking
+  SydneyAirportParking: SydAprtIntnl
+  Randwick Council: RANDWICKCOUNCIL
+  NorthernBeachesCouncil: NORTHERNBEACHESCOUNC
+  MacquarieUniversity: MACQUARIEUNIVERSITYNORTHRYDE
+Car-Rego:
+  RMS-Rego:
+  - SERVICENSW
+  - RMS-Rego
+CreditCardRepayment:
+  CBA:
+  - PAYMENTRECEIVED
+  - CRDTBLL
+  - xx2892
+Shopping:
+  Myer: Myer
+  DavidJones: DavidJones
+  Kathmandu: Kathmandu
+  Typo: Typosydney
+  PerfectPotion: PERFECTPTNNTHSYD
+  ShaverShop: SHAVERSHOP
+  Shopping: BROADWAYNEWS
+  TheRejectShop: THEREJECTSHOP
+  TKMaxx: tkmaxx
+  Pandora: PANDORA
+  KSTrading: KSTrading
+Medical-Medicine:
+  SydneyPharmacy: SydneyPharmacy
+  YSTHealth: YSTHealth
+  PriceLinePharmacy: 
+  - PriceLinePharmacy
+  - plineph
+  PharmacyFocus: 
+  - Pharmacy-Focus
+  - PharmacyFocus
+  ChemistWarehouse: CHEMIST
+  Unknown: PHARMACY
+  
+LegalServices:
+  KargarAccountant: Kargar
+Groceries:
+  Coles: Coles
+  KellyvilleEggs: KellyvilleEggs
+  BakersDelight: BAKERSDELIGHT
+  Costco: COSTCO
+  Solanna: SOLANNA
+  Woolworths:
+  - Woolworths
+  - WWTOWNHALL
+  Aldi: Aldi
+  KianBread: KianBread
+  CountDown: CountDown
+  Ikhvan Butchery: BUTCHERIKHWAN
+  RyyanSupermarket: RyyanSupermarket
+  ZamZamSupermarket: ZamZamSupermarket
+  HamzeBros: 
+  - HamzeBros
+  - NASSERHAMZE
+  BaharPersianSupermarket: BaharPersianSupermarket
+  MiladSupermarket: MILADSUPRMRKT
+  PotteryGreenBakers: POTTERYGREENBAKERS
+  MacquarieCentreMeat: MacquarieCentreMeat
+  AshbaOneDural: ASHBAONEPTYLTD
+  VahidButchery: VAHIDBUTCHERY
+  Zamzam: zamzammarket
+  HarrisFarm: harris
+  TurramurraSupermarket: TURRAMURRASUPERMARK
+  Asal: asal
+  HillsButchery: HILLSHALALBUTCHERY
+  Unknown:
+  - supermar
+  - market
+  - superm
+  - grocer
+  - Butcher
+  - meat
+Tax:
+  ATO: ATO
+House-Pesticide:
+  Flick:
+  - FLICKANTICIMEX
+  - Flick
+Beauty:
+  KasartHair: KasartHair
+  Loccitane: occitane
+Car-Fuel:
+  Caltex: Caltex
+  Fuelco: Fuelco
+  BudgetPetrol: BUDGET PETROL
+  SevenEleven: ELEVEN
+  WhakamaruGasStation: WhakamaruGasStation
+  Zturangi: Zturangi
+  Dunnings: Dunnings
+  EnhanceGanville: ENHANCEGRANVILLE
+  BritishPetrolium: 
+  - 'BPMAYSHILL2220'
+  - BPLANECOVE
+  Unknown:
+  - fuel
+  - petrol
+  - gas
+  - station
+Charity:
+  Wikipedia: Wikipedia
+  BlackDog: BlackDog
+  BlackDogInstitute: BLACKDOGINSTITUTE
+  MissionAustrlia: MissionAu
+  MedEarth: MEDEARTHEVELEIGH
+  Iran: AmirEntezam
+  Unknown: 
+  - charity
+  - donate
+Furniture:
+  NickScali: NickScali
+  CocoRepublic: CocoRepublic
+  Ikea: Ikea
+  VictoriasBasement: VICTORIASBASEMENT
+  HarveyNorman: HarveyNorman
+  GospelPiano: GospelPiano
+  ADAIRS: ADAIRS
+  HunterDouglas: HUNTERDOUGLAS
+  Domayne: Domayne
+  BedsNDreams: BEDSNDREAMS
+  TKMaxx: TKMAXX
+  T2: T2
+House-Tools:
+  Bunnings: Bunnings
+Hair:
+  Lavish: Lavish
+  HairNCare: TMALPTYLTDNORTHRYDE
+Medical-Dentist:
+  AshrafObaid: AshrafObaid
+  TeethPlusClinic: TEETHPLUSCLINIC
+Clothes:
+  Levi: Levi
+  REBEL: Rebel
+  JustJeans: JustJeans
+  CountryRoad: CRMACQUARIE
+  Oxford: OXFORDSHOP
+  Harmont: HARMONT
+Piano:
+  FlexiCards(HUMM): FlexiCards(HUMM)
+  GospelPiano: GospelPiano
+Drinks:
+  Tyrrells: Tyrrells
+  DanMurphys: DanMurphys
+  NakedWines: NAKEDWINES
+  BungWahlFuelLiquor: BUNGWAHLFUELLIQUOR
+Post:
+  Post: Post
+  MumbaiExpress: MUMBAIEXPRESSCENTR
+Visa:
+  AustraliaImmigration: AustraliaImmigration
+  ImmigrationAustralia: DEPARTMENTOFHOME
+Electronics:
+  JBHiFi: JBHiFi
+Car-Service:
+  MicarCare: MicarCar
+  KakingaHoldings: KAKINGAHOLDINGS 
+Leisure:
+  MaxAmini: MaxAmini
+  DunleithCaravan: DUNLEITHCARAVAN
+  SeaToSummit: SeaToSummit
+  WairakeiTerraces: WairakeiTerraces
+  WaiotapuThermalWonde: WaiotapuThermalWonde
+  HarbourInformation(Ferries): HarbourInformation(Ferries)
+  TheWaihekeBikes: TheWaihekeBikes
+  AriAuckland: AriAuckland
+  FerriesNewsealand: HarbourInformation
+  TheBasinCampground: OEHNPTHEBASIN
+  YanchepNaturalPark: DBCAYANCHEPWANNEROO
+  LunaParkSydney: LUNAPARKSYDNEYPTQPSMILSONS
+  TreacheryCamping:
+  - TREACHERYCAMP
+  - CommBankappTFRfromALIARMINalimojgancamp
+  - TransferFromALIREZASADEGHIAl-e-chador
+  Unknown: 
+  - concert
+  - camping
+Car-Rental:
+  Hertz:
+  - Hertz
+  - hertz
+  RentalCars: RentalCars
+  RENTALCARS: RENTALCARS
+  RentalCover: RENTALCOVER
+BankingFee:
+  CBA:
+  - INTNLTRANSACTIONFEE
+  - OverdrawingApprovalFee
+Medical-Insurance:
+  Bupa: Bupa
+  CBHS: CBHS
+House-Utility:
+  AGL:
+  - AGL
+  - AGLENERGY
+  Powershop: Powershop
+  SydneyWater: SYDNEYWATER
+Travel:
+  EasyJet: easyJet
+  Skiddo: Skiddo
+  TreacheryCamping: TreacheryCamp
+  SkyCityHotelAuckland: SkyCityHotelAuckland
+  AlfaHotelAmsterdam : AlfaAmsterdamHotel 
+  MyHolidays: MyHolidays
+  Overseas: 
+  - amsterdam
+  - lucca
+  - MILANO
+  - globalblue
+  - latina
+  - SEGRATE
+  - EINDHOVEN
+  Unknown: 
+  - accommo
+  - hotel
+  - hostel
+  - bnb
+Fine:
+  AustralianPolice: FEDERALPOLICE
+  Fine: Fine
+Phone:
+  Telstra: Telstra
+  Nava: navacharge
+  Optus: optus
+  FoneField: FONEFIELD
+  Samsung: Samsung
+  Unknown: 
+  - phone
+  - handset
+Saving:
+  NetBankSaver:
+  - Transfertoxx0322NetBank
+  - Transferfromxx0322NetBank
+  NAB-Transfer: TransfertootherBankNetBankSaving
+  CBA-OffsetAccount: xx4024
+House-Solar:
+  SolarNaturally: SolarNaturally
+Car:
+  Nissan: Nissan
+House-Mortgage:
+  NAB: TransfertootherBankNetBankMortgage
+  CBA:
+  - LoanRepayment
+  - loanpayment
+TaxReturn:
+  CBA-SmartAccess: CBA-SmartAccess
+JobExpenses:
+  ADCG: ADCG
+Paypal:
+  Paypal:
+  - Paypal
+  - paypal
+Education:
+  CozyStage: TransfertoCBAA/cCBTabletAppmembershipfee
+  LAStudios: LASTUDIOS
+BurrowedMoneyBack:
+  CBA-SmartAccess: CBA-SmartAccess
+BankingFees:
+  CBA-Fee: paymentfee
+Pets:
+  PetCareWarehouse: 'PETCAREWAREHOUS'
+  PetStockMacquarie: PETSTOCKMacquarie
+  Unknown: pet
+House-Appliances:
+  DougSmithAppliances: DougSmithAppliances
+Services:
+  BavraBuildingServices: bavraservices
+  MonacoJewellers: MonacoJewellers
+  MahboobehCleaning: MQCCleaning
+  PerennialPackaging: PERENNIALGROUP
+  KwikKopy: '360PRINTSOLUTIONS'
+Unknown:
+  Liskens: LISKENSPTYLTD
+Laundry:
+  LawrenceDryCleaners: LAWRENCEDRYCLEANERS
+  Maurice: MAURICEDRYCLEANE
+  FiveAsec: Fabani
+  Unknown: 
+  - dryclean
+  - laundr
+Medical-Visit:
+  MacquarieUniversityImagingCentre: MACQUARIEMEDICALIM
+  Adora: 
+  - LAVERTYPATHOLOGY
+  - adora
+  MacquarieMedicalCentre: MACQUARIEMEDICAL
+  UnknownHospital: hospital
+  
+Internet:
+  TPG: TPG
+  Telstra: telstra
+  Unknown: internet
+Cashout:
+  CBA: cbaatm
+House-Council:
+  TheHillsShoreCouncil: Cncl
+Transfer:
+  Miscellaneous: 
+  - TransfertoCBAA/c
+  - transferfrom
+  - DirectCredit
+  - DirectDebit
+  Unknown: transfer

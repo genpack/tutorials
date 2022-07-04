@@ -1,0 +1,42 @@
+# shows where your default python exists
+which python
+
+
+# shows the version of your default python
+python --version
+
+# shows where your default python3 exists
+which python3
+
+python3 --version
+which poetry
+poetry --version
+
+cd ~
+nano .bash_profile   (nano is a text editor like vi)
+
+# (.bash_profile is a text file containing list of commands that run everytime you open a terminal in mac)
+
+# Created by `pipx` on 2021-06-17 00:42:09
+export PATH="$PATH:/Users/nima/.local/bin"
+export PATH="/Users/nima/Library/Python/3.7/bin:$PATH"
+
+conda install anaconda-clean
+anaconda-clean --yes
+
+# remove anaconda manually:
+rm -rf ~/anaconda3
+
+curl -sSL https://install.python-poetry.org | python3 -
+export PATH="/Users/nima/Library/Python/3.7/bin:$PATH
+
+aws codeartifact login --tool pip --repository ellib --domain el --domain-owner 864206818498
+
+poetry install
+
+export PYTHON_KEYRING_BACKEND="keyring.backends.fail.Keyring"
+
+poetry config http-basic.el aws "$(aws codeartifact get-authorization-token --domain el --domain-owner 864206818498 --query authorizationToken --output text)"
+
+rm -rf .idea/
+

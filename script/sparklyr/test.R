@@ -13,10 +13,10 @@ sc <- spark_connect(master = "local", config = conf)
 
 
 # Complete syntax with all arguments:
-# el = spark_read_csv(sc, name = 'el', path = 's3://staging.democlient.elulaservices.com/mlmapper-c1-input/example/bigeventlog.csv', header = TRUE, columns = NULL, infer_schema = TRUE, delimiter = ",", quote = "\"", escape = "\\", charset = "UTF-8", null_value = NULL, options = list(), repartition = 0, memory = TRUE, overwrite = TRUE)
+# el = spark_read_csv(sc, name = 'el', path = 's3://staging.democlient.elservices.com/mlmapper-c1-input/example/bigeventlog.csv', header = TRUE, columns = NULL, infer_schema = TRUE, delimiter = ",", quote = "\"", escape = "\\", charset = "UTF-8", null_value = NULL, options = list(), repartition = 0, memory = TRUE, overwrite = TRUE)
 
 
-# el = spark_read_csv(sc, name = 'el', path = 'Documents/data/sticky/bigeventlog.csv', 
+# el = spark_read_csv(sc, name = 'el', path = 'Documents/data/bigeventlog.csv', 
 #                     header = TRUE, columns = NULL,
 #                     infer_schema = TRUE, delimiter = ",", quote = "\"",
 #                     escape = "\\", charset = "UTF-8", null_value = NULL,

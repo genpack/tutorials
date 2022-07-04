@@ -1,5 +1,5 @@
 ---
-title: "Instacard Project: Modelling 1"
+title: "Instacard Project: General Modelling"
 author: "Nima Ramezani"
 date: "19/04/2021"
 output: html_document
@@ -51,8 +51,8 @@ So we first pick a sample of customers randomly, and do the modelling.
 We will check later to see if adding more customers can improve model performance or not.
 
 ```{r pick_customer_subsets}
-user_subset_train = orders$user_id %>% unique %>% sample(1000)
-user_subset_test  = orders$user_id %>% unique %>% setdiff(user_subset_train) %>% sample(300)
+user_subset_train = orders$user_id %>% unique %>% sample(20000)
+user_subset_test  = orders$user_id %>% unique %>% setdiff(user_subset_train) %>% sample(2000)
 ```
 
 # Split for features and labels:
@@ -122,14 +122,14 @@ build_training_pack = function(orders, products, order_products_prior, cutpoint_
 Now we use this function to make two separate dataset packs for train and test:
 
 ```{r build_training_pack}
-#train_pack = build_training_pack(orders, products, order_products_prior, customer_subset = user_subset_train)
-#test_pack  = build_training_pack(orders, products, order_products_prior, customer_subset = user_subset_test)
-#head(train_pack$feature_dataset)
+train_pack = build_training_pack(orders, products, order_products_prior, customer_subset = user_subset_train)
+test_pack  = build_training_pack(orders, products, order_products_prior, customer_subset = user_subset_test)
+head(train_pack$feature_dataset, n = 100) %>% DT::datatable()
 
 # saveRDS(train_pack, 'data/train_pack.rds')
 # saveRDS(test_pack, 'data/test_pack.rds')
-train_pack =  readRDS('data/train_pack.rds')
-test_pack  =  readRDS('data/test_pack.rds')
+# train_pack =  readRDS('data/train_pack.rds')
+# test_pack  =  readRDS('data/test_pack.rds')
 ```
 
 # Building Features from datasets
@@ -278,6 +278,9 @@ test  = build_features(test_pack$feature_dataset)
 exclude_columns = colnames(train) %>% charFilter('_')
 X_train = train[colnames(train) %-% exclude_columns]
 X_test  = test[colnames(test) %-% exclude_columns]
+
+train %>% head(100) %>% 
+  DT::datatable()
 ```
 
 Function `build_labels` extracts labels from the pack returned by function `build_training_pack`
@@ -329,14 +332,22 @@ plot(AUC::roc(predictions = xgb$predict(X_test)[,1], labels = y_test %>% as.fact
 
 Let's have a look at the most 20 Important Features:
 
-```{r roc_curve_xgb}
+```{r important_features_xgb}
 xgb$objects$features %>% arrange(desc(importance)) %>% head(20) %>% 
   rename(Feature = fname, Importance = importance) %>% 
   plotly::plot_ly(y = ~Feature, x = ~Importance, type = 'bar')
 ```
 
 
-```{r build_model_xgb}
+```{r evaluation_xgb}
+test_pack$cutpoint_orders %>% 
+  rename(order_id = cutpoint_order_id) %>% 
+  left_join(order_products_prior, by = 'order_id') -> actual_orders
+
+actual_orders %>% 
+  group_by(user_id) %>% 
+  summarise(order_size = length(unique(product_id))) %>% 
+  ungroup -> actual_order_sizes
 
 threshold = 0.5
 
@@ -345,10 +356,10 @@ test %>%
   cbind(xgb$predict(X_test), label = y_test) %>% 
   group_by(user_id) %>% 
   summarise(order_size_expected = sum(label, na.rm = T), 
-            tp = sum((xgb_v2_probs > threshold) & (label == 1)),
-            fp = sum((xgb_v2_probs > threshold) & (label == 0)),
-            tn = sum((xgb_v2_probs < threshold) & (label == 0)),
-            fn = sum((xgb_v2_probs < threshold) & (label == 1))) %>% 
+            tp = sum((xgb_v1_probs > threshold) & (label == 1)),
+            fp = sum((xgb_v1_probs > threshold) & (label == 0)),
+            tn = sum((xgb_v1_probs < threshold) & (label == 0)),
+            fn = sum((xgb_v1_probs < threshold) & (label == 1))) %>% 
   ungroup %>% 
   mutate(precision = tp/(tp + fp), recall = tp/(tp + fn)) %>% 
   left_join(actual_order_sizes, by = 'user_id') %>% 

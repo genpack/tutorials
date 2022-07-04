@@ -202,6 +202,9 @@ $ git checkout <branch_name>
 Example:
 $ git checkout develop
 
+## create a new branch with git [28 Apr 2022]:
+$ git checkout -b <branch-name>
+
 ## update a branch in the local copy from a git repository from command line [25 Jan 2019]:
 $ git pull <repository_name> <branch_name>
 Examples:
@@ -346,7 +349,7 @@ $ exit
 # This syncs/installs all the project packages in the Pipfile.lock for the project specific python environment
 
 
-# fix matplotlib backend issue in Mac [02 Mar 2020]:
+## fix matplotlib backend issue in Mac [02 Mar 2020]:
 $ cat > ~/.matplotlib/matplotlibrc
 backend: TkAgg
 
@@ -356,12 +359,148 @@ In an environment:
 $ cd path/to/environment/folder
 $ pipenv run pip install path/to/package/folder/
 
-# test a prediction job in elp
+## test a prediction job in elp
 $ cd prediction
 $ pipenv install pytest
 $ pipenv run pytest -k CASE_XGBOOST_TRAIN_FULL .
 
-# install a python package ignoring the installed version [21 Jan 2021]:
+## install a python package ignoring the installed version [21 Jan 2021]:
 # Example:
 $ pip install llvmlite --ignore-installed
+
+## add kernel of global python environment to jupyter notebook   [24 June 2021]:
+# In the virtual environment you want to register:
+$ cd path/to/folder_name
+$ python -m ipykernel install --display-name <NAME> --name <NAME> --user
+# or:
+# ipython kernel install --name <NAME> --user
+# Example:
+$ python -m ipykernel install --name dst --display-name dst --user
+# if you want to do this with a poetry env you can put poetry run before that command
+# then run jupyter notebook and load the notebook file you want to run. In menue bar, 
+# go to Kernel --> Change Kernel --> and select the kernel name you specified in <NAME>
+
+## ignore any local changes and just update to the remote master branch in git [29 July 2021]:
+$ git fetch
+$ git reset --hard origin/master
+# If you have local changes that you want to clean, you might have to do the following first:
+$ git reset --hard
+$ git clean -df 
+
+## get a jb activation code [28 March 2022]:
+For now use this:
+5UEOFI0I1W-eyJsaWNlbnNlSWQiOiI1VUVPRkkwSTFXIiwibGljZW5zZWVOYW1lIjoiRWx1bGEgR3JvdXAiLCJhc3NpZ25lZU5hbWUiOiJOaW1hIFJhbWV6YW5pIiwiYXNzaWduZWVFbWFpbCI6Im5pbWEucmFtZXphbmlAZWx1bGFncm91cC5jb20iLCJsaWNlbnNlUmVzdHJpY3Rpb24iOiIiLCJjaGVja0NvbmN1cnJlbnRVc2UiOnRydWUsInByb2R1Y3RzIjpbeyJjb2RlIjoiUEMiLCJmYWxsYmFja0RhdGUiOiIyMDIyLTAzLTA1IiwicGFpZFVwVG8iOiIyMDIzLTAzLTA0IiwiZXh0ZW5kZWQiOmZhbHNlfSx7ImNvZGUiOiJQUEMiLCJmYWxsYmFja0RhdGUiOiIyMDIyLTAzLTA1IiwicGFpZFVwVG8iOiIyMDIzLTAzLTA0IiwiZXh0ZW5kZWQiOnRydWV9LHsiY29kZSI6IlBXUyIsImZhbGxiYWNrRGF0ZSI6IjIwMjItMDMtMDUiLCJwYWlkVXBUbyI6IjIwMjMtMDMtMDQiLCJleHRlbmRlZCI6dHJ1ZX0seyJjb2RlIjoiUFNJIiwiZmFsbGJhY2tEYXRlIjoiMjAyMi0wMy0wNSIsInBhaWRVcFRvIjoiMjAyMy0wMy0wNCIsImV4dGVuZGVkIjp0cnVlfSx7ImNvZGUiOiJQQ1dNUCIsInBhaWRVcFRvIjoiMjAyMy0wMy0wNCIsImV4dGVuZGVkIjp0cnVlfV0sIm1ldGFkYXRhIjoiMDEyMDIyMDMwN0NTQUEwMDYwMDkiLCJoYXNoIjoiMzE2NzgyNjUvMTQyNjUzNjY6LTEyNjMxODcyNjMiLCJncmFjZVBlcmlvZERheXMiOjcsImF1dG9Qcm9sb25nYXRlZCI6dHJ1ZSwiaXNBdXRvUHJvbG9uZ2F0ZWQiOnRydWV9-UFfFng4KDOS8QzSEPOYZ9PokPV+dqhCwBhTXRxcd1ePxISWOBZkj0dW8sixc8k0B1vlPC7H7IU/kFuE/tARrtrW9/Gg5LnbIM/m4gOQOZxaQyxdu3whG6SSHaq1ubTaKPMFoEeliwqVoHzBmOjXGJqCE2wb3ny8NBsyhB+q8gTAQ+iSFt9WSFpAfi+Zb4mMPD4iDEQfSwbZgJ4bsULB53QubgJRZX9zkIyWBK+X8350aO55bclS9JETJEgJ6E4NMrKxTVMVtakZVn2hEw2KgJC2ATmGB92k1+naxgI9oV7neRqAaAWdDDoP1Re76aB1n6WGhwTfocknuMdTY99EwXA==-MIIETDCCAjSgAwIBAgIBDTANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBMB4XDTIwMTAxOTA5MDU1M1oXDTIyMTAyMTA5MDU1M1owHzEdMBsGA1UEAwwUcHJvZDJ5LWZyb20tMjAyMDEwMTkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDCP4uk4SlVdA5nuA3DQC+NsEnZS9npFnO0zrmMWcz1++q2UWJNuGTh0rwi+3fUJIArfvVh7gNtIp93rxjtrQAuf4/Fa6sySp4c32MeFACfC0q+oUoWebhOIaYTYUxm4LAZ355vzt8YeDPmvWKxA81udqEk4gU9NNAOz1Um5/8LyR8SGsSc4EDBRSjcMWMwMkYSauGqGcEUK8WhfplsyF61lKSOFA6VmfUmeDK15rUWWLbOMKgn2cxFA98A+s74T9Oo96CU7rp/umDXvhnyhAXSukw/qCGOVhwKR8B6aeDtoBWQgjnvMtPgOUPRTPkPGbwPwwDkvAHYiuKJ7Bd2wH7rAgMBAAGjgZkwgZYwCQYDVR0TBAIwADAdBgNVHQ4EFgQUJNoRIpb1hUHAk0foMSNM9MCEAv8wSAYDVR0jBEEwP4AUo562SGdCEjZBvW3gubSgUouX8bOhHKQaMBgxFjAUBgNVBAMMDUpldFByb2ZpbGUgQ0GCCQDSbLGDsoN54TATBgNVHSUEDDAKBggrBgEFBQcDATALBgNVHQ8EBAMCBaAwDQYJKoZIhvcNAQELBQADggIBAB2J1ysRudbkqmkUFK8xqhiZaYPd30TlmCmSAaGJ0eBpvkVeqA2jGYhAQRqFiAlFC63JKvWvRZO1iRuWCEfUMkdqQ9VQPXziE/BlsOIgrL6RlJfuFcEZ8TK3syIfIGQZNCxYhLLUuet2HE6LJYPQ5c0jH4kDooRpcVZ4rBxNwddpctUO2te9UU5/FjhioZQsPvd92qOTsV+8Cyl2fvNhNKD1Uu9ff5AkVIQn4JU23ozdB/R5oUlebwaTE6WZNBs+TA/qPj+5/wi9NH71WRB0hqUoLI2AKKyiPw++FtN4Su1vsdDlrAzDj9ILjpjJKA1ImuVcG329/WTYIKysZ1CWK3zATg9BeCUPAV1pQy8ToXOq+RSYen6winZ2OO93eyHv2Iw5kbn1dqfBw1BuTE29V2FJKicJSu8iEOpfoafwJISXmz1wnnWL3V/0NxTulfWsXugOoLfv0ZIBP1xH9kmf22jjQ2JiHhQZP7ZDsreRrOeIQ/c4yR8IQvMLfC0WKQqrHu5ZzXTH4NO3CwGWSlTY74kE91zXB5mwWAx1jig+UXYc2w4RkVhy0//lOmVya/PEepuuTTI4+UJwC7qbVlh5zfhj8oTNUXgN0AOc+Q0/WFPl1aw5VV/VrO8FCoB15lFVlpKaQ1Yh+DVU8ke+rt9Th0BCHXe0uZOEmH0nOnH/0onD
+
+## create a python virtual environment with virtualenv [28 March 2022]:
+# If you have not installed virtualenv before:
+$ pip install --user virtualenv
+$ virtualenv myenv
+# where myenv can be replaced with the name you want for your virtual environment. 
+# The virtual environment can be found in the myenv folder. 
+# For Python >= 3.3, you can create a virtual environment with:
+$ python -m venv myenv
+# After you have created your virtual environment, you can activate the virtual environment with:
+$ source myenv/bin/activate
+# To deactivate the virtual environment, you can run deactivate. 
+# To delete the virtual environment you just need to remove the folder with the virtual environment like: 
+$ rm -r myenv
+
+## create a python virtual environment with anaconda [28 March 2022]:
+$ conda create -n myenv
+# where myenv is the name of your new environment. 
+# If you want a specific Python version that is not your current version, you can type:
+$ conda create -n myenv python=3.6
+# The environment is then stored in the envs folder in your Anaconda directory. 
+# After you have created the enviroment, you can activate it by typing:
+$ conda activate myenv
+# If you now run python, you’ll see that you are in your freshly created virtual environment. 
+# To deactivate the environment you can type conda deactivate and you can list all the available environments on 
+# your machine with conda env list. 
+# To remove an enviroment you can type:
+$ conda env remove -n myenv
+# After creating your environment, you can install the packages you need besides the one already installed by conda.
+
+## Add Virtual Environment to Jupyter Notebook [28 March 2022]:
+# First, make sure your environment is activated
+# Second, install ipykernel which provides the IPython kernel for Jupyter if not installed:
+$ pip install --user ipykernel
+# Next you can add your virtual environment to Jupyter by typing:
+$ python -m ipykernel install --user --name=myenv
+# This should print the following:
+# Installed kernelspec myenv in /home/user/.local/share/jupyter/kernels/myenv
+
+## see which kernels are available in jupyter notebook [28 March 2022]:
+$ jupyter kernelspec list
+Now, to uninstall/remove the kernel from jupyter notebook [28 March 2022]:
+$ jupyter kernelspec uninstall myenv
+
+## change default keyboard shortcuts in pyCharm [28 March 2022]:
+# in pycharm go to settings 
+# (in Mac in the menu bar left side click on PyCharm beside File --> preferences)
+# (in Windows click on the settings icon in the right side of the bar)
+# Appearance & Behaviour -> Keymap
+# Choose your action and change key. For example for running selected code in console and 
+# change it from Alt + Shift + E to ctrl + enter (like R Studio):
+# Settings -> Keymap - Other -> Execute selection in Python Console --> add keyboard shortcut
+# and just type your desired shortcut (Ctrl + Enter)
+# You can keep the old shortcut or remove it if you like
+
+## download sample eventlog for prediction
+# https://www.kaggle.com/code/bechorfamedelamine/customer-behaviour-and-product-efficiency/data?select=2019-Oct.csv
+ 
+## find non UTF-8 encoding in a script file by R Studio [14 April 2022]:
+# go to Edit -> Find (Ctrl + F) and search for [^\x00-\x7F] with enabled Regex field in the search bar
+
+## How Felix fixed my pipx and aws issue in Mac (order of execution is bottom to top) [28 April 2022]:
+% curl -sSL https://install.python-poetry.org | python3
+% pip3 uninstall awscli
+% which aws
+% python3 -m pipx ensurepath
+$ which pipx
+$ python3 -m pip install pipx
+% python3 -m pip install aws-mfa
+% which python3
+% python3 --version
+% python --version
+% sudo nano /etc/paths
+% pip3 install aws-mfa
+% which pip3
+% which pip
+% rm $(which aws-mfa)
+% echo $PATH
+% which aws-mfa
+% pipx install jobwrangler
+% pip3 show aws-mfa 
+% pyenv install 3.7.12
+% xcode-select --install
+% echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zprofile
+% echo 'eval "$(pyenv init --path)"' >> ~/.zprofile
+% exec $SHELL
+% curl https://pyenv.run | bash
+% python3 --version
+% which pip
+% softwareupdate --all --install --force
+% pyenv install 3.7.13 
+% pyenv install 3.7.9
+% which awscli
+% pip3 install awscli --user
+% which aws
+% rm /usr/local/bin/aws
+% which aws
+% python3 -m pipx ensurepath
+% python3 -m pip install pipx
+% python3 -m pip install aws-mfa
+
+
+
+## test equality of two pandas dataframes [2 May 2022]:
+# Example:
+>>> pd.testing.assert_frame_equal(output, expected_output)
+
+## Move a committed change into a new branch [10 May 2022]:
+$ git branch newbranch      # Create a new branch, saving the desired commits
+$ git checkout master       # checkout master, this is the place you want to go back
+$ git reset --hard HEAD~3   # Move master back by 3 commits (Make sure you know how many commits you                               # need to go back)
+$ git checkout newbranch    # Go to the new branch that still has the desired commits
+
 

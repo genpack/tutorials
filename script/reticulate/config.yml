@@ -1,8 +1,8 @@
 verbose: 1
 response: churn
 data:
-  source: "3://sticky.dummy.elula.ai/dummyDataset.csv"
-  tmp: "s3://sticky.dummy.elula.ai/run=XYZ/"
+  source: "3://event_prediction_platform.dummy.el.ai/dummyDataset.csv"
+  tmp: "s3://event_prediction_platform.dummy.el.ai/run=XYZ/"
 categorical:
 - investmentProperty
 - education
@@ -17,8 +17,8 @@ categorical:
 - paperless
 - hasPersonalLoanAccount
 storage:
-  report: "s3://sticky.dummy.elula.ai/reports/"
-  model: "s3://sticky.dummy.elula.ai/modelstorage/"
+  report: "s3://event_prediction_platform.dummy.el.ai/reports/"
+  model: "s3://event_prediction_platform.dummy.el.ai/modelstorage/"
 split: 0.5
 evaluationmetric: f1
 models:
@@ -32,6 +32,6 @@ models:
   class: "ClassificationModels.neural_net.NeuralNet"
   task: "prediction-linear-regression"
 compute:
-  cluster: sticky
+  cluster: event_prediction_platform
   subnet: subnet-00bd73a8441685ba5
   securitygroup: sg-0bd52dca744ae20e4

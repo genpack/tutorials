@@ -1,0 +1,20 @@
+main:
+  type: fluidPage
+  layout:
+  - 
+    - 
+      - x_select
+      - x_image
+    - txt_and
+    - 
+      - y_select
+      - y_image
+  - p_select
+  - p_image
+x_select:
+  type: selectInput
+  title: Who
+  choices:
+  - nima
+  - jon
+

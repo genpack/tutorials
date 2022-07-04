@@ -1,0 +1,614 @@
+Salary:
+  El: 
+  - ElSalary
+  - BankErrorMoneyBack
+  - SalaryGOODSTART
+  CBA: SalarySTAFFDEPARTMENT
+  ADCG: ADCG
+  TAX: ATO
+  JobExpenses:
+  - UVDues
+  - UWUFEES
+  - DYMOCKS
+  - TOYSANDTALES
+  - ARTISTICDOUGH
+  - TWINKL
+
+Saving:
+  NetBankSaver:
+  - xx0322
+  - xx1077
+  Saving:
+  - NimaRamezaniNetBank
+  - saving
+  - xx4024
+  
+House:
+  Rent: RobertEdwardsReal
+  Landscape:
+  - fence
+  - driveway
+  - KENTHURSTGROUP
+  - SydneyPlantMarket
+  - SYDNEYSPLANTMARKET
+  - Daiso
+  - FlowerPower
+  - SWANESNURSERIES
+  - EDENGARDENS
+  - Flick
+  - bunnings
+  - SolarNaturally
+  - HRKING
+  - SUNLITEHARDWARE
+  - mitre10
+  - fandago
+  - AUSTRALIANNATIVELAND
+  Insurance:
+  - COMMONWEALTHINSURANCE
+  Mortgage:
+  - Mortgage
+  - Loan
+  Utility:
+  - AGL
+  - AGLENERGY
+  - Powershop
+  - SYDNEYWATER
+  Furniture:
+  - THINKOUTSIDE
+  - DougSmithAppliances
+  - NickScali
+  - CocoRepublic
+  - Ikea
+  - VICTORIASBASEMENT
+  - HarveyNorman
+  - blind
+  - SKYE
+  - ADAIRS
+  - HUNTERDOUGLAS
+  - Domayne
+  - BEDSNDREAMS
+  - FlexiCards
+  - humm
+  - GospelPiano
+  - BabyKingdom
+  Repair:
+  - HomeInsuExcess
+  Council:
+  - TheHillsShireCouncil
+  - cncl
+Restaurant:
+  Cafe:
+  - TokyoBird
+  - CocoCubano
+  - persianbasement
+  - RedSpoon
+  - STARBUCKS
+  - GloriaJeans
+  - cafe
+  - caffe
+  - coffee
+  - Chatime
+  - ButterSaltPepper
+  - GreenOriental
+  - soulorigin
+  - bristo
+  - MBGP
+  - Delisse
+  - kinbyus
+  - VELOCEEXPRESSO
+  - bar
+  - asal
+  - CANTINA
+  - Movenpick
+  - PATISSERIES
+  - BAKEHOUSE
+
+  Fastfood:
+  - GAMI
+  - EATISTANBUL
+  - NOOKJR
+  - MadMex
+  - Gozleme
+  - Oporto
+  - yhh
+  - cozycove
+  - McDonalds
+  - Subway
+  - Lime
+  - TheYorkStreetEat
+  - THEFLYBARMELBOURNEAIR
+  - SaharaStreetFood
+  - JoesSandwichBar
+  - LeWrap
+  - UrbanTastyFood
+  - Tomtin
+  - Eatery
+  - Food
+  - ALATURKO
+  - CraftyCuts
+  - KAHII
+  - BellesTake
+  - HONGKONGFLAVOURS
+  - TheChook
+  - SESONI
+  - NIGHTSTARSPTYLTD
+  - GUZMANYGOMEZ
+  - gyg
+  - HungryJack
+  - hj
+  - PRADHAN
+  - MYRDLYJ
+  - ELITRADINGSYDNEY
+  - MARALLGROUPPTYLTD
+  - burger
+  - STREETGREEKCENTREP
+  - SABBABA
+
+  Restaurant:
+  - UBEREATS
+  - OLIVERBROWN
+  - ROLLD
+  - WOKPASSION
+  - RASHAYS
+  - PAKWAAN
+  - Farma
+  - MOTTOMOTTO
+  - HottoMotto 
+  - ffdarlingharbour
+  - SaharaGrill
+  - CHELSEAOPERATIONSPCHATSWOOD
+  - ISAACHOLDINGS
+  - HMSHOSTAMSTERDAM
+  - PappaRich
+  - Delicious
+  - DELICIOU
+  - Aloonak
+  - HaxGlow
+  - LaOng
+  - NokNok
+  - Trinity
+  - RobinKitchen
+  - MrSnail
+  - Nandos
+  - Kahii
+  - SCHNITZ
+  - HotChoc
+  - Oikos
+  - TheSteakHouseTaupo
+  - MudbrickVineyard
+  - LANTERNXPRESS
+  - JASJOSHGROUP
+  - SydneyFishMarket
+  - DOYLESPYRMONT
+  - SAMBAL
+  - SAFFRONRESTAURANT
+  - UMAISUSHI
+  - umisushi
+  - kebab
+  - GRANDTOWERSGRPPL
+  - CoogeeGround
+  - GRILLDPTYLTD
+  - MARSFIELDMEDITERRAN
+  - ShirazIceCream
+  - IMANZADEHSARABI
+  - PontoonBar
+  - ZINAENTERPRISESPTY
+  - KUBEINVESTMENTSPTQPS
+  - THENORTHSPOONMCMAHONS
+  - JAUNCEYGROWTHPTYLIMCOOGEE
+  - BONDIPIZZA
+  - DISTRICT1HCMC
+  - AlexLeeKitchen
+  - SaltDishGERALDTONWA
+  - TSHAYPTYLTDGREGORYWA
+  - DOMEEASTENDPERTH
+  - MURRAYSTREETGRILL
+  - PASARGADRESTAURANT
+  - SushiHubQVB
+  - COOLABAHTREEWYONG
+  - HaxGlowptyltd
+  - ANDERSEN
+  - NikkuMacquariePark
+  - lunch
+  - salad
+  - bbq
+  - grill
+  - cook
+  - restaurant
+  - dinner
+  - breakfast
+  - Pizza
+  - sushi
+  - dining
+  - pork
+  - chicken
+  - kitchen
+  - '85DEGREES'
+  - LA-ONGTHAI
+  - CRINITIS
+Transport:
+  PublicTransport:
+  - TransportForNSW
+  - TFNSWRAIL
+  - UBER
+  Toll:
+  - RMSEtoll
+  - RMS-Etoll
+  Insurance:
+  - BudgetDirect
+  - Allianz
+  - Aami
+  - QBE
+  - RealInsur
+  - ctp
+  - RENTALCOVER
+  Parking:
+  - SERVICENSW4040
+  - NationalParksNSW
+  - oeh
+  - cnclFagan
+  - parking
+  - CARPARK
+  - SydAprtIntnl
+  - RANDWICKCOUNCIL
+  - NORTHERNBEACHESCOUNC
+  - MACQUARIEUNIVERSITYNORTHRYDE
+  Registration:
+  - SERVICENSW
+  - RMS-Rego
+  Fuel:
+  - Caltex
+  - CTXWOW
+  - AMPOL
+  - Fuelco
+  - BUDGET PETROL
+  - ELEVEN
+  - WhakamaruGasStation
+  - Zturangi
+  - Dunnings
+  - ENHANCEGRANVILLE
+  - 'BPMAYSHILL2220'
+  - BPLANECOVE
+  - fuel
+  - petrol
+  - gas
+  - station
+  - BPSILVERWATER
+  Service:
+  - MicarCar
+  - KAKINGAHOLDINGS 
+  - REPCO
+  - pinkslip
+
+  Buy:
+  - Nissan
+  Rent:
+  - hertz
+  - RentalCars
+CreditCardRepayment:
+  CBA:
+  - PAYMENTRECEIVED
+  - CRDTBLL
+  - xx2892
+  - xx4465
+  - xx1217
+  - xx1822
+  - AUTOPAYMENT
+  - CBACRCARDAUTOPAY
+Shopping:
+  General:
+  - freechoice
+  - HABITANIA
+  - GLOBALRETAIL
+  - MUJICHATSWOOD
+  - DOWNUNDERDISCOUNTS 
+  - kmart
+  - SALTNPEPPER
+  - MIMCO
+  - target
+  - NEXTRA
+  - Myer
+  - DavidJones
+  - Typosydney
+  - PERFECTPTNNTHSYD
+  - SHAVERSHOP
+  - BROADWAYNEWS
+  - PANDORA
+  - KSTrading
+  - AMAZON
+  - Lindt
+  - Bookery
+  - shopping
+  - seed
+  - BEDBATHNTABLE
+  - PILLOWTALK
+  - 'H&M'
+  - RIPEMATERNITY
+  Houseware:
+  - KnifeforLife
+  - THEREJECTSHOP
+  - tkmaxx
+  - T2
+  Office:
+  - OFFICEWORKS
+
+  Pets:
+  - PETSTOCK
+  - PETCARE
+
+  Flower:
+  - FLORIST
+  - ORCHID
+  - WILDBUNCH
+  
+  Clothes:
+  - COUNTRYROAD
+  - BROOKSBROTHERS
+  - Kathmandu
+  - Levi
+  - Rebel
+  - JustJeans
+  - CRMACQUARIE
+  - OXFORDSHOP
+  - HARMONT
+  - nike
+  - puma
+  - adidas
+  - GAZMAN
+  - WITCHERY
+  - shoe
+  
+  Electronics:
+  - JBHiFi
+Health:
+  Insurance:
+  - Bupa
+  - CBHS
+  Medicine:
+  - GMWORLD
+  - AMCAL
+  - Pharmacy
+  - YSTHealth
+  - PriceLine
+  - pline
+  - CHEMIST
+  - drug
+  Dentist:
+  - AshrafObaid
+  - TEETH
+  General:
+  - ULTRASOUND
+  - MACQUARIEMEDICALIM
+  - LAVERTYPATHOLOGY
+  - adora
+  - MACQUARIEMEDICAL
+  - hospital
+  - health
+  - clinik
+  - MCAREBENEFITS
+  - CellCare
+  Specialist:
+  - NEUROSURGERY
+  - BENJAMINTRAUTMAN
+  - chiro
+  Sport:
+  - hiltonsydney
+  - virginactive
+Services:
+  Banking:
+    - paymentfee
+    - TransferFee
+    - OverdraftUsageFee
+    - annualfee
+    - Interest
+    - DebitInterest
+    - DebitExcessInterest
+    - INTNLTRANSACTIONFEE
+    - OverdrawingApprovalFee
+    - TRANSACTIONFEE
+    - PaymentFee
+  Laundry:
+    - LAWRENCEDRYCLEANERS
+    - MAURICEDRYCLEANE
+    - Fabani
+    - dryclean
+    - laundr
+  Legal:
+  - Kargar
+  - NSWREGISTRY
+  General:
+  - bavraservices
+  - MonacoJewellers
+  - MQCCleaning
+  - PERENNIALGROUP
+  - '360PRINTSOLUTIONS'
+  - Bundesamtfue
+  Visa:
+  - AustraliaImmigration
+  - DEPARTMENTOFHOME
+  - HOMEAFFAIRS
+  - Expensesformumanddadtrip
+Groceries:
+  General: 
+  - Coles
+  - iga
+  - COSTCO
+  - Woolworths
+  - WWTOWNHALL
+  - supermar
+  - SUPRMRKT
+  - superm
+  - grocer
+  - Aldi
+  - CountDown
+  - MILAD
+  - zamzam
+  - HAYMARKET
+  - HorbourMarket
+  - GKRSUNSPICE
+  - SUMMERLANDPOULTRY
+  - TheCheesecakeShop
+  Meat:
+  - BUTCHERIKHWAN
+  - Butcher
+  - meat
+  - chop
+  - malekmarjan
+  Drinks:
+  - Tyrrells
+  - DanMurphy
+  - NAKEDWIN
+  - BUNGWAHLFUELLIQUOR
+  - CELLARS
+  - wine
+  - Heinemann
+  Vegetables:
+  - KellyvilleEggs
+  - SOLANNA
+  - HamzeBros
+  - NASSERHAMZE
+  - ASHBAONEPTYLTD
+  - harris
+  - GROWERS
+  Bread:
+  - BAKER
+  - Bread
+Charity:
+  Wikipedia: Wikipedia
+  BlackDog: BlackDog
+  Bullyzero: Bullyzero
+  BlackDogInstitute: BLACKDOGINSTITUTE
+  MissionAustrlia: MissionAu
+  MedEarth: MEDEARTHEVELEIGH
+  Iran: 
+  - AmirEntezam
+  - K080122354495
+  Unknown: 
+  - charity
+  - donate
+Beauty:
+  Hair:
+  - hair
+  - Lavish
+  Skin:
+  - TMALPTYLTDNORTHRYDE
+  - occitane
+  General:
+  - beauty
+  - NAIL
+  
+Post:
+  Post: Post
+  MumbaiExpress: MUMBAIEXPRESSCENTR
+  
+Leisure:
+  Show:
+  - MaxAmini
+  - HarbourInformation
+  - LUNAPARKSYDNEYPTQPSMILSONS
+  - concert
+  - EVENTCINEMAS
+  Camping:
+  - DUNLEITHCARAVAN
+  - OEHNPTHEBASIN
+  - DBCAYANCHEPWANNEROO
+  - TREACHERYCAMP
+  - CommBankappTFRfromALIARMINalimojgancamp
+  - TransferFromALIREZASADEGHIAl-e-chador
+  - camping
+  - NATIONALPARK
+  General: 
+  - SeaToSummit
+  - WairakeiTerraces
+  - WaiotapuThermalWonde
+  - TheWaihekeBikes
+  - HUNTERVALLEYGARDNS
+  - PrinceAlfredParkSurryHills
+  - SYDNEYATTRACTIONSDH
+  - FEATHERDALE
+  - HUNTERVALLEY
+
+  Flight: 
+  - easyJet
+  - Skiddo
+  - AirAuckland
+  - MYHMONZA
+  Accommodation:
+  - SkyCityHotelAuckland
+  - AlfaAmsterdamHotel 
+  - MyHolidays
+  - accommo
+  - hotel
+  - hostel
+  - bnb
+  - HolidayHouse
+  Overseas: 
+  - amsterdam
+  - lucca
+  - MILANO
+  - globalblue
+  - latina
+  - SEGRATE
+  - EINDHOVEN
+  - ATMSYDINTLAIRPT
+  - AUCKLAND
+  - NZDOLLAR
+  - WAIHEKE
+Fine:
+  AustralianPolice: FEDERALPOLICE
+  Fine: Fine
+Communication:
+  Phone: 
+  - VODAFONE
+  - Telstra
+  - navacharge
+  - nava6months
+  - optus
+  - FONEFIELD
+  - Samsung
+  - phone
+  - handset
+  - APPLE
+  - ICURE
+  - COMMUNICATION
+  Internet:
+  - TPG
+  - telstra
+  - internet
+Education:
+  Music: 
+  - TransfertoCBAA/cCBTabletAppmembershipfee
+  - LASTUDIOS
+  - music
+  - CozyStage
+  Books:
+  - Books
+Unknown:
+  General:
+  - YUNZHOUINVESTMENT
+  - RINGOAUSTRALIA
+  - LISKENSPTYLTD
+  - OLYMPIAU
+  - jsknsw
+  - JPTYLTDCARLINGFORDNS
+  - LISKENSPTYLTD
+  - DEPOSITSANDTRANSACTI
+  - VMLAKSHMI
+  - ACCUMULATELOYALTY
+  - FlyingDragonGroup
+  - panter
+  - D-CHOICE
+  
+Transfer:
+  Cashout:
+  - cbaatm
+  - cash
+  Paypal:
+  - Paypal
+  DirectDebit:
+  - DirectDebit
+  DirectCredit:
+  - DirectCredit
+  General:
+  - transfer
+
