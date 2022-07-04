@@ -1,0 +1,12 @@
+# ft_config_01.yml
+input_id: ml000001
+output_id: xxxxxxxx
+caseid_mapper: CustomerID2AccountNo
+shift_months: -1
+features:
+- event1_count
+- event2_count_cumsum
+- event3_tte
+- event3_censored
+- event3_label
+- event4_attribute1_sum

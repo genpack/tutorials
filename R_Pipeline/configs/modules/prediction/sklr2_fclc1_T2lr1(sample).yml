@@ -1,0 +1,37 @@
+## Rscript R_Pipeline/modules/prediction.R sklr2_fclc1_T2lr1.yml
+
+dates: ['2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 
+target: ERPS
+model:
+  # skklr:
+  class: CLS.SKLEARN.LR
+  name: sklr2_fclc1_T2lr1
+  penalty: l2
+  transformers:
+  # T10fclc1:
+  - class: CLS.SKLEARN.LR
+    name: lr1_c1
+    penalty: l1
+    solver: 'liblinear'
+    fe.enabled: yes
+    return: logit
+    features:
+    - file_name: 'feature_clustering/fclc1_out.csv'
+      operations: 
+      - function: filter
+        argument: "cluster == 1"
+      - function: pull
+        argument: fname
+  - class: CLS.SKLEARN.LR
+    name: lr1_c2
+    penalty: l1
+    solver: 'liblinear'
+    fe.enabled: yes
+    return: logit
+    features:
+    - file_name: 'feature_clustering/fclc1_out.csv'
+      operations: 
+      - function: filter
+        argument: "cluster == 2"
+      - function: pull
+        argument: fname

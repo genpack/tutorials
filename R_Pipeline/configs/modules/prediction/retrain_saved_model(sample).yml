@@ -1,0 +1,12 @@
+## Rscript R_Pipeline/modules/prediction.R retrain_saved_model.yml
+
+
+dates: ['2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 
+target: ERPS
+
+model:
+  class: SavedModel
+  path: D:/Users/firstname.surname/Documents/data/models/xxxxxxxx/ERPS/H3/2019-08-01
+  name: XGB45678
+  rename: best_gssc2v1
+  reset: yes

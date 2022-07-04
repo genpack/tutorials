@@ -1,0 +1,57 @@
+---
+title: "R Pipeline: Easy way to run experimentation for Event Prediction Platform"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+---
+
+```{r setup, include=FALSE}
+source("utils.R")
+```
+
+<div id="main-banner" class="row">
+
+<div class="col-sm-8">
+
+* Run fast, reliable and low-cost modelling experiments for on the client workspace.
+
+* Supports a wide variety of models from different Machine Learning packages including [sklearn](https://scikit-learn.org/stable/index.html); [mlr](https://mlr.mlr-org.com).
+
+* Flexible and easy to use. No need of R programming skills required.
+
+* Changing taregt and time-frame horizon is easy.
+
+You can use R Pipeline to run R&D experiments for Event Prediction Platform. You can run predictions, extract results and compare model performances.
+
+Everything you can do through the R Pipeline, is by running modules. There are a number of modules provided so that you can run them. Each module require an associated config file that specifies input parameters required for the module to run. 
+you can create you own module as well by adding your R script in the modules folder.
+<!-- # Change these bullet points for R Pipelione features -->
+A wide variety of modules are included in the R Pipeline, including:
+
+### Main Modules:
+* [**Prediction**](prediction_module.html)
+* **Subset Scorer**
+* **Greedy Feature Scorer**
+* **Feature Correlation**
+* **Model Comparison**
+* **Run Saved Models**
+* **Update Saved Models**
+
+### IO Modules:
+
+* **Copy MlMapper**
+* **Copy Prediction**
+* **Build WideTable**
+
+### EPP Modules:
+These are modules that make a bridge between the R pipeline and the El Python Pipeline.
+There are modules that create config files that you can use them in the Python Pipeline.
+
+* **Sampler Config Generator**
+
+* **Prediction Config Generator**
+
+The [Getting Started](basics.html) page includes instructions to setup the pipeline and install required packages.
+
+The [Modules Module](modules.html) Describes all the R Pipeline modules.

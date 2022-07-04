@@ -1,0 +1,8 @@
+## mlsampler generator config: 24months
+## Rscript R_Pipeline/widgets/ppcg_mlsampler.R ppcg_mlsampler_24months.yml
+
+path_output: '/Users/nima/Documents/software/R/projects/data-science-tools/tests/configs/mlsampler_config_generator/02_24months'
+
+input_runid: 'mlmapper-runid-sits-here'
+dates: ['2021-07-01', '2021-08-01', '2021-09-01']
+num_months: 24

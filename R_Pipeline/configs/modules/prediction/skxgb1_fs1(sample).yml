@@ -1,0 +1,26 @@
+## Rscript R_Pipeline/modules/prediction.R skxgb1_fs1.yml
+
+
+dates: ['2020-01-01', '2020-02-01']
+target: ERPS
+# skxgb1: skxgb with optimal hyperparameters for pnb
+model:
+  class: CLS.SKLEARN.XGB
+  name: skxgb1_fs1
+  alpha: 100
+  colsample_bytree: 0.997
+  eta: 0.308
+  gamma: 24
+  lambda: 3
+  max_depth: 2
+  min_child_weight: 10
+  n_estimators: 150
+  scale_pos_weight: 3
+  subsample: 0.342
+
+# fs1: feature set: Specify feature names
+features:
+  - feature_1
+  - feature_2
+  - feature_3
+  - feature_4

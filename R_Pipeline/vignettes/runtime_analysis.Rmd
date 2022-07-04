@@ -1,0 +1,257 @@
+---
+title: "St Model Runtime Analysis"
+author: "Nima Ramezani"
+date: "22/03/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = F, message = F)
+setwd("../..")
+source('R_Pipeline/initialize.R')
+source('R_Pipeline/libraries/io_tools.R')
+source('R_Pipeline/libraries/pp_tools.R')
+```
+
+## Introduction
+
+Some production St models often runs into timeouts. 
+We want to see the performance tradeoff with running shorter models (e.g., fewer features/rows).
+
+In this analysis, we produce a scatterplot of runtime versus `lift_2` for `r mc$client`. 
+We will use all succeeded prediction models from the latest 6-month update associated with ML-Mappers ID `r mc$mlmapper_id`.
+
+Failing to resolve this, we'll keep having to rerun jobs during refresh, wasting time and money. 
+It should be dealt with immediately.
+
+## Read Data
+
+We read all non-parent and succeeded prediction model runs on the specified ml-mapper.
+This includes all GSS, HPO and RTE jobs.
+Any model in  which a leaky feature was used is removed.
+
+The table below, shows number of prediction runs used in the analysis 
+as well as average run-time and performance repersented by `lift_2` and `gini_coefficient` 
+groupeb by downsampling rate and number of months:
+
+
+```{r read_data}
+fetpath = "%s/%s/etc/features.json" %>% sprintf(mc$path_mlmapper, id_ml)
+catpath = "%s/%s/categorical_encodings.json" %>% sprintf(mc$path_mlmapper, id_ml)
+features = jsonlite::read_json(fetpath) %>% unlist %>% 
+  setdiff(charFilter(., mc$leakages, and = F)) %>% setdiff(c('caseID', 'eventTime'))
+catcard = jsonlite::read_json(catpath) %>% lapply(length) %>% unlist
+
+filename = sprintf("%s/%s/prediction/epp_runs.csv", mc$path_reports, id_ml)
+runs = bigreadr::fread2(filename)
+
+# Filtering:
+
+# Remove model runs containing leaky features
+leaky_features = colnames(runs) %^% mc$leakage
+if(length(leaky_features) > 0){
+  tbr = which(runs[leaky_features] %>% rowSums(na.rm = T) > 0)
+  if(length(tbr) > 0){
+    runs = runs[-tbr,  ]
+  }
+}
+
+# Add additional columns:
+# features = features %>% intersect(colnames(runs))
+# numeric_features = features %>% setdiff(names(catcard))
+# categorical_features = features %>% intersect(names(catcard))
+# 
+# runs[features] = !is.na(runs[features])
+# 
+# # runs$num_features = runs[features] %>% rowSums
+# runs$num_numeric_features = runs[numeric_features] %>% rowSums
+# runs$num_categorical_features = runs[categorical_features] %>% rowSums
+# for (cf in categorical_features){
+#   runs[,cf][runs[,cf] > 0] = catcard[cf]
+# }
+# runs$total_cardinality = runs[features] %>% rowSums
+# 
+# runs %<>% 
+#   mutate(num_training_months = difftime(train_to, train_from, units = 'weeks') %>% 
+#            {1 + .*12/52} %>% as.integer,
+#          num_test_rows = 
+#            confusion_matrix.true.negative  + confusion_matrix.true.positive + 
+#            confusion_matrix.false.negative + confusion_matrix.false.negative,
+#          runtime = difftime(runs$end_time, runs$start_time, units = 'mins') %>% as.numeric) %>% 
+#   filter(num_training_months == 12, train_dns_rate == 1.0)
+
+
+runs %<>% 
+   mutate(num_training_months = difftime(train_to, train_from, units = 'weeks') %>% 
+          {1 + .*12/52} %>% as.integer) %>% 
+  mutate(dataset_size = num_training_months*model.num_features*(0.02+0.98*train_dns_rate),
+         downsampled = train_dns_rate < 1.0,
+         runtime = difftime(runs$end_time, runs$start_time, units = 'mins') %>% as.numeric)
+
+cols = colnames(runs) %>% 
+  charFilter('features', 'model.classifier.parameters', 'runtime', 
+             'dataset_size', 'train_dns', and = F) %>% c('lift_2', 'gini_coefficient')
+
+classes = cols %>% sapply(function(u) class(runs[,u])[1]) %>% unlist
+
+cols = cols[which(classes %in% c('numeric', 'integer'))]
+runs[cols] %<>% na2zero
+
+runs %>% group_by(downsampled, num_training_months, train_dns_rate) %>% 
+  summarise(count = length(modelrun), avg_runtime = mean(runtime), 
+            avg_lift2 = mean(lift_2), avg_gini = mean(gini_coefficient)) %>% 
+  knitr::kable()
+
+```
+
+This study includes totally `r nrow(runs)` predictions run 
+from `r min(runs$start_time)` to `r min(runs$start_time)` 
+run on the MLMapper with runid `r id_ml`.
+
+## Runtime and Performance
+
+Is there a relationship between model runtime and model performance metrics mainly `gini_coefficient` and `lift_2`?
+
+The following scatter plot visualizes the answer to this question:
+
+```{r runtime_vs_lift_2}
+ggplot2::ggplot(runs %>% select(lift_2, runtime, downsampled), 
+                aes(lift_2, runtime, color = downsampled)) + 
+  geom_point()
+```
+
+## Heartmap
+
+This heatmap chart shows correlation between important factors as well as performance metrics:
+
+```{r heatmap}
+corrmat = runs[cols] %>% cor
+corrmat %>% 
+  plotly::plot_ly(x = rownames(.), y = colnames(.), z = ., type = 'heatmap')
+#  ggplot2::ggplot(
+#    aes(Var1, Var2, fill = value)) + 
+#  geom_tile()
+```
+
+The highest correlations are:
+```{r high_corr}
+corrmat %>% 
+  reshape2::melt() %>% 
+  mutate(abscorr = abs(value)) %>% 
+  filter(abscorr < 1) %>% 
+  arrange(desc(abscorr)) %>% 
+  distinct(abscorr, .keep_all = T) %>% 
+  head(20) %>% 
+  select(Var1, Var2, correlation = value) %>% 
+  knitr::kable()
+```
+
+Which variables are most correlated with `lift_2`:
+
+```{r high_corr_lift2}
+corrmat %>% 
+  reshape2::melt() %>% 
+  mutate(abscorr = abs(value)) %>% 
+  filter(abscorr < 1, Var1 == 'lift_2', Var2 != 'lift_2') %>% 
+  arrange(abscorr) %>% 
+  head(20) %>% 
+  mutate(Var2 =factor(Var2, levels = Var2)) %>% 
+  select(variable = Var2, correlation = value) %>% 
+  plotly::plot_ly(y = ~variable, x = ~correlation, type = 'bar')
+```
+
+Which variables are most correlated with `runtime`:
+
+```{r high_corr_runtime}
+corrmat %>% 
+  reshape2::melt() %>% 
+  mutate(abscorr = abs(value)) %>% 
+  filter(abscorr < 1, Var1 == 'runtime', Var2 != 'runtime') %>% 
+  arrange(abscorr) %>% 
+  head(20) %>% 
+  mutate(Var2 =factor(Var2, levels = Var2)) %>% 
+  select(variable = Var2, correlation = value) %>% 
+  plotly::plot_ly(y = ~variable, x = ~correlation, type = 'bar')
+```
+
+## Important Factors
+
+### Size of Trainign Dataset:
+
+It makes sense to assume that size of dataset (number of features * number of rows)
+should be the main factors impacting model runtime.
+Let's see how runtime duration depends on the size of dataset:
+
+```{r runtime_vs_ds_size}
+ggplot2::ggplot(runs %>% select(dataset_size, runtime), 
+                aes(dataset_size, runtime)) + 
+  geom_point() + 
+  stat_smooth(method = lm)
+```
+
+### XGBoost Hyper-parameters:
+
+It looks like size of dataset is an important factor but 
+it does not fully explain variability in model runtimes.
+
+So the question is what other factors are causing delay in prediction jobs?
+
+XGBoost Hyper-parameters could be another factor might impact running time. 
+Maybe one of the most impactful parameter is the *max_depth*.
+
+```{r runtime_vs_max_depth}
+ggplot2::ggplot(runs %>% select(model.classifier.parameters.max_depth, runtime), 
+                aes(model.classifier.parameters.max_depth, runtime)) + 
+  geom_point() + 
+  stat_smooth(method = lm)
+```
+
+The chart shows this factor is even more important than number of fetures but it also does not completely explain the variability in `runtime`.
+
+As observed in the charts, both performance metrics `lift_2` and `gini_coefficient` 
+are not correlated with `runtime`.
+
+As we see the hyper-parameter `max_depth` is impacting model runtime, 
+it's good to observe if it is also impactful in the model performance.
+The correlation is 
+
+```{r lift_2_vs_max_depth}
+ggplot2::ggplot(runs %>% select(model.classifier.parameters.max_depth, lift_2), 
+                aes(model.classifier.parameters.max_depth, lift_2)) + 
+  geom_point() + 
+  stat_smooth(method = lm)
+```
+
+
+## Regression
+
+Let's run a regression to see the weight of different factors in impacting model runtimes.
+We picked factors(features) associated with different attributes of the prdiction jobs:
+
+```{r regression}
+cols = cols %-% c('lift_2', 'gini_coefficient')
+reg = lm(runtime ~ ., data = runs[cols])
+summ = summary(reg); summ$coefficients %<>% as.data.frame
+summ$coefficients[, 'log_pvalue'] = summ$coefficients[, 'Pr(>|t|)'] %>% log
+ord = summ$coefficients$log_pvalue %>% order
+knitr::kable(summ$coefficients[ord,])
+```
+
+The most three important factors are: `r rownames(summ$coefficients)[ord[1:3]] %>% paste(collapse = ',')`
+
+Here is a scatter plot showing regression fitted values versus actual runtime values:
+
+
+```{r fitted_vs_actual}
+data.frame(actual = runs$runtime, fitted = reg$fitted.values) %>% 
+  ggplot2::ggplot(
+    aes(actual, fitted)) + 
+  geom_point() + 
+  stat_smooth(method = lm)
+
+```
+
+ The Mean *Absolute Error (MSE)* of this regression model is `r reg$residuals %>% abs %>% mean` and the 
+ *R-Squared* metric is `r summ$r.squared`.
+ 
+ 

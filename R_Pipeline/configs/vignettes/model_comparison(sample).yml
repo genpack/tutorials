@@ -1,0 +1,32 @@
+# cmp_config_01: model comparison config:
+
+dates: [ '2020-01-01', '2020-02-01', '2020-03-01', '2020-04-01', '2020-05-01', '2020-06-01', '2020-07-01', '2020-08-01', '2020-09-01', '2020-10-01', '2020-11-01', '2020-12-01'] 
+target: ERPS
+horizon: 3
+models: ['epp_skxgb', 'skxgb_ssc2v1_elpbf', 'skxgb_gssc2v1', 'gss_hpo_robustness']
+add_plot: yes
+add_boxplot: yes
+add_pairwise_comparison: yes
+
+metrics: 
+- gini
+- lift_2pc
+- precision_2pc
+
+inputs: 
+- filename: 'prediction/runs.csv'
+- filename: 'prediction/gss_hpo_robustness.csv'
+  operation:
+  - function: rename
+    argument:
+    - "test_at = test_date"
+    - "lift_2pc = lift_2"
+    - "precision_2pc = precision_2"
+    - "gini = gini_coefficient"
+  - function: mutate
+    argument:
+    - "model_name = 'gss_hpo_robustness'"
+    - "target = 'ERPS'"
+    - "horizon = 3"
+    - "time_trained = Sys.time()"
+

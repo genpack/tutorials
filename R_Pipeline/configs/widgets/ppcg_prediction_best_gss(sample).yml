@@ -1,0 +1,54 @@
+## Rscript R_Pipeline/widgets/ppcg_prediction_best_gss.R
+
+# month for which prediction config is generated. Make sure sampler id that you specify contain these months.
+dates: ['2020-01-01', '2020-02-01', '2020-11-01', '2020-12-01']
+
+# config name appears on the folder of where the config is generated
+
+gss_dates: ['2020-08-01', '2020-09-01', '2020-10-01']
+
+# you can specify either a local scores file or raw_scores from a succeeded gss run (incomplete gss runs don't have a raw_scores table)
+input_scores:
+  - filename: gssc7_out.csv
+    operation:
+    - function: rename
+      argument: 
+      - "gini_coefficient = gini"
+      - "lift_2 = lift_2pc"
+  - agent_runid:  xxxxxx-xxxxx-xxxxxxx
+    model_runid:  xxxxxx-xxxxx-xxxxxxx
+  - agent_runid:  xxxxxx-xxxxx-xxxxxxx
+    model_runid:  xxxxxx-xxxxx-xxxxxxx
+
+# Optional if you want to specify a config(without features) different from GSS models, 
+# if you do not specify anything, output config will be taken from the first gss model.
+# options for filetype: json, yaml
+input_config:
+  filetype: json
+  filename: path/to/config/file/config.json
+
+# Make sure sampler id contain months specified in argument 'dates' 
+mlsampler_id:       xxxxxx-xxxxx-xxxxxxx
+
+# This setting, picks the features of the best gss model and 
+# best model is defined as the model with highest precision at the top 2%
+ranking_metric: model_performance
+num_models: 1
+performance_metric: precision_2
+
+# Optional if you want to make any further changes to the config
+changes:
+  max_memory_GB: 1
+  model:
+    classifier:
+      models:
+      - classifier:
+          parameters:
+            n_estimators: 150
+
+# If num_seeds is greater than 1, an ensemble config is returned, otherwise a single model
+num_seeds: 10
+
+# This name will appear in the folder name where the output config is dumped.
+output_name: best_gss_xxxxx
+output_path: 'D:/Users/firstname.surname/Documents/CodeCommit/analytics-democlient/2_submission_configs/democlient/05_predictions/R_Pipeline'

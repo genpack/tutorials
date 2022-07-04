@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Nima Ramezani" />
+
+<meta name="date" content="2020-01-10" />
+
+<title>Readme</title>
+
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<script src="libs/ace-1.2.3/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="libs/holder-2.9.0/holder.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="snippets/snippets.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- google analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-77306155-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+      .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">R Pipeline for Event Prediction Platform</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Introduction</a>
+</li>
+<li>
+  <a href="basics.html">Getting Started</a>
+</li>
+<li>
+  <a href="modules.html">Modules</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Readme</h1>
+<h4 class="author">Nima Ramezani</h4>
+<h4 class="date">01/10/2020</h4>
+
+</div>
+
+
+<p>This document explains how to use R Pipeline for St. There are
+currently a number of modules available within the R Pipeline, where you
+can run them by running the associated script with a .yml configuration
+file.</p>
+<div id="initial-setup" class="section level3">
+<h3>Initial Setup</h3>
+<p>Before starting to run the modules, you will need to do some startup
+works in order to set up your R Pipeline environment. You can set up
+through the following steps. Steps 2 to 3 need to be done once for each
+ML-Mapper run-id.</p>
+<ol style="list-style-type: decimal">
+<li><a href="#add-R-to-PATH">Add R address to the PATH environmental
+variable</a></li>
+<li><a href="#setup-master-config">Setup master config</a></li>
+<li><a href="#copy-mlmapper">Copy ML-Mapper to local</a></li>
+<li><a href="#create-mlmapper-widetable">Create a WideTable</a></li>
+</ol>
+</div>
+<div id="main-modules" class="section level3">
+<h3>Main Modules:</h3>
+<ul>
+<li><strong>Prediction</strong></li>
+</ul>
+<p>With prediction module, you will be able to run prediction models for
+various months. You will need to specify all settings of the prediction
+as well as types and hyper-parameters of the prediction model and all
+its transformers in a prediction config file which should be located in
+the <strong><path_config>/prediction</strong> folder. You will find
+steps to run a the prediction module, <a
+href="#pred-module-steps">here</a>.</p>
+<ul>
+<li><strong>Subset Scorer</strong></li>
+</ul>
+<p>Subset Scorer runs one model multiple times, each time with a random
+subset of features and scores the features based on feature importance
+and the performance of the model in which the feature is used. You can
+specify model type and its hyper-parameters as well as number of runs
+and a filename and path to save the results.</p>
+<ul>
+<li><strong>Greedy Feature Scorer</strong></li>
+</ul>
+<p>In subset scorer, we train a model multiple times each time with a
+random subset of features and score them. The Greedy Feature Scorer
+(GFS) module implements a different algorithm for feature selection. In
+greedy feature scorer, we keep the best model and all its features (best
+model is the model with highest performance). Random subsets are then
+taken from the remaining features which are not among the features by
+which the best model is trained. Random subsets are added to the
+existing features of the best model and a new model is trained. If in
+any step, the new model came up with higher performance than the best
+model, it replaces the best model.</p>
+<ul>
+<li><p><strong>Feature Correlation</strong> This module computes a
+number of correlation metrics for the features.</p></li>
+<li><p><strong>Model Comparison</strong> Use this module to compare the
+performances of multiple models.</p></li>
+<li><p><strong>Run Saved Models</strong> This module runs all the saved
+models and</p></li>
+<li><p><strong>Update Saved Models</strong></p></li>
+</ul>
+</div>
+<div id="auxiliary-modules" class="section level3">
+<h3>Auxiliary Modules:</h3>
+<p>In addition to the main modules, there are some auxiliary modules
+which help to copy data faster or build configs for the El Python
+Pipeline (EPP). Auxiliary modules come in two groups: IO Modules and EPP
+Modules.</p>
+<div id="io-modules" class="section level4">
+<h4>IO Modules:</h4>
+<ul>
+<li><strong>Build WideTable</strong></li>
+<li><strong>Copy MLMapper</strong></li>
+<li><strong>Copy Prediction</strong></li>
+</ul>
+</div>
+<div id="epp-modules" class="section level4">
+<h4>EPP Modules:</h4>
+<ul>
+<li><strong>Sampler Config Generator</strong></li>
+<li><strong>Prediction Config Generator</strong></li>
+</ul>
+</div>
+</div>
+<div id="pred-module-steps" class="section level3">
+<h3>Steps to run the prediction module</h3>
+<p>To start using R_Pipeline for prediction, you will need to follow
+these steps;</p>
+<ol style="list-style-type: decimal">
+<li><a href="#setup-prediction-config">Setup Prediction Config</a></li>
+<li><a href="#run-prediction-module">Run Prediction Module</a></li>
+</ol>
+<p>The results will be added to the file saved as
+<path/to/reports>/prediction/runs.csv. The path to your repots folder is
+specified in the master config. Models will be saved if config argument
+<em>save_model</em> is set to <em>yes</em>. The path to the root folder
+of models is also specified in the master config. There is a folder for
+each target and a folder for each test date within each target. All
+files of the model are saved in a folder named same as the model
+name.</p>
+<div id="add-R-to-PATH" class="section level4">
+<h4>Adding R address to the PATH environmental variable</h4>
+<p>This enables you to run Rscript from anywhere you started your shell
+when you want to run a module from command line. Follow these steps:</p>
+<ol style="list-style-type: decimal">
+<li>Goto Control Panel -&gt; System &amp; Security -&gt; System -&gt;
+Advanced System Settings</li>
+<li>Click on the <strong>Environment Variables</strong> in the buttom
+down</li>
+<li>Select PATH and click on edit</li>
+<li>Click New and add path to your R engine (Example: C:\Program
+Files\R\R-4.0.0\bin\x64)</li>
+</ol>
+</div>
+<div id="setup-master-config" class="section level4">
+<h4>Setting up Master Config</h4>
+<p>Before startting to work on a client, you need to set a master
+configuration file. This file specifies main inputs that the pipeline
+requires to start its work, like user, client, runids of various python
+pipeline modules which are used in the R Pipeline like ML-Mapper,
+event-mapper, obs-mapper and etc. Since all config files are There is a
+file named master_config_sample.yml in the root folder of the
+R_Pipeline. You should create a copy of this file and rename it to
+master_config.yml and modify it accordingly. Like any other config file,
+you should not commit it in data-science-tools, but you can keep a copy
+of it in the analytics repository associated with the client. Here is a
+list of parameters you can set in the master config file:</p>
+<ul>
+<li><strong>client</strong> name of the client. (Example: bankfirst,
+pnbank, resimac, …)</li>
+</ul>
+</div>
+<div id="copy-mlmapper" class="section level4">
+<h4>Copy EPP<a href="#fn1" class="footnote-ref"
+id="fnref1"><sup>1</sup></a> ML-Mapper to local</h4>
+<p>You can make a copy of the ML-Mapper output in any folder in your
+local machine and specify it’s path in the master_config file. It is
+important to know that the parquet folder containing the ML-Mapper
+output, should be renamed to the first 8 letters of the run-id of the
+ML-Mapper run. To copy ML-Mapper to your local machine, we have provided
+an io module which creates a copy of the run-id you provided into your
+local machine in the right place.</p>
+<pre><code>cd path/to/data_science_tools
+Rscript R_Pipeline/io/copy_mlmapper.R</code></pre>
+<p>Alternatively, you can open R Studio and source file
+<code>io/copy_mlmapper.R</code>.</p>
+</div>
+</div>
+<div id="using-output-of-the-epp-ml-mapper" class="section level3">
+<h3>Using output of the EPP ML-Mapper:</h3>
+<p>The R Pipeline needs to use a dataset for training and testing the
+models. Since the ML-Mapper module of the R pipeline is not ready yet,
+you will need to use outputs from the Python ML-Mapper module and use it
+with either Spark or <a href="#widetable">WideTable</a>. Before creating
+a WideTable, you will need to <a href="#copy-mlmapper">have a copy of
+ML-Mapper output in your local workspace</a>.</p>
+<div id="widetable" class="section level4">
+<h4>What is WideTable?</h4>
+<p>WideTable is a format designed for tables with numerous number of
+columns. Working with a WideTable should be just like a normal
+data.frame, however, currently there are limitations and some
+functionalities are still under construction. Using a WideTable enables
+you to work with huge data-sets which is not possible to handle with
+regular data.frames because of memory restrictions. WideTable is
+memory-efficient as it uses a limited amount of memory for the most
+recent used columns. Additional columns will remain in the hard disk and
+are loaded when required. New columns replace the oldest columns when
+the required memory exceeds a certain limit specified by user. All
+columns are saved with the efficient and compressed .RData format used
+by R for saving workspace data. The disk spcae required by WideTable for
+the entire dataset is reduced to one-quarter of the space that parquet
+format requires and around 5% of the disk space that CSV format takes,
+while it is much faster to load data than parquet and CSV.</p>
+<p>Working with a WideTable is faster than Spark when used locally.
+However, Spark on the cloud can be faster for huge datasets, so
+WideTable is the most appropriate tool for local use.</p>
+<p>You can specify a maximum memory-size used by the WideTable when you
+create it. The more memory size limit you specify, the faster your
+WideTable works. The default space is 1 Giga Bytes, however we recommend
+5 Giga Bytes to be used for the ML-Mapper.</p>
+</div>
+<div id="create-mlmapper-widetable" class="section level4">
+<h4>How to create a WideTable out of ML-Mapper?</h4>
+<p>Currently, WideTables can be created by specifying a path to a folder
+containing multiple .csv files. Each .csv table, can accommodate a
+number of columns and these columns are binded to build the
+WideTable.</p>
+<ol style="list-style-type: decimal">
+<li><p>Convert parquet to CSV: The first step to build a WideTable is to
+create .csv files from parquet. This can be done by running a jupyter
+notebook script: <strong>R_pipeline/io/parquet2csv.ipynb</strong> Don’t
+forget to specify path to the master config file in the second chunk of
+the notebook. You can also specify date range to load a subset of
+rows.</p></li>
+<li><p>Create a widetable from CSV files:</p></li>
+</ol>
+<pre><code>cd path/to/data_science_tools
+Rscript R_Pipeline/io/build_widetable.R</code></pre>
+</div>
+</div>
+<div id="setup-prediction-config" class="section level3">
+<h3>Setup Prediction Config:</h3>
+<p>A prediction module works with its associated config file in which
+you specify all parameters and settings. In addition to model class and
+its hyper-parameters, you can specify the target of prediction, and
+dates for which you want to run your model. A simple example of a
+prediction config in the R_Pipeline looks like this:</p>
+<pre><code>dates: [&#39;2020-01-01&#39;, &#39;2020-02-01&#39;, &#39;2020-03-01&#39;]
+target: ERPS
+horizon: 3
+model:
+  class: CLS.SKLEARN.XGB
+  name: my_first_st_model
+  n_jobs: 4
+  fe.enabled: yes
+  colsample_bytree: 0.6
+  eta: 0.05
+  max_depth: 6
+  min_child_weight: 75
+  n_estimators: 150
+  scale_pos_weight: 2
+  subsample: 0.6
+  
+features:
+- feature_1
+- feature_2
+- feature_3
+- file_name: &#39;D:/Users/firstname.lastname/Documents/data/reports/subset_scorer/ssc2_out.csv&#39;
+  operations: 
+  - fun: mutate
+    arguments: &quot;score = gini*importance&quot;
+  - fun: group_by
+    arguments: fname
+  - fun: summarise
+    arguments: &quot;score_agg = max(score, na.rm = T)&quot;
+  - fun: ungroup
+  - fun: arrange
+    arguments: &quot;desc(score_agg)&quot;
+  - fun: head
+    arguments: 10</code></pre>
+<div id="run-settings" class="section level4">
+<h4>Run Settings:</h4>
+<ul>
+<li><p><strong>dates</strong> specify dates for which you want to run
+your model. Dates should be in %y-%m-%d format and should always be set
+to the first day of the month. Example:
+<code>dates: ['2019-06-01', '2019-07-01', '2019-08-01']</code></p></li>
+<li><p><strong>target</strong> Specifies target of prediction which
+defines the label. It can be either <em>ER</em> (External Refinance),
+<em>PS</em> (Property Sale), <em>NP</em> (Natural Payout) and
+<em>ERPS</em> (External Refinance or Property Sale) Default is
+<em>ERPS</em></p></li>
+<li><p><strong>horizon</strong> Specifies the horizon of event
+prediction which determines how many months ahead you are looking at.
+Default is 3.</p></li>
+<li><p><strong>include_old_training_data</strong> is a boolean (logical)
+parameter. You can set it to either <em>yes</em>/<em>no</em> or
+<em>TRUE</em>/<em>FALSE</em> and default is <em>yes</em>. If set to
+<em>no</em>, the training data only includes those rows of ML-Mapper
+where eventTime is identical to the training date (number of months
+before test date specified by <em>horizon</em> parameter)</p></li>
+<li><p><strong>save_model</strong> Is boolean parameter. Do you want the
+model to be saved? If set as <em>yes</em>, the fitted model will be
+saved in folder associated with date and target in the models path
+specified in the master config. For example:
+<code>&lt;mc$path_models&gt;/&lt;mlmapper_id&gt;/ERPS/2019-07/my_xgboost</code></p></li>
+<li><p><strong>save_log</strong> Is boolean parameter. Do you want the
+prediction results to be saved in the run log file? If set as
+<em>yes</em>, prediction results will be added to the file
+<code>runs.csv</code> which is in the <code>prediction</code>folder in
+the reports path specified in the master config:
+<code>&lt;mc$path_reports&gt;/prediction/runs.csv</code></p></li>
+</ul>
+</div>
+<div id="model-settings" class="section level4">
+<h4>Model Settings:</h4>
+<div id="model-class" class="section level5">
+<h5>Model Class:</h5>
+<p>To run a prediction, first, you will need to specify a model class
+from a list of available classifiers. There are many classes of
+classifiers available from a wide range of R and Python packages. Below,
+you see a few of them as example:</p>
+<ul>
+<li><p><strong>CLS.SKLEARN.XGB</strong> XGBoost classifier from the
+<em>scikit</em> Python package.</p></li>
+<li><p><strong>CLS.SKLEARN.LR</strong> Logistic Regression classifier
+from the <em>scikit</em> Python package.</p></li>
+<li><p><strong>CLS.XGBOOST</strong> XGBoost classifier from the R
+package <em>xgboost</em>.</p></li>
+<li><p><strong>CLS.KERAS.DNN</strong> Deep Neural Network model from
+package <em>keras</em>.</p></li>
+<li><p><strong>CLS.SPARKLEAR.GBM</strong> Gradient Boosting Model from R
+package <em>sparklear</em></p></li>
+<li><p><strong>CLS.MLR</strong> Super class for all classifiers from the
+R package <a
+href="https://mlr.mlr-org.com"><strong>mlr</strong></a>.</p></li>
+</ul>
+<p>These classes come from the R package <code>rml</code> which has
+wrappers for all these models. However, you can write your own wrapper
+for any custom model you would like to use in R or Python. Class names
+are all in upper-case and follow this format
+<code>&lt;Transformer_Type&gt;.&lt;Package&gt;.&lt;Model_Type&gt;</code>
+where the last part <code>&lt;Model_Type&gt;</code> can be omitted for
+super classes which can be set to various model types through their
+configuration settings. The <code>&lt;Transformer_Type&gt;</code> can be
+one of the following:</p>
+<ol style="list-style-type: decimal">
+<li><p>CLS (Classifier). Examples: XGB (XGBoost), LR: (Logistic
+Regression), DNN (Deep Neural Network), KNN (K Nearest Neighbors), DT
+(Decision Tree), RF (Random Forest), …</p></li>
+<li><p>REG (Regressor). Examples: LR (Linear Regression), XGB (XGBoost),
+DNN (Deep Neural Network), …</p></li>
+<li><p>MAP (Mapper). Examples: MMS (Min-Max Scaler), ZFS (Z-Factor
+Scaler), PCA (Principal Component Analysis Mapper)</p></li>
+<li><p>ENC (Encoder). Examples: OHE (One-Hot Encoder)</p></li>
+<li><p>FET (Feature Generator). Examples: FE (Feature Encoder)</p></li>
+<li><p>FNT (Function Transformer). Examples: LOG (Logarithm
+Transformer), EXP (Exponential Transformer)</p></li>
+<li><p>BIN (Binner). Examples: KMC (K-Means Clustering), OBB (Optimal
+Binary Binner), GRP (Grouper), …</p></li>
+</ol>
+</div>
+<div id="model-name" class="section level5">
+<h5>Model Name:</h5>
+<p>It’s good to specify a name for your model. This helps you to track
+your model among many other models that you or others have run. It is
+recommended that you set the model name to be the same as the config
+file name. You can have many versions of a config file when you update
+settings in order to get better results.</p>
+</div>
+<div id="model-hyper-parameters" class="section level5">
+<h5>Model Hyper-parameters:</h5>
+<p>You can specify hyper-parameters of a model within the
+<code>model</code> keyword in the yaml config file of the prediction.
+All parameters excluding rml reserved keywords will be directly passed
+to the model. In the above example, parameters <em>class</em>,
+<em>name</em> and <em>fe.enabled</em> are among the rml keywords and the
+rest of parameters will be passed to the constructor of the sklearn
+xgboost model. For example parameter <em>fe.enabled</em> enables
+<em>feature elimination</em> which removes features with zero importance
+and retrains the model with non-zero-scored features. This increases the
+training time but makes the final model lighter and faster. So sometimes
+it worthes to have the training time increased but have unimportant
+features removed from the trained model if we want to save the model for
+later use.</p>
+</div>
+<div id="features" class="section level5">
+<h5>Features:</h5>
+<p>In this part, you will specify the features that the model is using.
+You can either directly specify feature names or refer to a csv file
+containing features. If you selected a file, you will need to specify
+operations to extract feature names from the csv file. You can do this
+via defining a list of operations in the config. The most used case of
+this functionality is when you want to extract top features from the
+output of another module like a subset scorer. In the above example, you
+see that other than three features named specifically, the top 10
+features are picked from a csv file for which the path is specified. The
+operations aim to compute abd aggregate feature scores and rank the
+features based on their aggregated scores (here function
+<code>max()</code> is used as aggregator) and finally return the names
+of the top 10 features.</p>
+</div>
+<div id="transformers" class="section level5">
+<h5>Transformers:</h5>
+<p>Sometimes you need to change or transform the training dataset before
+feeding it to the model. For example, Logistic- Regression and
+Neural-Net models work better if the values of features are normalized
+and categorical features are decomposed (one-hot-encoded). The
+R_Pipeline enables you to define multiple transformers for each model
+you define. The original data is first transformed by the transformers
+and the output will be fed to your model. Here is an example of
+prediction config with transformers:</p>
+<pre><code>dates: [&#39;2019-07-01&#39;, &#39;2019-08-01&#39;, &#39;2019-09-01&#39;, &#39;2019-10-01&#39;, &#39;2019-11-01&#39;, &#39;2019-12-01&#39;, &#39;2020-01-01&#39;, &#39;2020-02-01&#39;] 
+target: ER
+model:
+  class: CLS.SKLEARN.LR
+  name: sklr_v1
+  penalty: l1
+  solver: liblinear
+  transformers:
+  - class: MAP.RML.MMS  
+    name: normalizer_01
+    features:
+    - feature1
+    - feature2
+    - feature3
+    - feature4
+    - feature5
+  - class: ENC.FASTDUMMIES.OHE
+    name: dummifier_01
+    max_domain: 25
+    features:
+    - categorical_feature1
+    - categorical_feature2
+    - categorical_feature3
+    - categorical_feature4
+  
+  - class: SavedModel
+    name: my_first_st_model
+    path: path/to/model
+    reset: no
+    return: logit
+
+  - class: SavedModelTransformers
+    name: ensemble_xgboost
+    path: path/to/model/containing/transformers
+    reset: no
+    return: logit</code></pre>
+<p>Here we explain about each transformer used in the config. The first
+transformer is a normalizer as we would like to normalize values of all
+numerical features to be mapped to be between 0 and 1. Here, a
+<strong>MinMaxScaler (MMS)</strong> module has been selected from
+package <strong>rml</strong>. The class of the transformer is
+<code>MAP.RML.MMS</code>.</p>
+<p><code>MAP</code> denotes that the transformer is a
+<strong>mapper</strong>.</p>
+<p><code>RML</code> denotes that the transformer is from package
+<strong>rml</strong>.</p>
+<p><code>MMS</code> specifies the type of mapper which is
+<strong>MinMaxScaler</strong>.</p>
+<p>Five features have been specified for this transformer. The mapper
+transformer only keeps numerical and integer features. So if for example
+a feature containing character values is specified, that feature will
+not be passed to the transformer.</p>
+<p>The second transformer specifies a <strong>One-Hot_Encoder</strong>
+transformer that decomposes (dummifies) categorical features. The
+transformer is a <strong>categorical feature encoder</strong> from
+package <strong>fastdummies</strong> named as <code>dummifier_01</code>.
+One parameter for this transformer is <code>max_domain</code> which
+specifies the maximum number of unique values of the categorical feature
+being decomposed. So any categorical feature with more than 25 unique
+values, will not be passed to the transformer and will not be
+decomposed.</p>
+<p>The third transformer is using a saved trained model as a
+transformer. This means the probabilities of a saved model are computed
+and passed to the main model we are training. Parameter
+<code>path</code> specifies the path where the model is saved. If
+<code>path</code> is not specified, a default path based on the target,
+horizon and test date specified in the config root will be created. You
+can also specify your desired target and/or horizon and/or test_date by
+specifying in the parameters of the SavedModel transformer. For example,
+you may want to use a model trained for target <code>ER</code> to be
+used as transformer for a model trained for target <code>ERPS</code>.
+You need to introduce the transformer like this:</p>
+<pre><code>  - class: SavedModel
+    name: my_first_st_model
+    target: ER
+    reset: no
+    return: logit</code></pre>
+<p>In this example, since path is not specified, it will be built by
+joining <code>path_model</code> specified in the master config by target
+<code>ER</code> as specified in the config with the horizon of the root
+config <code>H3</code> and the date for which the main model is being
+trained. For example is the main model is training on
+<code>2019-06-01</code> to be tested on <code>2019-09-01</code>, the
+path to the model as transformer will be:
+<code>&lt;master_config$path_models&gt;/ER/H3/2019-09-01/my_first_st_model</code></p>
+<p>It is important to know that when you have specified one or a number
+of transformers, none of the original features are passed to the model
+by default. The model only receives the transformed features. However,
+you can let the original features to be passed alongside the transformed
+features by setting property <code>keep_features</code> to True in the
+main model settings. If no transformer is specified the original
+features are passed to the model.</p>
+</div>
+</div>
+</div>
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>El Python Pipeline<a href="#fnref1"
+class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+
+</body>
+</html>

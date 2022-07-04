@@ -1,0 +1,39 @@
+## Rscript R_Pipeline/widgets/pp_prediction_read.R
+
+# Currently only works for scores. We will add, 'configs' and 'features' in the future.
+read: ['scores']
+
+# you can specify either a local scores file or raw_scores from a succeeded gss run (incomplete gss runs don't have a raw_scores table)
+models:
+  - agent_runid:  xxxxxx-xxxxx-xxxxxxx
+    model_runid:  xxxxxx-xxxxx-xxxxxxx
+    model_name:   model_1
+
+  - agent_runid:  xxxxxx-xxxxx-xxxxxxx
+    model_runid:  xxxxxx-xxxxx-xxxxxxx
+    model_name:   model_2
+    children: yes
+
+  - orchestration_id:  xxxxxx-xxxxx-xxxxxxx
+    model_name:   model_3
+
+
+  - agent_runid:  xxxxxx-xxxxx-xxxxxxx
+    model_runid:  xxxxxx-xxxxx-xxxxxxx
+    model_name:   model_4
+
+  - agent_runid:  xxxxxx-xxxxx-xxxxxxx
+    model_runid:  xxxxxx-xxxxx-xxxxxxx
+    model_name:   model_5
+    children: yes
+
+# optional if you want to make further changes on the output table
+# operation:
+#  - function: rename
+#    argument: "model_id = model_runid"
+    
+output_filename: 'pp_runs.csv'
+
+# This is optional in case you want the output to be saved in a different place.
+# Make sure the path exists. The widget does not create it for you.
+# output_filepath: 'D:/path/to/your/desired/folder'

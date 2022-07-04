@@ -1,0 +1,43 @@
+# cmp_config_03: epp prediction results
+
+dates: ['2019-12-01', '2020-01-01', '2020-02-01', '2020-03-01', '2020-04-01', '2020-05-01', '2020-06-01', '2020-07-01', '2020-08-01', '2020-09-01', '2020-10-01', '2020-11-01', '2020-12-01'] 
+target: ERPS
+horizon: 3
+models: ['investors', 'owners']
+add_plot: yes
+add_boxplot: yes
+add_pairwise_comparison: yes
+inputs: 
+- filename: 'D:/Users/nima.ramezani/Documents/data/prediction/xxxxxxa1/xxxxxxm1/scores.json'
+  filetype: json
+  operation:
+  - function: as.data.frame
+  - function: rename
+    argument:
+    - "lift_2pc = lift_2"
+    - "precision_2pc = precision_2"
+    - "gini = gini_coefficient"
+  - function: mutate
+    argument:
+    - "test_at = '2019-12-01'"
+    - "model_name = 'investors'"
+    - "target = 'ERPS'"
+    - "horizon = 3"
+    - "time_trained = Sys.time()"
+- filename: 'D:/Users/nima.ramezani/Documents/data/prediction/xxxxxxa2/xxxxxxm2/scores.json'
+  filetype: json
+  operation:
+  - function: as.data.frame
+  - function: rename
+    argument:
+    - "lift_2pc = lift_2"
+    - "precision_2pc = precision_2"
+    - "gini = gini_coefficient"
+  - function: mutate
+    argument:
+    - "test_at = '2019-12-01'"
+    - "model_name = 'investors'"
+    - "target = 'ERPS'"
+    - "horizon = 3"
+    - "time_trained = Sys.time()"
+

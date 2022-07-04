@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Getting Started</title>
+
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<script src="libs/ace-1.2.3/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="libs/holder-2.9.0/holder.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="snippets/snippets.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- google analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-77306155-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+      .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">R Pipeline for Event Prediction Platform</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Introduction</a>
+</li>
+<li>
+  <a href="basics.html">Getting Started</a>
+</li>
+<li>
+  <a href="modules.html">Modules</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Getting Started</h1>
+
+</div>
+
+
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<div id="check-out-the-repository" class="section level3">
+<h3>Check out the repository</h3>
+<p>The R Pipeline is part of the <code>data-science-tools</code>
+repository. You will need to first add this repository to the
+<code>.gitconfig</code> file in your home folder:</p>
+<pre><code>[credential &quot;https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/data-science-tools&quot;]
+    helper = !aws codecommit credential-helper --profile=write@st $@
+    UseHttpPath = true</code></pre>
+<p>Open a shell window and change directory to any folder in which you
+like to keep a local copy of the repository.</p>
+<pre><code>cd path/to/repositories/root/folder
+git checkout https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/data-science-tools</code></pre>
+</div>
+<div id="installing-required-packages" class="section level3">
+<h3>Installing required packages</h3>
+<p>R Pipeline installs all required packages automatically. For some
+packages a specific version is not required, so the latest version will
+be automatically installed from cran. In case they are not previously
+installed, they don’t become updated automatically to the latest
+version. You can update manually, however this will be rarely
+required.</p>
+<p>Packages with a specific version specified are first tried to be
+installed from source. If the source file is not available or local
+installation fails, it tries to install it online from cran. If that
+also fails, you will receive a warning and need to install the package
+manually in R Studio.</p>
+</div>
+<div id="setup-master-config" class="section level3">
+<h3>Setup master config</h3>
+<p>Before startting to work on a client, you need to set a master
+configuration file. This file specifies main inputs the pipeline
+requires to start its work, like user, client, runids of various python
+pipeline modules which are used in the R Pipeline like ML-Mapper,
+event-mapper, obs-mapper and etc.</p>
+<p>There is a file named master_config_sample.yml in the root folder of
+the R_Pipeline. You should create a copy of this file and rename it to
+master_config.yml and modify it accordingly. Like any other config file,
+you should not commit it in data-science-tools, but you can keep a copy
+of it in the analytics repository associated with the client. Here is a
+list of parameters you can set in the master config file:</p>
+<ul>
+<li><strong>client</strong> name of the client. (Example: bankfirst,
+pnbank, resimac, …)</li>
+</ul>
+</div>
+<div id="add-r-address-to-the-path-environmental-variable"
+class="section level3">
+<h3>Add R address to the PATH environmental variable</h3>
+<p>This enables you to run Rscript from anywhere you started your shell
+when you want to run a module from command line. Follow these steps:</p>
+<ol style="list-style-type: decimal">
+<li>Goto Control Panel -&gt; System &amp; Security -&gt; System -&gt;
+Advanced System Settings</li>
+<li>Click on the <strong>Environment Variables</strong> in the buttom
+down</li>
+<li>Select PATH and click on edit</li>
+<li>Click New and add path to your R engine (Example: C:\Program
+Files\R\R-4.0.0\bin\x64)</li>
+</ol>
+</div>
+<div id="copy-ml-mapper-to-local" class="section level3">
+<h3>Copy ML-Mapper to local</h3>
+<p>You can make a copy of the ML-Mapper output in any folder in your
+local machine and specify it’s path in the master_config file. It is
+important to know that the parquet folder containing the ML-Mapper
+output, should be renamed to the first 8 letters of the run-id of the
+ML-Mapper run. To copy ML-Mapper to your local machine, we have provided
+an io module which creates a copy of the run-id you provided into your
+local machine in the right place.</p>
+<pre><code>cd path/to/data_science_tools
+Rscript R_Pipeline/io/copy_mlmapper.R</code></pre>
+<p>Alternatively, you can open R Studio and source file
+<code>R_Pipeline/io/copy_mlmapper.R</code>.</p>
+</div>
+<div id="create-a-widetable" class="section level3">
+<h3>Create a WideTable</h3>
+<p>WideTable is a format designed for tables with numerous number of
+columns. Working with a WideTable should be just like a normal
+data.frame, however, currently there are limitations and some
+functionalities are still under construction. Using a WideTable enables
+you to work with huge data-sets which is not possible to handle with
+regular data.frames because of memory restrictions. WideTable is
+memory-efficient as it uses a limited amount of memory for the most
+recent used columns. Additional columns will remain in the hard disk and
+are loaded when required. New columns replace the oldest columns when
+the required memory exceeds a certain limit specified by user. All
+columns are saved with the efficient and compressed .RData format used
+by R for saving workspace data. The disk spcae required by WideTable for
+the entire dataset is reduced to one-quarter of the space that parquet
+format requires and around 5% of the disk space that CSV format takes,
+while it is much faster to load data than parquet and CSV.</p>
+<p>Working with a WideTable is faster than Spark when used locally.
+However, Spark on the cloud can be faster for huge datasets, so
+WideTable is the most appropriate tool for local use.</p>
+<p>You can specify a maximum memory-size used by the WideTable when you
+create it. The more memory size limit you specify, the faster your
+WideTable works. The default space is 1 Giga Bytes, however we recommend
+5 Giga Bytes to be used for the ML-Mapper.</p>
+<div id="create-mlmapper-widetable" class="section level4">
+<h4>How to create a WideTable out of ML-Mapper?</h4>
+<p>Currently, WideTables can be created by specifying a path to a folder
+containing multiple .csv files. Each .csv table, can accommodate a
+number of columns and these columns are binded to build the
+WideTable.</p>
+<ol style="list-style-type: decimal">
+<li><p>Convert parquet to CSV: The first step to build a WideTable is to
+create <code>.csv</code> files from parquet. This can be done by running
+a jupyter notebook script: <code>R_pipeline/io/parquet2csv.ipynb</code>
+Don’t forget to specify path to the master config file in the second
+chunk of the notebook. You can also specify date range to load a subset
+of rows (Running this python module takes around one hour for 1000
+columns).</p></li>
+<li><p>Create a widetable from CSV files:</p></li>
+</ol>
+<pre><code>cd path/to/data_science_tools
+Rscript R_Pipeline/io/build_widetable.R</code></pre>
+</div>
+</div>
+</div>
+<div id="run-a-prediction" class="section level2">
+<h2>Run a prediction</h2>
+<div id="build-a-simple-prediction-config" class="section level3">
+<h3>Build a simple prediction config</h3>
+</div>
+<div id="run-the-prediction-module" class="section level3">
+<h3>Run the prediction module</h3>
+<p><a href="prediction_module.html">Here</a>, You will find more
+information about the prediction module and steps to run a the
+prediction job.</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+## Rscript R_Pipeline/widgets/ppcg_mlsampler.R
+
+path_output: 'D:/Users/firstname.surname/Documents/CodeCommit/analytics-democlient/2_submission_configs/democlient/04_mlsampler/R_Pipeline'
+
+dates: ['2020-10-01', '2020-11-01', '2020-12-01', '2021-01-01', '2021-02-01', '2021-03-01', '2021-04-01', '2021-05-01', '2021-06-01', '2021-07-01', '2021-08-01', '2021-09-01']
+
+all_in_one: yes
+num_months: 24
+
+# if you want to do startified sampling in train sets, use this section, otherwise, remove it from the config
+stratified_sampling:
+- column: label
+  values: [0, 1]
+  ratios: [0.05, 1.0]

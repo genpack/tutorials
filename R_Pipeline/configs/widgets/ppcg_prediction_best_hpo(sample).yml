@@ -1,0 +1,27 @@
+## Rscript R_Pipeline/widgets/ppcg_prediction_best_hpo_v2.R
+
+# dates for which a config will be generated
+dates: ['2021-01-01', '2021-02-01']
+
+input_agent_runid:  xxxxxx-xxxxx-xxxxxxx
+input_model_runid:  xxxxxx-xxxxx-xxxxxxx
+mlsampler_id:       xxxxxx-xxxxx-xxxxxxx
+
+# This setting, picks the best hpo model and 
+# metric based on which the best model will be picked
+performance_metric: lift_2
+
+# If you want to force some changes to the output config:
+changes:
+  - max_memory_GB: 1
+  - model:
+    models:
+    - parameters:
+        n_estimators: 150
+
+# If num_seeds is greater than 1, an ensemble config is generated
+num_seeds: 10
+
+# output_name appears on the folder of where the config is generated
+output_name: best_hpo_xxxxx
+output_path: 'D:/Users/firstname.surname/Documents/CodeCommit/analytics-democlient/2_submission_configs/democlient/05_predictions/0_main'

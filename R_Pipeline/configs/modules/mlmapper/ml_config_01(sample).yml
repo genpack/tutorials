@@ -1,0 +1,13 @@
+# ml_config_01.yml
+eventmapper_id: el000001
+output_id: ml000001
+steps:
+- output: pack_app_01
+  inputs: 
+  - el_app_01
+  - el_app_02
+  event_funs: 
+  - tte
+  - censored
+  - count
+  - count_cumsum

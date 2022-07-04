@@ -1,0 +1,9 @@
+
+path_input: 'D:/Users/firstname.surname/Documents/CodeCommit/analytics-democlient/2_submission_configs/democlient/04_mlsampler/R_Pipeline'
+path_output: 'D:/Users/firstname.surname/Documents/CodeCommit/analytics-democlient/2_submission_configs/democlient/04_mlsampler/R_Pipeline'
+
+changes:
+  item1: changed_value
+  item2:
+    - item2_1: changed_value
+    - item2_2: changed_value

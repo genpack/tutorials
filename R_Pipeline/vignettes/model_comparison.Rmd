@@ -1,0 +1,152 @@
+---
+title: "Model Comparison Report"
+author: 'R_Pipeline Comparison Module'
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, warning = F)
+#### Setup #####
+setwd('../../')
+source('R_Pipeline/initialize.R')
+if(!require('plotly')){install.packages('plotly'); library(plotly)}
+load_package('rutils', version = rutils.version)
+################ Inputs ################
+config_filename = 'model_comparison.yml'
+
+args = commandArgs(trailingOnly = T)
+if(!is.empty(args)){
+  config_filename = args[1]
+}
+
+################ Read ################
+yaml::read_yaml(mc$path_configs %>% paste('vignettes', config_filename, sep = '/')) -> cmp_config
+
+verify(cmp_config$horizon, c('numeric', 'integer'), default = 3, lengths = 1) -> cmp_config$horizon
+verify(cmp_config$target, 'character' , default = 'ERPS', lengths = 1) -> cmp_config$target
+verify(cmp_config$metrics, 'character', default = c('gini','precision_2pc', 'lift_2pc')) -> cmp_config$metrics
+
+if(is.null(cmp_config$input)){cmp_config[['input']] = mc$path_report %>% paste(id_ml, 'prediction', 'runs.csv', sep = '/')}
+
+runs = NULL
+for(item in cmp_config$input){
+  if(inherits(item, 'character')){item = list(filename = item)}
+  fn = item$filename
+  if(!file.exists(fn)){
+    fn = "%s/%s/%s" %>% sprintf(mc$path_report, id_ml, fn)
+  }
+  item$filetype <- verify(item$filetype, 'character', domain = c('json', 'csv'), default = 'csv')
+  assert(file.exists(fn), sprintf("File %s does not exist!", fn))
+  if(item$filetype == 'csv'){
+    read.csv(fn, as.is = T) -> tbl
+  } else if(item$filetype == 'json'){
+    jsonlite::read_json(fn) -> tbl
+  }
+  if(!is.null(item$operation)){tbl %<>% operate(item$operation)}
+  if(is.null(runs)){
+    runs = tbl
+  } else {
+    cln  = colnames(runs) %^% colnames(tbl)
+    runs = rbind(runs[cln], tbl[cln])
+  }
+}
+
+verify(cmp_config$add_plot, 'logical', default = T)    -> cmp_config$add_plot
+verify(cmp_config$add_boxplot, 'logical', default = T) -> cmp_config$add_boxplot
+verify(cmp_config$add_pairwise_comparison, 'logical', default = T) -> cmp_config$add_pairwise_comparison
+
+if(!is.null(cmp_config[['epp_input']])){
+  cmp_config[['epp_input']] %>% read.csv(as.is = T) %>% convert_prediction_log -> runs_epp
+  cols = colnames(runs) %^% colnames(runs_epp)
+  runs = rbind(runs[cols], runs_epp[cols])
+}
+
+runs %<>% mutate(model_name = factor(model_name, levels = cmp_config$models %^% model_name))
+```
+
+```{r filter, echo=FALSE}
+  
+runs %<>% filter(model_name %in% cmp_config$models, target == cmp_config$target, horizon == cmp_config$horizon,
+  test_at %in% cmp_config$dates) %>% arrange(desc(time_trained)) %>%
+  distinct(target, horizon, test_at, model_name, .keep_all = T)
+  
+all_models = runs$model_name %>% unique %>% as.character
+cmp_config$add_pairwise_comparison <- cmp_config$add_pairwise_comparison & (length(all_models) > 1)
+if(cmp_config$add_pairwise_comparison){
+ all_models %>% combn(2) %>% t %>% as.data.frame %>% 
+  mutate(V1 = as.character(V1), V2 = as.character(V2)) -> pairs
+}
+
+```
+
+```{r summary, echo=FALSE}
+runs %>% group_by(model_name) %>% summarise(
+    count = n(),
+    across(cmp_config$metrics, ~ mean(.x, na.rm = T))) %>% 
+  ungroup %>% knitr::kable(caption = 'Model Performance Mean Summary', digits = 3)
+```
+
+### Monthly Performance Plot
+
+Model performances at months for which a run exists in the log.
+
+```{r plot}
+plots <- htmltools::tagList()
+if(cmp_config$add_plot){
+  for(mtrc in cmp_config$metrics){
+    np = length(plots)
+    plots[[np + 1]] <- runs %>% 
+      group_by(model_name, test_at, target) %>% 
+      do({arrange(., desc(time_trained))[1,]}) %>% ungroup %>% 
+      plotly::plot_ly(x = ~test_at, y = as.formula(paste0('~', mtrc)), 
+                      type = 'scatter', mode = 'lines', color = ~model_name)
+    for(j in sequence(2)){plots[[np + j + 1]] <- htmltools::br()}
+  }
+}
+plots    
+```
+
+### Performance Dispersion in Box Plots 
+
+```{r boxplot}
+plots <- htmltools::tagList()
+if(cmp_config$add_boxplot){
+  for(mtrc in cmp_config$metrics){
+    np = length(plots)
+  
+    plotly::plot_ly(runs) %>% 
+      plotly::add_boxplot(x = ~model_name, y = as.formula(paste0('~', mtrc)), color = ~model_name) %>%  
+      plotly::layout(title = mtrc) -> plots[[np + 1]]
+    
+    for(j in sequence(2)){plots[[np + j + 1]] <- htmltools::br()}
+
+  }
+}
+
+plots    
+```
+
+#### Pairwise Comparison:
+```{r pairwise}
+plots <- htmltools::tagList()
+if(cmp_config$add_pairwise_comparison){
+  for(mtrc in cmp_config$metrics){
+    np = length(plots)
+    runs %>% reshape2::dcast(test_at ~ model_name, value.var = mtrc, fun.aggregate = mean) -> jadval
+    for(i in sequence(nrow(pairs))){
+      res = t.test(jadval[, pairs[i, 1]], jadval[, pairs[i, 2]], paired = T)
+      pairs[i, 3] <- res$statistic
+      pairs[i, 4] <- res$p.value 
+      pairs[i, 5] <- res$estimate
+      pairs[i, 6] <- paste(chif(res$p.value < 0.05, 'Significantly', ''), chif(res$estimate >= 0, 'Better', 'Worse'))
+    }
+    colnames(pairs) <- c('Model_A', 'Model_B', 'T_Statistic', 'PValue', 'Mean_Difference', 'Interpretation')
+    plots[[np + 1]] <- knitr::kable(pairs, caption = paste('Pairwise Comparison of', mtrc), digits = 3)
+    # for(j in sequence(2)){plots[[np + j + 1]] <- '\n'}
+  }
+}
+for(j in sequence(length(plots))){
+  print(plots[[j]])
+}    
+```

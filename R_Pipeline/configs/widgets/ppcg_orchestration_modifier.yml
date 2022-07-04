@@ -1,0 +1,33 @@
+input_orchestration_config: "/Users/nima/Documents/software/Python/projects/fig-tree/configs/orchestration/st/amp.yml"
+output_orchestration_config: "/Users/nima/Documents/software/Python/projects/fig-tree/configs/orchestration/st/amp_test.yml"
+
+refresh_execution_month: 2022-05-01
+previous_packaging_run: xxx
+
+
+skipped_components:
+  preprocessing_staging: da0e3bba-be75-40b7-8594-548b078bef29
+  preprocessing_bdm: 7351c473-076e-4a6d-ac3b-c184532e28ed
+  preprocessing_sdm: 89946779-8f90-4844-9160-061063f5a264
+  dqc_ppp_staging_profiling: ~
+  dqc_ppp_sdm_profiling: ~
+  obsmapper: ~
+  eventmapper: ~
+  mlsampler_for_infer: a8404db8-1fa7-42e2-82fe-cae569b40604
+  mlsampler_for_robustness:	dafdae7e-8e1a-4f9c-94d5-a8b2848e4919
+  mlsampler_for_train: f8a450fa-b621-4069-b701-d38520a28337
+  mlmapper: d6eda0e5-0a14-4122-b3e2-90dbd087ab1a
+  insights_mlmapper: 8d3cd5ff-8dc8-4076-bb84-1bb0bc437e59
+  dqc_mlmapper_profiling: ~
+  dqc_mlmapper_checks: ~
+
+replaced_configs:
+  predictions/st/train: '54f776ea-bbcb-4484-8e6b-9a26825f1305'
+
+additional_injections:
+  prediction_train: 
+    test: test
+    train: train
+  prediction_robustness:
+    test: test
+    train: train

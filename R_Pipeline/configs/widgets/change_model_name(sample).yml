@@ -1,0 +1,7 @@
+# Configuration for Module change_model_name:
+dates: ['2019-03-01', '2019-04-01']
+target: ERPS
+horizon: 3
+
+old_name: 'AGGR98765'
+new_name: 'aggr_gssc2v1_T10tmp1SKXGB02_20PC'

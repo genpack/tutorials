@@ -1,0 +1,36 @@
+## Rscript R_Pipeline/modules/prediction.R sklr1_T4s.yml
+
+dates: ['2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 
+target: ERPS
+model:
+  class: CLS.SKLEARN.LR
+  name: sklr1_T4s
+  # sklr1:
+  penalty: l1
+  solver: liblinear
+  # T4s: 4 saved models as transformers 
+  transformers:
+  - class: SavedModel
+    name: epp_skxgb
+    target: ERPS
+    rename: epp_skxgb_h3erps
+    reset: no
+    return: logit
+  - class: SavedModel
+    name: epp_skxgb
+    target: ER
+    rename: epp_skxgb_h3er
+    reset: no
+    return: logit
+  - class: SavedModel
+    name: epp_skxgb
+    target: PS
+    rename: epp_skxgb_h3ps
+    reset: no
+    return: logit
+  - class: SavedModel
+    name: epp_skxgb
+    target: NP
+    rename: epp_skxgb_h3np
+    reset: no
+    return: logit

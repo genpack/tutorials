@@ -1,0 +1,36 @@
+---
+title: "EPP Prediction Monitor"
+output: flexdashboard::flex_dashboard
+runtime: shiny
+---
+
+```{r global, include=FALSE}
+# setup and load data in 'global' chunk so it can be shared by all users of the dashboard
+table_path = sprintf("%s/%s/prediction/epp_runs.csv", mc$path_reports, id_ml)
+if(file.exists(table_path)){
+  bigreadr::fread2(table_path) -> runs
+} else {
+  runs = read_prediction_comprehensive(mc)
+}
+```
+Inputs {.sidebar}
+-------------------------------------
+
+```{r}
+# shiny inputs defined here
+```
+ 
+Column
+-------------------------------------
+    
+### Chart 1
+    
+```{r}
+```
+    
+### Prediction Runs
+
+```{r prediction_runs}
+DT::datatable(runs)
+```
+

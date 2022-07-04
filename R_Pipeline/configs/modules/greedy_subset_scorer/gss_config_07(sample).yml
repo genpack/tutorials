@@ -1,0 +1,49 @@
+# Rscript R_Pipeline/modules/greedy_subset_scorer.R gss_config_07.yml
+
+# changes with gss_config_02.yml:
+# 1- sample_ratio changed to 0.2
+# 2- Downsampled tp 50% class ratio
+# 3- number of estimators changed to 150
+# 4- batch size changed to 10
+# 5- number of batches changed to 20
+
+dates: [ '2020-06-01', '2020-07-01', '2020-08-01', '2020-09-01', '2020-10-01'] 
+
+target: ERPS
+horizon: 3
+
+sample_ratio: 0.2
+num_batches: 20
+batch_size: 10
+early_stopping: 5
+
+model:
+  class: CLS.SKLEARN.XGB
+  name: gssc7
+  n_jobs: 4
+  colsample_bytree: 0.6
+  eta: 0.05
+  max_depth: 4
+  min_child_weight: 75
+  n_estimators: 150
+  scale_pos_weight: 2
+  subsample: 0.6
+  return: logit
+  
+  smp.enabled: yes
+  smp.class_ratio: 0.5
+
+remove_zif: no
+saving_period: 100
+
+exclude_columns: ['label', 'label_6m', 'label_3m', 'tte', 'censored', 'y_externalRefinance', 'y_propertySale', 'y_naturalPayout', 'y_loanClosed', 'uncensored_externalRefinance', 'uncensored_propertySale', 'uncensored_naturalPayout']
+
+metrics: 
+  - gini
+  - lift
+  - precision
+  
+quantiles: [0.01, 0.02, 0.05, 0.1, 0.5]  
+
+output: 'gssc7_out.csv'
+save_best_model: yes

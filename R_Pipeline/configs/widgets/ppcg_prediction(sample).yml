@@ -1,0 +1,5 @@
+path_output: 'D:/Users/firstname.surname/Documents/CodeCommit/analytics-democlient/2_submission_configs/democlient/05_predictions/R_Pipeline'
+mlsampler_runs: 'D:/Users/firstname.surname/Documents/CodeCommit/job-submission-notebooks/runs/democlient/04_mlsampler/firstname_surname_runs.csv'
+prediction_config: 'D:/Users/firstname.surname/Documents/CodeCommit/data-science-tools/R_Pipeline/configs/prediction/skxgb_ssc2v1_elpbf.yml'
+
+dates: ['2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 

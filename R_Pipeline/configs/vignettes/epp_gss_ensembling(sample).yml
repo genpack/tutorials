@@ -1,0 +1,7 @@
+agent_runid: xxxxxxx
+model_runid: xxxxxxx
+
+date: 2022-01-01
+metric: precision
+quantile: 0.02
+aggregator: max

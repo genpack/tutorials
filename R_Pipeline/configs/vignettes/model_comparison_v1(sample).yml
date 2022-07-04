@@ -1,0 +1,45 @@
+# cmp_config_01: model comparison config:
+
+dates: ['2019-03-01', '2019-04-01', '2019-05-01'] 
+target: ER
+horizon: 6
+models: ['epp_skxgb', 'skxgb_ssc2v1_elpbf', 'skxgb_gssc2v1']
+add_plot: yes
+add_boxplot: yes
+add_pairwise_comparison: yes
+
+inputs:
+- filename: 'run_saved_models/rsmc1_out.csv'
+- filename: 'D:/Users/fname.sname/Documents/data/prediction/f415ffeb/9e53a757/raw_scores.csv'
+  operation:
+  - function: arrange
+    argument: 
+    - test_date
+    - "desc(gini)"
+  - function: group_by
+    argument: test_date
+  - function: do
+    argument: "{.[1,]}"
+  - function: ungroup
+  - function: mutate
+    argument: 
+    - "model_name = 'best_gss'"
+    - "target = 'ERPS'"
+    - "time_trained = as.character(Sys.time())"
+  - function: rename
+    argument: 
+    - "test_at = test_date"
+    - "gini = gini_coefficient"
+    - "lift_2pc = `Lift_@2`"
+    - "precision_2pc = `Precision_@2`"
+  - function: select
+    argument: 
+    - model_name
+    - target
+    - time_trained
+    - test_at
+    - gini
+    - lift_2pc
+    - precision_2pc
+
+    

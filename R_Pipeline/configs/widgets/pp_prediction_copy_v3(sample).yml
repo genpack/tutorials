@@ -1,0 +1,7 @@
+# for each agent runid, the entire prediction folder is copied (all model runids will be copied)
+runids:
+  - agent_runid: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+  - agent_runid: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+  - agent_runid: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+  - agent_runid: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+  - agent_runid: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'

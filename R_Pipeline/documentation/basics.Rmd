@@ -1,0 +1,102 @@
+---
+title: "Getting Started"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float:
+      collapsed: true
+---
+
+## Setup
+
+### Check out the repository
+
+The R Pipeline is part of the `data-science-tools` repository. You will need to first add this repository to the 
+`.gitconfig` file in your home folder:
+
+```
+[credential "https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/data-science-tools"]
+    helper = !aws codecommit credential-helper --profile=write@st $@
+    UseHttpPath = true
+```
+
+Open a shell window and change directory to any folder in which you like to keep a local copy of the repository.
+```
+cd path/to/repositories/root/folder
+git checkout https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/data-science-tools
+```
+
+### Installing required packages
+
+R Pipeline installs all required packages automatically. 
+For some packages a specific version is not required, so the latest version will be automatically installed from cran. In case they are not previously installed, they don't become updated automatically to the latest version.
+You can update manually, however this will be rarely required.
+
+Packages with a specific version specified are first tried to be installed from source. 
+If the source file is not available or local installation fails, it tries to install it online from cran.
+If that also fails, you will receive a warning and need to install the package manually in R Studio.
+
+### Setup master config
+
+Before startting to work on a client, you need to set a master configuration file. 
+This file specifies main inputs the pipeline requires to start its work, like
+user, client, runids of various python pipeline modules which are used in the R Pipeline like 
+ML-Mapper, event-mapper, obs-mapper and etc.
+
+There is a file named master_config_sample.yml in the root folder of the R_Pipeline. You should create a copy of this file and rename it to master_config.yml and modify it accordingly. Like any other config file, you should not commit it in data-science-tools, but you can keep a copy of it in the analytics repository associated with the client.
+Here is a list of parameters you can set in the master config file:
+
+* **client** name of the client. (Example: bankfirst, pnbank, resimac, ...)
+
+### Add R address to the PATH environmental variable
+
+This enables you to run Rscript from anywhere you started your shell when you want to run a module from command line. Follow these steps:
+
+1. Goto Control Panel -> System & Security -> System -> Advanced System Settings
+2. Click on the **Environment Variables** in the buttom down
+3. Select PATH and click on edit
+4. Click New and add path to your R engine (Example: C:\\Program Files\\R\\R-4.0.0\\bin\\x64)
+
+### Copy ML-Mapper to local
+
+You can make a copy of the ML-Mapper output in any folder in your local machine and specify it's path in the master_config file. It is important to know that the parquet folder containing the ML-Mapper output, should be renamed to the first 8 letters of the run-id of the ML-Mapper run.
+To copy ML-Mapper to your local machine, we have provided an io module which creates a copy of the run-id you provided into your local machine in the right place.
+```
+cd path/to/data_science_tools
+Rscript R_Pipeline/io/copy_mlmapper.R
+```
+
+Alternatively, you can open R Studio and source file ```R_Pipeline/io/copy_mlmapper.R```.
+
+### Create a WideTable
+
+WideTable is a format designed for tables with numerous number of columns. Working with a WideTable should be just like a normal data.frame, however, currently there are limitations and some functionalities are still under construction. Using a WideTable enables you to work with huge data-sets which is not possible to handle with regular data.frames because of memory restrictions. WideTable is memory-efficient as it uses a limited amount of memory for the most recent used columns. Additional columns will remain in the hard disk and are loaded when required. New columns replace the oldest columns when the required memory exceeds a certain limit specified by user. All columns are saved with the efficient and compressed .RData format used by R for saving workspace data. The disk spcae required by WideTable for the entire dataset is reduced to one-quarter of the space that parquet format requires and around 5% of the disk space that CSV format takes, while it is much faster to load data than parquet and CSV.
+
+Working with a WideTable is faster than Spark when used locally. However, Spark on the cloud can be faster for huge datasets, so WideTable is the most appropriate tool for local use. 
+
+You can specify a maximum memory-size used by the WideTable when you create it. The more memory size limit you specify, the faster your WideTable works. The default space is 1 Giga Bytes, however we recommend 5 Giga Bytes to be used for the ML-Mapper. 
+
+#### How to create a WideTable out of ML-Mapper? {#create-mlmapper-widetable}
+
+Currently, WideTables can be created by specifying a path to a folder containing multiple .csv files.
+Each .csv table, can accommodate a number of columns and these columns are binded to build the WideTable.
+
+1. Convert parquet to CSV: The first step to build a WideTable is to create `.csv` files from parquet. This can be done by running a jupyter notebook script: `R_pipeline/io/parquet2csv.ipynb`
+Don't forget to specify path to the master config file in the second chunk of the notebook. 
+You can also specify date range to load a subset of rows (Running this python module takes around one hour for 1000 columns).
+
+2. Create a widetable from CSV files:
+
+```
+cd path/to/data_science_tools
+Rscript R_Pipeline/io/build_widetable.R
+```
+
+
+
+## Run a prediction
+
+### Build a simple prediction config
+### Run the prediction module
+[Here](prediction_module.html), You will find more information about the prediction module and steps to run a the prediction job.

@@ -1,0 +1,68 @@
+# pp_config_01.yml
+#input_id:
+output_id: pp000001
+steps:
+- input: 'cact' 
+  schema:
+  - CustomerPrimaryIdentifier: character
+  - CustomerSecondaryIdentifier: character
+  - AccountIdentifier: character
+  output: 'accounts.rds'
+  operation:
+  - fun: mutate
+    arguments: 
+    - "PortfolioCategory = gsub(PortfolioCategory, pattern = '\\s', replacement = '')"
+    - "DateAccountOpened = lubridate::dmy(DateAccountOpened)"
+    - "DateAccountClosed = lubridate::dmy(DateAccountClosed)"
+
+- input: 'cact' 
+  schema:
+  - CustomerPrimaryIdentifier: character
+  - CustomerSecondaryIdentifier: character
+  - AccountIdentifier: character
+  operation:
+  - function: distinct
+    argument: CustomerPrimaryIdentifier, AccountIdentifier
+  - function: rename
+    argument: 
+    - custID: CustomerPrimaryIdentifier
+    - accID: AccountIdentifier
+    
+  output: 'accID2custID.rds'
+
+- input: 'appn' 
+  schema:
+  - ApplicationIdentifier: character
+  - CustomerIdentifier: character
+  - SourceTime: POSIXct
+  output: 'application.rds'
+  operation:
+  - fun: mutate
+    arguments: "Status = gsub(Status, pattern = '\\s', replacement = '')"
+  - fun: mutate
+    arguments: "Status = gsub(Status, pattern = '-', replacement = '')"
+
+- input: 'ince' 
+  schema:
+  - ApplicationIdentifier: character
+  - CustomerIdentifier: character
+  operation:
+  - fun: mutate
+    arguments: 
+    - GrossIncomeAnnual: "as.numeric(GrossIncomeAnnual)"
+  output: 'application.rds'
+
+- input: 'ince' 
+  schema:
+  - ApplicationIdentifier: character
+  - CustomerIdentifier: character
+
+  output: 'applicationIncomeReported.rds'
+  operation:
+  - fun: mutate
+    arguments: 
+    - GrossIncomeAnnual: "as.numeric(GrossIncomeAnnual)"
+  - fun: group_by
+    arguments: ['CustomerIdentifier', 'ApplicationIdentifier']
+  - fun: summarise
+    arguments: "GrossIncomeAnnual = sum(GrossIncomeAnnual, na.rm = T)"

@@ -1,0 +1,41 @@
+# RScript R_Pipeline/modules/subset_scorer.R ss_config_04.yml
+
+## This special subset scorer config is written to test the idea of training one downsampled 
+## models with all features as a method for feature selection.
+## Models are trained on downsampled training set with 40% class ratio.
+## All features are used in each model (subset_size = 10000)
+## Five experiments for each month
+## Labels and leaky features are excluded
+## Model hyper-parameters is same as ss_config_01 but n_estimators raised to 150
+
+dates: ['2020-03-01', '2020-04-01', '2020-05-01', '2020-06-01', '2020-07-01', '2020-08-01', '2020-09-01', '2020-10-01'] 
+target: ERPS
+horizon: 3
+subset_size: 10000
+num_experiments: 5
+model:
+  class: CLS.SKLEARN.XGB
+  n_jobs: 4
+  colsample_bytree: 0.6
+  eta: 0.05
+  max_depth: 4
+  min_child_weight: 75
+  n_estimators: 150
+  scale_pos_weight: 2
+  subsample: 0.6
+  smp.enabled: yes
+  smp.method: downsample
+  smp.class_ratio: 0.4
+
+exclude_columns: ['label', 'label_6m', 'label_fr', 'tte', 'censored', 'y_externalRefinance', 'y_propertySale', 'y_naturalPayout', 'y_loanClosed', 'uncensored_externalRefinance', 'uncensored_propertySale', 'uncensored_naturalPayout', 'originalApplicationStatus']
+
+metrics: 
+  - gini
+  - lift
+  - precision
+  - f1
+  
+quantiles: 0.02
+
+saving_period: 5    
+output: 'ssc4_out'

@@ -1,0 +1,229 @@
+---
+title: "Prediction Module"
+---
+
+```{r setup, include = FALSE}
+source("utils.R")
+```
+
+## Overview
+
+With prediction module, you will be able to run prediction models for various months. All you need to do is to specify settings of the prediction job including test dates, targets, horizon (time-frame) as well as types and hyper-parameters of the prediction model you like to use.  
+
+## Setup Prediction Config:{#setup-prediction-config}
+A prediction module works with its associated config file in which you specify all parameters and settings. In addition to model class and its hyper-parameters, you can specify the target of prediction, and dates for which you want to run your model. A simple example of a prediction config in the R_Pipeline looks like this:
+
+```
+dates: ['2020-01-01', '2020-02-01', '2020-03-01']
+target: ERPS
+horizon: 3
+model:
+  class: CLS.SKLEARN.XGB
+  name: my_first_st_model
+  n_jobs: 4
+  fe.enabled: yes
+  colsample_bytree: 0.6
+  eta: 0.05
+  max_depth: 6
+  min_child_weight: 75
+  n_estimators: 150
+  scale_pos_weight: 2
+  subsample: 0.6
+  
+features:
+- feature_1
+- feature_2
+- feature_3
+- file_name: 'D:/Users/firstname.lastname/Documents/data/reports/subset_scorer/ssc2_out.csv'
+  operations: 
+  - fun: mutate
+    arguments: "score = gini*importance"
+  - fun: group_by
+    arguments: fname
+  - fun: summarise
+    arguments: "score_agg = max(score, na.rm = T)"
+  - fun: ungroup
+  - fun: arrange
+    arguments: "desc(score_agg)"
+  - fun: head
+    arguments: 10
+```
+
+
+### Job Settings:
+The following config parameters specify settings for running the prediction job.
+You can specift on which target and what time-frame horizon and which dates the model should run.
+
+* `dates` specify dates for which you want to run your model. Dates should be in %y-%m-%d format and should always be set to the first day of the month. Example:
+```dates: ['2019-06-01', '2019-07-01', '2019-08-01']```
+
+* `target` Specifies target of prediction which defines the label for prediction. It can be either *ER* (External Refinance), *PS* (Property Sale), *NP* (Natural Payout) and *ERPS* (External Refinance or Property Sale)
+Default is *ERPS*
+
+* `horizon` Specifies the horizon of event prediction which determines how many months ahead you are looking at. Default is 3. This parameter also impacts the label of prediction. For example if `horizon = 6` label is 1 only if the target event will happen within the next six months from the time associated with the data sample.
+
+* `training_months` is an integer parameter. It controls the size of training data 
+by specifying how many months of data (prior to the latest train date) to be included for training. 
+For example if set as 12, the dataset of last 12 months are used for training. 
+If set as 1, only the latest months's data is used for training. 
+If you do not specify, the entire training history will be used.
+
+* `save_model` Is boolean parameter. Do you want the model to be saved? If set as *yes*, the fitted model will be saved in folder associated with date and target in the models path specified in the master config. 
+For example: ```<mc$path_models>/<mlmapper_id>/ERPS/2019-07/my_xgboost```
+
+* `save_log` Is boolean parameter. Do you want the prediction results to be saved in the run log file? If set as *yes*, prediction results will be added to the file ```runs.csv``` which is in the ```prediction```folder in the reports path specified in the master config: ```<mc$path_reports>/<mlmapper_id>/prediction/runs.csv```
+
+### Model Settings:
+
+Model settings is part of a prediction config that specifies model type, its transformers and its hyper-parameters.
+
+#### Model Class:
+
+To run a prediction, first, you will need to specify a model class from a list of available classifiers.
+There are many classes of classifiers available from a wide range of R and Python packages. 
+Below, you see a few of them as example:
+
+* `CLS.SKLEARN.XGB` XGBoost classifier from the *scikit* Python package. 
+
+* `CLS.SKLEARN.LR` Logistic Regression classifier from the *scikit* Python package. 
+
+* `CLS.XGBOOST` XGBoost classifier from the R package *xgboost*.
+
+* `CLS.KERAS.DNN` Deep Neural Network model from package *keras*. 
+
+* `CLS.SPARKLEAR.GBM` Gradient Boosting Model from R package *sparklear*
+
+* `CLS.MLR` Super class for all classifiers from the R package [**mlr**](https://mlr.mlr-org.com).
+
+These classes come from the R package `rml` which has wrappers for all these models. 
+However, you can write your own wrapper for any custom model you would like to use in R or Python.
+<!-- todo: explain how to write a custom wrapper. -->
+
+
+#### Model Name:
+
+It's good to specify a name for your model. This helps you to track your model among many other models that you or others have run. It is recommended that you set the model name to be the same as the config file name. You can have many versions of a config file when you update settings in order to get better results.
+
+#### General Model Parameters:
+There are a number of general modelling parameters which are common among all types of classifiers.
+These parameters determine general settings which can be set for all types of models (and/or transformers).
+
+
+
+#### Model Hyper-parameters:
+You can specify hyper-parameters of a model within the `model` keyword in the yaml config file of the prediction.
+All parameters excluding **rml** reserved keywords will be directly passed to the model. In the above example, parameters 
+*class*, *name* and *fe.enabled* are among the rml keywords and the rest of parameters will be passed to the constructor of the sklearn xgboost model.
+For example parameter *fe.enabled* enables _feature elimination_ which removes features with zero importance and retrains the model with non-zero-scored features. This increases the training time but makes the final model lighter and faster. So sometimes it worthes to have the training time increased but have unimportant features removed from the trained model if we want to save the model for later use.
+
+#### Transformers:
+
+Sometimes you need to change or transform the training dataset before feeding it to the model. For example, Logistic- Regression and Neural-Net models work better if the values of features are normalized and categorical features are decomposed (one-hot-encoded). The R_Pipeline enables you to define multiple transformers for each model you define. The original data is first transformed by the transformers and the output will be fed to your model. 
+Here is an example of prediction config with transformers:
+
+```
+dates: ['2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 
+target: ER
+model:
+  class: CLS.SKLEARN.LR
+  name: sklr_v1
+  penalty: l1
+  solver: liblinear
+  transformers:
+  - class: MAP.RML.MMS  
+    name: normalizer_01
+    features:
+    - feature1
+    - feature2
+    - feature3
+    - feature4
+    - feature5
+  - class: ENC.FASTDUMMIES.OHE
+    name: dummifier_01
+    max_domain: 25
+    features:
+    - categorical_feature1
+    - categorical_feature2
+    - categorical_feature3
+    - categorical_feature4
+  
+  - class: SavedModel
+    name: my_first_st_model
+    path: path/to/model
+    reset: no
+    return: logit
+
+  - class: SavedModelTransformers
+    name: ensemble_xgboost
+    path: path/to/model/containing/transformers
+    reset: no
+    return: logit
+```
+
+Here we explain about each transformer used in the config.
+The first transformer is a normalizer as we would like to normalize values of all numerical features to be mapped to be between 0 and 1. Here, a **MinMaxScaler (MMS)** module has been selected from package **rml**. 
+The class of the transformer is ```MAP.RML.MMS```.
+
+```MAP``` denotes that the transformer is a **mapper**.
+
+```RML``` denotes that the transformer is from package **rml**.
+
+```MMS``` specifies the type of mapper which is **MinMaxScaler**.
+
+`rml` class names are all in upper-case and follow this format ```<Transformer_Type>.<Package>.<Model_Type>```
+where the last part ```<Model_Type>``` can be omitted for super classes which can be set to various model types through their configuration settings.
+The ```<Transformer_Type>``` can be one of the following:
+
+1. **CLS (Classifier)**. Examples: XGB (XGBoost), LR: (Logistic Regression), DNN (Deep Neural Network), KNN (K Nearest Neighbors), DT (Decision Tree), RF (Random Forest), ...
+
+2. **REG (Regressor)**. Examples: LR (Linear Regression), XGB (XGBoost), DNN (Deep Neural Network), ...
+
+3. **MAP (Mapper)**. Examples: MMS (Min-Max Scaler), ZFS (Z-Factor Scaler), PCA (Principal Component Analysis Mapper)
+
+4. **ENC (Encoder)**. Examples: OHE (One-Hot Encoder)
+
+5. **FET (Feature Generator)**. Examples: FE (Feature Encoder)
+
+6. **FNT (Function Transformer)**. Examples: LOG (Logarithm Transformer), EXP (Exponential Transformer)
+
+7. **BIN (Binner)**. Examples: KMC (K-Means Clustering), OBB (Optimal Binary Binner), GRP (Grouper), ...
+
+Five features have been specified for this transformer. The mapper transformer only keeps numerical and integer features.
+So if for example a feature containing character values is specified, that feature will not be passed to the transformer.
+
+The second transformer specifies a **One-Hot_Encoder** transformer that decomposes (dummifies) categorical features.
+The transformer is a **categorical feature encoder** from package **fastdummies** named as ```dummifier_01```.
+One parameter for this transformer is ```max_domain``` which specifies the maximum number of unique values of the categorical feature being decomposed. So any categorical feature with more than 25 unique values, will not be passed to the transformer and will not be decomposed. 
+
+The third transformer is using a saved trained model as a transformer. 
+This means the probabilities of a saved model are computed and passed to the main model we are training.
+Parameter ```path``` specifies the path where the model is saved. 
+If ```path``` is not specified, a default path based on the target, horizon and test date specified in the config root will be created. You can also specify your desired target and/or horizon and/or test_date by specifying in the parameters of the SavedModel transformer. For example, you may want to use a model trained for target ```ER``` to be used as 
+transformer for a model trained for target ```ERPS```. You need to introduce the transformer like this:
+```
+  - class: SavedModel
+    name: my_first_st_model
+    target: ER
+    reset: no
+    return: logit
+```
+In this example, since path is not specified, it will be built by joining ```path_model``` specified in the master config by target ```ER``` as specified in the config with the horizon of the root config ```H3``` and the date for which the main model is being trained. For example is the main model is training on ```2019-06-01``` to be tested on ```2019-09-01```, 
+the path to the model as transformer will be:
+```<master_config$path_models>/ER/H3/2019-09-01/my_first_st_model```
+
+
+
+It is important to know that when you have specified one or a number of transformers, none of the original features are passed to the model by default. The model only receives the transformed features. However, you can let the original features to be passed alongside the transformed features by setting property ```keep_features``` to True in the main model settings.
+If no transformer is specified the original features are passed to the model.
+ 
+
+
+
+
+
+
+### Features:
+In this part, you will specify the features that the model is using. You can either directly specify feature names or refer to a csv file containing features. If you selected a file, you will need to specify operations to extract feature names from the csv file. You can do this via defining a list of operations in the config. The most used case of this functionality is when you want to extract top features from the output of another module like a subset scorer. In the above example, you see that other than three features named specifically, the top 10 features are picked from a csv file for which the path is specified. The operations aim to compute abd aggregate feature scores and rank the features based on their aggregated scores (here function ```max()``` is used as aggregator) and finally return the names of the top 10 features.
+
+
+## Run a Prediction Job:{#running-prediction-job}

@@ -1,0 +1,217 @@
+# skxgb model with the hyper parameters of bf taking 5 percent of features
+SKXGB01_5PC:
+  class: CLS.SKLEARN.XGB
+  n_jobs: 4
+  fe.enabled: yes
+  # Hyper parameters from EPP config current_xgb for BF
+  colsample_bytree: 0.6
+  eta: 0.05
+  max_depth: 6
+  min_child_weight: 75
+  n_estimators: 150
+  scale_pos_weight: 2
+  subsample: 0.6
+  feature_sample_ratio: 0.05
+
+# skxgb model with the hyper parameters of pn taking 5 percent of features
+SKXGB02_5PC:
+  class: CLS.SKLEARN.XGB
+  n_jobs: 4
+  fe.enabled: yes
+  alpha: 100
+  colsample_bytree: 0.997
+  eta: 0.308
+  gamma: 24
+  lambda: 3
+  max_depth: 2
+  min_child_weight: 10
+  n_estimators: 150
+  scale_pos_weight: 3
+  subsample: 0.342
+  feature_sample_ratio: 0.05
+
+# skxgb model with the hyper parameters of bf taking 10 percent of features
+SKXGB01_10PC:
+  class: CLS.SKLEARN.XGB
+  n_jobs: 4
+  fe.enabled: yes
+  # Hyper parameters from EPP config current_xgb for BF
+  colsample_bytree: 0.6
+  eta: 0.05
+  max_depth: 6
+  min_child_weight: 75
+  n_estimators: 150
+  scale_pos_weight: 2
+  subsample: 0.6
+  feature_sample_ratio: 0.1
+
+# skxgb model with the hyper parameters of pn taking 10 percent of features
+SKXGB02_10PC:
+  class: CLS.SKLEARN.XGB
+  n_jobs: 4
+  fe.enabled: yes
+  alpha: 100
+  colsample_bytree: 0.997
+  eta: 0.308
+  gamma: 24
+  lambda: 3
+  max_depth: 2
+  min_child_weight: 10
+  n_estimators: 150
+  scale_pos_weight: 3
+  subsample: 0.342
+  feature_sample_ratio: 0.1
+
+# skxgb model with the hyper parameters of bf taking 15 percent of features
+SKXGB01_15PC:
+  class: CLS.SKLEARN.XGB
+  n_jobs: 4
+  fe.enabled: yes
+  # Hyper parameters from EPP config current_xgb for BF
+  colsample_bytree: 0.6
+  eta: 0.05
+  max_depth: 6
+  min_child_weight: 75
+  n_estimators: 150
+  scale_pos_weight: 2
+  subsample: 0.6
+  feature_sample_ratio: 0.15
+
+# skxgb model with the hyper parameters of pn taking 15 percent of features
+SKXGB02_15PC:
+  class: CLS.SKLEARN.XGB
+  n_jobs: 4
+  fe.enabled: yes
+  alpha: 100
+  colsample_bytree: 0.997
+  eta: 0.308
+  gamma: 24
+  lambda: 3
+  max_depth: 2
+  min_child_weight: 10
+  n_estimators: 150
+  scale_pos_weight: 3
+  subsample: 0.342
+  feature_sample_ratio: 0.15
+
+# skxgb model with the hyper parameters of bf taking 20 percent of features
+SKXGB01_20PC:
+  class: CLS.SKLEARN.XGB
+  n_jobs: 4
+  fe.enabled: yes
+  # Hyper parameters from EPP config current_xgb for BF
+  colsample_bytree: 0.6
+  eta: 0.05
+  max_depth: 6
+  min_child_weight: 75
+  n_estimators: 150
+  scale_pos_weight: 2
+  subsample: 0.6
+  feature_sample_ratio: 0.2
+
+# skxgb model with the hyper parameters of pn taking 20 percent of features
+SKXGB02_20PC:
+  class: CLS.SKLEARN.XGB
+  n_jobs: 4
+  fe.enabled: yes
+  alpha: 100
+  colsample_bytree: 0.997
+  eta: 0.308
+  gamma: 24
+  lambda: 3
+  max_depth: 2
+  min_child_weight: 10
+  n_estimators: 150
+  scale_pos_weight: 3
+  subsample: 0.342
+  feature_sample_ratio: 0.2
+
+# skxgb model with the hyper parameter set 03 taking 20 percent of features
+SKXGB03_20PC:
+  class: CLS.SKLEARN.XGB
+  n_jobs: 4
+  fe.enabled: no
+  # Hyper parameters from file test_pipeline_models.R from old project bf
+  colsample_bytree: 0.1
+  gamma: 5
+  eta: 0.3
+  max_depth: 6
+  min_child_weight: 5
+  n_estimators: 50
+  scale_pos_weight: 2
+  subsample: 0.6
+  smp.enabled: yes
+  smp.num_rows: 50000
+  feature_sample_ratio: 0.2
+
+# skxgb model returning logit with the hyper parameter set from old project bf 
+# with downsampling to 5% class ratio and taking 20 percent of features
+SKXGB04_20PC:
+  class: CLS.SKLEARN.XGB
+  n_jobs: 4
+  fe.enabled: no
+  # Hyper parameters from file test_pipeline_models.R from old project bf
+  colsample_bytree: 0.1
+  gamma: 5
+  eta: 0.3
+  max_depth: 6
+  min_child_weight: 5
+  n_estimators: 50
+  scale_pos_weight: 2
+  subsample: 0.6
+  smp.enabled: yes
+  smp.method: downsample
+  smp.class_ratio: 0.05
+  return: logit
+  feature_sample_ratio: 0.2
+
+# skxgb model returning logit with the hyper parameter set from old project bf 
+# with downsampling to 50% class ratio and taking 70 percent of features
+SKXGB05_70PC:
+  class: CLS.SKLEARN.XGB
+  n_jobs: 4
+  fe.enabled: yes
+  # Hyper parameters from file test_pipeline_models.R from old project bf
+  colsample_bytree: 0.1
+  gamma: 5
+  eta: 0.3
+  max_depth: 6
+  min_child_weight: 5
+  n_estimators: 150
+  scale_pos_weight: 2
+  subsample: 0.6
+  smp.enabled: yes
+  smp.method: downsample
+  smp.class_ratio: 0.5
+  return: logit
+  feature_sample_ratio: 0.7
+
+# skxgb model returning logit with the hyper parameter set from old project bf 
+# with downsampling to 50% class ratio and taking 70 percent of features
+SKLR05_70PC:
+  class: CLS.SKLEARN.LR
+  fe.enabled: yes
+  penalty: l1
+  solver: liblinear
+  smp.enabled: yes
+  smp.method: downsample
+  smp.class_ratio: 0.5
+  return: logit
+  feature_sample_ratio: 0.7
+
+ENS_01:
+  class: CLS.SKLEARN.XGB
+  n_jobs: 4
+  fe.enabled: no
+  alpha: 20
+  colsample_bytree: 0.34
+  eta: 049
+  gamma: 40
+  lambda: 20
+  max_depth: 7
+  min_child_weight: 40
+  n_estimators: 150
+  scale_pos_weight: 2
+  subsample: 0.9281
+  feature_sample_ratio: 1.0
+  seed: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]

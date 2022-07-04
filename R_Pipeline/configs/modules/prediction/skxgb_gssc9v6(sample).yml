@@ -1,0 +1,24 @@
+## Rscript R_Pipeline/modules/prediction.R skxgb_gssc9v6.yml
+
+dates: ['2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01', '2020-03-01', '2020-04-01', '2020-05-01'] 
+target: ERPS
+horizon: 6
+# skxgb: sk-learn xgboost with default hyperparameters
+model:
+  name: skxgb_gssc9v6
+  class: CLS.SKLEARN.XGB
+  n_jobs: 4
+  fe.enabled: yes
+
+features:
+- file_name: 'greedy_subset_scorer/gssc9_out.csv'
+  operations: 
+    - fun: group_by
+      arguments: fname
+    - fun: summarise
+      arguments: "importance = max(importance, na.rm = T)"
+    - fun: ungroup
+    - fun: filter
+      arguments: "importance > 0"
+    - fun: pull
+      arguments: fname

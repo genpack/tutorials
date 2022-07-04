@@ -1,0 +1,16 @@
+feature_subset_sizes: [20, 30, 40, 50, 60, 70, 80, 90, 100]
+num_experiments: 5
+
+test_date: '2019-04-01'
+target: ERPS
+metric: gini
+model_class: CLS.SKLEARN.XGB
+model_config:
+  n_jobs: 4
+  return: logit
+  max_train: 40000
+
+training_months: 1
+
+output: 'gss_output.csv'
+save_best_model: TRUE

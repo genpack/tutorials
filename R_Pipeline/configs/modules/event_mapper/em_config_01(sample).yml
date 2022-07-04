@@ -1,0 +1,43 @@
+# em_config_01.yml
+# This eventlog uses CustomerIdentifier as caseID
+preprocessing_id: pp000001
+output_id: el000001
+steps:
+- inputs: accounts
+  output: 'accounts_01'
+  operation:
+  - fun: dplyr::rename
+    arguments:
+    - "caseID = CustomerPrimaryIdentifier"
+    - "eventTime = DateAccountOpened"
+  - fun: dplyr::mutate
+    arguments:
+    - "eventType = paste0(PortfolioCategory, 'AccountOpened')"
+    - "attribute = 'isJntAcc'"
+    - "value = as.integer(!is.na(CustomerSecondaryIdentifier))"
+  - fun: dplyr::distinct
+    arguments: ['caseID', 'eventType', 'eventTime', 'attribute', 'value']
+    
+- inputs: ['application',  'applicationIncomeReported']
+  output: application_01
+  operation:
+  - function: dplyr::left_join
+    argument: ["input_data$applicationIncomeReported", "by = c('CustomerIdentifier', 'ApplicationIdentifier')"]
+  - function: dplyr::rename
+    argument: 
+    - caseID: CustomerIdentifier
+    - eventTime: SourceTime
+  - function: dplyr::group_by
+    arguments: ["caseID", "ApplicationIdentifier", "ApplicationType"]
+  - function: dplyr::summarise
+    argument: "eventTime = min(eventTime)"
+  - function: dplyr::ungroup
+  - function: dplyr::mutate
+    argument: 
+    - eventType: "paste0(ApplicationType, 'Applied')"
+    - attribute: "'numApp'"
+    - value: 1
+  - fun: dplyr::distinct
+    arguments: ['caseID', 'ApplicationIdentifier', 'eventType', 'eventTime', 'attribute', 'value']
+  - fun: dplyr::select
+    arguments: ['caseID', 'eventType', 'eventTime', 'attribute', 'value']

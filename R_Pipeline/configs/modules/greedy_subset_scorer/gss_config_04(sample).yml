@@ -1,0 +1,36 @@
+# Rscript R_Pipeline/modules/greedy_subset_scorer.R gss_config_04.yml
+
+## Difference with gss_config_03:
+# 1- parameter ruthless is set to TRUE
+
+dates: ['2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 
+
+sample_ratio: 0.02
+num_batches: 10
+batch_size: 20
+early_stopping: 5
+num_cores: 3
+ruthless: yes
+
+target: ERPS
+metric: gini
+model:
+  class: CLS.XGBOOST
+  name: gssc4
+  return: logit
+  
+  smp.enabled: yes
+  smp.method: downsample
+  smp.class_ratio: 0.05
+
+exclude_columns: ['label', 'label_6m', 'label_3m', 'tte', 'censored', 'y_externalRefinance', 'y_propertySale', 'y_naturalPayout', 'y_loanClosed', 'uncensored_externalRefinance', 'uncensored_propertySale', 'uncensored_naturalPayout']
+
+metrics: 
+  - gini
+  - lift
+  - precision
+  
+quantiles: [0.01, 0.02, 0.05, 0.1, 0.5]  
+
+output: 'gssc4_out.csv'
+save_best_model: yes

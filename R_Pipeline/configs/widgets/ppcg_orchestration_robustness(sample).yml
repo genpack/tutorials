@@ -1,0 +1,9 @@
+dates: ['2020-01-01', '2020-02-01', '2020-03-01', '2020-04-01', '2020-05-01', '2020-06-01', '2020-07-01', '2020-08-01', '2020-09-01', '2020-10-01', '2020-11-01', '2020-12-01']
+
+timeout: 1d
+
+agent_runid:  xxxxxx-xxxxx-xxxxxxx
+mlsampler_id: xxxxxx-xxxxx-xxxxxxx
+
+name: best_gss_v1
+output_path: 'D:/Users/firstname.surname/Documents/CodeCommit/analytics-democlient/2_submission_configs/democlient/06_orchestration/R_Pipeline'

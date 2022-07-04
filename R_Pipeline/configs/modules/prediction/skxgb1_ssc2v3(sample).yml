@@ -1,0 +1,39 @@
+## Rscript R_Pipeline/modules/prediction.R skxgb1_ssc2v3.yml
+
+dates: ['2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 
+target: ERPS
+model:
+  name: skxgb1_ssc2v3
+  class: CLS.SKLEARN.XGB
+  n_jobs: 4
+  fe.enabled: yes
+  alpha: 100
+  colsample_bytree: 0.997
+  eta: 0.308
+  gamma: 24
+  lambda: 3
+  max_depth: 2
+  min_child_weight: 10
+  n_estimators: 150
+  scale_pos_weight: 3
+  subsample: 0.342
+  
+features:
+- file_name: 'D:/Users/firstname.lastname/Documents/data/reports/subset_scorer/ssc2_out.csv'
+  # v3: For each feature, scores are aggregated by median of lift_2pc rather than max.
+  operations: 
+  - fun: filter
+    arguments: ["target == 'ERPS'", "horizon == 3"] 
+  - fun: mutate
+    arguments: "score = lift_2pc*importance"
+  - fun: group_by
+    arguments: fname
+  - fun: summarise
+    arguments: "score_agg = med(score, na.rm = T)"
+  - fun: ungroup
+  - fun: arrange
+    arguments: "desc(score_agg)"
+  - fun: head
+    arguments: 500
+  - fun: pull
+    arguments: fname

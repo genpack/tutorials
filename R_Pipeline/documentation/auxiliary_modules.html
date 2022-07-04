@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Feature Scorer Modules</title>
+
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<script src="libs/ace-1.2.3/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="libs/holder-2.9.0/holder.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="snippets/snippets.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- google analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-77306155-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+      .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">R Pipeline for Event Prediction Platform</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Introduction</a>
+</li>
+<li>
+  <a href="basics.html">Getting Started</a>
+</li>
+<li>
+  <a href="modules.html">Modules</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Feature Scorer Modules</h1>
+
+</div>
+
+
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+</div>
+<div id="subset-scorer-module" class="section level2">
+<h2>Subset Scorer Module</h2>
+<p>Subset Scorer runs one model multiple times, each time with a random
+subset of features and scores the features based on feature importance
+and the performance of the model in which the feature is used. You can
+specify model type and its hyper-parameters as well as number of runs
+and a filename and path to save the results.</p>
+</div>
+<div id="greedy-feature-scorer-greedy-subset-scorer-module"
+class="section level2">
+<h2>Greedy Feature Scorer (Greedy Subset Scorer) Module</h2>
+<p>In subset scorer, we train a model multiple times each time with a
+random subset of features and score them. The Greedy Feature Scorer
+(GFS) module implements a different algorithm for feature selection. In
+greedy feature scorer, we keep the best model and all its features (best
+model is the model with highest performance). Random subsets are then
+taken from the remaining features which are not among the features by
+which the best model is trained. Random subsets are added to the
+existing features of the best model and a new model is trained. If in
+any step, the new model came up with higher performance than the best
+model, it replaces the best model.</p>
+</div>
+<div id="feature-correlation" class="section level2">
+<h2>Feature Correlation</h2>
+<p>This module computes a number of correlation metrics for the
+features.</p>
+</div>
+<div id="model-comparison" class="section level2">
+<h2>Model Comparison</h2>
+<p>Use this module to compare the performances of multiple models.</p>
+</div>
+<div id="run-saved-models" class="section level2">
+<h2>Run Saved Models</h2>
+<p>This module runs all the saved models and</p>
+<!-- Using Shiny with R Pipeline turns a static R Pipeline report into an [Interactive Document](http://rmarkdown.rstudio.com/authoring_shiny.html). It's important to note that interactive documents need to be [deployed](http://rmarkdown.rstudio.com/authoring_shiny.html#deployment) to a Shiny Server to be shared broadly (whereas static R Pipeline documents are standalone web pages that can be attached to emails or served from any standard web server). -->
+<!-- Note that the [shinydashboard](https://rstudio.github.io/shinydashboard/) package provides another way to create dashboards with Shiny.  -->
+</div>
+<div id="io-modules" class="section level2">
+<h2>IO Modules</h2>
+<div id="copy-mlmapper" class="section level3">
+<h3>Copy MlMapper</h3>
+<p>This module copies a runid of ML-Mapper from the s3 bucket into your
+local workspace. This is one of the few modules which do not have a
+config file. The ML-Mapper id and path to the local copies are both
+specified in the master config.</p>
+<p>You can run this IO module, in two ways: * In R-Studio: 1. goto the
+<code>data-science-tools</code> in the bottom-right file pane. 2. from
+top menu, goto Session -&gt; Set Working Directory -&gt; To Files Pane
+Location 3. from the file pane goto folder io and select copy_mlmapper.R
+4. click on source in the upper-right corner of the upper-left source
+pane * From Command line: 1. Open a new shell window (<code>cmd</code>
+in Windows/<code>terminal</code> in Mac) 2. Change directory to the root
+of <code>data-science-tools</code> repository. 3. Run
+<code>Rscript R_Pipeline/io/copy_mlmapper.R</code></p>
+<p>The local copy of the ML-Mapper is saved locally in a folder named as
+the first 8 letters of the ML-Mapper id in the S3 bucket. The table is
+initially in row-wise parquet format as it is saved in the S3vbucket.
+Each parquet file is a partition which contains a subset of rows but all
+the columns. To build a Wide Table out of the parquet files, it should
+first be saved in column-wise format. We currently save it in
+column-wise partitions in <code>.csv</code> format. This conversion is
+done by a Python jupyter notebook found in the IO modules named as
+<code>parquet2csv.ipynb</code>. The <code>.csv</code> files will be put
+in a folder named <code>csv</code> in the root folder of the local
+ML_Mapper copy.</p>
+<p>When you build a Wide Table out of the csv files, each column of the
+table will be saved in <code>.RDate</code> format. These
+<code>.RDate</code> files are all R_Pipeline needs to read from
+ML-Mapper. These files will be saved in a folder named
+<code>wide</code>, alongside a file named as <code>wide.rds</code> in
+the root folder of the local ML-Mapper copy, which establish the Wide
+Table. After the WideTable is built, you will not need <code>.csv</code>
+and <code>.parquet</code> files and you can remove them if you like to
+free space.</p>
+</div>
+<div id="copy-prediction" class="section level3">
+<h3>Copy Prediction</h3>
+<p>This module copies one or prediction folders associated with an
+agent-id, from the s3 bucket into your local workspace. You can either
+specify an agent run-id and/or model run-id to be copied or choose a
+runs file from output of a job submission notebook. This module has a
+small config file. Here we bring three of examples of config file for
+copy prediction:</p>
+<p><img src="images/cpr_config_01.png" class="screenshot" width="600"
+height="80" /></p>
+<p>As you can see, a prediction runs file is specified with a date range
+filter. Copy prediction copies all runids of successful runs in the runs
+table within the specified date range.</p>
+</div>
+<div id="build-widetable" class="section level3">
+<h3>Build WideTable</h3>
+<p>This module builds a WideTable out of MLMapper to work with in the R
+Pipeline.</p>
+<!-- The steps required to add Shiny components to a R Pipeline are as follows: -->
+<!-- 1. Add `runtime: shiny` to the options declared at the top of the document (YAML front matter). -->
+<!-- 2. Add the `{.sidebar}` attribute to the first column of the dashboard to make it a host for Shiny input controls (note this step isn't strictly required, but many Shiny based dashboards will want to do this). -->
+<!-- 3. Add Shiny inputs and outputs as appropriate. -->
+<!-- 4. When including plots, be sure to wrap them in a call to [renderPlot](http://shiny.rstudio.com/reference/shiny/latest/renderPlot.html). This is important not only for dynamically responding to changes but also to ensure that they are automatically re-sized when their container changes. -->
+<!-- Insert a picture:
+  ![](images/shiny-eruptions.png){.screenshot width=865 height=640} -->
+</div>
+</div>
+<div id="epp-modules" class="section level2">
+<h2>EPP<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
+Modules:</h2>
+<p>These are modules that make a bridge between the R pipeline and the
+El Python Pipeline. There are modules that create config files that you
+can use them in the Python Pipeline.</p>
+<div id="sampler-config-generator" class="section level3">
+<h3>Sampler Config Generator</h3>
+<p>This module creates EPP config for ml-sampler.</p>
+</div>
+<div id="prediction-config-generator" class="section level3">
+<h3>Prediction Config Generator</h3>
+<p>This module creates EPP prediction config from a R Pipeline
+prediction config. This is useful when you want to run some of your
+R-Pipeline models in the EPP.</p>
+<!-- ## Using Shiny -->
+<!-- ### Loading Data -->
+<!-- As described above, you should perform any expensive loading of data within the `global` chunk, for example: -->
+<!-- <div id="shinyglobal"></div> -->
+<!-- <script type="text/javascript">loadSnippet('shinyglobal')</script> -->
+<!-- Note that special handling of the `global` chunk is a recently introduced feature of the **rmarkdown** package (v1.1 or later) so you should be sure to install the latest version of rmarkdown from CRAN before using it: -->
+<!-- ```{r, eval=FALSE} -->
+<!-- install.packages("rmarkdown", type = "source") -->
+<!-- ``` -->
+<!-- ### Inputs & Outputs -->
+<!-- When you use Shiny within a R Pipeline you'll be making use of both input elements (e.g. sliders, checkboxes, etc.) and output elements (plots, tables, etc.). Input elements are typically presented within a sidebar and outputs within R Pipeline content panes (it's also possible to combine inputs and outputs in a single pane, this is described in more detail below). -->
+<!-- Here's a simple example of a shiny input and corresponding output: -->
+<!-- <div id="shinysimple"></div> -->
+<!-- <script type="text/javascript">loadSnippet('shinysimple', 'r')</script> -->
+<!-- The `sliderInput` call makes a slider input named "bins" available. The `renderPlot` function is then able to access the value of the "bins" input via the expression `input$bins`. -->
+<!-- As illustrated above, inputs are added by calling an R function (e.g. `sliderInput`). The Shiny package makes available a wide variety of functions for creating inputs, a few of them include: -->
+<!-- R Function           | Input Type -->
+<!-- -------------------- | ------------------------------------------------- -->
+<!-- [selectInput](http://shiny.rstudio.com/reference/shiny/latest/selectInput.html)        | A box with choices to select from -->
+<!-- [sliderInput](http://shiny.rstudio.com/reference/shiny/latest/sliderInput.html)        | A slider bar -->
+<!-- [radioButtons](http://shiny.rstudio.com/reference/shiny/latest/radioButtons.html)        | A set of radio buttons -->
+<!-- [textInput](http://shiny.rstudio.com/reference/shiny/latest/textInput.html)          | A field to enter text -->
+<!-- [numericInput](http://shiny.rstudio.com/reference/shiny/latest/numericInput.html)       | A field to enter numbers -->
+<!-- [checkboxInput](http://shiny.rstudio.com/reference/shiny/latest/checkboxInput.html)      | A single check box -->
+<!-- [dateInput](http://shiny.rstudio.com/reference/shiny/latest/dateInput.html)          | A calendar to aid date selection -->
+<!-- [dateRangeInput](http://shiny.rstudio.com/reference/shiny/latest/dateRangeInput.html)     | A pair of calendars for selecting a date range -->
+<!-- [fileInput](http://shiny.rstudio.com/reference/shiny/latest/fileInput.html)          | A file upload control wizard -->
+<!-- Outputs react to changes in input by running their render code (e.g. the `renderPlot` example above) and displaying updated output. The Shiny package also includes a wide variety of render functions, including: -->
+<!-- R Function           | Output Type -->
+<!-- -------------------- | ------------------------------------------------- -->
+<!-- [renderPlot](http://shiny.rstudio.com/reference/shiny/latest/renderPlot.html)  | R graphics output -->
+<!-- [renderPrint](http://shiny.rstudio.com/reference/shiny/latest/renderPrint.html) | R printed output -->
+<!-- [renderTable](http://shiny.rstudio.com/reference/shiny/latest/renderTable.html) | Data frame, matrix, other table like structures -->
+<!-- [renderText](http://shiny.rstudio.com/reference/shiny/latest/renderText.html) | Character vectors -->
+<!-- In the sections below we'll cover additional details on how to use Shiny components within a R Pipeline. If you aren't already familiar with Shiny you may also want to consult the [Shiny Dev Center](http://shiny.rstudio.com), which includes extensive articles, tutorials, and examples to help you learn more about Shiny. -->
+<!-- ### Input Sidebar -->
+<!-- You add an input sidebar to a R Pipeline by adding the `{.sidebar}` attribute to a column, which indicates that it should be laid out flush to the left with a default width of 250 pixels and a special background color. Sidebars always appear on the left no matter where they are defined within the flow of the document.  -->
+<!-- You can alter the default width of the sidebar using the `data-width` attribute, for example: -->
+<!-- <div id="sidebarwidth"></div> -->
+<!-- <script type="text/javascript">loadSnippet('sidebarwidth')</script> -->
+<!-- #### Global Sidebar -->
+<!-- If you are creating a R Pipeline with [Multiple Pages](using.html#multiple-pages) you may want to use a single sidebar that applies across all pages. In this case you should define the sidebar using a level 1 markdown header (the same as is used to define pages).   -->
+<!-- For example, this dashboard includes a global sidebar: -->
+<!-- <div id="sidebarmultiplepages"></div> -->
+<!-- <script type="text/javascript">loadSnippet('sidebarmultiplepages')</script> -->
+<!-- ### Examples -->
+<!-- Several examples are available to help you learn more about using Shiny with R Pipeline (each example includes full source code): -->
+<!-- ```{r, echo=FALSE} -->
+<!-- examples(shinyOnly = TRUE) -->
+<!-- ``` -->
+<!-- ### Learning More -->
+<!-- The following articles are excellent resources for learning more about Shiny and creating interactive documents: -->
+<!-- 1. The [Shiny Dev Center](http://shiny.rstudio.com) includes extensive articles, tutorials, and examples to help you learn more about Shiny. -->
+<!-- 2. The [Introduction to Interactive Documents](http://shiny.rstudio.com/articles/interactive-docs.html) article provides a great resources for getting started with Shiny and R Pipeline. -->
+<!-- 3. The R Pipeline website includes additional details on the various options for [deploying interactive documents](http://rmarkdown.rstudio.com/authoring_shiny.html#deployment). -->
+<!-- ## Advanced -->
+<!-- After you've gotten started with using Shiny within R Pipeline and learned more about Shiny development you may want to review these additional topics which described advanced component layout and embedding existing Shiny applications within a R Pipeline. -->
+<!-- ### Component Layout -->
+<!-- There are a couple different approaches to laying out Shiny components within a R Pipeline: -->
+<!-- 1. Place inputs in a sidebar and outputs within their own R Pipeline panel (the strategy illustrated in the example above). -->
+<!-- 2. Mix inputs and output(s) within a single R Pipeline panel. -->
+<!-- The first option is the most straightforward and is highly encouraged if it meets the layout and interactivity requirements of your dashboard. The second option provides for more customized layout but requires the use of Shiny [fill layouts](http://shiny.rstudio.com/reference/shiny/latest/fillRow.html). -->
+<!-- #### Fill Layout -->
+<!-- When you mix multiple Shiny inputs and/or outputs within a R Pipeline panel it's good practice to have them fill the bounds of their container in the same way that other R Pipeline components like plots and htmlwidgets do. This is possible using the Shiny [`fillRow`](http://shiny.rstudio.com/reference/shiny/latest/fillRow.html) and [`fillCol`](http://shiny.rstudio.com/reference/shiny/latest/fillRow.html) layout functions. -->
+<!-- For example, here's how you'd use `fillCol` within a code chunk to ensure that a Shiny input and plot output naturally fill their R Pipeline container: -->
+<!-- <div id="shinyfilllayout"></div> -->
+<!-- <script type="text/javascript">loadSnippet('shinyfilllayout', 'r')</script> -->
+<!-- If you are new to Shiny then the code above won't make any sense to you. In that case we highly recommend that you use the default layout strategy described above! (i.e. inputs within the sidebar and outputs within their own R Pipeline containers). -->
+<!-- For those familiar with Shiny here are further details on how this example works: -->
+<!-- 1. The container is laid out using the `fillCol` function, which establishes a single column layout with flexible row heights. -->
+<!-- 3. Flexible height behavior is defined via `flex = c(NA, 1)`. The `NA` applies to the first component (the input panel) and says to not give it flexible height (i.e. allow it to occupy its natural height). The `1` applies to the second component (the plot) and says that it should have flexible height (i.e. occupy all remaining height in the container). -->
+<!-- 3. The call to `plotOutput` includes `height = "100%"` to ensure that the plot takes advantage of the height allocated to it by the `fillCol` flexible layout. -->
+<!-- 4. Finally, note that unlike the simpler layout examples above this examples uses an explicit `plotOutput / renderPlot` pairing rather than just a standalone `renderPlot`. This is so that the plot can be included in a more sophisticated layout scheme (i.e. one more like traditional `ui.R` layout). -->
+<!-- You can learn more about flexible layouts in the Shiny Dev Center [article on fill layouts](http://shiny.rstudio.com/articles/gadget-ui.html#fillrowfillcol) as well as the [reference documentation](http://shiny.rstudio.com/reference/shiny/latest/fillRow.html) for the `fillCol` and `fillRow` functions. -->
+<!-- #### Scrolling Height  -->
+<!-- By default R Pipeline layouts fill the contents of the browser (`vertical_layout: fill`). Using the techniques described above ensures that your Shiny components will play well within a fill layout, expanding to occupy all available space. -->
+<!-- However, when R Pipelines are displayed on mobile phones they automatically switch to a scrolling layout. In this mode Shiny fill layouts are displayed at a height of 500 pixels by default. You should test your dashboards on a mobile phone browser (or using Google Chrome's [Device Mode](https://developers.google.com/web/tools/chrome-devtools/iterate/device-mode/?hl=en)) and if this height isn't ideal you should provide an explicit height for the  `fillCol` or `fillRow` as is done in the example above.  -->
+<!-- ### Shiny Modules -->
+<!-- [Shiny Modules](http://shiny.rstudio.com/articles/modules.html) enable you to define a piece of Shiny UI and server logic that can be embedded within a larger Shiny application or interactive document. There are a couple of significant benefits to using Shiny Modules in the context of R Pipeline: -->
+<!-- 1. You can define Shiny Modules within a separate R script. For Shiny components that require a lot of R code this is often preferable to including all the code inline. -->
+<!-- 2. Shiny Modules can accept parameters, which enable them to be more easily re-used in different contexts. -->
+<!-- Here is the "WorldPhones" example from above re-written as a Shiny Module (this code is defined in a standalone R script): -->
+<!-- **worldPhones.R** -->
+<!-- <div id="shinyembeddedmodule"></div> -->
+<!-- <script type="text/javascript">loadSnippet('shinyembeddedmodule', 'r')</script> -->
+<!-- Here is the code to include the module within a R Pipeline: -->
+<!-- <div id="shinyembeddedmodulecall"></div> -->
+<!-- <script type="text/javascript">loadSnippet('shinyembeddedmodulecall', 'r')</script> -->
+<!-- You can learn more about creating and using Shiny Modules at the [Shiny Dev Center](http://shiny.rstudio.com/articles/modules.html).  -->
+<!-- ### Inline Applications -->
+<!-- While Shiny applications are often defined in standalone R source files (e.g. ui.R and server.R) it's also possible to define a full application inline using the [`shinyApp`](http://shiny.rstudio.com/reference/shiny/latest/shinyApp.html) function. -->
+<!-- You can embed inline Shiny applications within a R Pipeline. For example, the following code chunk defines a simple Shiny application consisting of a select input and a plot: -->
+<!-- <div id="shinyembeddedinline"></div> -->
+<!-- <script type="text/javascript">loadSnippet('shinyembeddedinline', 'r')</script> -->
+<!-- You'll note that this example uses the same "WorldPhones" code which was the basis of the previous embedding examples. However, in this case the code is wrapped in a top level `fillPage`. Also note that the `shinyApp` call includes an explicit `options = list(height = 600)` for use in scrolling layouts.  -->
+<!-- When embedding Shiny components using an inline application definition an `<iframe>` is created to host the application. In contrast, when using [Shiny Modules] the components are included inline on the page (inheriting the containing page's CSS).  -->
+<!-- ### External Applications -->
+<!-- It's also possible to include a Shiny application defined in an external directory within a R Pipeline. For example, the following code chunk includes one of the Shiny example applications: -->
+<!-- <div id="shinyembeddedexternal"></div> -->
+<!-- <script type="text/javascript">loadSnippet('shinyembeddedexternal', 'r')</script> -->
+<!-- Note that in this example we override the default height of 500 pixels via `options = list(height=850)`. This is because this application uses a sidebar which on mobile layouts will appear on top of the plot output rather than to the left, which necessitates that more height be available for its display. -->
+<!-- Including an external Shiny application is a good way to re-use an existing application within a R Pipeline. If however your main goal is to keep the source code for a set of Shiny components separate from the main R Pipeline Rmd then [Shiny Modules] are a preferable way to achieve this, as they include their UI inline within the page rather than within an `<iframe>`. -->
+</div>
+</div>
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>El Python Pipeline<a href="#fnref1"
+class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+
+</body>
+</html>

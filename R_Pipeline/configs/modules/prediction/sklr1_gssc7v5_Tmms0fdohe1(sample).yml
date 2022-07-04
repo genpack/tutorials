@@ -1,0 +1,40 @@
+# Rscript R_Pipeline/modules/prediction.R sklr1_gssc7v5_Tmms0fdohe1.yml
+
+dates: ['2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 
+target: ERPS
+model:
+  name: sklr1_gssc7v5_Tmms0fdohe1
+  # Default Hyper parameters for LR:
+  class: CLS.SKLEARN.LR
+  penalty: l1
+  solver: liblinear
+  fe.enabled: yes
+  pp.coerce_integer_features: yes
+  transformers:
+  - class: MAP.RML.MMS
+    name: MMS
+    pp.trim_outliers: yes
+    pp.mask_missing_values: 0    
+  - class:  ENC.FASTDUMMIES.OHE
+    name: FDOHE
+    max_domain: 30
+    pp.coerce_integer_features: yes
+    column_filters:
+    - column: n_unique
+      filter: " > 1"
+    - column: n_unique
+      filter: " <= 30"
+    - column: fclass
+      filter: " == 'integer'"
+
+# gssc7: Features are taken from output of gss run with gss_config_07.
+# v5: version 5: features of the best gss model for the month are taken
+features:
+- file_name: 'greedy_subset_scorer/gssc7_out.csv'
+  operations: 
+  - fun: filter
+    arguments: "test_date == '2019-03-01'"
+  - fun: filter
+    arguments: "gini == max(gini)"
+  - fun: pull
+    arguments: fname

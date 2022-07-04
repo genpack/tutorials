@@ -1,0 +1,34 @@
+# Currently, St models predict two main loan closure reasons as churn events:
+# External Refinance (ER) and Property Sale (PS).Theoretically, mixing target events which are caused by different factors, is not a right thing to do.However, so far, our XGBoost classifiers operate better in terms of precision when ER and PS targets are mixed!
+# Conceptually, it is better to train, two separate classifiers, one for each closure reason. 
+#
+# The Toplist-Ensembler is a type of Ensemble transformer which takes a number of cases from the top list of each model when they are sorted descendingly by probability of being in the positive class. It may also eliminate cases from the top list of models trained on the inverted label given a negative weight for those models.
+# As an input, this ensembler requires to know the weight of each model. We can either optimise the weights on the training set in order to get the maximum lift on the ensemble model or assign the weights proportional to the cross-validation performance of each model (Best to measure the same metric as we want to maximise like lift for example).
+# The idea is to use Toplist-Ensembler given ER and PS models to be combined into a classifier trained with a mixed target.dates: '2020-02-01'
+
+dates: '2020-02-03'
+target: ERPS
+model:
+  class: TopListEnsembler
+  name: skxgb_targets_ensembler_v2
+  ratio_top: 0.02
+  transformers:
+    - class: SavedModel
+      # models should be trained with the dataset of the same date as specified by parameter 'dates'
+      path: D:/Users/firstname.surname/Documents/data/models/xxxxxxxx/ER/2020-02-01
+      name: epp_skxgb
+      rename: elipipe_skxgb_er
+      reset: no
+    - class: SavedModel
+      target: PS
+      test_date: 2020-02-02
+      name: epp_skxgb
+      rename: elipipe_skxgb_ps
+      reset: no
+
+# Sinse the ER and PS models are already trained, and reset is set to 'no', 
+# training data is only used for optimizing the ensembler weights. 
+# Experiments show that removing old training data leads to better weights.
+training_months: 1
+save_model: yes
+save_run: yes

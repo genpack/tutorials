@@ -1,0 +1,56 @@
+dates: ['2020-02-01', '2020-03-01', '2020-04-01']
+target: ERPS
+model:
+  class: CLS.SKLEARN.LR
+  penalty: l1
+  solver: liblinear
+  fe.enabled: yes
+  transformers: 
+  - class: ENC.FASTDUMMIES.OHE
+    name: dummifier_01
+    max_domain: 25
+    features:
+    - categorical_feature1
+    - categorical_feature2
+    - categorical_feature3
+    - categorical_feature4
+  - class: MAP.RML.MMS  
+    name: normalizer_01
+    features:
+    - feature1
+    - feature2
+    - feature3
+    - feature4
+    - feature5
+    - file_name: D:/Users/firstname.surname/Documents/data/reports/xxxxxxxx/subset_scorer/subset_scorer_aggregated.csv
+      operations: 
+      - fun: arrange
+        arguments: "desc(max_score_gini)"
+      - fun: head
+        arguments: 500
+      - fun: pull
+        arguments: fname
+
+training_months: 1
+
+features:
+- feature1
+- feature2
+- feature3
+- feature4
+- feature5
+- feature6
+- feature7
+- feature8
+- categorical_feature1
+- categorical_feature2
+- categorical_feature3
+- categorical_feature4
+- file_name: D:/Users/firstname.surname/Documents/data/reports/subset_scorer/subset_scorer_aggregated.csv
+  operations: 
+  - fun: arrange
+    arguments: "desc(max_score_gini)"
+  - fun: head
+    arguments: 500
+  - fun: pull
+    arguments: fname

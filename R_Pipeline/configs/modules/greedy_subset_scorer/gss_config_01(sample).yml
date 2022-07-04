@@ -1,0 +1,37 @@
+# Rscript R_Pipeline/modules/greedy_subset_scorer.R gss_config_01.yml
+
+dates: ['2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 
+
+target: ERPS
+horizon: 3
+
+sample_ratio: 0.02
+num_batches: 10
+batch_size: 20
+early_stopping: 5
+
+model:
+  class: CLS.SKLEARN.XGB
+  name: gssc1
+  n_jobs: 4
+  colsample_bytree: 0.6
+  eta: 0.05
+  max_depth: 4
+  min_child_weight: 75
+  n_estimators: 50
+  scale_pos_weight: 2
+  subsample: 0.6
+  return: logit
+
+exclude_columns: ['label', 'label_6m', 'label_3m', 'tte', 'censored', 'y_externalRefinance', 'y_propertySale', 'y_naturalPayout', 'y_loanClosed', 'uncensored_externalRefinance', 'uncensored_propertySale', 'uncensored_naturalPayout']
+
+# which metrics should be reported? 
+metrics: 
+  - gini
+  - lift
+  - precision
+
+quantiles: [0.01, 0.02, 0.05, 0.1, 0.5]  
+
+output: 'gssc1_out.csv'
+save_best_model: yes

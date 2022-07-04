@@ -1,0 +1,14 @@
+file_cross_correlation: 'feature_clustering/fclc1_cc.rds'
+file_cluster_tree: 'feature_clustering/fclc1_ct.rds'
+file_feature_scores: 
+  filename: 'greedy_subset_scorer/gssc2_out.csv'
+  operations: 
+  - fun: mutate
+    arguments: "score = gini*importance"
+  - fun: group_by
+    arguments: fname
+  - fun: summarise
+    arguments: "score_agg = max(score, na.rm = T)"
+  - fun: ungroup
+  - fun: arrange
+    arguments: "desc(score_agg)"

@@ -1,0 +1,52 @@
+# Rscript R_Pipeline/modules/prediction.R xgb1_gssc2v1_GTsklr1.yml
+
+dates: ['2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01', '2020-03-01', '2020-04-01', '2020-05-01'] 
+target: ERPS
+horizin: 3
+model:
+  name: xgb1_gssc2v1_GTsklr1
+  class: CLS.XGBOOST
+  nthread: 4
+  fe.enabled: yes
+  nrounds: 150
+  gradient_transformers:
+  - class: CLS.SKLEARN.LR
+    penalty: l1
+    solver: liblinear
+    fe.enabled: yes
+    smp.enabled: yes
+    smp.method: smote
+    smp.class_ratio: 0.4
+    transformers:
+    - class: MAP.SKLEARN.MMS
+      name: MMS
+      pp.trim_outliers: yes
+      pp.mask_missing_values: 0
+    - class: ENC.CATEGORY-ENCODERS.JSSTN
+      name: JSSTN
+      pp.coerce_integer_features: yes
+      column_filters:
+      - column: fclass
+        filter: " == 'integer'"
+      - column: n_unique
+        filter: " > 1"
+
+features:
+  # Feature scores are read from the output of the gss module run by gss_config_02
+- file_name: 'greedy_subset_scorer/gssc2_out.csv'
+  operations: 
+  - fun: filter
+    arguments: ["target == 'ERPS'", "horizon == 3"] 
+  - fun: mutate
+    arguments: "score = gini*importance"
+  - fun: group_by
+    arguments: fname
+  - fun: summarise
+    arguments: "score_agg = max(score, na.rm = T)"
+  - fun: ungroup
+  - fun: arrange
+    arguments: "desc(score_agg)"
+  - fun: head
+    arguments: 500
+  - fun: pull
+    arguments: fname

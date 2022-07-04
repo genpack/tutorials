@@ -1,0 +1,33 @@
+# Rscript R_Pipeline/modules/feature_correlation.R fc_config_01.yml
+# fc_config_01:  config for module feature_correlation
+
+# dates: ['2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 
+target: ERPS
+horizon: 3
+# 120 random features picked for each run
+chunk_size: 120
+
+# Label columns and leaky features to be removed. 
+# 'originalApplicationStatus' is a leaky feature in bankfirst
+exclude_columns: ['caseID', 'eventTime', 'label', 'label_6m','tte', 'censored', 'y_externalRefinance', 'y_propertySale', 'y_naturalPayout', 'y_loanClosed', 'uncensored_externalRefinance', 'uncensored_propertySale', 'uncensored_naturalPayout', 'originalApplicationStatus']
+
+# if features is null, all columns will be used
+features:
+- feature_1
+- feature_2
+- feature_3
+- feature_4
+- feature_5
+
+# todo:
+# Which performance metrics shall be shown in the output?
+# metrics: 
+#  - gini
+#  - lift
+#  - precision
+
+# quantiles: 0.02
+
+# Where should I read the results from or save the output? If file with this name exist, it will be read and results will be added to it.
+# path is always <mc$path_report>/feature_correlation/
+output: 'fsc1_out'

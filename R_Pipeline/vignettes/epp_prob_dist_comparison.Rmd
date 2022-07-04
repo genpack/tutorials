@@ -1,0 +1,93 @@
+---
+title: "Probability Distribution Comparison"
+author: "Nima Ramezani"
+date: "24/05/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+
+setwd('../../..')
+source('R_Pipeline/initialize.R')
+base_path = sprintf("%s/%s", mc$path_reports, id_ml)
+
+config_filename = 'epp_prob_dist_comparison.yml'
+
+args = commandArgs(trailingOnly = T)
+if(!is.empty(args)){
+  config_filename = args[1]
+}
+"R_Pipeline/vignettes/epp_prob_dist_comparison" %>% paste(config_filename, sep = '/') %>% yaml::read_yaml() -> config
+
+config$input.agent_id = sprintf("%s/prediction/%s", mc$path_data, config$input.agent_id %>% substr(1,8))
+
+all_files     = list.files(config$input.agent_id)
+child_folders = all_files[all_files %>% grep(pattern = "modelrun=")]
+if(!is.null(config$input.model_id)){
+  found = child_folders %>% grep(pattern = config$input.model_id)
+  if(length(found) > 0) {child_folders = child_folders[- found]}
+}
+
+
+```
+
+To run this vignette, you will need to set up R Pipeline and copy predictions to local (Use `copy_predictiopn` module in folder `R_Pipeline/io`)
+
+## Introduction
+In this vignette, we want to compare distributions of probabilities of ensemble child models.
+
+```{r read_probs}
+probs = NULL
+for(cf in child_folders){
+  cn = cf %>% gsub(pattern = "modelrun=", replacement = "") %>% substr(1,8)
+  probs = sprintf("%s/%s/predictions", config$input.agent_id, cf) %>% rbig::parquet2DataFrame() %>% pull(probability) %>% cbind(probs)
+colnames(probs)[1] <- cn
+}
+title = "Comparing child model runids: %s and %s" %>% sprintf(colnames(probs)[config$model_number_1], colnames(probs)[config$model_number_2])    
+```
+
+## QQ-Plot
+
+```{r qq_plot, echo=FALSE}
+  qqplot(probs[, config$model_number_1], probs[, config$model_number_2], main = title)
+  abline(0,1, col = 'blue')
+```
+
+## Density-Plot
+
+```{r density_plot, echo=FALSE}
+  density(probs[, config$model_number_1]) %>% plot(main = title)
+  density(probs[, config$model_number_2]) %>% lines(col = 'red')
+```
+
+## T-Test for mean:
+
+```{r t_test, echo=FALSE}
+t.test(probs[, config$model_number_1], probs[, config$model_number_2])
+```
+
+Inthe following, you see the comparison results for the top `r as.integer(100*config$top_quantile)`% of the list:
+
+## QQ-Plot (top `r as.integer(100*config$top_quantile)`% of the list):
+```{r qq_plot_top, echo=FALSE}
+  q1 = probs[, config$model_number_1] %>% quantile(probs = 1 - config$top_quantile)
+  q2 = probs[, config$model_number_2] %>% quantile(probs = 1 - config$top_quantile)
+  i1 = probs[, config$model_number_1] > q1
+  i2 = probs[, config$model_number_2] > q2
+  qqplot(probs[i1, config$model_number_1], probs[i2, config$model_number_2], main = title)
+  abline(0,1, col = 'blue')
+```
+
+## Density-Plot (top `r as.integer(100*config$top_quantile)`% of the list):
+```{r density_plot_top, echo=FALSE}
+  density(probs[i1, config$model_number_1]) %>% plot(main = title)
+  density(probs[i2, config$model_number_2]) %>% lines(col = 'red')
+```
+
+## T-Test for mean (top `r as.integer(100*config$top_quantile)`% of the list):
+
+```{r t_test_top, echo=FALSE}
+t.test(probs[i1, config$model_number_1], probs[i2, config$model_number_2])
+```
+

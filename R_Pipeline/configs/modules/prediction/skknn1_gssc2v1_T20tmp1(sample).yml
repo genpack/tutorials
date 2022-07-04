@@ -1,0 +1,42 @@
+## Rscript R_Pipeline/modules/prediction.R skknn1_gssc2v1_T20tmp1.yml
+
+dates: ['2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 
+target: ERPS
+add_train_performance: no
+model:
+  class: CLS.SKLEARN.KNN
+  name: skknn1_gssc2v1_T20tmp1
+  n_neighbors: 10000
+  # T20tmp1: 20 transformers generated from template (version 1)
+  transformers:
+  - class: ModelTemplate
+    template_name: SKXGB04_20PC
+    models_name: TMP1SKXGB04_20PC
+    num_models: 20
+    template_config: 'path/to/templates/tc_01.yml'
+    features: 
+      # gssc2: Specify file containing feature names and scores
+      file_name: D:/Users/user.name/Documents/data/reports/greedy_subset_scorer/gssc2_out.csv
+      # v1: take top 500 features ranked by max-score gini
+      score_col: max_score_gini
+      name_col: fname
+      num_top: 500
+    
+features:
+- file_name: 'greedy_subset_scorer/gssc2_out.csv'
+  operations: 
+  - fun: filter
+    arguments: ["target == 'ERPS'", "horizon == 3"] 
+  - fun: mutate
+    arguments: "score = gini*importance"
+  - fun: group_by
+    arguments: fname
+  - fun: summarise
+    arguments: "score_agg = max(score, na.rm = T)"
+  - fun: ungroup
+  - fun: arrange
+    arguments: "desc(score_agg)"
+  - fun: head
+    arguments: 500
+  - fun: pull
+    arguments: fname

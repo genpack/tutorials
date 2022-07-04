@@ -1,0 +1,56 @@
+# Rscript R_Pipeline/modules/greedy_subset_scorer.R gss_config_06.yml
+
+## Difference with gss_config_01:
+# 1- LR Model with MinMaxScaler and Dummifier as transformers
+# 2- ruthless is set to yes
+# 3- num_batches changed ro 20
+
+
+dates: ['2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 
+
+target: ERPS
+horizon: 3
+
+sample_ratio: 0.02
+num_batches: 20
+batch_size: 20
+early_stopping: 5
+
+model:
+  class: CLS.STATS.LR
+  name: gsslrc6
+  return: logit
+  remove_failed_transformers: yes
+  transformers:
+  - class: MAP.RML.MMS
+    name: MMS
+    mask_missing_values: 0
+    pp.trim_outliers: yes
+    column_filters:
+    - column: n_unique
+      filter: " > 100"
+    - column: fclass
+      filter: " %in% c('numeric', 'integer')"
+  - class: ENC.FASTDUMMIES.OHE
+    name: OHE
+    column_filter:
+    - column: n_unique
+      filter: " < 30"
+    - column: n_unique
+      filter: " > 2"
+    - column: fclass
+      filter: " == 'integer'"
+    pp.coerce_integer_features: yes
+
+exclude_columns: ['label', 'label_6m', 'label_3m', 'tte', 'censored', 'y_externalRefinance', 'y_propertySale', 'y_naturalPayout', 'y_loanClosed', 'uncensored_externalRefinance', 'uncensored_propertySale', 'uncensored_naturalPayout']
+
+# which metrics should be reported? 
+metrics: 
+  - gini
+  - lift
+  - precision
+
+quantiles: [0.01, 0.02, 0.05, 0.1, 0.5]  
+
+output: 'gsslrc6_out.csv'
+save_best_model: yes

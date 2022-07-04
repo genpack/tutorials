@@ -1,0 +1,7 @@
+input.agent_id: xxxxxxx
+input.model_id: xxxxxxx
+
+model_number_1: 1
+model_number_2: 2
+
+top_quantile: 0.02

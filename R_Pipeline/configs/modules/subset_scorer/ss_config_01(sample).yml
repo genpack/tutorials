@@ -1,0 +1,41 @@
+# ss_config_01: subset scorer config:
+
+dates: ['2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 
+target: ERPS
+horizon: 3
+# 120 random features picked for each run
+subset_size: 120
+# 500 runs for each date
+num_experiments: 500
+# Model Hyperparameters are from ElpyPipe
+model:
+  class: CLS.SKLEARN.XGB
+  n_jobs: 4
+  colsample_bytree: 0.6
+  eta: 0.05
+  max_depth: 4
+  min_child_weight: 75
+  n_estimators: 50
+  scale_pos_weight: 2
+  subsample: 0.6
+
+# All models are sklearn xgboost trained on the latest observation on the 3 months before the test dates.
+training_months: 1
+
+# Label columns and leaky features to be removed. 
+# 'originalApplicationStatus' is a leaky feature in bankfirst
+exclude_columns: ['label', 'label_6m','tte', 'censored', 'y_externalRefinance', 'y_propertySale', 'y_naturalPayout', 'y_loanClosed', 'uncensored_externalRefinance', 'uncensored_propertySale', 'uncensored_naturalPayout', 'originalApplicationStatus']
+
+# Which performance metrics shall be shown in the output?
+metrics: 
+  - gini
+  - lift
+  - precision
+
+quantiles: 0.02
+
+# Save results in the output file every 100 runs. If this number is higher than number of experiments, then nothing will be saved during the run, however the final results will be saved at the end of run.    
+saving_period: 100    
+# Where should I read the results from or save the output? If file with this name exist, it will be read and results will be added to it.
+# path is always <mc$path_report>/subset_scorer/
+output: 'ssc1_out'

@@ -1,0 +1,102 @@
+## Rscript R_Pipeline/modules/prediction.R sklr1_T12s.yml
+
+dates: ['2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 
+target: ERPS
+horizon: 3
+add_train_performance: no
+model:
+  # sklr:
+  class: CLS.SKLEARN.LR
+  name: sklr_l1lib_T12v01
+  # sklr1:
+  penalty: l1
+  solver: liblinear
+  transformers:
+  # T12s: 12 Saved models as transformers
+  - class: SavedModel
+    name: skxgb_gssc5v1_elppn
+    target: ER
+    horizon: 1
+    rename: skxgb_gssc5v1_elppn_erh1
+    reset: no
+    return: logit
+  - class: SavedModel
+    name: skxgb_gssc5v1_elppn
+    target: ER
+    horizon: 2
+    rename: skxgb_gssc5v1_elppn_erh2
+    reset: no
+    return: logit
+  - class: SavedModel
+    name: skxgb_gssc5v1_elppn
+    target: ER
+    horizon: 3
+    rename: skxgb_gssc5v1_elppn_erh3
+    reset: no
+    return: logit
+
+  - class: SavedModel
+    name: skxgb_gssc5v1_elppn
+    target: PS
+    horizon: 1
+    rename: skxgb_gssc5v1_elppn_psh1
+    reset: no
+    return: logit
+  - class: SavedModel
+    name: skxgb_gssc5v1_elppn
+    target: PS
+    horizon: 2
+    rename: skxgb_gssc5v1_elppn_psh2
+    reset: no
+    return: logit
+  - class: SavedModel
+    name: skxgb_gssc5v1_elppn
+    target: PS
+    horizon: 3
+    rename: skxgb_gssc5v1_elppn_psh3
+    reset: no
+    return: logit
+
+  - class: SavedModel
+    name: skxgb_gssc5v1_elppn
+    target: NP
+    horizon: 1
+    rename: skxgb_gssc5v1_elppn_nph1
+    reset: no
+    return: logit
+  - class: SavedModel
+    name: skxgb_gssc5v1_elppn
+    target: NP
+    horizon: 2
+    rename: skxgb_gssc5v1_elppn_nph2
+    reset: no
+    return: logit
+  - class: SavedModel
+    name: skxgb_gssc5v1_elppn
+    target: NP
+    horizon: 3
+    rename: skxgb_gssc5v1_elppn_nph3
+    reset: no
+    return: logit
+
+  - class: SavedModel
+    name: skxgb_gssc2v1_elppn
+    rename: skxgb_gssc2v1_elppn_erpsh1
+    target: ERPS
+    horizon: 1
+    reset: no
+    return: logit
+  - class: SavedModel
+    name: skxgb_gssc2v1_elppn
+    rename: skxgb_gssc2v1_elppn_erpsh2
+    target: ERPS
+    horizon: 2
+    reset: no
+    return: logit
+  - class: SavedModel
+    name: skxgb_gssc2v1_elppn
+    target: ERPS
+    horizon: 3
+    rename: skxgb_gssc2v1_elppn_erpsh3
+    reset: no
+    return: logit

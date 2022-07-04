@@ -1,0 +1,30 @@
+## Rscript R_Pipeline/widgets/ppcg_prediction_ensemble_v2.R
+
+dates: '2020-10-01' 
+
+# config name appears on the folder of where the config is generated
+
+models:
+  - pick: single_model
+    agent_runid:  xxxxxx-xxxxx-xxxxxxx
+    model_runid:  xxxxxx-xxxxx-xxxxxxx
+    num_seeds: 3
+  - pick: best_children
+    agent_runid:  xxxxxx-xxxxx-xxxxxxx
+    model_runid:  xxxxxx-xxxxx-xxxxxxx
+    # This setting, picks the best 3 child models ranked by gini and 3 best child models ranked by lift_2.
+    # and retuns a de-duplicated union of model configs. 
+    metrics: ['gini_coefficient', 'lift_2']
+    num_children: 3
+    num_seeds: 3
+
+mlsampler_id:       xxxxxx-xxxxx-xxxxxxx
+
+# If you want to force some changes to the output config:
+changes:
+  max_memory_GB: 1
+  version: tags/v8.3.0.dev9
+  
+# output_name appears on the folder of where the config is generated:
+output_name: best_hpo_and_gss_xxxxx
+output_path: 'D:/Users/firstname.surname/Documents/CodeCommit/analytics-democlient/2_submission_configs/democlient/05_predictions/R_Pipeline'

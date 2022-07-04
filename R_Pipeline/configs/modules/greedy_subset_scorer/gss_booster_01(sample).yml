@@ -1,0 +1,32 @@
+# Rscript R_Pipeline/modules/greedy_subset_scorer.R gss_booster_01.yml
+## Changes to gss_config_01:
+# 1- Uses a saved model to continue running from there
+
+dates: ['2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 
+
+target: ERPS
+horizon: 3
+
+sample_ratio: 0.02
+num_batches: 10
+batch_size: 20
+early_stopping: 5
+
+model:
+  class: SavedModel
+  name: gssc3_B1M8_B3M4_B4M12_B6M11
+  n_jobs: 4
+  reset: no
+
+exclude_columns: ['label', 'label_6m', 'label_3m', 'tte', 'censored', 'y_externalRefinance', 'y_propertySale', 'y_naturalPayout', 'y_loanClosed', 'uncensored_externalRefinance', 'uncensored_propertySale', 'uncensored_naturalPayout']
+
+# which metrics should be reported? 
+metrics: 
+  - gini
+  - lift
+  - precision
+
+quantiles: [0.01, 0.02, 0.05, 0.1, 0.5]  
+
+output: 'gssbc1_out.csv'
+save_best_model: yes

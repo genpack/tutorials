@@ -1,0 +1,320 @@
+---
+title: "Readme"
+author: "Nima Ramezani"
+date: "01/10/2020"
+output: html_document
+theme: simplex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This document explains how to use R Pipeline for St. There are currently a number of modules available within the R Pipeline, where you can run them by running the associated script with a .yml configuration file.
+
+### Initial Setup
+
+Before starting to run the modules, you will need to do some startup works in order to set up your R Pipeline environment. You can set up through the following steps. Steps 2 to 3 need to be done once for each ML-Mapper run-id.
+
+1. [Add R address to the PATH environmental variable](#add-R-to-PATH)
+2. [Setup master config](#setup-master-config)
+3. [Copy ML-Mapper to local](#copy-mlmapper)
+4. [Create a WideTable](#create-mlmapper-widetable)
+
+### Main Modules:
+
+* **Prediction**
+
+With prediction module, you will be able to run prediction models for various months. You will need to specify all settings of the prediction as well as types and hyper-parameters of the prediction model and all its transformers in a prediction config file which should be located in the **<path_config>/prediction** folder. You will find steps to run a the prediction module, [here](#pred-module-steps). 
+
+* **Subset Scorer**
+
+Subset Scorer runs one model multiple times, each time with a random subset of features and scores the features based on feature importance and the performance of the model in which the feature is used. You can specify model type and its hyper-parameters as well as number of runs and a filename and path to save the results.
+
+* **Greedy Feature Scorer**
+
+In subset scorer, we train a model multiple times each time with a random subset of features and score them.
+The Greedy Feature Scorer (GFS) module implements a different algorithm for feature selection. 
+In greedy feature scorer, we keep the best model and all its features (best model is the model with highest performance).
+Random subsets are then taken from the remaining features which are not among the features by which the best model is trained. Random subsets are added to the existing features of the best model and a new model is trained. If in any step, the new model came up with higher performance than the best model, it replaces the best model. 
+
+* **Feature Correlation**
+This module computes a number of correlation metrics for the features. 
+* **Model Comparison**
+Use this module to compare the performances of multiple models.
+* **Run Saved Models**
+This module runs all the saved models and 
+
+* **Update Saved Models**
+
+
+### Auxiliary Modules:
+
+In addition to the main modules, there are some auxiliary modules which help to copy data faster or build configs for the El Python Pipeline (EPP). Auxiliary modules come in two groups: IO Modules and EPP Modules.
+
+#### IO Modules:
+
+* **Build WideTable**
+* **Copy MLMapper**
+* **Copy Prediction**
+
+#### EPP Modules:
+
+* **Sampler Config Generator**
+* **Prediction Config Generator**
+
+### Steps to run the prediction module {#pred-module-steps}
+
+To start using R_Pipeline for prediction, you will need to follow these steps;
+
+1. [Setup Prediction Config](#setup-prediction-config)
+2. [Run Prediction Module](#run-prediction-module)
+
+The results will be added to the file saved as <path/to/reports>/prediction/runs.csv. The path to your repots folder is specified in the master config.
+Models will be saved if config argument *save_model* is set to *yes*. The path to the root folder of models is also specified in the master config. There is a folder for each target and a folder for each test date within each target. All files of the model are saved in a folder named same as the model name.
+
+#### Adding R address to the PATH environmental variable {#add-R-to-PATH}
+This enables you to run Rscript from anywhere you started your shell when you want to run a module from command line. Follow these steps:
+
+1. Goto Control Panel -> System & Security -> System -> Advanced System Settings
+2. Click on the **Environment Variables** in the buttom down
+3. Select PATH and click on edit
+4. Click New and add path to your R engine (Example: C:\\Program Files\\R\\R-4.0.0\\bin\\x64)
+
+#### Setting up Master Config {#setup-master-config}
+
+Before startting to work on a client, you need to set a master configuration file. 
+This file specifies main inputs that the pipeline requires to start its work, like
+user, client, runids of various python pipeline modules which are used in the R Pipeline like 
+ML-Mapper, event-mapper, obs-mapper and etc.
+Since all config files are 
+There is a file named master_config_sample.yml in the root folder of the R_Pipeline. You should create a copy of this file and rename it to master_config.yml and modify it accordingly. Like any other config file, you should not commit it in data-science-tools, but you can keep a copy of it in the analytics repository associated with the client.
+Here is a list of parameters you can set in the master config file:
+
+* **client** name of the client. (Example: bankfirst, pnbank, resimac, ...)
+
+#### Copy EPP^[El Python Pipeline] ML-Mapper to local {#copy-mlmapper}
+You can make a copy of the ML-Mapper output in any folder in your local machine and specify it's path in the master_config file. It is important to know that the parquet folder containing the ML-Mapper output, should be renamed to the first 8 letters of the run-id of the ML-Mapper run.
+To copy ML-Mapper to your local machine, we have provided an io module which creates a copy of the run-id you provided into your local machine in the right place.
+```
+cd path/to/data_science_tools
+Rscript R_Pipeline/io/copy_mlmapper.R
+```
+
+Alternatively, you can open R Studio and source file ```io/copy_mlmapper.R```.
+
+### Using output of the EPP ML-Mapper:
+
+The R Pipeline needs to use a dataset for training and testing the models. Since the ML-Mapper module of the R pipeline is not ready yet, you will need to use outputs from the Python ML-Mapper module and use it with either Spark or [WideTable](#widetable). Before creating a WideTable, you will need to [have a copy of ML-Mapper output in your local workspace](#copy-mlmapper).
+
+#### What is WideTable? {#widetable}
+
+WideTable is a format designed for tables with numerous number of columns. Working with a WideTable should be just like a normal data.frame, however, currently there are limitations and some functionalities are still under construction. Using a WideTable enables you to work with huge data-sets which is not possible to handle with regular data.frames because of memory restrictions. WideTable is memory-efficient as it uses a limited amount of memory for the most recent used columns. Additional columns will remain in the hard disk and are loaded when required. New columns replace the oldest columns when the required memory exceeds a certain limit specified by user. All columns are saved with the efficient and compressed .RData format used by R for saving workspace data. The disk spcae required by WideTable for the entire dataset is reduced to one-quarter of the space that parquet format requires and around 5% of the disk space that CSV format takes, while it is much faster to load data than parquet and CSV.
+
+Working with a WideTable is faster than Spark when used locally. However, Spark on the cloud can be faster for huge datasets, so WideTable is the most appropriate tool for local use. 
+
+You can specify a maximum memory-size used by the WideTable when you create it. The more memory size limit you specify, the faster your WideTable works. The default space is 1 Giga Bytes, however we recommend 5 Giga Bytes to be used for the ML-Mapper. 
+
+#### How to create a WideTable out of ML-Mapper? {#create-mlmapper-widetable}
+
+Currently, WideTables can be created by specifying a path to a folder containing multiple .csv files.
+Each .csv table, can accommodate a number of columns and these columns are binded to build the WideTable.
+
+1. Convert parquet to CSV: The first step to build a WideTable is to create .csv files from parquet. This can be done by running a jupyter notebook script: **R_pipeline/io/parquet2csv.ipynb**
+Don't forget to specify path to the master config file in the second chunk of the notebook. 
+You can also specify date range to load a subset of rows.
+
+2. Create a widetable from CSV files:
+
+```
+cd path/to/data_science_tools
+Rscript R_Pipeline/io/build_widetable.R
+```
+   
+### Setup Prediction Config:{#setup-prediction-config}
+A prediction module works with its associated config file in which you specify all parameters and settings. In addition to model class and its hyper-parameters, you can specify the target of prediction, and dates for which you want to run your model. A simple example of a prediction config in the R_Pipeline looks like this:
+
+```
+dates: ['2020-01-01', '2020-02-01', '2020-03-01']
+target: ERPS
+horizon: 3
+model:
+  class: CLS.SKLEARN.XGB
+  name: my_first_st_model
+  n_jobs: 4
+  fe.enabled: yes
+  colsample_bytree: 0.6
+  eta: 0.05
+  max_depth: 6
+  min_child_weight: 75
+  n_estimators: 150
+  scale_pos_weight: 2
+  subsample: 0.6
+  
+features:
+- feature_1
+- feature_2
+- feature_3
+- file_name: 'D:/Users/firstname.lastname/Documents/data/reports/subset_scorer/ssc2_out.csv'
+  operations: 
+  - fun: mutate
+    arguments: "score = gini*importance"
+  - fun: group_by
+    arguments: fname
+  - fun: summarise
+    arguments: "score_agg = max(score, na.rm = T)"
+  - fun: ungroup
+  - fun: arrange
+    arguments: "desc(score_agg)"
+  - fun: head
+    arguments: 10
+```
+
+
+#### Run Settings:
+* **dates** specify dates for which you want to run your model. Dates should be in %y-%m-%d format and should always be set to the first day of the month. Example:
+```dates: ['2019-06-01', '2019-07-01', '2019-08-01']```
+
+* **target** Specifies target of prediction which defines the label. It can be either *ER* (External Refinance), *PS* (Property Sale), *NP* (Natural Payout) and *ERPS* (External Refinance or Property Sale)
+Default is *ERPS*
+
+* **horizon** Specifies the horizon of event prediction which determines how many months ahead you are looking at. Default is 3.
+
+* **include_old_training_data** is a boolean (logical) parameter. You can set it to either *yes*/*no* or 
+*TRUE*/*FALSE* and default is *yes*. If set to *no*, the training data only includes those rows of ML-Mapper where eventTime is identical to the training date (number of months before test date specified by *horizon* parameter)
+
+* **save_model** Is boolean parameter. Do you want the model to be saved? If set as *yes*, the fitted model will be saved in folder associated with date and target in the models path specified in the master config. 
+For example: ```<mc$path_models>/<mlmapper_id>/ERPS/2019-07/my_xgboost```
+
+* **save_log** Is boolean parameter. Do you want the prediction results to be saved in the run log file? If set as *yes*, prediction results will be added to the file ```runs.csv``` which is in the ```prediction```folder in the reports path specified in the master config: ```<mc$path_reports>/prediction/runs.csv```
+
+#### Model Settings:
+
+##### Model Class:
+To run a prediction, first, you will need to specify a model class from a list of available classifiers.
+There are many classes of classifiers available from a wide range of R and Python packages. Below, you see a few of them as example:
+
+* **CLS.SKLEARN.XGB** XGBoost classifier from the *scikit* Python package. 
+
+* **CLS.SKLEARN.LR** Logistic Regression classifier from the *scikit* Python package. 
+
+* **CLS.XGBOOST** XGBoost classifier from the R package *xgboost*.
+
+* **CLS.KERAS.DNN** Deep Neural Network model from package *keras*. 
+
+* **CLS.SPARKLEAR.GBM** Gradient Boosting Model from R package *sparklear*
+
+* **CLS.MLR** Super class for all classifiers from the R package [**mlr**](https://mlr.mlr-org.com).
+
+These classes come from the R package ```rml``` which has wrappers for all these models. However, you can write your own wrapper for any custom model you would like to use in R or Python.
+Class names are all in upper-case and follow this format ```<Transformer_Type>.<Package>.<Model_Type>```
+where the last part ```<Model_Type>``` can be omitted for super classes which can be set to various model types through their configuration settings.
+The ```<Transformer_Type>``` can be one of the following:
+
+1. CLS (Classifier). Examples: XGB (XGBoost), LR: (Logistic Regression), DNN (Deep Neural Network), KNN (K Nearest Neighbors), DT (Decision Tree), RF (Random Forest), ...
+
+2. REG (Regressor). Examples: LR (Linear Regression), XGB (XGBoost), DNN (Deep Neural Network), ...
+
+3. MAP (Mapper). Examples: MMS (Min-Max Scaler), ZFS (Z-Factor Scaler), PCA (Principal Component Analysis Mapper)
+4. ENC (Encoder). Examples: OHE (One-Hot Encoder)
+
+5. FET (Feature Generator). Examples: FE (Feature Encoder)
+
+6. FNT (Function Transformer). Examples: LOG (Logarithm Transformer), EXP (Exponential Transformer)
+
+7. BIN (Binner). Examples: KMC (K-Means Clustering), OBB (Optimal Binary Binner), GRP (Grouper), ...
+
+
+##### Model Name:
+It's good to specify a name for your model. This helps you to track your model among many other models that you or others have run. It is recommended that you set the model name to be the same as the config file name. You can have many versions of a config file when you update settings in order to get better results.
+
+##### Model Hyper-parameters:
+You can specify hyper-parameters of a model within the ```model``` keyword in the yaml config file of the prediction.
+All parameters excluding rml reserved keywords will be directly passed to the model. In the above example, parameters 
+*class*, *name* and *fe.enabled* are among the rml keywords and the rest of parameters will be passed to the constructor of the sklearn xgboost model.
+For example parameter *fe.enabled* enables _feature elimination_ which removes features with zero importance and retrains the model with non-zero-scored features. This increases the training time but makes the final model lighter and faster. So sometimes it worthes to have the training time increased but have unimportant features removed from the trained model if we want to save the model for later use.
+
+##### Features:
+In this part, you will specify the features that the model is using. You can either directly specify feature names or refer to a csv file containing features. If you selected a file, you will need to specify operations to extract feature names from the csv file. You can do this via defining a list of operations in the config. The most used case of this functionality is when you want to extract top features from the output of another module like a subset scorer. In the above example, you see that other than three features named specifically, the top 10 features are picked from a csv file for which the path is specified. The operations aim to compute abd aggregate feature scores and rank the features based on their aggregated scores (here function ```max()``` is used as aggregator) and finally return the names of the top 10 features.
+
+##### Transformers:
+Sometimes you need to change or transform the training dataset before feeding it to the model. For example, Logistic- Regression and Neural-Net models work better if the values of features are normalized and categorical features are decomposed (one-hot-encoded). The R_Pipeline enables you to define multiple transformers for each model you define. The original data is first transformed by the transformers and the output will be fed to your model. 
+Here is an example of prediction config with transformers:
+
+```
+dates: ['2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 
+target: ER
+model:
+  class: CLS.SKLEARN.LR
+  name: sklr_v1
+  penalty: l1
+  solver: liblinear
+  transformers:
+  - class: MAP.RML.MMS  
+    name: normalizer_01
+    features:
+    - feature1
+    - feature2
+    - feature3
+    - feature4
+    - feature5
+  - class: ENC.FASTDUMMIES.OHE
+    name: dummifier_01
+    max_domain: 25
+    features:
+    - categorical_feature1
+    - categorical_feature2
+    - categorical_feature3
+    - categorical_feature4
+  
+  - class: SavedModel
+    name: my_first_st_model
+    path: path/to/model
+    reset: no
+    return: logit
+
+  - class: SavedModelTransformers
+    name: ensemble_xgboost
+    path: path/to/model/containing/transformers
+    reset: no
+    return: logit
+```
+
+Here we explain about each transformer used in the config.
+The first transformer is a normalizer as we would like to normalize values of all numerical features to be mapped to be between 0 and 1. Here, a **MinMaxScaler (MMS)** module has been selected from package **rml**. 
+The class of the transformer is ```MAP.RML.MMS```.
+
+```MAP``` denotes that the transformer is a **mapper**.
+
+```RML``` denotes that the transformer is from package **rml**.
+
+```MMS``` specifies the type of mapper which is **MinMaxScaler**.
+
+Five features have been specified for this transformer. The mapper transformer only keeps numerical and integer features.
+So if for example a feature containing character values is specified, that feature will not be passed to the transformer.
+
+The second transformer specifies a **One-Hot_Encoder** transformer that decomposes (dummifies) categorical features.
+The transformer is a **categorical feature encoder** from package **fastdummies** named as ```dummifier_01```.
+One parameter for this transformer is ```max_domain``` which specifies the maximum number of unique values of the categorical feature being decomposed. So any categorical feature with more than 25 unique values, will not be passed to the transformer and will not be decomposed. 
+
+The third transformer is using a saved trained model as a transformer. 
+This means the probabilities of a saved model are computed and passed to the main model we are training.
+Parameter ```path``` specifies the path where the model is saved. 
+If ```path``` is not specified, a default path based on the target, horizon and test date specified in the config root will be created. You can also specify your desired target and/or horizon and/or test_date by specifying in the parameters of the SavedModel transformer. For example, you may want to use a model trained for target ```ER``` to be used as 
+transformer for a model trained for target ```ERPS```. You need to introduce the transformer like this:
+```
+  - class: SavedModel
+    name: my_first_st_model
+    target: ER
+    reset: no
+    return: logit
+```
+In this example, since path is not specified, it will be built by joining ```path_model``` specified in the master config by target ```ER``` as specified in the config with the horizon of the root config ```H3``` and the date for which the main model is being trained. For example is the main model is training on ```2019-06-01``` to be tested on ```2019-09-01```, 
+the path to the model as transformer will be:
+```<master_config$path_models>/ER/H3/2019-09-01/my_first_st_model```
+
+
+
+It is important to know that when you have specified one or a number of transformers, none of the original features are passed to the model by default. The model only receives the transformed features. However, you can let the original features to be passed alongside the transformed features by setting property ```keep_features``` to True in the main model settings.
+If no transformer is specified the original features are passed to the model.
+ 

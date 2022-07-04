@@ -1,0 +1,5 @@
+min_start_date: '2020-11-01'
+max_start_date: '2022-01-01'
+
+prediction_runs: 'D:/Users/firstname.surname/Documents/CodeCommit/job-submission-notebooks/runs/democlient/05_predictions/firstname_surname_runs.csv'
+add_results: yes

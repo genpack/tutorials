@@ -1,0 +1,85 @@
+---
+title: "GSS Ensembling"
+author: "Nima Ramezani"
+date: "13/05/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+
+setwd('../..')
+source('R_Pipeline/initialize.R')
+source('R_Pipeline/libraries/io_tools.R')
+source('R_Pipeline/libraries/rp_tools.R')
+base_path = sprintf("%s/%s", mc$path_reports, id_ml)
+
+config_filename = 'epp_gss_ensembling.yml'
+
+args = commandArgs(trailingOnly = T)
+if(!is.empty(args)){
+  config_filename = args[1]
+}
+"R_Pipeline/configs/vignettes" %>% paste(config_filename, sep = '/') %>% yaml::read_yaml() -> config
+
+config$metric   = verify(config$metric, 'character', domain = c('gini', 'precision', 'lift'), default = 'precision')
+config$quantile = verify(config$quantile, 'numeric', domain = c(0,1), default = 0.02)
+config$aggregator = verify(config$aggregator, 'character', domain = c('max', 'mean', 'median'), default = 'max')
+
+```
+
+## Introduction
+
+In this vignette, we will search various combinations of GSS child models for ensembling 
+aiming to find the best performance.
+
+**Client:** `r mc$client`
+
+**GSS Agent Run-ID:** `r config$agent_runid`
+
+**Aggregator:** `r config$aggregator`
+
+**Metric to Maximize:** `r config$metric`
+
+**Quantile:** `r config$quantile`
+
+## Read Prediction Probabilities
+
+First, read predictions of all GSS child models. The output will look like this:
+
+```{r read_probs}
+scores_path = "%s/agentrun=%s/modelrun=%s/raw_scores.csv" %>% 
+  sprintf(mc$path_prediction, config$agent_runid, config$model_runid)
+
+if(!file.exists(scores_path)){copy_prediction_to_local(mc, config$agent_runid, config$model_runid, files = 'raw_scores.csv')}
+bigreadr::fread2(scores_path) -> scores
+
+if(!is.null(config$date)) {scores %<>% filter(test_date == config$date)}
+
+probs_df = read_prediction_probs(mc, agentrun_id = config$agent_runid, modelrun_id = config$model_runid, children_subset = scores$model_id, children = T, as_table = T)
+probs_df[1:6,1:7] %>% knitr::kable()
+```
+
+## Greedy Model Selector
+
+Function `stepwise_model_selector` will run a greedy search with the metric and aggregator of your choice to find the best set of models for ensembling.
+
+We will run it with `r config$aggregator` as the aggregator, `r config$metric` as metric to see which combination gives the best performance:
+
+```{r run_greedy_ensembler}
+if(config$aggregator == 'max'){aggregator = max
+} else if (config$aggregator == 'mean'){aggregator = mean
+} else if (config$aggregator == 'median'){aggregator = median}
+
+best_ensemble = stepwise_model_selector(probs_df, aggregator = aggregator, metric = 'precision', quantile = 0.02, verbose = 1)
+```
+
+# Result
+
+The selected runids to be ensembled are:
+
+```{r best_children}
+  print("Best %s: %s" %>% sprintf(config$metric, best_ensemble$performance))
+  print("Selected models to ensemble: %s" %>% sprintf(paste(best_ensemble$selected, collapse = ","))) 
+```
+

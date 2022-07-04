@@ -1,0 +1,177 @@
+---
+title: "Feature Clustering"
+author: "Nima Ramezani"
+date: "27/04/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+
+setwd('../../..')
+source('R_Pipeline/initialize.R')
+base_path = sprintf("%s/%s", mc$path_reports, id_ml)
+
+load_package('rbig', version = rbig.version)
+load_package('rfun', version = rfun.version)
+load_package('rml', version = rml.version)
+load_package('d3heatmap', version = d3heatmap.version)
+
+config_filename = 'feature_clustering.yml'
+
+args = commandArgs(trailingOnly = T)
+if(!is.empty(args)){
+  config_filename = args[1]
+}
+"R_Pipeline/vignettes/feature_clustering" %>% paste(config_filename, sep = '/') %>% yaml::read_yaml() -> config
+if(!file.exists(config$file_cross_correlation)){
+  config$file_cross_correlation = paste(base_path, config$file_cross_correlation, sep = '/')
+}
+if(!file.exists(config$file_cluster_tree)){
+  config$file_cluster_tree = paste(base_path, config$file_cluster_tree, sep = '/')
+}
+if(!file.exists(config$file_feature_scores$file)){
+  config$file_feature_scores$file = paste(base_path, config$file_feature_scores$file, sep = '/')
+}
+
+ccr = readRDS(config$file_cross_correlation)
+ctr = readRDS(config$file_cluster_tree)
+fsc = read.csv(config$file_feature_scores$file) %>% 
+  operate(config$file_feature_scores$operation) %>% 
+  filter(feature_name %in% rownames(ccr))
+
+ttab = ctr$tree_table %>% as.data.frame
+for(cn in colnames(ttab)){
+  ttab[[cn]] <- paste0(cn, 'C', ttab[[cn]])
+}
+
+ttab %<>% rutils::rownames2Column('feature_name')
+  
+nc = 20
+
+```
+
+Before creating this R-Markdown report, you need to have had:
+
+* Setup the R-Pipeline in your workspace
+* Created the wide-table containing features from your desired ML-Mapper id
+* Run the greedy_subset_scorer module on the chosen ML-Mapper
+* Run the feature clustering module on the chosen ML-Mapper
+* Setup the vignette config file ```vignettes/feature_clustering/feature_clustering.yml``` with appropriate values
+* Make sure these required packages are installed: **magrittr**, **dplyr**, **reshape2**, **kmeans**, **plotly**, **dendextend**, **png**, **d3heatmap**, **collapsibleTree**
+
+## Introduction
+
+Many of our features are highly correlated meaning that 
+they mostly carry the same information.
+
+Feature Clustering is an unsupervised technique to bring correlated features in one group.
+
+### Benefits of Feature Clustering:
+
+* It can help in a more efficient feature selection. For example, GSS algorithm can be modified to take features of one cluster in each batch and progress to the next cluster or in each batch take a subset of best features from each cluster. It is expected that feature selection will be much faster and more efficient with feature clustering.
+
+* It helps us find out the main sources of our data. For example: transactional features, contact related features, ... with a ranking on the overall informative value of each group of features.
+
+* Feature clustering enables us to train a model with far fewer features than the production model with an expected performance close to the model trained with full features. Such light models train much faster and as a result, we can accommodate more experiments. This leads to better outcome from HPO, Genetic Algorithm and LACE (future initiative).
+
+### Main Challenges: 
+
+We cluster features based on a metric defined by the Pearson Correlation Coefficient between them, however this incurs heavy computational cost and memory issues for more than 2000 features.
+
+### Cross Correlation of top features: 
+
+Let's have a look at the top 30 features:
+
+
+```{r fsc}
+knitr::kable(fsc %>% head(30))
+```
+
+Below, you see the heatmap illustrating correlations among all pairs of the most important features:
+
+```{r heatmap}
+fet = fsc$feature_name[1:30]
+ccr[fet, fet] %>% 
+  d3heatmap::d3heatmap(xaxis_height = 200, xaxis_font_size = 12, yaxis_width = 220, yaxis_font_size = 12)
+```
+
+The dendograms show a hierarchical clustering of features.
+
+
+## Hierarchical Clustering
+
+Hierarchical clustering makes a tree of clusterings. 
+Each depth level of the tree corresponds to a number of clusters.
+As we go deeper, one cluster is further clusters to more clusters and hence the total number of clusters increase.
+
+Depending upon our need, we can use any level within the clustering tree.
+The main challenge here is how many clusters are best or 
+which levels of the cluster tree correspond to the best number of clusters?
+
+We measured the mean of distances between all pairs within each cluster.
+For example, if we have `r nc` clusters, the mean of within-cluster distance will be like this:
+
+
+```{r example_mean_cluster_dist}
+freq = ctr$hc_cutree[, nc] %>% table
+data.frame(cluster = paste0('C', 1:nc), mean_dist = ctr$wcmd[[paste0('N', nc)]]) %>% 
+  mutate(hover = paste('Cluster', cluster, '(', freq, 'features)')) %>% 
+  plotly::plot_ly(x = ~mean_dist, y = ~cluster, type = 'bar', text = ~hover)
+```
+
+As you can see the maximum mean of distances is `r max(ctr$wcmd[[paste0('N', nc)]])`, 
+in cluster `r order(ctr$wcmd[[paste0('N', nc)]], decreasing = T)[1]`.
+this means that the average correlation between all pairs of features in this cluster is `r 1.0 - max(ctr$wcmd[[paste0('N', nc)]])`.
+
+As we increase number of clusters, the maximum mean distances between the clusters is expected to reduce.
+Let's see how the maximum mean of distances change by increasing number of clusters:
+
+```{r max_mean_dist}
+data.frame(num_clusters = sequence(length(ctr$max_wcmd)), 
+           max_avg_dist = ctr$max_wcmd) %>% 
+  plotly::plot_ly(x = ~num_clusters, y = ~max_avg_dist, type = 'scatter')
+```
+
+We pick the best values for the number of clusters when maximum of mean distances drop significantly.
+Based on this, critical number of clusters are picked as:
+`r colnames(ctr$tree_table)`
+These number of clusters specify depth levels in our clustering tree:
+
+```{r cluster_tree}
+ncl = 6
+LV1 = colnames(ctr$tree_table)[1]
+ttab %>% group_by_(LV1) %>% 
+  summarise(cnt = length(feature_name)) %>% 
+  ungroup %>% arrange(desc(cnt)) %>% head(ncl) %>% pull(LV1) -> cls
+ind = ttab[, LV1] %in% cls
+depths = colnames(ttab) %>% setdiff('feature_name') %>% c('feature_name')
+ttab[ind, ] %>% 
+  left_join(fsc, by = 'feature_name') %>% 
+  collapsibleTree::collapsibleTree(hierarchy = depths, linkLength = 100, nodeSize = 'max_score', aggFun = mean)
+
+```
+
+
+Cross-correlation heatmep among features in the largest cluster:
+
+```{r within_cluster_heatmap}
+LV2 = colnames(ctr$tree_table)[ncol(ctr$tree_table)]
+ttab[, LV2] %>% table -> csizes
+cnumber = csizes[csizes < 30] %>% sort(decreasing = T) %>% names %>% head(1)
+fet = ttab$feature_name[ttab[, LV2] == cnumber]
+
+ccr[fet, fet] %>% 
+  as.data.frame %>% 
+  d3heatmap::d3heatmap(xaxis_height = 200, xaxis_font_size = 12, yaxis_width = 220, yaxis_font_size = 12)
+```
+
+So, here, you can see the list of all `r nrow(ccr)` features with their cluster numbers associated with each depth level of the clustering tree:
+
+```{r feature_list}
+ttab %>% 
+  left_join(fsc, by = 'feature_name') %>% 
+  DT::datatable()
+```
+
+

@@ -1,0 +1,18 @@
+# Rscript R_Pipeline/modules/feature_clustering.R fcl_config_01.yml
+# fcl_config_01:  config for module feature_clustering module
+
+# Dimensionality for Multi-dimensional Scaling
+mds_dim: 3
+cross_correlation: fclc1_cc
+cluster_tree: fclc1_ct
+output: fclc1_out
+
+# if features is null, all columns will be used
+features:
+- feature_1
+- feature_2
+- feature_3
+- feature_4
+- feature_5
+
+exclude_columns: ['V1', 'caseID', 'eventTime', 'label', 'label_6m','tte', 'censored', 'y_externalRefinance', 'y_propertySale', 'y_naturalPayout', 'y_loanClosed', 'uncensored_externalRefinance', 'uncensored_propertySale', 'uncensored_naturalPayout', 'originalApplicationStatus']

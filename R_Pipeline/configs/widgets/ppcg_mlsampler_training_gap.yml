@@ -1,0 +1,16 @@
+## mlsampler generator config: training_gap
+## Rscript R_Pipeline/widgets/ppcg_mlsampler.R ppcg_mlsampler_optimise.yml
+
+path_output: '/Users/nima/Documents/software/R/projects/data-science-tools/tests/configs/mlsampler_config_generator/07_training_gap'
+
+input_runid: 'mlmapper-runid-sits-here'
+dates: ['2021-07-01', '2021-08-01', '2021-09-01']
+num_months: 24
+training_gap: 6
+num_partitions: 100
+
+# if you want to do startified sampling in train sets, use this section, otherwise, remove it from the config
+downsampling_rate: 0.05
+
+add_optimise: true
+all_in_one: true

@@ -1,0 +1,107 @@
+# R&D Documents:
+# https://elgroup.atlassian.net/wiki/spaces/PD/pages/933625891/Data+Science+Improvements
+
+# Emergency Recovery Key for Atlassian:
+# TW54DK1WZJC7CM5QFY3MDSAB
+
+
+client: 'democlient'
+user: 'nima.ramezani'
+aws_profile: 'write@democlient-st'
+client_account_number: '1234567890'
+
+preprocessing_id: 'preprocessing-runid-sits-here'
+obsmapper_id: 'obsmapper-runid-sits-here'
+eventmapper_id: 'eventmapper-runid-sits-here'
+mlmapper_id: 'mlmapper-runid-sits-here'
+
+# Change the default path to the R pipeline folder in your local workspace
+path_rp: '/Users/nima/Documents/software/R/projects/data-science-tools/R_Pipeline'
+
+# These columns have information of future and cannot be used as a feature
+leakages: 
+- label
+- label_6m
+- tte
+- censored
+- y_externalRefinance
+- y_propertySale
+- y_naturalPayout
+- y_loanClosed
+- uncensored_externalRefinance
+- uncensored_propertySale
+- uncensored_naturalPayout
+# added after Feature Factory:
+- uncensored_y_core_LoanClosureReason_NaturalPayout
+- uncensored_y_core_LoanClosureReason_ExternalRefinance
+- uncensored_y_core_LoanClosureReason_InternalRefinance
+- uncensored_y_core_LoanClosureReason_PropertySale
+- uncensored_y_core_LoanClosureReason_Unknown
+- uncensored_y_core_LoanClosureReason_OtherClosure
+- y_core_LoanClosureReason_NaturalPayout
+- y_core_LoanClosureReason_ExternalRefinance
+- y_core_LoanClosureReason_InternalRefinance
+- y_core_LoanClosureReason_PropertySale
+- y_core_LoanClosureReason_Unknown
+- y_core_LoanClosureReason_OtherClosure
+- y_core_LoanStatus
+
+targets: 
+  ERPS: 
+    label: label
+  ER: 
+    tte: tte
+    uncensored: uncensored_externalRefinance
+    horizon_adjust: 1
+  PS:
+    tte: tte
+    uncensored: tte_propertySale
+    horizon_adjust: 1
+  NP: 
+    tte: tte
+    uncensored: uncensored_naturalPayout
+    horizon_adjust: 1
+  RRW:
+    tte: RateReviewRequested_tte
+    censored: RateReviewRequested_censored
+  NCA:
+    label: label_numApplicationsOnCustomer6m
+
+source_folders:
+- 'yyyy-mm-dd_HH-MM-SS'
+- 'yyyy-mm-dd_HH-MM-SS'
+- '2020-01-02_09-01-15'
+
+# Change the default path to the folder containing all the data. The folder will be created if it does not exist.
+# The folder creation is not recursive.
+path_data: '/Users/nima/Documents/data'
+
+# These parameyters Change the default path to where output of various python pipeline modules will be copied to.
+# path_mlmapper: 'D:/Users/nima.ramezani/Documents/data/mlmapper'
+# path_mlsampler: 'D:/Users/nima.ramezani/Documents/data/mlsampler'
+# path_eventmapper: 'D:/Users/nima.ramezani/Documents/data/eventlog'
+# path_prediction: 'D:/Users/nima.ramezani/Documents/data/prediction'
+
+
+
+# There is a default path to where all the reports will be saved. 
+# Reports should contain the results and outputs of all the R_Pipeline modules. 
+# 
+# Change the default path if you like:
+# path_reports: 'D:/Users/nima.ramezani/Documents/data/reports'
+
+# Change the default path to where all the prediction models are saved
+# path_models:  'D:/Users/nima.ramezani/Documents/data/models'
+
+# Change the default path to where original data (source data) are saved.
+# path_original: 'D:/Users/nima.ramezani/Documents/data/original'
+
+# Change the default path to where config files are saved. 
+# path_configs: 'D:/Users/nima.ramezani/Documents/CodeCommit/data-science-tools/R_Pipeline/configs'
+
+# Change the default path to where el detools package is.
+# path_detools: 'D:/Users/nima.ramezani/Documents/CodeCommit/analytics-client/1_code_only/9_de_tools'
+
+
+mlmapper_start_date: '2015-12-30'
+mlmapper_end_date: '2022-06-01'

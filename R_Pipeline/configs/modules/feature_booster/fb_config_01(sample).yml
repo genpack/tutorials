@@ -1,0 +1,26 @@
+dates: ['2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 
+target: ERPS
+horizon: 3
+
+# How many subsets of features to be added and tested?
+num_experiments: 10
+
+# How many features in each subset:
+feature_subset_size: 100
+
+# Specify the base model that you want to boost
+base_model:
+  class: SavedModel
+  path: D:/Users/firstname.surname/Documents/data/models/xxxxxxxx/ERPS/H3/2019-08-01
+  name: XGB45678
+  rename: best_gssc2v1
+  reset: yes
+
+# Specify oldest training data: How many months before train date? 
+# If horizon is 3, train_date is 3 months before test_date
+training_months: 12
+
+# Which features must be excluded?
+exclude_columns: ['label', 'label_6m', 'label_3m', 'tte', 'censored', 'y_externalRefinance', 'y_propertySale', 'y_naturalPayout', 'y_loanClosed', 'uncensored_externalRefinance', 'uncensored_propertySale', 'uncensored_naturalPayout']
+
+output: fbc1_out

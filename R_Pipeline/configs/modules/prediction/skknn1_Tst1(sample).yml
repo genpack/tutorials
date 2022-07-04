@@ -1,0 +1,18 @@
+## Rscript R_Pipeline/modules/prediction.R skknn1_Tst1.yml
+
+dates: ['2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01'] 
+target: ERPS
+add_train_performance: no
+model:
+  # skknn:
+  class: CLS.SKLEARN.KNN
+  name: skknn1_Tst1
+  # skknn1:
+  n_neighbors: 10000
+  transformers:
+  # Tst1: Use transformers of a saved model (version 1)
+  - class: SavedModelTransformers
+    name: aggr_gssc2v1_T10tmp1SKXGB02_20PC
+    path: path/to/model/containing/transformers
+    reset: no
+    return: logit

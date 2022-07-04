@@ -1,0 +1,14 @@
+## mlsampler generator config
+## Rscript R_Pipeline/widgets/ppcg_mlsampler.R ppcg_mlsampler_default.yml
+
+path_output: '/Users/nima/Documents/software/R/projects/data-science-tools/tests/configs/mlsampler_config_generator/01_default'
+input_runid: 'mlmapper-runid-sits-here'
+
+dates: ['2021-07-01', '2021-08-01', '2021-09-01']
+
+# if you want to do startified sampling in train sets, use this section, otherwise, remove it from the config
+stratified_sampling:
+- column: label
+  values: [0, 1]
+  ratios: [0.05, 1.0]
+
