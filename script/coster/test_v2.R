@@ -1,21 +1,25 @@
 library(readr)
 library(magrittr)
 library(dplyr)
-library(gener)
+library(rutils)
 
-files = c('SmartAccess_FY2018-19.csv',
-          'CreditCard_FY2018-19.csv',
-          'SmartAccess_FY2019.csv',
-          'CreditCard_FY2019.csv',
-          'SmartAccess_FY2020.csv',
-          'SmartAccess_FY2021_incomplete.csv',
-          'CreditCard_FY2020.csv',
-          'CreditCard_FY2021_incomplete.csv',
-          'smartaccess.csv',
-          'creditcard.csv')
+# files = c('SmartAccess_FY2018-19.csv',
+#           'CreditCard_FY2018-19.csv',
+#           'SmartAccess_FY2019.csv',
+#           'CreditCard_FY2019.csv',
+#           'SmartAccess_FY2020.csv',
+#           'SmartAccess_FY2021_incomplete.csv',
+#           'CreditCard_FY2020.csv',
+#           'CreditCard_FY2021_incomplete.csv',
+#           'smartaccess.csv',
+#           'creditcard.csv')
+# 
+# #          'el_cr.csv',
+# #          'el_sa.csv')
 
-#          'el_cr.csv',
-#          'el_sa.csv')
+files = c(
+  'cba_smart_access_26jul20_26jul22.csv',
+  'cba_credit_card_25jul20_25jul22.csv')
 
 transactions = NULL
 for (fn in files){
@@ -88,6 +92,17 @@ transactions %>%
                  Total = sum(value)) %>% rpivotTable::rpivotTable()
 
 
+exclude = c('Proximity', 'Income', 'CreditCardRepayment', 'Transfer', 'null')
+
+transactions %>% 
+  filter(eventTime >= '2021-04-01', !(category %in% exclude)) %>% 
+  mutate(Month = eventTime %>% substr(1,7)) %>% 
+  group_by(category, subcategory) %>% 
+  summarise(Total_Out  = sum(ifelse(value < 0, - value, 0)), 
+            Total_In   = sum(ifelse(value > 0, value, 0)),
+            Total = sum(value), Average = sum(value)/16) %>% pull(Average) %>% sum
+
+  
 
 # for(st in paste0(' ', unique(suburbs$state))){
 #   D[D$desc %>% grep(pattern = st), 'state'] <- st
