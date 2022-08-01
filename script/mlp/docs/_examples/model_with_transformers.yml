@@ -1,0 +1,34 @@
+dataset: 767d3ca8-23ed-455b-b775-731befcd4c52
+mode: train
+model:
+  classifier:
+    type: XGBClassifier
+    parameters:
+      max_depth: 3
+      n_estimators: 5
+  transformer:
+    type: Parallel
+    steps:
+      # Dummify categoricals, except for some
+      - type: Dummifier
+        input:
+          include:
+            categoricals: true
+          exclude:
+            - currentResidentialPostcode
+            - currentSecurityPostcode
+            - currentResidentialSA4
+            - currentSecuritySA4
+        # Pass through other features (and the label) unchanged
+      - type: UnitTransformer
+        input:
+          remainder: true
+  features:
+    - currentInterestRate
+    - primaryCustomerGender
+    - numTransactionsLast3Months
+    - loanBrokerID
+    - currentResidentialPostcode
+    - currentSecurityPostcode
+    - currentResidentialSA4
+    - currentSecuritySA4

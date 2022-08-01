@@ -1,0 +1,23 @@
+skip_if: xgb_unavailable
+mode: train
+model:
+  classifier:
+    type: XGBClassifier
+    parameters:
+      max_depth: 3
+      n_estimators: 5
+  transformer:
+    type: Parallel
+    steps:
+      - type: Dummifier
+        input:
+          include:
+            categoricals: true
+      - type: UnitTransformer
+        input:
+          remainder: true
+  features:
+    - colA
+    - colB
+optimise: false
+verbose: 1

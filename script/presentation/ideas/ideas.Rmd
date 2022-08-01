@@ -1,0 +1,97 @@
+---
+title: "Ideas"
+author: "Nima Ramezani"
+date: '2022-07-29'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+This document contains all ideas and initiatives for solving various problems. 
+Any form of information to understand the idea better, will appear here.
+
+Do not reveal too much for the sake of Intellectual Property.
+
+## Spike and Slab
+
+[Spike and Slab](https://en.wikipedia.org/wiki/Spike-and-slab_regression#cite_note-9) 
+is a known method in feature selection which is often recommended for when the number of features is too many (sometimes even more than training rows).
+With a slight modification, we can use it for classification problem and hopefully gain a ranking of features based on the feature weights gained from this method.
+It is expected to run faster than GSS, however the usefulness of the algorithm for Event Prediction needs to be tested.
+
+There is currently an 
+[R package](https://cran.r-project.org/web/packages/spikeslab/spikeslab.pdf) for this, but most likely, similar package in Python exists or we can write it.
+
+
+## Targeted Projection Pursuit (TPP)
+
+It is about using Targeted Projection Pursuit (TPP) for feature subset scoring.
+[Targeted Projection Pursuit](https://en.wikipedia.org/wiki/Targeted_projection_pursuit) is a statistical technique used for Exploratory Data Analysis (EDA), Information Visualisation, and Feature Selection. It allows the user to interactively explore very complex data hundreds of attributes to find the best features or patterns of potential interest.  [This paper](targeted_projection_persuit.pdf)
+ provides complete information on how this can be done.
+TPP can replace PCA in our transformers as it is a supervised technique. It is expected to be found useful  especially for KNN models.
+
+
+
+
+Thinking about how we set up our training set in event prediction. 
+Consider that we have one case, A, and the selected period is month. 
+In our dataset for 10 months before the event, their labels are : 
+
+0, 0, 0, 0, 0, 0, 0, 1, 1, 1. 
+
+But consider that it's unlikely that the event signal appears in precisely that third month before the event. 
+If it appears earlier, we've labelled someone as 0 when the event signal appears. 
+If it appears later, we've labelled someone as 1 before the event signal appears. 
+But this could end up teaching the model that the signal is not actually the signal. 
+Given an imbalanced dataset, the label 0 with the signal is probably more impactful. 
+We propose an experiment where we adjust the train (but not the test) to remove the three months before someone is labelled 1 from the trian set. So the labels would now be:
+0, 0, 0, 0, X, X, X, 1, 1, 1
+Where X means this row is removed from our dataset. 
+
+### Comment 1:
+
+Two issues are mentioned:
+
+* If churn signal appears earlier, we've labelled someone as 0 when the churn signal appears.
+* If churn signal appears later, we've labelled someone as 1 before the churn signal appears.
+
+The first issue could be true if we were only using periodic features. In historical features, we expect the churn signal to maintain if it appeared at any time before the prediction date and that is the main purpose of historically aggregated features (HAFs) we have in the output of the Dynamic Feature Generator (DFG).
+And It seems that your proposed solution aims to address the first issue only as you are still keeping all 1 labelled rows in the training set.
+I still think the best approach to address both issues is to go back to the regression modelling with a customised loss function modelling using *tte* and *censored* columns as labels.
+
+This approach worth trying for classification modelling to predict the happening of event within a time-frame in the future.
+However, regression modelling (predicting time to event) or multi-class classification seems to be the right approaches to fully address these concerns which I also believe are valid. 
+
+### Comment 2:
+
+I am indeed only addressing the first issue, because of our imbalanced dataset I think that the first issue is worse. 
+The first issue also still exists even when we have historics. I am not worried about the label 1 rows missing the signal, they certainly have it through the historics. I am worried about labelling 0 when there is event signal, when it’s only a month or two off. 
+We have tried regression modelling, it was unsuccessful, this is different. Regression modelling still has the fatal problem of most of our cases being censored. 
+
+## KNN Model trained on probs of multiple models in logit space
+
+Classification probabilities in logit space can be used as scaled numerical features ideal for a K-Nearest-Neighbors (KNN) model. 
+Step 1: Run 10 XGBoost models with a sample of 100 features out of top 500 GFS selected features.
+Step 2: Run single (Top HPO) XGBoost model with top 500 features from Greedy Feature Selector (GFS).
+Step 3: Run KNN models (number of neighbours 100, 1K and 10K) using probabilities of 10 models of step 1 (in logit space) as features.
+
+
+
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

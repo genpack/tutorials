@@ -1,0 +1,25 @@
+max_memory_GB: 1
+mode: train
+model:
+  classifier:
+    type: HistBoostClassifier
+    parameters:
+      learning_rate: 0.1
+      max_depth: 20
+      max_iter: 10
+  transformer:
+    type: Parallel
+    steps:
+      - type: Dummifier
+        input:
+          include:
+            categoricals: true
+      - type: UnitTransformer
+        input:
+          remainder: true
+  features:
+    - colA
+    - colB
+    - colC
+optimise: false
+verbose: 1

@@ -1,0 +1,16 @@
+dataset:
+  sampled:
+    folder: test
+mode: box
+args:
+  - describer: limetree
+    reuse_predictions: False
+    random_state: 42
+    verbose: true
+    num_samples: 5000
+    features:
+      - colA
+      - colB
+      - colC
+reason_map: {}
+manual_context: {}

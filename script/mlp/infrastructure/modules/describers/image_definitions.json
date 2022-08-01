@@ -1,0 +1,16 @@
+[
+  {
+    "name": "describers",
+    "image": "${REPOSITORY_URI}:${IMAGE_VERSION}",
+    "entryPoint": ["poetry", "run", "python", "/main_describers_container.py"],
+    "essential": true,
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "epp/describers/containers",
+        "awslogs-region": "ap-southeast-2",
+        "awslogs-stream-prefix": "describers"
+      }
+    }
+  }
+]

@@ -1,0 +1,38 @@
+skip_if: torch_unavailable
+mode: train
+model:
+  classifier:
+    type: PyTorchNeuralNetClassifier
+    parameters:
+      batch_norm: true
+      dropout: 0.2
+      epochs: 10
+      shape:
+        - 16
+        - 4
+  transformer:
+    type: Parallel
+    steps:
+      - type: Dummifier
+        input:
+          include:
+            categoricals: true
+      - type: ScikitLearnTransformer
+        import_path: sklearn.preprocessing.QuantileTransformer
+        parameters:
+          random_state: 42
+        input:
+          include:
+            numericals: true
+        output:
+          column_names:
+            keep_original: true
+      - type: UnitTransformer
+        input:
+          remainder: true
+  features:
+    - colA
+    - colB
+    - colC
+optimise: false
+verbose: 1

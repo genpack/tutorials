@@ -1,0 +1,49 @@
+skip_if: xgb_unavailable
+mode: train
+model:
+  classifier:
+    type: XGBClassifier
+    parameters:
+      max_depth: 3
+      n_estimators: 5
+  transformer:
+    type: Parallel
+    steps:
+      - type: Dummifier
+        input:
+          include:
+            categoricals: true
+      - type: Series
+        input:
+          include:
+            - colD
+            - colE
+            - colF
+            - colG
+            - colH
+        steps:
+          - type: ScikitLearnTransformer
+            import_path: sklearn.preprocessing.MinMaxScaler
+            output:
+              column_names:
+                keep_original: true
+          - type: KMeansTransformer
+            parameters:
+              n_clusters: 3
+            output:
+              column_names:
+                - cluster
+      - type: UnitTransformer
+        input:
+          remainder: true
+  features:
+    - colA
+    - colB
+    - colC
+    - colD
+    - colE
+    - colF
+    - colG
+    - colH
+optimise: false
+verbose: 1

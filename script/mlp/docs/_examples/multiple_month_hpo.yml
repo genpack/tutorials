@@ -1,0 +1,29 @@
+dataset: 767d3ca8-23ed-455b-b775-731befcd4c52
+mode: train
+optimise: false
+hpo:
+    algorithm: TreeOfParzen
+    metric: gini_coefficient
+    maximise: true
+
+    num_trials: 64
+    num_parallel: 16
+
+    sample_sets: ["2021-01-01", "2021-02-01", "2021-03-01"]
+    trial_aggregator: median
+
+    feature_select:
+        min_features: 5
+
+    space:
+        max_depth:
+            distribution: randint
+            range: [1, 25]
+        scale_pos_weight:
+            distribution: uniform
+            range: [1, 30]
+        gamma:
+            distribution: loguniform
+            range: [0.001, 1000]
+model:
+    ...

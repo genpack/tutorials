@@ -1,0 +1,23 @@
+mode: train
+model:
+  classifier:
+    type: SGDClassifier
+    parameters:
+      loss: hinge
+      penalty: l2
+  transformer:
+    type: Parallel
+    steps:
+      - type: Dummifier
+        input:
+          include:
+            categoricals: true
+      - type: UnitTransformer
+        input:
+          remainder: true
+  features:
+    - colA
+    - colB
+    - colC
+optimise: false
+verbose: 1

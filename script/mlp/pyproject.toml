@@ -1,0 +1,102 @@
+[tool.poetry]
+name = "ell.predictions"
+version = "9.2.0.dev4"
+description = "El's predictions and describers"
+authors = ["El <info@el.ai>"]
+license = "Proprietary"
+packages = [{ include = "ell" }]
+
+[[tool.poetry.source]]
+name = 'el'
+url = 'https://el-864206818498.d.codeartifact.ap-southeast-2.amazonaws.com/pypi/ell/simple/'
+default = true
+
+[tool.poetry.dependencies]
+python = ">=3.7.0,<4"
+boto3 = "~=1.16"
+catboost = "~=0.26"
+"ell.shared" = "~=0.23"
+lifelines = "==0.15.1"
+lightgbm = "~=2.3.0"
+lime = ">=0.1.1.32,<0.1.2"
+matplotlib = "~=3.0.1"
+numpy = "~=1.21.0"
+pandas = "~=1.1.0"
+pyarrow = "~=7.0.0"
+pyspark = { version = "~=3.1.3", optional = true }
+pytz = ">=2020.1"
+scikit-learn = "~=0.23.2"
+scikit-plot = "~=0.3.7"
+scipy = "~=1.5.3"
+seaborn = "~=0.9.0"
+shap = "~=0.40.0"
+torch = { version = "==1.4.0", optional = true }
+xgboost = "~=1.4.1"
+"epp-api-workspace" = ">=0.23.2,<1"
+ray = { version = "~=1.9", extras = ["tune"] }
+hyperopt = "~=0.2.5"
+optuna = "~=2.9"
+bayesian-optimization = "~=1.2"
+jsonpath-ng = "~=1.5"
+
+[tool.poetry.dev-dependencies]
+pytest = "~=6.1.1"
+pylint = "~=2.6.0"
+bandit = "~=1.6.2"
+category-encoders = "~=2.2.2"
+pytest-xdist = { version = "~=2.1.0", extras = ["psutil"] }
+sphinx = "~=3.2.1"
+safety = "~=1.9.0"
+black = "~=20.8b1"
+pre-commit = "~=2.7.1"
+pytest-black = "~=0.3.8"
+pytest-pylint = "~=0.17.0"
+pytest-timeout = "~=1.4.2"
+pyyaml = "~=5.4.1"
+docstr-coverage = "~=2.0.0"
+pytest-cov = "~=3.0.0"
+pyspark = "*"
+sphinx-book-theme = "~=0.1.2"
+m2r2 = "~=0.3.1"
+sphinx-tabs = "~=3.2.0"
+sphinx-copybutton = "~=0.4.0"
+
+[tool.poetry.extras]
+torch = ["torch"]
+spark = ["pyspark"]
+
+[tool.pytest]
+[tool.pytest.ini_options]
+
+[tool.black]
+include = '\.pyi?$'
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.coverage.run]
+source = [
+    "ell",
+    "main.py",
+    "main_describers_container.py",
+    "main_describers_sparkjob.py",
+]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 30
+
+[tool.coverage.xml]
+output = "code_coverage.xml"
+
+[tool.pylint.master]
+fail_under = 6
+
+[tool.pylint.BASIC]
+good-names = [
+    "i", "j", "df",
+    "tn", "fn", "tp", "fp",
+    "X", "x", "X_train", "X_test",
+    "Y", "y", "Y_train", "Y_test"
+]

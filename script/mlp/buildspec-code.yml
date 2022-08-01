@@ -1,0 +1,104 @@
+version: 0.2
+# Required environment variables:
+# - Set in build config:
+#   - REPOSITORY_URI: URI of this project's ECR repository
+#   - BASEIMAGE_URI: URI of the docker-baseimage ECR repository
+# - Set when starting build:
+#   - IMAGE_VERSION: Non-canonical image tag
+
+phases:
+  install:
+    commands:
+      - start-dockerd.sh
+      - aws codeartifact login --tool pip --repository ell --domain el --domain-owner 864206818498
+      - aws codeartifact login --tool twine --repository ell --domain el --domain-owner 864206818498
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION
+          | docker login
+            --username AWS
+            --password-stdin
+            $(echo $REPOSITORY_URI | cut -d/ -f1)
+      - export POETRY_HTTP_BASIC_EL_USERNAME="aws"
+      - export POETRY_HTTP_BASIC_EL_PASSWORD="$(aws codeartifact get-authorization-token --domain el --domain-owner 864206818498 --query authorizationToken --output text)"
+      - echo "Installing all required dependencies..."
+      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - pyenv global $(pyenv versions --bare | grep -E '^3\.7\.')
+      - poetry install --extras torch
+      - POETRY_VERSION=$(poetry version -s)
+  build:
+    commands:
+        # Test for security vulnerabilities in dependencies
+      - poetry export | poetry run safety check
+          --stdin --full-report --ignore 44715 --ignore 44716 --ignore 44717
+        # Run code metrics
+      - poetry run pylint ell --exit-zero
+        # Run docstring coverage
+      - poetry run docstr-coverage ell
+          --skip-private --skip-magic --skip-file-doc --skip-private --fail-under=60
+        # Code Integrity: Run all unit tests and black
+      - poetry run pytest -vvv -p no:pylint --black --junitxml=code_integrity.xml
+        # Code Security: Run bandit
+      - poetry run bandit -r -ll -ii ell tests main.py main_describers_container.py
+          main_describers_sparkjob.py
+        # Code Quality: Run pylint
+      - poetry run pytest --pylint -m pylint
+          --junitxml=code_quality.xml --cov=ell --cov-report=xml --cov-branch
+          || true
+        # Build the sdist and wheel files
+      - poetry build
+        # Build and tag the docker image
+      - docker build -t $REPOSITORY_URI:$IMAGE_VERSION
+          --build-arg POETRY_HTTP_BASIC_EL_USERNAME
+          --build-arg POETRY_HTTP_BASIC_EL_PASSWORD
+          --build-arg BASEIMAGE_URI=$BASEIMAGE_URI .
+      - docker tag $REPOSITORY_URI:$IMAGE_VERSION $REPOSITORY_URI:$IMAGE_TAG
+      # Build the documentation
+      - echo "Building documentation"
+      - poetry run sphinx-build -b html -E -a docs built_docs
+  post_build:
+    commands:
+      - if [ $CODEBUILD_BUILD_SUCCEEDING == "0" ]; then exit 1; fi
+
+      - docker push $REPOSITORY_URI
+
+      - if [[ $POETRY_VERSION == ${CODEBUILD_SOURCE_VERSION#v} ]]; then
+          twine upload -r codeartifact dist/* --verbose;
+        fi
+
+      - cp main.py dist/main.py
+      - envsubst
+          < infrastructure/modules/workspace/task-predictions.tpl
+          > dist/image_definitions.json
+
+        # Artifacts for describers go into a separate folder
+      - cp -r dist dist-describers
+      - cp main_describers_sparkjob.py dist-describers/main.py
+      - envsubst
+          < infrastructure/modules/describers/image_definitions.json
+          > dist-describers/image_definitions.json
+reports:
+ CodeIntegrity:
+   files:
+     - code_integrity.xml
+ CodeQuality:
+   files:
+     - code_quality.xml
+ CodeCoverage:
+   files:
+     - code_coverage.xml
+   file-format: COBERTURAXML
+artifacts:
+  files:
+    - dist/*
+  discard-paths: true
+  secondary-artifacts:
+    describers:
+      files:
+        - dist-describers/*
+      discard-paths: true
+    docs:
+      base-directory: built_docs
+      files:
+        - "**/*"
+cache:
+  paths:
+    - /root/.cache/pypoetry

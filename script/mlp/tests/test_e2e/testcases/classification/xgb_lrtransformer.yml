@@ -1,0 +1,39 @@
+skip_if: xgb_unavailable
+mode: train
+model:
+  classifier:
+    type: XGBClassifier
+    parameters:
+      max_depth: 3
+      n_estimators: 5
+  transformer:
+    type: Series
+    steps:
+      - type: Parallel
+        steps:
+          - type: Dummifier
+            input:
+              include:
+                categoricals: true
+          - type: UnitTransformer
+            input:
+              remainder: true
+      - type: Parallel
+        steps:
+          - type: ClassifierAsTransformer
+            classifier_type: LogisticRegressionClassifier
+            parameters:
+              penalty: l1
+              solver: liblinear
+            output:
+              column_names:
+                - LR
+          - type: UnitTransformer
+            input:
+              remainder: true
+  features:
+    - colA
+    - colB
+    - colC
+optimise: false
+verbose: 1

@@ -1,0 +1,53 @@
+max_memory_GB: 1
+mode: train
+model:
+  classifier:
+    type: RandomForestClassifier
+    parameters:
+      max_depth: 4
+      n_estimators: 50
+  transformer:
+    type: Series
+    steps:
+      - type: Parallel
+        steps:
+          - type: Dummifier
+            input:
+              include:
+                categoricals: true
+          - type: UnitTransformer
+            input:
+              remainder: true
+      - type: Parallel
+        steps:
+          - type: ClassifierAsTransformer
+            classifier_type: LogisticRegressionClassifier
+            parameters:
+              C: 1
+              penalty: l2
+            output:
+              column_names:
+                - LR
+          - type: UnitTransformer
+      - type: Parallel
+        steps:
+          - type: ClassifierAsTransformer
+            classifier_type: LightGBMClassifier
+            parameters:
+              boosting_type: gbdt
+              feature_fraction: 0.5
+              learning_rate: 0.005
+              max_depth: 2
+              min_data: 50
+              num_leaves: 3
+              seed: 42
+            output:
+              column_names:
+                - LGBM
+          - type: UnitTransformer
+  features:
+    - colA
+    - colB
+    - colC
+optimise: false
+verbose: 1

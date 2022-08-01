@@ -1,0 +1,20 @@
+skip_if: lightgbm_unavailable
+max_memory_GB: 1
+mode: train
+model:
+  classifier:
+    type: LightGBMClassifier
+    parameters:
+      boosting_type: gbdt
+      feature_fraction: 0.5
+      learning_rate: 0.005
+      max_depth: 2
+      min_data: 50
+      num_leaves: 3
+      seed: 42
+  features:
+    - colA
+    - colB
+    - colC
+optimise: false
+verbose: 1

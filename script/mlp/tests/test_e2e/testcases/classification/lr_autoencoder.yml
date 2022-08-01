@@ -1,0 +1,41 @@
+skip_if: torch_unavailable
+mode: train
+model:
+  classifier:
+    type: LogisticRegressionClassifier
+    parameters:
+      C: 1
+      penalty: l2
+  transformer:
+    type: Parallel
+    steps:
+      - type: Dummifier
+        input:
+          include:
+            categoricals: true
+      - type: Autoencoder
+        parameters:
+          epochs: 20
+          kl:
+            - 1.0e-05
+            - 0.05
+          l1: 1.0e-05
+          noise_amount: 0.2
+          noise_type: masking
+          random_state: 42
+          shape:
+            - 2
+            - 1
+          tol: 0.001
+        input:
+          exclude:
+            target: true
+      - type: UnitTransformer
+        input:
+          remainder: true
+  features:
+    - colA
+    - colB
+    - colC
+optimise: false
+verbose: 1

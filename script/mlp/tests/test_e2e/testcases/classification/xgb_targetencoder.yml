@@ -1,0 +1,23 @@
+skip_if: xgb_unavailable
+mode: train
+model:
+  classifier:
+    type: XGBClassifier
+    parameters:
+      max_depth: 3
+      n_estimators: 5
+  transformer:
+    type: Parallel
+    steps:
+      - type: TargetEncoder
+        input:
+          include:
+            categoricals: true
+            target: true
+      - type: UnitTransformer
+        input:
+          include:
+            numericals: true
+            target: true
+optimise: churn
+verbose: 1

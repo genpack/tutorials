@@ -1,0 +1,47 @@
+dataset: 767d3ca8-23ed-455b-b775-731befcd4c52
+mode: train
+optimise: 0.02
+distributor:
+  model_timeout: 1h30m
+  total_compute_budget: 20h
+model:
+  classifier:
+    type: AveragingEnsembler
+    target: label_propertySale_3m
+    models:
+      - classifier:
+          type: XGBClassifier
+          parameters:
+            max_depth: 3
+            n_estimators: 5
+        transformer:
+          type: Parallel
+          steps:
+            # Dummify categoricals, except for some
+            - type: Dummifier
+              input:
+                include:
+                  categoricals: true
+                exclude:
+                  - currentResidentialPostcode
+                  - currentSecurityPostcode
+                  - currentResidentialSA4
+                  - currentSecuritySA4
+              # Pass through other features (and the label) unchanged
+            - type: UnitTransformer
+              input:
+                remainder: true
+    parameters:
+      num_models: [ 10 ]
+      seed: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+  labels:
+    - label_propertySale_3m
+  features:
+    - currentInterestRate
+    - primaryCustomerGender
+    - numTransactionsLast3Months
+    - loanBrokerID
+    - currentResidentialPostcode
+    - currentSecurityPostcode
+    - currentResidentialSA4
+    - currentSecuritySA4

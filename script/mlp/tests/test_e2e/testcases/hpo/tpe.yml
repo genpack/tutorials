@@ -1,0 +1,44 @@
+skip_if:
+  - ray_unavailable
+hpo:
+    algorithm: TreeOfParzen
+    metric: gini_coefficient
+    maximise: true
+
+    parameters:
+      num_initial_points: 2
+      random_state: 42
+      points_to_evaluate:
+        - max_depth: 2
+          scale_pos_weight: 2
+          gamma: 2
+          num_features: 2
+          eta: 00.5
+        - max_depth: 3
+          scale_pos_weight: 3
+          gamma: 3
+          num_features: 2
+          eta: 0.3
+
+    num_trials: 6
+    num_parallel: 2
+    space:
+        max_depth:
+            distribution: randint
+            range: [1, 25]
+        scale_pos_weight:
+            distribution: uniform
+            range: [1, 30]
+        gamma:
+            distribution: loguniform
+            range: [0.001, 1000]
+            base: 7
+        num_features:
+            distribution: choice
+            choices: [1, 2, 5]
+        eta:
+            distribution: normal
+            mean: 0.5
+            std: 0.25
+            floor: 0
+            ceiling: 1

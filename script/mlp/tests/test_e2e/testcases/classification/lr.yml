@@ -1,0 +1,32 @@
+max_memory_GB: 5.0e-05
+mode: train
+model:
+  classifier:
+    type: LogisticRegressionClassifier
+    parameters:
+      C: 1
+      penalty: l2
+  transformer:
+    type: Parallel
+    steps:
+      - type: Dummifier
+        input:
+          include:
+            categoricals: true
+      - type: ScikitLearnTransformer
+        import_path: sklearn.preprocessing.MinMaxScaler
+        input:
+          include:
+            numericals: true
+        output:
+          column_names:
+            keep_original: true
+      - type: UnitTransformer
+        input:
+          remainder: true
+  features:
+    - colA
+    - colB
+    - colC
+optimise: false
+verbose: 1

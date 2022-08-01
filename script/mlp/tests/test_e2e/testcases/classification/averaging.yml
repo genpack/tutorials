@@ -1,0 +1,142 @@
+enable_distributor: false
+mode: train
+model:
+  classifier:
+    type: AveragingEnsembler
+    models:
+      - classifier:
+          type: XGBClassifier
+          parameters:
+            alpha: 20
+            gamma: 13
+            lambda: 20
+            max_depth: 5
+            min_child_weight: 40
+            n_estimators: 10
+            partial: true
+            scale_pos_weight: 10
+            seed: 0
+            subsample: 0.4
+        transformer:
+          type: Parallel
+          steps:
+            - type: Dummifier
+              input:
+                include:
+                  categoricals: true
+            - type: UnitTransformer
+              input:
+                remainder: true
+    parameters:
+      num_models:
+        - 2
+      partial: true
+      persist_predictions: true
+      seed:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        - 32
+        - 33
+        - 34
+        - 35
+        - 36
+        - 37
+        - 38
+        - 39
+        - 40
+        - 41
+        - 42
+        - 43
+        - 44
+        - 45
+        - 46
+        - 47
+        - 48
+        - 49
+        - 50
+        - 51
+        - 52
+        - 53
+        - 54
+        - 55
+        - 56
+        - 57
+        - 58
+        - 59
+        - 60
+        - 61
+        - 62
+        - 63
+        - 64
+        - 65
+        - 66
+        - 67
+        - 68
+        - 69
+        - 70
+        - 71
+        - 72
+        - 73
+        - 74
+        - 75
+        - 76
+        - 77
+        - 78
+        - 79
+        - 80
+        - 81
+        - 82
+        - 83
+        - 84
+        - 85
+        - 86
+        - 87
+        - 88
+        - 89
+        - 90
+        - 91
+        - 92
+        - 93
+        - 94
+        - 95
+        - 96
+        - 97
+        - 98
+        - 99
+        - 100
+  features:
+    - colA
+    - colB
+    - colC
+normalize: true
+optimise: 0.04
+verbose: 1

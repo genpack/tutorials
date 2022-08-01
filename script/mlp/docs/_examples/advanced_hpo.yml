@@ -1,0 +1,73 @@
+dataset: 767d3ca8-23ed-455b-b775-731befcd4c52
+mode: train
+optimise: false
+verbose: 1
+max_memory_GB: 3
+hpo:
+    algorithm: TreeOfParzen
+    metric: lift_5
+    maximise: true
+
+    # Additional parameters passed into the TPE algorithm
+    parameters:
+        num_initial_points: 64
+        gamma: 0.5
+
+    # This HPO will continue from the HPO with this executorrun
+    warm_start: 162cee04-8ea2-43f6-a939-b3c4dd15e10a
+
+    # Despite TPE defaulting to eager submission, this will force a batching strategy
+    submission_strategy: batch
+
+    # The HPO will stop if the top 5 models have not changed in the last 100 trials
+    early_stopping:
+        num_top_models: 5
+        patience: 100
+
+    # Experiment will run for 2 days of real world time
+    duration: 2d
+    num_parallel: 32
+
+    space:
+        n_estimators:
+            distribution: randint
+            range: [1, 200]
+        eta_k:
+            distribution: uniform
+            range: [0.001, 100]
+        gamma:
+            distribution: loguniform
+            range: [0.001, 1000]
+        # Manually specify a distribution for selecting features
+        num_features:
+            distribution: lograndint
+            range: [500, 2000]
+            step: 10
+        # This parameter will get filled into this JSON path in the config
+        "$.model.transformer.steps[0].input.max_cardinality":
+            distribution: randint
+            range: [5, 30]
+            step: 5
+model:
+  classifier:
+    ...
+  transformer:
+    type: Parallel
+    steps:
+      # Dummify categoricals, except for some
+      - type: Dummifier
+        input:
+          include:
+            categoricals: true
+            max_cadinality: 20
+          exclude:
+            - currentResidentialPostcode
+            - currentSecurityPostcode
+            - currentResidentialSA4
+            - currentSecuritySA4
+        # Pass through other features (and the label) unchanged
+      - type: UnitTransformer
+        input:
+          remainder: true
+  features:
+    ...

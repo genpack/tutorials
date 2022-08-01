@@ -1,0 +1,30 @@
+---
+title: "Agile"
+author: "Nima Ramezani"
+date: '2022-07-29'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+The purpose of this article is to document how we should manage work as a company. 
+This ranges from Jira ticketing conventions, to how to prioritise tickets, to running retrospectives on sprints, 
+and much more.
+The diagram below illustrates the general path that our work takes from conception to completion.
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

@@ -1,0 +1,67 @@
+skip_if:
+  - xgb_unavailable
+  - torch_unavailable
+mode: train
+model:
+  classifier:
+    type: XGBClassifier
+    parameters:
+      colsample_bytree: 0.6
+      early_stopping_rounds: 10
+      eta: 0.05
+      max_depth: 5
+      min_child_weight: 75
+      n_estimators: 10
+      scale_pos_weight: 2
+      sigma: 8
+      subsample: 0.6
+      autoencoder_l1: 1.0e-6
+  transformer:
+    type: Parallel
+    steps:
+      - type: Dummifier
+        input:
+          include:
+            categoricals: true
+      - type: Series
+        input:
+          include:
+            - colA
+            - colB
+            - colC
+        steps:
+          - type: ScikitLearnTransformer
+            import_path: sklearn.preprocessing.QuantileTransformer
+            output:
+              column_name_prefix: ac
+              column_names:
+                keep_original: true
+          - type: Autoencoder
+            parameters:
+              epochs: 1
+              kl:
+                - 1.0e-05
+                - 0.05
+              l1: parameters["autoencoder_l1"]
+              noise_amount: 0.2
+              noise_type: masking
+              random_state: 42
+              shape:
+                - 2
+                - 1
+              tol: 0.001
+              output:
+                column_name_prefix: autoencoder
+      - type: UnitTransformer
+        input:
+          remainder: true
+          target: true
+  features:
+    - colA
+    - colB
+    - colC
+    - colD
+    - colE
+    - colF
+optimise: false
+verbose: 1

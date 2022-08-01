@@ -1,0 +1,24 @@
+max_memory_GB: 5.0e-05
+mode: train
+model:
+  classifier:
+    type: RandomForestClassifier
+    parameters:
+      max_depth: 8
+      n_estimators: 50
+  transformer:
+    type: Parallel
+    steps:
+      - type: Dummifier
+        input:
+          include:
+            categoricals: true
+      - type: UnitTransformer
+        input:
+          remainder: true
+  features:
+    - colA
+    - colB
+    - colC
+optimise: false
+verbose: 1
