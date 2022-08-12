@@ -18,8 +18,10 @@ library(rutils)
 # #          'el_sa.csv')
 
 files = c(
-  'cba_smart_access_26jul20_26jul22.csv',
-  'cba_credit_card_25jul20_25jul22.csv')
+  'creditcard.csv',
+  'smartaccess.csv',
+  'creditcard_4Aug2020_4Aug2022.csv',
+  'smartaccess_5Aug2020_4Aug2022.csv')
 
 transactions = NULL
 for (fn in files){
@@ -66,7 +68,6 @@ for (cat in names(config)){
 }
 
 transactions %<>% select(eventTime, description, category, subcategory = merchant, source, value)
-
 
 # View(transactions %>% filter(is.na(category)))
 

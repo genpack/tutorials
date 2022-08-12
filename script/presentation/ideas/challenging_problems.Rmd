@@ -565,3 +565,12 @@ d) kyuri kyuto
 a is correct because I thought 'hon' is used for long objects
 
 ## Done upto 2021
+
+This is a problem I have been thinking for a while and could not find an easy solution: 
+Let's say you have a set of integer numbers from 1 to n. You are also given a set of m subsets of size k (k < n).
+How many subsets of size p (p < n) exist that do not contain any of the given subsets?
+
+Example: Out of numbers from 1 to 15, how many subsets of 5 numbers can you find that do NOT contain any of these triplets: (1,3,5), (15, 3, 4), (7, 4, 9), (12, 1, 2), (9, 11, 5)
+
+Can any one give an algorithm which can find all the answers?
+
