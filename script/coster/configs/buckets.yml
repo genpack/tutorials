@@ -1,0 +1,76 @@
+HealthInsurance:
+  HealthInsurance: HealthInsurance 
+Medicine:
+  Medicine: Medicine
+Sports: 
+  Sports: Sports
+Beauty:
+  Beauty: Beauty
+CouncilFee:
+  CouncilFee: CouncilFee
+RegularSaving:
+  RegularSaving: RegularSaving
+Landscape:
+  Landscape: 
+  - Landscape
+  - outdoor
+  
+Furniture:
+  Furniture: Furniture
+Transport:
+  Transport: Transport
+Communication: 
+  Communication: Communication
+
+CarPurchase:
+  CarPurchase: CarPurchase
+Edvin:
+  Edvin: Edvin
+MedicalVisit:
+  MedicalVisit: MedicalVisit
+
+LegalServices:
+  LegalServices: LegalServices
+Charity:
+  Charity: Charity
+Miscellaneous:
+  Expenses: ElaheBuffer
+  CreditCard: CreditCardFix
+  BurrowedBack: Burrowed
+  CreditInterest: CreditInterest
+  Annexp: Annexp
+Mortgage:
+  Mortgage: Mortgage
+HomeRepair:
+  HomeRepair: HomeRepair
+HomeInsurance:
+  HomeInsurance: HomeInsurance
+CarParking:
+  CarParking: 
+  - CarParking
+  - parking
+CarServices:
+  CarServices: CarServices
+CarInsurance: 
+  CarInsurance: CarInsurance
+  CarRegistration: CarRegistration
+CarFuel:
+  CarFuel: CarFuel
+HomeAppliances:
+  HomeAppliances: HomeAppliances
+Shopping:
+  Shopping: Shopping
+Gifts:
+  Gifts: Gifts
+Groceries:
+  Groceries: Groceries
+Leisure: 
+  Leisure: Leisure
+Restaurant:
+  Restaurant: Restaurant
+Utilities: 
+  Utilities: Utilities
+Gadgets: 
+  Gadgets: Gadgets
+Proximity: 
+  Proximity: Proximity
