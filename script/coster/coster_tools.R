@@ -39,7 +39,7 @@ categorise_transactions = function(transactions, config){
 cba.read_transactions = function(filenames){
   transactions = NULL
   for (fn in filenames){
-    path = "%s/%s" %>% sprintf('data', fn) %>% 
+    path = fn %>% 
       read.csv(header = F, as.is = T) -> D
     if (ncol(D) == 4){
       D = D[,c(1:3)]

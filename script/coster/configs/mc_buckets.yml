@@ -1,0 +1,22 @@
+inputs: 
+- cba_nbs_aug22
+- cba_nbs_sep22
+- cba_nbs_oct22
+- cba_nbs_nov22
+
+categories: script/coster/configs/buckets.yml
+
+from: 2022-08-01
+until: 2022-11-01
+
+excluded_categories: ['Expenses', 'Miscellaneous', 'CreditCard', 'Proximity']
+
+# excluded_categories: ['Saving', 'Miscellaneous', 'CreditCard', 'Proximity']
+
+output:
+  transactions: nbs_transactions
+  buckets: bucket_balances
+  
+  
+
+

@@ -1,53 +1,57 @@
 # setwd("script/coster")
-
+########################## View Transactions ################
 library(readr)
 library(magrittr)
 library(dplyr)
 library(rutils)
 
 
-source("coster_tools.R")
+source("script/coster/coster_tools.R")
 
 # Read Config:
-config = yaml::read_yaml('configs/buckets.yml')
 
 
-files = c('cba_nbs_aug22.csv', 'cba_nbs_sep22.csv')
+mc = yaml::read_yaml('script/coster/configs/mc_buckets.yml')
+
+config = yaml::read_yaml(mc$categories)
+
+
+files = mc$inputs %>% paste('csv', sep = ".")
+files = paste('script', 'coster', 'data', files, sep = "/")
 
 cba.read_transactions(files) %>% 
   cba.to_standard %>% 
-  categorise_transactions(config) -> transactions
+  categorise_transactions(config) %>% 
+  filter(eventTime >= mc$from, 
+         eventTime <= mc$until,
+         !(category %in% mc$excluded_categories)) -> transactions
 
 
-##########
 View(transactions)
 
-# transactions %>% 
-#   filter(eventTime >= '2022-08-01') %>% 
-#   group_by(category) %>% summarise(Total = sum(value)) %>% 
-#   View
-# 
-# days = transactions$eventTime %>% range %>% as.Date %>% {.[2] - .[1]}
-# 
-# View(transactions %>% group_by(category) %>% 
-#        summarise(Total_Out  = sum(ifelse(value < 0, - value, 0)), 
-#                  Total_In   = sum(ifelse(value > 0, value, 0)),
-#                  Total = sum(value))
-# )
+##################### Save Transactions #################
 
 
-exclude = c('Expenses', 'Miscellaneous', 'CreditCard', 'Proximity')
+path_output_transactions = paste('script', 'coster', 'report', mc$output$transactions, sep = "/")
+
+transactions %>% write.csv(path_output_transactions, row.names = F)
+
+##########
 
 transactions %>% 
-  filter(eventTime >= '2022-08-01', !(category %in% exclude)) %>% 
   group_by(category) %>% 
   summarise(Total_Out  = sum(ifelse(value < 0, - value, 0)), 
             Total_In   = sum(ifelse(value > 0, value, 0)),
             Total = sum(value)) -> bucket_balances
 
-  bucket_balances %>% View
+
+path_output_buckets = paste('script', 'coster', 'report', mc$output$buckets, sep = "/")
+
+bucket_balances %>% View
+
+bucket_balances %>% write.csv(path_output_buckets, row.names = F)
+
 #  rpivotTable::rpivotTable()
-  bucket_balances %>% write.csv('bucket_balances.csv', row.names = F)
   
 
 # for(st in paste0(' ', unique(suburbs$state))){

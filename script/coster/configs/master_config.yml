@@ -1,0 +1,21 @@
+inputs: 
+#  - cba_nbs_aug22
+#  - cba_nbs_sep22
+  - smartAccessOctober2022
+
+categories: script/coster/configs/universal_2.yml
+
+from: 2022-10-01
+until: 2022-10-31
+
+# excluded_categories: ['Expenses', 'Miscellaneous', 'CreditCard', 'Proximity']
+
+excluded_categories: ['Saving', 'Miscellaneous', 'CreditCard', 'Proximity']
+
+output:
+  transactions: sa_transactions
+  buckets: sa_buckets
+  
+  
+
+
