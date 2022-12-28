@@ -295,59 +295,6 @@ opt.pred.power(x,y)
 
 ###### Folder test.viser: ==========================
 
-### 201_shinydashboard_boxes.R ------------------------
-library(shiny)
-library(shinydashboard)
-source('C:/Nicolas/R/packages/viser/R/tools.R')
-source('C:/Nicolas/R/packages/gener/R/gener.R')
-source('C:/Nicolas/R/packages/viser/R/dashboard.R')
-
-
-greenBox.1 = list(type = 'InfoBox', title = "Hello1", icon = 'credit-card', subtitle = 'SUBTITLE')
-greenBox.2 = list(type = 'InfoBox', title = "Hello2", icon = 'line-chart' , subtitle = 'SUBTITLE', fill = T)
-purpleBox  = list(type = 'InfoBox', title = "Hello3", icon = 'line-chart' , subtitle = 'SUBTITLE', fill = T, colour = 'purple')
-cloth.1   = list(type = 'ValueBox', icon = 'credit-card', href = "http://google.com")
-cloth.2   = list(type = 'ValueBox', icon = 'line-chart', href = "http://yahoo.com", title = 'Approval Rating', color = "green")
-cloth.3   = list(type = 'ValueBox', icon = 'users', colour = "yellow")
-cloth.4   = list(type = 'Box', status = "warning", solidHeader = TRUE, collapsible = TRUE)
-cloth.5   = list(type = 'Box', status = "warning", background = 'green', width = 4)
-cloth.6   = list(type = 'Box', background = 'red', width = 4)
-
-# inputs:
-in.1  = list(ID = 'orders'  , type = "SliderInput", label = "Orders"  , min = 1, max = 2000, value = 650)
-in.2  = list(ID = 'progress', type = "SelectInput", label = "Progress", choices = c("0%" = 0, "20%" = 20, "40%" = 40, "60%" = 60, "80%" = 80, "100%" = 100))
-
-# containers:
-in.3 = list(ID = 'dashboard', type = 'DashboardPage', layout.head = c(), layout.side = c(), layout.body = -5)
-in.4 = in.3
-in.5 = list(ID = 'body'     , type = 'FluidRCPanel'  , layout = list(c(1,2,3), c(4,5,6), c(-6, 7), c(8,9)))
-in.6 = list(ID = 'plotbox'  , type = 'Box'           , status = "primary", layout = c(-1, -2))
-
-# outputs:
-out.1 = list(ID = 'orderNum2', type = "uiOutput"  , label = "Orders"         , cloth = greenBox.1, srv.func = "prettyNum(input$orders, big.mark=',')")
-out.2 = list(ID = 'apr'      , type = "static"    , label = "Approval Rating", cloth = greenBox.2, object = "%60")
-out.3 = list(ID = 'progress2', type = "uiOutput"  , label = "Progress"       , cloth = purpleBox, srv.func = "paste0(input$progress, '%')")
-out.4 = list(ID = 'orderNum' , type = "uiOutput"  , label = "New Orders"     , cloth = cloth.1, srv.func = "prettyNum(input$orders, big.mark=',')")
-out.5 = list(ID = 'empty'    , type = "static"    , label = "Approval Rating", cloth = cloth.2, object = tagList("60", tags$sup(style="font-size: 20px", "%")))
-out.6 = list(ID = 'progress' , type = "htmlOutput", label = "Progress"       , cloth = cloth.3, srv.func = "paste0(input$progress, '%')")
-out.7 = list(ID = 'plot'     , type = "plotOutput", label = "Histogram box title", cloth = cloth.4, height = 250, srv.func = "hist(rnorm(input$orders))")
-out.8 = list(ID = 'status'   , type = "textOutput", label = "Status summary",   cloth = cloth.5, 
-             srv.func = "paste0('There are ', input$orders, ' orders, and so the current progress is ', input$progress, '%.')")
-out.9 = list(ID = 'status2'  , type = "uiOutput"  , label = "Status summary 2", cloth = cloth.6, 
-             srv.func = "p('Current status is: ', icon(switch(input$progress,'100' = 'ok','0' = 'remove','road'), lib = 'glyphicon'))")
-
-inputs  = list(in.1 , in.2, in.3, in.4, in.5, in.6)
-outputs = list(out.1, out.2, out.3, out.4, out.5, out.6, out.7, out.8, out.9)
-
-
-
-dash = DASHBOARD(obj = NULL, inputs = inputs, outputs = outputs, layout = list(3))
-
-ui <- dash$dashboard.ui()
-server <- dash$dashboard.server()
-
-shinyApp(ui, server)
-
 ### 052_navbar_example.R ------------------------
 library(shiny)
 library(shinydashboard)

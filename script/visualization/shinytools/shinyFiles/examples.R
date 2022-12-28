@@ -1,5 +1,5 @@
 ### examples.R -------------------
-
+library(shinyFiles)
 ## Not run:
 # File selections
 ui <- shinyUI(bootstrapPage(
@@ -27,6 +27,7 @@ runApp(list(
 ))
 ## End(Not run)
 ## Not run:
+
 # File selections
 ui <- shinyUI(bootstrapPage(
   shinySaveButton('save', 'Save', 'Save as...')

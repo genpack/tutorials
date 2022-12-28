@@ -82,9 +82,10 @@ shinyApp(ui = ui, server = server)
 
 # viser translation:
 
-library(gener)
-source('C:/Nicolas/RCode/packages/master/viser-master/R/visgen.R')
-source('C:/Nicolas/RCode/packages/master/viser-master/R/dashboard.R')
+library(rutils)
+library(rvis)
+#source('C:/Nicolas/RCode/packages/master/viser-master/R/visgen.R')
+#source('C:/Nicolas/RCode/packages/master/viser-master/R/dashboard.R')
 
 E = list()
 

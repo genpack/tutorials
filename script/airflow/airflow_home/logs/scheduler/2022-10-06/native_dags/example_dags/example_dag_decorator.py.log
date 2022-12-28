@@ -1,0 +1,984 @@
+[2022-10-06T14:56:34.030+1100] {processor.py:153} INFO - Started process (PID=47748) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T14:56:34.032+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T14:56:34.032+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:56:34.032+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T14:56:34.106+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T14:56:34.346+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:56:34.346+1100] {manager.py:508} INFO - Created Permission View: can edit on DAG:example_dag_decorator
+[2022-10-06T14:56:34.348+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:56:34.348+1100] {manager.py:508} INFO - Created Permission View: can delete on DAG:example_dag_decorator
+[2022-10-06T14:56:34.350+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:56:34.350+1100] {manager.py:508} INFO - Created Permission View: can read on DAG:example_dag_decorator
+[2022-10-06T14:56:34.350+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:56:34.350+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T14:56:34.352+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:56:34.352+1100] {dag.py:2448} INFO - Creating ORM DAG for example_dag_decorator
+[2022-10-06T14:56:34.354+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:56:34.354+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T14:56:34.358+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.328 seconds
+[2022-10-06T14:57:23.765+1100] {processor.py:153} INFO - Started process (PID=48177) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T14:57:23.767+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T14:57:23.767+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:57:23.767+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T14:57:23.872+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T14:57:24.141+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:57:24.141+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T14:57:24.145+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:57:24.145+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T14:57:24.149+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.384 seconds
+[2022-10-06T14:58:10.069+1100] {processor.py:153} INFO - Started process (PID=48638) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T14:58:10.071+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T14:58:10.071+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:58:10.071+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T14:58:10.174+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T14:58:10.508+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:58:10.507+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T14:58:10.512+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:58:10.512+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T14:58:10.516+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.448 seconds
+[2022-10-06T14:58:55.173+1100] {processor.py:153} INFO - Started process (PID=49110) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T14:58:55.175+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T14:58:55.175+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:58:55.175+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T14:58:55.274+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T14:58:55.553+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:58:55.553+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T14:58:55.557+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:58:55.557+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T14:58:55.561+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.388 seconds
+[2022-10-06T14:59:45.278+1100] {processor.py:153} INFO - Started process (PID=49586) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T14:59:45.281+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T14:59:45.281+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:59:45.281+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T14:59:45.391+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T14:59:45.646+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:59:45.646+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T14:59:45.651+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:59:45.651+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T14:59:45.654+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.377 seconds
+[2022-10-06T15:00:33.190+1100] {processor.py:153} INFO - Started process (PID=54030) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:00:33.191+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:00:33.192+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:00:33.192+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:00:33.267+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:00:33.477+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:00:33.476+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:00:33.481+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:00:33.481+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:00:33.489+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.299 seconds
+[2022-10-06T15:01:21.964+1100] {processor.py:153} INFO - Started process (PID=55261) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:01:21.966+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:01:21.966+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:01:21.966+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:01:22.069+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:01:22.324+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:01:22.324+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:01:22.328+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:01:22.328+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:01:22.332+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.368 seconds
+[2022-10-06T15:02:07.276+1100] {processor.py:153} INFO - Started process (PID=55755) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:02:07.279+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:02:07.279+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:02:07.279+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:02:07.369+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:02:07.627+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:02:07.627+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:02:07.632+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:02:07.632+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:02:07.635+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.359 seconds
+[2022-10-06T15:02:58.817+1100] {processor.py:153} INFO - Started process (PID=56268) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:02:58.819+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:02:58.819+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:02:58.819+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:02:58.916+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:02:59.174+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:02:59.174+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:02:59.179+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:02:59.179+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:02:59.182+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.366 seconds
+[2022-10-06T15:03:47.806+1100] {processor.py:153} INFO - Started process (PID=57027) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:03:47.809+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:03:47.809+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:03:47.809+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:03:47.888+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:03:48.089+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:03:48.089+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:03:48.093+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:03:48.093+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:03:48.097+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.291 seconds
+[2022-10-06T15:04:32.284+1100] {processor.py:153} INFO - Started process (PID=57487) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:04:32.286+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:04:32.286+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:04:32.286+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:04:32.382+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:04:32.643+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:04:32.643+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:04:32.647+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:04:32.647+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:04:32.651+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.367 seconds
+[2022-10-06T15:05:16.623+1100] {processor.py:153} INFO - Started process (PID=58004) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:05:16.625+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:05:16.626+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:05:16.626+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:05:16.719+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:05:16.989+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:05:16.989+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:05:16.996+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:05:16.996+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:05:17.000+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.377 seconds
+[2022-10-06T15:06:02.569+1100] {processor.py:153} INFO - Started process (PID=58549) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:06:02.571+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:06:02.571+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:06:02.571+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:06:02.666+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:06:02.940+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:06:02.940+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:06:02.944+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:06:02.944+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:06:02.948+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.379 seconds
+[2022-10-06T15:06:48.236+1100] {processor.py:153} INFO - Started process (PID=59009) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:06:48.239+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:06:48.239+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:06:48.239+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:06:48.349+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:06:48.729+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:06:48.729+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:06:48.733+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:06:48.733+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:06:48.737+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.501 seconds
+[2022-10-06T15:07:35.731+1100] {processor.py:153} INFO - Started process (PID=59523) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:07:35.734+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:07:35.734+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:07:35.734+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:07:35.831+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:07:36.099+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:07:36.099+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:07:36.104+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:07:36.103+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:07:36.107+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.376 seconds
+[2022-10-06T15:08:20.539+1100] {processor.py:153} INFO - Started process (PID=60001) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:08:20.541+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:08:20.541+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:08:20.541+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:08:20.637+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:08:20.914+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:08:20.913+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:08:20.918+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:08:20.918+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:08:20.922+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.383 seconds
+[2022-10-06T15:09:08.690+1100] {processor.py:153} INFO - Started process (PID=60518) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:09:08.693+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:09:08.693+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:09:08.693+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:09:08.793+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:09:09.077+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:09:09.077+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:09:09.082+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:09:09.081+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:09:09.085+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.395 seconds
+[2022-10-06T15:10:00.630+1100] {processor.py:153} INFO - Started process (PID=61008) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:10:00.632+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:10:00.632+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:10:00.632+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:10:00.708+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:10:00.907+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:10:00.907+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:10:00.911+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:10:00.911+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:10:00.915+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.286 seconds
+[2022-10-06T15:10:46.675+1100] {processor.py:153} INFO - Started process (PID=61517) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:10:46.677+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:10:46.677+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:10:46.677+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:10:46.771+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:10:47.016+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:10:47.016+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:10:47.021+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:10:47.021+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:10:47.025+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.350 seconds
+[2022-10-06T15:11:34.292+1100] {processor.py:153} INFO - Started process (PID=62034) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:11:34.293+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:11:34.294+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:11:34.294+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:11:34.392+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:11:34.649+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:11:34.649+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:11:34.653+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:11:34.653+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:11:34.657+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.365 seconds
+[2022-10-06T15:12:22.027+1100] {processor.py:153} INFO - Started process (PID=62499) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:12:22.029+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:12:22.029+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:12:22.029+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:12:22.122+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:12:22.384+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:12:22.384+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:12:22.389+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:12:22.389+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:12:22.392+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.366 seconds
+[2022-10-06T15:13:11.637+1100] {processor.py:153} INFO - Started process (PID=62979) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:13:11.640+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:13:11.640+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:13:11.640+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:13:11.721+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:13:11.928+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:13:11.928+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:13:11.933+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:13:11.933+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:13:11.937+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.300 seconds
+[2022-10-06T15:13:57.991+1100] {processor.py:153} INFO - Started process (PID=63459) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:13:57.993+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:13:57.993+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:13:57.993+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:13:58.086+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:13:58.360+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:13:58.360+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:13:58.365+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:13:58.365+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:13:58.368+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.378 seconds
+[2022-10-06T15:14:42.221+1100] {processor.py:153} INFO - Started process (PID=63934) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:14:42.224+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:14:42.224+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:14:42.224+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:14:42.332+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:14:42.598+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:14:42.598+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:14:42.602+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:14:42.602+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:14:42.606+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.385 seconds
+[2022-10-06T15:15:26.206+1100] {processor.py:153} INFO - Started process (PID=64391) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:15:26.208+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:15:26.209+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:15:26.209+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:15:26.304+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:15:26.554+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:15:26.554+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:15:26.559+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:15:26.559+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:15:26.562+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.356 seconds
+[2022-10-06T15:16:14.342+1100] {processor.py:153} INFO - Started process (PID=64882) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:16:14.344+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:16:14.344+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:16:14.344+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:16:14.436+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:16:14.688+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:16:14.688+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:16:14.692+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:16:14.692+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:16:14.696+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.354 seconds
+[2022-10-06T15:17:01.550+1100] {processor.py:153} INFO - Started process (PID=65351) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:17:01.552+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:17:01.552+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:17:01.552+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:17:01.649+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:17:01.938+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:17:01.938+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:17:01.942+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:17:01.942+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:17:01.946+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.396 seconds
+[2022-10-06T15:17:49.887+1100] {processor.py:153} INFO - Started process (PID=65831) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:17:49.889+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:17:49.889+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:17:49.889+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:17:49.998+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:17:50.266+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:17:50.266+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:17:50.270+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:17:50.270+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:17:50.274+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.387 seconds
+[2022-10-06T15:18:36.679+1100] {processor.py:153} INFO - Started process (PID=66311) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:18:36.681+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:18:36.681+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:18:36.681+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:18:36.800+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:18:37.123+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:18:37.123+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:18:37.128+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:18:37.128+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:18:37.132+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.453 seconds
+[2022-10-06T15:19:26.778+1100] {processor.py:153} INFO - Started process (PID=66798) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:19:26.780+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:19:26.780+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:19:26.780+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:19:26.886+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:19:27.189+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:19:27.189+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:19:27.194+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:19:27.194+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:19:27.198+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.420 seconds
+[2022-10-06T15:20:11.210+1100] {processor.py:153} INFO - Started process (PID=67255) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:20:11.212+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:20:11.212+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:20:11.212+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:20:11.304+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:20:11.551+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:20:11.550+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:20:11.555+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:20:11.555+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:20:11.558+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.349 seconds
+[2022-10-06T15:20:58.519+1100] {processor.py:153} INFO - Started process (PID=67735) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:20:58.521+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:20:58.521+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:20:58.521+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:20:58.613+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:20:58.856+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:20:58.856+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:20:58.860+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:20:58.860+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:20:58.864+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.345 seconds
+[2022-10-06T15:21:47.481+1100] {processor.py:153} INFO - Started process (PID=68272) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:21:47.483+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:21:47.483+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:21:47.483+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:21:47.581+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:21:47.876+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:21:47.876+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:21:47.880+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:21:47.880+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:21:47.884+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.403 seconds
+[2022-10-06T15:22:35.561+1100] {processor.py:153} INFO - Started process (PID=68805) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:22:35.563+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:22:35.563+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:22:35.563+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:22:35.659+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:22:35.910+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:22:35.909+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:22:35.914+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:22:35.914+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:22:35.917+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.356 seconds
+[2022-10-06T15:23:22.798+1100] {processor.py:153} INFO - Started process (PID=69270) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:23:22.800+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:23:22.800+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:23:22.800+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:23:22.891+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:23:23.150+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:23:23.150+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:23:23.154+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:23:23.154+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:23:23.158+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.360 seconds
+[2022-10-06T15:24:10.331+1100] {processor.py:153} INFO - Started process (PID=69742) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:24:10.333+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:24:10.333+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:24:10.333+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:24:10.427+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:24:10.683+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:24:10.683+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:24:10.688+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:24:10.688+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:24:10.692+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.361 seconds
+[2022-10-06T15:24:57.112+1100] {processor.py:153} INFO - Started process (PID=70264) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:24:57.114+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:24:57.114+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:24:57.114+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:24:57.209+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:24:57.461+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:24:57.461+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:24:57.465+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:24:57.465+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:24:57.469+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.357 seconds
+[2022-10-06T15:25:41.858+1100] {processor.py:153} INFO - Started process (PID=70820) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:25:41.860+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:25:41.860+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:25:41.860+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:25:41.953+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:25:42.207+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:25:42.207+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:25:42.211+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:25:42.211+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:25:42.215+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.357 seconds
+[2022-10-06T15:26:24.808+1100] {processor.py:153} INFO - Started process (PID=71259) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:26:24.811+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:26:24.811+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:26:24.811+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:26:24.908+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:26:25.189+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:26:25.189+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:26:25.194+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:26:25.194+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:26:25.198+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.390 seconds
+[2022-10-06T15:27:08.371+1100] {processor.py:153} INFO - Started process (PID=71738) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:27:08.373+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:27:08.373+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:27:08.373+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:27:08.484+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:27:08.753+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:27:08.753+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:27:08.757+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:27:08.757+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:27:08.760+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.390 seconds
+[2022-10-06T15:27:57.401+1100] {processor.py:153} INFO - Started process (PID=72249) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:27:57.406+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:27:57.406+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:27:57.406+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:27:57.512+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:27:57.830+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:27:57.830+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:27:57.834+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:27:57.834+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:27:57.838+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.437 seconds
+[2022-10-06T15:28:43.801+1100] {processor.py:153} INFO - Started process (PID=72749) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:28:43.803+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:28:43.803+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:28:43.803+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:28:43.904+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:28:44.195+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:28:44.195+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:28:44.200+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:28:44.200+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:28:44.204+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.403 seconds
+[2022-10-06T15:29:29.881+1100] {processor.py:153} INFO - Started process (PID=73225) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:29:29.883+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:29:29.883+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:29:29.883+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:29:29.977+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:29:30.229+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:29:30.229+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:29:30.233+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:29:30.233+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:29:30.237+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.356 seconds
+[2022-10-06T15:30:14.729+1100] {processor.py:153} INFO - Started process (PID=73681) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:30:14.731+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:30:14.731+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:30:14.731+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:30:14.866+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:30:15.136+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:30:15.136+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:30:15.140+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:30:15.140+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:30:15.144+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.415 seconds
+[2022-10-06T15:30:56.479+1100] {processor.py:153} INFO - Started process (PID=74124) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:30:56.481+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:30:56.481+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:30:56.481+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:30:56.608+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:30:56.903+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:30:56.902+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:30:56.907+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:30:56.907+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:30:56.917+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.438 seconds
+[2022-10-06T15:31:43.024+1100] {processor.py:153} INFO - Started process (PID=74635) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:31:43.026+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:31:43.026+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:31:43.026+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:31:43.121+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:31:43.402+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:31:43.402+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:31:43.406+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:31:43.406+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:31:43.410+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.387 seconds
+[2022-10-06T15:32:30.840+1100] {processor.py:153} INFO - Started process (PID=75220) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:32:30.842+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:32:30.842+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:32:30.842+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:32:30.937+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:32:31.197+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:32:31.197+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:32:31.202+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:32:31.202+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:32:31.205+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.366 seconds
+[2022-10-06T15:33:19.325+1100] {processor.py:153} INFO - Started process (PID=75761) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:33:19.328+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:33:19.328+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:33:19.328+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:33:19.427+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:33:19.708+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:33:19.708+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:33:19.712+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:33:19.712+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:33:19.716+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.391 seconds
+[2022-10-06T15:34:05.798+1100] {processor.py:153} INFO - Started process (PID=76247) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:34:05.801+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:34:05.801+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:34:05.801+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:34:05.900+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:34:06.189+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:34:06.189+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:34:06.193+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:34:06.193+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:34:06.196+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.398 seconds
+[2022-10-06T15:34:50.288+1100] {processor.py:153} INFO - Started process (PID=76727) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:34:50.290+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:34:50.290+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:34:50.290+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:34:50.399+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:34:50.673+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:34:50.673+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:34:50.677+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:34:50.677+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:34:50.681+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.393 seconds
+[2022-10-06T15:35:40.213+1100] {processor.py:153} INFO - Started process (PID=77231) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:35:40.215+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:35:40.215+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:35:40.215+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:35:40.306+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:35:40.560+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:35:40.560+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:35:40.564+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:35:40.564+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:35:40.568+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.355 seconds
+[2022-10-06T15:36:30.757+1100] {processor.py:153} INFO - Started process (PID=77740) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:36:30.759+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:36:30.760+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:36:30.760+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:36:30.858+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:36:31.122+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:36:31.122+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:36:31.126+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:36:31.126+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:36:31.130+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.373 seconds
+[2022-10-06T15:37:19.475+1100] {processor.py:153} INFO - Started process (PID=78220) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:37:19.477+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:37:19.478+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:37:19.478+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:37:19.558+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:37:19.768+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:37:19.768+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:37:19.774+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:37:19.774+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:37:19.790+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.316 seconds
+[2022-10-06T15:38:05.973+1100] {processor.py:153} INFO - Started process (PID=78691) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:38:05.976+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:38:05.976+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:38:05.976+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:38:06.073+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:38:06.325+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:38:06.325+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:38:06.329+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:38:06.329+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:38:06.333+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.360 seconds
+[2022-10-06T15:38:56.857+1100] {processor.py:153} INFO - Started process (PID=79197) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:38:56.862+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:38:56.862+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:38:56.862+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:38:56.936+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:38:57.198+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:38:57.198+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:38:57.203+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:38:57.203+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:38:57.207+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.349 seconds
+[2022-10-06T15:39:42.800+1100] {processor.py:153} INFO - Started process (PID=79673) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:39:42.802+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:39:42.803+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:39:42.803+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:39:42.895+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:39:43.161+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:39:43.161+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:39:43.166+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:39:43.166+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:39:43.169+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.369 seconds
+[2022-10-06T15:40:28.853+1100] {processor.py:153} INFO - Started process (PID=80140) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:40:28.855+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:40:28.855+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:40:28.855+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:40:28.932+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:40:29.189+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:40:29.189+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:40:29.193+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:40:29.193+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:40:29.197+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.345 seconds
+[2022-10-06T15:41:17.532+1100] {processor.py:153} INFO - Started process (PID=80612) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:41:17.534+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:41:17.534+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:41:17.534+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:41:17.611+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:41:17.818+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:41:17.817+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:41:17.822+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:41:17.822+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:41:17.826+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.294 seconds
+[2022-10-06T15:42:03.655+1100] {processor.py:153} INFO - Started process (PID=81060) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:42:03.658+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:42:03.658+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:42:03.658+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:42:03.751+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:42:04.023+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:42:04.023+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:42:04.028+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:42:04.028+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:42:04.031+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.376 seconds
+[2022-10-06T15:42:51.846+1100] {processor.py:153} INFO - Started process (PID=81533) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:42:51.848+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:42:51.849+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:42:51.849+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:42:51.936+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:42:52.202+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:42:52.202+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:42:52.206+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:42:52.206+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:42:52.210+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.364 seconds
+[2022-10-06T15:43:44.532+1100] {processor.py:153} INFO - Started process (PID=82031) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:43:44.534+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:43:44.534+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:43:44.534+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:43:44.627+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:43:44.886+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:43:44.886+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:43:44.891+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:43:44.891+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:43:44.894+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.362 seconds
+[2022-10-06T15:44:29.874+1100] {processor.py:153} INFO - Started process (PID=82486) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:44:29.876+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:44:29.876+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:44:29.876+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:44:29.974+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:44:30.263+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:44:30.263+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:44:30.267+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:44:30.267+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:44:30.271+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.397 seconds
+[2022-10-06T15:45:16.194+1100] {processor.py:153} INFO - Started process (PID=83030) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:45:16.196+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:45:16.197+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:45:16.197+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:45:16.295+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:45:16.562+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:45:16.562+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:45:16.566+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:45:16.566+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:45:16.570+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.376 seconds
+[2022-10-06T15:46:04.770+1100] {processor.py:153} INFO - Started process (PID=83572) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:46:04.772+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:46:04.772+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:46:04.772+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:46:04.867+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:46:05.114+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:46:05.114+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:46:05.119+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:46:05.119+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:46:05.122+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.352 seconds
+[2022-10-06T15:46:50.909+1100] {processor.py:153} INFO - Started process (PID=84022) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:46:50.910+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:46:50.911+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:46:50.911+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:46:51.003+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:46:51.274+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:46:51.274+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:46:51.278+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:46:51.278+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:46:51.282+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.374 seconds
+[2022-10-06T15:47:39.039+1100] {processor.py:153} INFO - Started process (PID=84529) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:47:39.041+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:47:39.041+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:47:39.041+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:47:39.118+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:47:39.386+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:47:39.386+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:47:39.394+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:47:39.394+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:47:39.398+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.359 seconds
+[2022-10-06T15:48:28.018+1100] {processor.py:153} INFO - Started process (PID=85027) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:48:28.020+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:48:28.020+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:48:28.020+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:48:28.114+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:48:28.368+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:48:28.368+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:48:28.372+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:48:28.372+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:48:28.375+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.357 seconds
+[2022-10-06T15:49:19.767+1100] {processor.py:153} INFO - Started process (PID=85533) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:49:19.769+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:49:19.769+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:49:19.769+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:49:19.849+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:49:20.115+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:49:20.115+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:49:20.120+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:49:20.120+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:49:20.123+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.357 seconds
+[2022-10-06T15:50:09.326+1100] {processor.py:153} INFO - Started process (PID=86084) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:50:09.329+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:50:09.329+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:50:09.329+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:50:09.402+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:50:09.616+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:50:09.616+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:50:09.620+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:50:09.620+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:50:09.624+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.298 seconds
+[2022-10-06T15:50:54.682+1100] {processor.py:153} INFO - Started process (PID=86627) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:50:54.684+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:50:54.684+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:50:54.684+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:50:54.759+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:50:54.988+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:50:54.988+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:50:54.992+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:50:54.992+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:50:54.996+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.315 seconds
+[2022-10-06T15:51:46.250+1100] {processor.py:153} INFO - Started process (PID=87179) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:51:46.253+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:51:46.253+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:51:46.253+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:51:46.328+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:51:46.560+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:51:46.560+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:51:46.564+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:51:46.564+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:51:46.569+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.319 seconds
+[2022-10-06T15:52:36.837+1100] {processor.py:153} INFO - Started process (PID=87745) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:52:36.840+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:52:36.840+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:52:36.840+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:52:36.920+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:52:37.169+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:52:37.169+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:52:37.174+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:52:37.174+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:52:37.178+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.341 seconds
+[2022-10-06T15:53:23.934+1100] {processor.py:153} INFO - Started process (PID=88235) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:53:23.936+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:53:23.936+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:53:23.936+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:53:24.024+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:53:24.262+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:53:24.261+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:53:24.266+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:53:24.266+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:53:24.271+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.337 seconds
+[2022-10-06T15:54:09.476+1100] {processor.py:153} INFO - Started process (PID=88714) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:54:09.478+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:54:09.478+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:54:09.478+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:54:09.552+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:54:09.760+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:54:09.760+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:54:09.764+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:54:09.764+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:54:09.771+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.296 seconds
+[2022-10-06T15:54:57.847+1100] {processor.py:153} INFO - Started process (PID=89197) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:54:57.849+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:54:57.849+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:54:57.849+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:54:57.950+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:54:58.214+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:54:58.214+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:54:58.219+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:54:58.219+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:54:58.223+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.376 seconds
+[2022-10-06T15:55:43.069+1100] {processor.py:153} INFO - Started process (PID=89677) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:55:43.072+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:55:43.072+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:55:43.072+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:55:43.147+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:55:43.348+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:55:43.348+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:55:43.353+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:55:43.353+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:55:43.357+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.288 seconds
+[2022-10-06T15:56:35.144+1100] {processor.py:153} INFO - Started process (PID=90232) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:56:35.146+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:56:35.146+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:56:35.146+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:56:35.251+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:56:35.512+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:56:35.512+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:56:35.517+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:56:35.517+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:56:35.521+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.377 seconds
+[2022-10-06T15:57:21.371+1100] {processor.py:153} INFO - Started process (PID=90728) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:57:21.372+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:57:21.372+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:57:21.372+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:57:21.463+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:57:21.714+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:57:21.713+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:57:21.718+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:57:21.718+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:57:21.722+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.351 seconds
+[2022-10-06T15:58:09.366+1100] {processor.py:153} INFO - Started process (PID=91193) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:58:09.369+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:58:09.369+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:58:09.369+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:58:09.464+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:58:09.717+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:58:09.717+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:58:09.721+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:58:09.721+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:58:09.725+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.358 seconds
+[2022-10-06T15:58:55.507+1100] {processor.py:153} INFO - Started process (PID=91669) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:58:55.509+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:58:55.509+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:58:55.509+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:58:55.605+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:58:55.853+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:58:55.853+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:58:55.858+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:58:55.857+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:58:55.861+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.354 seconds
+[2022-10-06T15:59:44.867+1100] {processor.py:153} INFO - Started process (PID=92200) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:59:44.869+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T15:59:44.869+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:59:44.869+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:59:44.968+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T15:59:45.186+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:59:45.186+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:59:45.191+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:59:45.191+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T15:59:45.195+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.328 seconds
+[2022-10-06T16:00:34.438+1100] {processor.py:153} INFO - Started process (PID=92710) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:00:34.440+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:00:34.440+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:00:34.440+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:00:34.550+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:00:34.926+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:00:34.926+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:00:34.934+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:00:34.934+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:00:34.941+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.503 seconds
+[2022-10-06T16:01:29.019+1100] {processor.py:153} INFO - Started process (PID=93332) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:01:29.021+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:01:29.021+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:01:29.021+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:01:29.115+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:01:29.444+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:01:29.444+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:01:29.449+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:01:29.449+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:01:29.453+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.434 seconds
+[2022-10-06T16:02:20.307+1100] {processor.py:153} INFO - Started process (PID=93839) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:02:20.310+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:02:20.310+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:02:20.310+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:02:20.425+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:02:20.726+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:02:20.725+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:02:20.730+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:02:20.730+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:02:20.736+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.429 seconds
+[2022-10-06T16:03:18.989+1100] {processor.py:153} INFO - Started process (PID=94421) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:03:18.990+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:03:18.990+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:03:18.990+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:03:19.090+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:03:19.350+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:03:19.350+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:03:19.354+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:03:19.354+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:03:19.358+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.370 seconds
+[2022-10-06T16:04:08.945+1100] {processor.py:153} INFO - Started process (PID=94950) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:04:08.947+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:04:08.947+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:04:08.947+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:04:09.053+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:04:09.333+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:04:09.333+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:04:09.338+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:04:09.338+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:04:09.342+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.397 seconds
+[2022-10-06T16:05:00.065+1100] {processor.py:153} INFO - Started process (PID=95508) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:05:00.067+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:05:00.067+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:05:00.067+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:05:00.172+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:05:00.462+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:05:00.462+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:05:00.466+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:05:00.466+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:05:00.470+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.406 seconds
+[2022-10-06T16:05:55.392+1100] {processor.py:153} INFO - Started process (PID=96037) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:05:55.394+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:05:55.394+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:05:55.394+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:05:55.492+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:05:55.768+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:05:55.768+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:05:55.772+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:05:55.772+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:05:55.776+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.385 seconds
+[2022-10-06T16:06:42.613+1100] {processor.py:153} INFO - Started process (PID=96505) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:06:42.615+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:06:42.615+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:06:42.615+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:06:42.712+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:06:42.979+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:06:42.979+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:06:42.984+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:06:42.984+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:06:42.987+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.375 seconds
+[2022-10-06T16:07:32.805+1100] {processor.py:153} INFO - Started process (PID=96988) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:07:32.807+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:07:32.807+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:07:32.807+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:07:32.915+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:07:33.180+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:07:33.180+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:07:33.185+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:07:33.185+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:07:33.189+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.385 seconds
+[2022-10-06T16:08:17.130+1100] {processor.py:153} INFO - Started process (PID=97439) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:08:17.132+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:08:17.132+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:08:17.132+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:08:17.237+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:08:17.504+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:08:17.504+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:08:17.509+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:08:17.509+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:08:17.513+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.383 seconds
+[2022-10-06T16:09:07.313+1100] {processor.py:153} INFO - Started process (PID=97941) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:09:07.315+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:09:07.315+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:09:07.315+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:09:07.409+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:09:07.692+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:09:07.692+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:09:07.698+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:09:07.697+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:09:07.702+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.390 seconds
+[2022-10-06T16:09:59.388+1100] {processor.py:153} INFO - Started process (PID=98477) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:09:59.390+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:09:59.390+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:09:59.390+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:09:59.495+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:09:59.775+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:09:59.775+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:09:59.780+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:09:59.780+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:09:59.784+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.397 seconds
+[2022-10-06T16:10:45.803+1100] {processor.py:153} INFO - Started process (PID=98938) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:10:45.805+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:10:45.806+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:10:45.806+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:10:45.903+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:10:46.181+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:10:46.181+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:10:46.185+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:10:46.185+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:10:46.189+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.387 seconds
+[2022-10-06T16:11:38.100+1100] {processor.py:153} INFO - Started process (PID=99480) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:11:38.102+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:11:38.102+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:11:38.102+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:11:38.194+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:11:38.416+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:11:38.416+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:11:38.421+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:11:38.421+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:11:38.425+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.325 seconds
+[2022-10-06T16:12:22.788+1100] {processor.py:153} INFO - Started process (PID=99914) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:12:22.790+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:12:22.790+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:12:22.790+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:12:22.900+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:12:23.175+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:12:23.175+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:12:23.180+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:12:23.180+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:12:23.184+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.396 seconds
+[2022-10-06T16:13:11.173+1100] {processor.py:153} INFO - Started process (PID=623) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:13:11.175+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:13:11.175+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:13:11.175+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:13:11.276+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:13:11.541+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:13:11.541+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:13:11.547+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:13:11.546+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:13:11.551+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.379 seconds
+[2022-10-06T16:14:00.537+1100] {processor.py:153} INFO - Started process (PID=1219) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:14:00.539+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:14:00.539+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:14:00.539+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:14:00.669+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:14:01.241+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:14:01.240+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:14:01.248+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:14:01.247+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:14:01.252+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.715 seconds
+[2022-10-06T16:14:53.795+1100] {processor.py:153} INFO - Started process (PID=1793) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:14:53.797+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:14:53.797+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:14:53.797+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:14:53.880+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:14:54.109+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:14:54.109+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:14:54.114+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:14:54.114+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:14:54.118+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.324 seconds
+[2022-10-06T16:15:44.258+1100] {processor.py:153} INFO - Started process (PID=2290) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:15:44.260+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:15:44.260+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:15:44.260+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:15:44.357+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:15:44.687+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:15:44.686+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:15:44.691+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:15:44.691+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:15:44.696+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.438 seconds
+[2022-10-06T16:16:31.158+1100] {processor.py:153} INFO - Started process (PID=2739) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:16:31.160+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:16:31.160+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:16:31.160+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:16:31.247+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:16:31.483+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:16:31.483+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:16:31.490+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:16:31.490+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:16:31.494+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.337 seconds
+[2022-10-06T16:17:25.717+1100] {processor.py:153} INFO - Started process (PID=3293) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:17:25.719+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:17:25.719+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:17:25.719+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:17:25.822+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:17:26.129+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:17:26.129+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:17:26.134+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:17:26.134+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:17:26.138+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.421 seconds
+[2022-10-06T16:18:19.406+1100] {processor.py:153} INFO - Started process (PID=3799) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:18:19.412+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:18:19.412+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:18:19.412+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:18:19.568+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:18:19.928+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:18:19.928+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:18:19.934+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:18:19.934+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:18:19.940+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.534 seconds
+[2022-10-06T16:19:14.546+1100] {processor.py:153} INFO - Started process (PID=4362) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:19:14.548+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:19:14.548+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:19:14.548+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:19:14.634+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:19:14.916+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:19:14.916+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:19:14.921+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:19:14.921+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:19:14.925+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.379 seconds
+[2022-10-06T16:19:59.167+1100] {processor.py:153} INFO - Started process (PID=4817) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:19:59.169+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:19:59.169+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:19:59.169+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:19:59.256+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:19:59.514+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:19:59.513+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:19:59.518+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:19:59.518+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:19:59.522+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.355 seconds
+[2022-10-06T16:20:50.503+1100] {processor.py:153} INFO - Started process (PID=5411) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:20:50.504+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:20:50.505+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:20:50.505+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:20:50.601+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:20:50.875+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:20:50.875+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:20:50.881+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:20:50.881+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:20:50.884+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.382 seconds
+[2022-10-06T16:21:40.204+1100] {processor.py:153} INFO - Started process (PID=5932) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:21:40.206+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:21:40.207+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:21:40.207+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:21:40.297+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:21:40.514+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:21:40.514+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:21:40.519+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:21:40.519+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:21:40.523+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.320 seconds
+[2022-10-06T16:22:28.984+1100] {processor.py:153} INFO - Started process (PID=6439) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:22:28.986+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:22:28.986+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:22:28.986+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:22:29.086+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:22:29.350+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:22:29.350+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:22:29.355+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:22:29.354+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:22:29.358+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.375 seconds
+[2022-10-06T16:23:19.929+1100] {processor.py:153} INFO - Started process (PID=6954) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:23:19.931+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:23:19.931+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:23:19.931+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:23:20.034+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:23:20.301+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:23:20.301+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:23:20.306+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:23:20.306+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:23:20.311+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.382 seconds
+[2022-10-06T16:24:08.853+1100] {processor.py:153} INFO - Started process (PID=7434) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:24:08.855+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:24:08.855+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:24:08.855+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:24:08.948+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:24:09.215+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:24:09.214+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:24:09.219+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:24:09.219+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:24:09.224+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.370 seconds
+[2022-10-06T16:25:00.842+1100] {processor.py:153} INFO - Started process (PID=7954) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:25:00.844+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:25:00.844+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:25:00.844+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:25:00.952+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:25:01.237+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:25:01.237+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:25:01.242+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:25:01.242+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:25:01.246+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.405 seconds
+[2022-10-06T16:25:51.335+1100] {processor.py:153} INFO - Started process (PID=8458) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:25:51.337+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:25:51.337+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:25:51.337+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:25:51.422+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:25:51.687+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:25:51.687+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:25:51.706+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:25:51.706+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:25:51.718+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.383 seconds
+[2022-10-06T16:26:37.440+1100] {processor.py:153} INFO - Started process (PID=8901) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:26:37.442+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:26:37.443+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:26:37.442+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:26:37.527+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:26:37.805+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:26:37.805+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:26:37.810+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:26:37.809+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:26:37.814+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.374 seconds
+[2022-10-06T16:27:22.560+1100] {processor.py:153} INFO - Started process (PID=9349) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:27:22.562+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:27:22.562+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:27:22.562+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:27:22.662+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:27:22.931+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:27:22.930+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:27:22.935+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:27:22.935+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:27:22.938+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.379 seconds
+[2022-10-06T16:28:12.055+1100] {processor.py:153} INFO - Started process (PID=9902) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:28:12.057+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:28:12.057+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:28:12.057+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:28:12.138+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:28:12.389+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:28:12.389+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:28:12.393+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:28:12.393+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:28:12.397+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.343 seconds
+[2022-10-06T16:28:57.020+1100] {processor.py:153} INFO - Started process (PID=10394) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:28:57.021+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:28:57.022+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:28:57.022+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:28:57.130+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:28:57.409+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:28:57.409+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:28:57.414+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:28:57.414+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:28:57.419+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.400 seconds
+[2022-10-06T16:29:51.446+1100] {processor.py:153} INFO - Started process (PID=10964) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:29:51.448+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:29:51.448+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:29:51.448+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:29:51.535+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:29:51.801+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:29:51.800+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:29:51.806+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:29:51.806+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:29:51.810+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.365 seconds
+[2022-10-06T16:30:42.805+1100] {processor.py:153} INFO - Started process (PID=11716) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:30:42.806+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:30:42.807+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:30:42.807+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:30:42.901+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:30:43.161+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:30:43.161+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:30:43.165+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:30:43.165+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:30:43.169+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.365 seconds
+[2022-10-06T16:31:30.557+1100] {processor.py:153} INFO - Started process (PID=12229) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:31:30.559+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:31:30.559+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:31:30.559+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:31:30.640+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:31:30.858+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:31:30.858+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:31:30.862+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:31:30.862+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:31:30.866+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.309 seconds
+[2022-10-06T16:32:20.216+1100] {processor.py:153} INFO - Started process (PID=12736) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:32:20.217+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:32:20.217+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:32:20.217+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:32:20.298+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:32:20.494+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:32:20.494+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:32:20.499+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:32:20.499+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:32:20.502+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.287 seconds
+[2022-10-06T16:33:06.123+1100] {processor.py:153} INFO - Started process (PID=13234) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:33:06.125+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:33:06.125+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:33:06.125+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:33:06.219+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:33:06.473+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:33:06.473+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:33:06.478+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:33:06.478+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:33:06.482+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.360 seconds
+[2022-10-06T16:33:58.285+1100] {processor.py:153} INFO - Started process (PID=13829) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:33:58.287+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:33:58.287+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:33:58.287+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:33:58.363+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:33:58.562+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:33:58.562+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:33:58.567+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:33:58.567+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:33:58.570+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.285 seconds
+[2022-10-06T16:34:48.120+1100] {processor.py:153} INFO - Started process (PID=14362) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:34:48.122+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:34:48.122+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:34:48.122+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:34:48.203+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:34:48.411+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:34:48.411+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:34:48.415+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:34:48.415+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:34:48.419+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.299 seconds
+[2022-10-06T16:35:31.273+1100] {processor.py:153} INFO - Started process (PID=14792) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:35:31.275+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:35:31.276+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:35:31.276+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:35:31.361+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:35:31.571+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:35:31.571+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:35:31.575+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:35:31.575+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:35:31.579+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.306 seconds
+[2022-10-06T16:36:17.740+1100] {processor.py:153} INFO - Started process (PID=15314) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:36:17.742+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:36:17.742+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:36:17.742+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:36:17.821+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:36:18.030+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:36:18.030+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:36:18.035+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:36:18.035+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:36:18.039+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.299 seconds
+[2022-10-06T16:37:03.824+1100] {processor.py:153} INFO - Started process (PID=15761) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:37:03.826+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:37:03.827+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:37:03.827+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:37:03.901+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:37:04.123+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:37:04.123+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:37:04.128+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:37:04.128+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:37:04.132+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.308 seconds
+[2022-10-06T16:37:55.382+1100] {processor.py:153} INFO - Started process (PID=16310) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:37:55.384+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:37:55.384+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:37:55.384+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:37:55.469+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:37:55.678+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:37:55.678+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:37:55.683+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:37:55.682+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:37:55.686+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.305 seconds
+[2022-10-06T16:38:44.675+1100] {processor.py:153} INFO - Started process (PID=16834) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:38:44.677+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:38:44.677+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:38:44.677+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:38:44.757+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:38:44.956+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:38:44.956+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:38:44.961+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:38:44.960+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:38:44.965+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.289 seconds
+[2022-10-06T16:39:33.570+1100] {processor.py:153} INFO - Started process (PID=17310) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:39:33.572+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:39:33.572+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:39:33.572+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:39:33.675+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:39:33.908+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:39:33.907+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:39:33.912+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:39:33.912+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:39:33.916+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.346 seconds
+[2022-10-06T16:40:17.638+1100] {processor.py:153} INFO - Started process (PID=17867) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:40:17.640+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:40:17.640+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:40:17.640+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:40:17.715+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:40:17.918+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:40:17.917+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:40:17.922+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:40:17.922+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:40:17.926+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.288 seconds
+[2022-10-06T16:41:04.297+1100] {processor.py:153} INFO - Started process (PID=18362) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:41:04.299+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:41:04.299+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:41:04.299+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:41:04.375+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:41:04.583+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:41:04.583+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:41:04.587+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:41:04.587+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:41:04.591+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.294 seconds
+[2022-10-06T16:41:54.011+1100] {processor.py:153} INFO - Started process (PID=18869) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:41:54.013+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:41:54.013+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:41:54.013+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:41:54.088+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:41:54.293+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:41:54.293+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:41:54.297+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:41:54.297+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:41:54.301+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.290 seconds
+[2022-10-06T16:42:37.871+1100] {processor.py:153} INFO - Started process (PID=19271) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:42:37.873+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:42:37.873+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:42:37.873+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:42:37.949+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:42:38.147+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:42:38.147+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:42:38.152+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:42:38.152+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:42:38.156+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.286 seconds
+[2022-10-06T16:43:22.949+1100] {processor.py:153} INFO - Started process (PID=19748) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:43:22.952+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:43:22.952+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:43:22.952+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:43:23.029+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:43:23.237+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:43:23.237+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:43:23.241+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:43:23.241+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:43:23.245+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.296 seconds
+[2022-10-06T16:44:06.409+1100] {processor.py:153} INFO - Started process (PID=20187) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:44:06.410+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:44:06.411+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:44:06.411+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:44:06.488+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:44:06.744+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:44:06.744+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:44:06.748+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:44:06.748+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:44:06.752+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.344 seconds
+[2022-10-06T16:44:49.014+1100] {processor.py:153} INFO - Started process (PID=20587) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:44:49.016+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:44:49.016+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:44:49.016+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:44:49.092+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:44:49.307+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:44:49.306+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:44:49.311+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:44:49.311+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:44:49.314+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.301 seconds
+[2022-10-06T16:45:33.725+1100] {processor.py:153} INFO - Started process (PID=21015) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:45:33.727+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:45:33.727+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:45:33.727+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:45:33.802+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:45:34.002+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:45:34.002+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:45:34.007+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:45:34.007+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:45:34.011+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.286 seconds
+[2022-10-06T16:46:21.925+1100] {processor.py:153} INFO - Started process (PID=21482) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:46:21.928+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:46:21.929+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:46:21.929+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:46:22.045+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:46:22.335+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:46:22.335+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:46:22.343+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:46:22.343+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:46:22.352+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.427 seconds
+[2022-10-06T16:47:05.688+1100] {processor.py:153} INFO - Started process (PID=21959) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:47:05.690+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:47:05.690+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:47:05.690+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:47:05.772+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:47:05.986+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:47:05.986+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:47:05.990+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:47:05.990+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:47:05.994+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.306 seconds
+[2022-10-06T16:47:48.509+1100] {processor.py:153} INFO - Started process (PID=22423) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:47:48.511+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2022-10-06T16:47:48.511+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:47:48.511+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:47:48.587+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2022-10-06T16:47:48.813+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:47:48.813+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:47:48.817+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:47:48.817+1100] {dag.py:2977} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2022-10-06T16:47:48.822+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.314 seconds

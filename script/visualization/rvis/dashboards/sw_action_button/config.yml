@@ -1,0 +1,35 @@
+main:
+  type: fluidPage
+  layout:
+  - txt1
+  - linef
+  - bttn1
+  - linef
+  - res_bttn1
+  - bttn2
+  - linef
+  - res_bttn2
+txt1:
+  type: static
+  object: Awesome action button
+linef:
+  type: static
+  object: ~
+bttn1:
+  type: actionBttn
+  title: Go!
+  status: primary
+  style: bordered
+bttn2:
+  type: actionBttn
+  title: Go!
+  status: success
+  style: material-flat
+  block: yes
+  icon: sliders
+res_bttn1:
+  type: verbatimTextOutput
+  service: input$bttn1
+res_bttn2:
+  type: verbatimTextOutput
+  service: input$bttn2

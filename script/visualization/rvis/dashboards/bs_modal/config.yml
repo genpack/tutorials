@@ -1,0 +1,51 @@
+# This is a sample config for BS Modal Example dashboard:
+
+main:
+  type: sidebarLayout
+  layout.side:
+    - bins
+    - tabBut
+  layout.main:
+    - distPlot
+    - modalExample
+bins:
+  type: sliderInput
+  title: 'Number of bins:'
+  tooltip: "Hint: The wait times will be broken into this many equally spaced bins"
+  tooltip.placement: right
+  tooltip.options: 
+    container: body
+  min: 1
+  max: 50
+  value: 30
+tabBut:
+  type: actionButton
+  title: 'View Table'
+distPlot:
+  type: plotOutput
+  service: "get.plot(input$bins)"
+  popover: 
+  - "\n Waiting time between "
+  - "eruptions and the duration of the eruption for the Old Faithful geyser"
+  - "in Yellowstone National Park, Wyoming, USA."
+  - ""
+  - "Azzalini, A. and "
+  - "Bowman, A. W. (1990). A look at some data on the Old Faithful geyser. "
+  - ""
+  - "Applied Statistics 39, 357-365."
+  - ""
+  popover.trigger: click
+  popover.title: Data
+modalExample:
+  type: bsModal
+  title: 'Data Table'
+  trigger: tabBut
+  size: large
+  layout: distTable
+distTable:
+  type: dataTableOutput
+  service: 'get.dt(input$bins)'
+  options:
+    pageLength: 10
+    width: '100%'
+

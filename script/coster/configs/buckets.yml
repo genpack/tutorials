@@ -14,7 +14,6 @@ Landscape:
   Landscape: 
   - Landscape
   - outdoor
-  
 Furniture:
   Furniture: Furniture
 Transport:
@@ -50,7 +49,7 @@ CarParking:
   - CarParking
   - parking
 CarServices:
-  CarServices: CarServices
+  CarServices: CarService
 CarInsurance: 
   CarInsurance: CarInsurance
   CarRegistration: CarRegistration
@@ -71,6 +70,8 @@ Restaurant:
 Utilities: 
   Utilities: Utilities
 Gadgets: 
-  Gadgets: Gadgets
+  Gadgets: 
+  - Gadgets
+  - gadjets
 Proximity: 
   Proximity: Proximity

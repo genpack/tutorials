@@ -1,12 +1,11 @@
 inputs: 
-#  - cba_nbs_aug22
-#  - cba_nbs_sep22
-  - smartAccessOctober2022
+  - cba_sa_nov22
+  - cba_cc_nov22
 
 categories: script/coster/configs/universal_2.yml
 
-from: 2022-10-01
-until: 2022-10-31
+from: 2022-11-01
+until: 2022-11-30
 
 # excluded_categories: ['Expenses', 'Miscellaneous', 'CreditCard', 'Proximity']
 

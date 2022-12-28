@@ -92,16 +92,26 @@ $ wget -P /tmp https://s3.amazonaws.com/rstudio-dailybuilds/rstudio-server-rhel-
 $ sudo yum install --nogpgcheck /tmp/rstudio-server-rhel-0.99.1266-x86_64.rpm
 By default RStudio Server runs on port 8787. To connect, on the client browser: http://<server-ip>:8787
 
-## make a new user with password on linux shell:
+## make a new user with password on linux shell [28 Dec 2018]:
 $ sudo useradd -m <username>
 $ sudo passwd <username>
 enter a new password or change old password
 
-## build a tunnel with dynamic port forwarding to an aws instance
+## build a tunnel with dynamic port forwarding to an aws instance [28 Dec 2018]:
 $ ssh -i <your_key> -N -D <port_number> <username>@<remote_machine_uri>
 Example:
 $ ssh -i ~/dmclnt.pem -N -D 8157 hadoop@emr.49c1146b-2411-a8ba-fcca-8b07d9f22ae9.stky.elsrvcs.com
 https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-proxy.html
+
+## build a tunnel to a virtual machine instance on the google cloud [24 November 2022]:
+$ gcloud compute ssh --project <project> <vm_name> --zone=<zone_location> --tunnel-through-iap
+# Example
+$ gcloud compute ssh --project scg-analytics-prod ml-temp --zone=australia-southeast1-b --tunnel-through-iap
+
+## map a tunnel to a virtual machine in google cloud into a local host port [24 November 2022]:
+# Example
+# gcloud compute start-iap-tunnel --project scg-analytics-prod ml-temp 80 --zone=australia-southeast1-b --local-host-port=localhost:8000
+
 
 ## set proxy settings via foxyproxy in google chrome [28 Dec 2018]:
 1- install foxyproxy in google chrome
@@ -278,6 +288,20 @@ Examples:
 $sudo yum list docker  --showduplicates | sort -r
 $sudo yum list R  --showduplicates | sort -r
 
+##  install a specific version of a R package [18 Nov 2022]:
+# Example 1:
+> packageurl <- "http://cran.r-project.org/src/contrib/Archive/ggplot2/ggplot2_0.9.1.tar.gz"
+> install.packages(packageurl, repos=NULL, type="source")
+# Example 2:
+> devtools::install_version('dbplyr', version = '2.1.1')
+# Example 3:
+# The remotes package offers an install_version function that can do this directly.
+> require(remotes)
+> install_version("ggplot2", version = "0.9.1", repos = "http://cran.us.r-project.org")
+# You can also manually doenload the specific version and install from command line:
+# Example:
+$ R CMD INSTALL ggplot2_0.9.1.tar.gz
+
 ##  install a specific version of a python package [22 Jan 2020]:
 Example:
 $ pip install tensorflow~=1.15.0 --user
@@ -342,6 +366,19 @@ $ pipenv install tensorflow~=1.15.0
 $ pipenv shell
 $ which python
 $ exit
+
+## use virtualenv to create a virtualenv and activate it [28 September 2022]:
+# install virtualenv:
+# $ pip install virtualenv 
+# create your virtual environment:
+# $ virtualenv <your-env>
+# activate your virtual environment:
+# In Mac:
+$ source <your-env>/bin/activate
+# In Windows:
+$ <your-env>\Scripts\activate
+# To install a new package in your environment:
+$ <your-env>/bin/pip install <your-package>
 
 
 ## to sync your python project with packages in the Pipfile.lock using pipenv [02 Mar 2020]:
@@ -433,6 +470,10 @@ $ python -m ipykernel install --user --name=myenv
 $ jupyter kernelspec list
 Now, to uninstall/remove the kernel from jupyter notebook [28 March 2022]:
 $ jupyter kernelspec uninstall myenv
+## uninstall a package in R:
+# Example:
+> remove.packages("dbplyr")
+
 
 ## change default keyboard shortcuts in pyCharm [28 March 2022]:
 # in pycharm go to settings 
@@ -503,4 +544,172 @@ $ git checkout master       # checkout master, this is the place you want to go 
 $ git reset --hard HEAD~3   # Move master back by 3 commits (Make sure you know how many commits you                               # need to go back)
 $ git checkout newbranch    # Go to the new branch that still has the desired commits
 
+## Install apache-airflow [18 Sep 2022]:
+# 1. Install Python3 and pip (Ignore this step if you have already installed)
+#
+% brew install python
+% python --version
+% curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+% python get-pip.py
+# To install Airflow, make sure the pip version is 20.2.4
+% pip install --upgrade pip==20.2.4
+#
+# 2. [Optional] Create a Virtual Environment Install Airflow
+% pip install virtualenv
+% virtualenv -p python venv
+# Now activate the virtual environment so that all packages get install onto the virtual  environment rather than your computer.
+% source venv/bin/activate
+#  
+# 3.Install Airflow in a new airflow directory
+% mkdir airflow && cd airflow
+% pip install apache-airflow
+# Setup the proper directory structure and create a new airflow folder. First get the path to the # airflow folder with pwd and then export that as the airflow home directory to that path.
+% pwd
 
+## to save github access token to avoid entering username and password each time you push/pull [12 December 2022]: 
+# Saving tokens in Mac:
+# You’ll need the OSX keychain credential helper. If you installed Git using Homebrew or via the Xcode command line, then osxkeychain helper should be part of the installation.
+# You can check for its installation via the following command:
+$ git credential-osxkeychain
+# To have Git store the token in osxkeychain, type:
+$ git config --global credential.helper osxkeychain
+# The next time you are prompted for a user name and password, simply type your GitHub account name, then your personal access token. 
+# This will be a one time operation after which the token will be permanently stored.
+# Saving tokens in Windows:
+# If you are using a Windows based Git application, you might see a window pop-up when you are first asked to enter your token.
+# Fpr other operaing systems look at this guide:
+# https://mgimond.github.io/Colby-summer-git-workshop-2021/authenticating-with-github.html
+
+## install google cloud [20 September 2022]:
+# download google-cloud from here:
+# https://cloud.google.com/sdk/docs/install
+# A .tar.gz file is downloaded. Uncompress and it creates a folder named: google-cloud-sdk
+% ./google-cloud-sdk/install.sh
+# Open a new terminal so that the changes take effect
+# Initialize the gcloud CLI:
+% ./google-cloud-sdk/bin/gcloud init
+# Choose your project and continue
+# To use google python package,
+# https://cloud.google.com/sdk/gcloud/reference/topic/startup
+# If you have multiple Python interpreters available (including a bundled python) or if you don't have one on your PATH, # you can specify which interpreter to use by setting the CLOUDSDK_PYTHON environment variable. 
+# Examples:
+# Use the python3 interpreter on your path
+% export CLOUDSDK_PYTHON=python3
+# Use a python you have installed in a special location
+% export CLOUDSDK_PYTHON=/usr/local/my-custom-python-install/python
+# if you wanted to change your active project for just one terminal you could run:
+% export CLOUDSDK_CORE_PROJECT=my-project
+# Installing the client library:
+# pip install --upgrade google-cloud-bigquery
+# Continue from here:
+# https://cloud.google.com/bigquery/docs/reference/libraries#client-libraries-install-python
+
+## login with gcloud cli [28 September 2022]:
+$ gcloud auth login
+
+## See list of killed processes on a linux machine:
+$ dmesg -T | egrep -i 'killed process'
+
+## Run a process(job) in a linux machine and keep running even after the terminal is closed:
+# Example:
+$ python script.py &
+# There is also the nohup command. If you start with nohup like:
+$ nohup python script.py &
+# Then it redirects the standard output, meaning any printouts you had in the code will be automatically written to a file called nohup.out
+# You can also select your own log file:
+$ nohup </path/to/command-name> arg1 arg2 > myoutput.log &
+# exit: after nohup and & start the command in the background, you will still have to type exit or CTRL-D to go back to bash cursor:
+$ nohup python script.py arg1 > script.log &
+$ exit
+
+## resolve machine incompatible error [20 October 2022]:
+# This error happens when a python package cannot be imported with reticulate in R and you see this error:
+# "(mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64'))"
+# In python:
+>>> import platform
+>>> is_x86 = platform.machine() in ("i386", "AMD64", "x86_64")
+# If is_x86 is False:
+# pip install --upgrade pip
+% pip uninstall <your_package>
+% arch -x86_64 pip install <your_package>
+
+## to find out what python binary executables are available on your system [20 October 2022]:
+$ ls /usr/bin/python*
+# /usr/bin/python  /usr/bin/python2  /usr/bin/python2.7  /usr/bin/python3  /usr/bin/python3.4  /usr/bin/python3.4m  /usr/bin/python3m
+# To check what is your default python version execute:
+$ python --version
+# Python 2.7.8
+
+## get the version of all packages in your environment [20 October 2022]:
+$ python -m pip freeze
+
+## find a good article for bigquery on google cloud [25 October 2022]:
+# Good links:
+# https://calogica.com/r/bigquery/2020/08/18/r-bigquery.html
+# https://github.com/r-dbi/bigrquery/issues/474
+# https://stackoverflow.com/questions/64792914/how-to-write-virtual-bq-table-back-to-bq-using-r-dbi-and-bigrquery
+# https://cran.r-project.org/web/packages/googleCloudStorageR/vignettes/googleCloudStorageR.html
+
+
+## git push to a repository under a different username [08 November 2022]:
+% git config --local credential.helper ""
+% git push
+# After the push command, username and password are asked
+
+
+## install R on on Ubuntu 20.04 [16 November 2022]:
+# Install the dependencies necessary to add a new repository over HTTPS:
+$ sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
+# Add the CRAN repository to your system sources’ list:
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+$ sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
+# install R
+$ sudo apt install r-base
+$ R --version
+
+## Create Docker Image for GCP VM:
+# In a working directory, we need to have two files: dockerfile.txt, bootstrap.sh
+# Write dockerfile.txt. It is a text file that contains all commands needed to build a given iamge. 
+# Following is the sample contents of the dockerfile.txt:
+
+# Specify the parent image from which we build.
+# in this example, we are going to build R-studio server
+FROM rocker/tidyverse:latest
+# Install commonly used dependencies
+RUN apt-get --allow-releaseinfo-change update
+RUN apt-get install -y python3-pip
+RUN pip3 install requests requests-oauthlib itsdangerous
+RUN apt-get install -y r-base
+RUN apt-get install nano
+RUN apt-get install -y texlive-latex-base texlive-latex-recommended texlive-fonts-recommended
+# Install and set up google cloud sdk -- This is needed to read/write from google cloud storage
+RUN apt-get install -y curl gnupg apt-transport-https ca-certificates && \
+    echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg  add - && \
+    apt-get update -y && \
+    apt-get install google-cloud-sdk -y
+# clean up
+RUN apt-get clean \
+&& rm -rf /var/lib/apt/lists/ \
+&& rm -rf /tmp/downloaded_packages/ /tmp/*.rds
+
+
+
+# r setup -- install R packages that your application requires
+# RUN R -e "install.packages('REQUIRED PACKAGES', repos = 'http://cran.us.r-project.org')"
+# For instance,
+RUN R -e "install.packages('pacman', repos = 'http://cran.us.r-project.org')"
+
+# Add Home directory to Bash
+RUN echo 'export PATH="$HOME/bin:$PATH"' >> /root/.bashrc
+
+# Copy bootstrap shell script to root COPY ./bootstrap.sh /root# Make the script executable
+RUN chmod +x /root/bootstrap.sh # Run bootsctrap.shENTRYPOINT [ "/bin/bash", "/root/bootstrap.sh" ]
+Write bootstrap.sh Bash shell Script. In the below script, $CAPITAL is a environment variable that you have to set when deploying VM machine. 
+#Telling computer that we execute shell script#!/bin/bash # make required directorymkdir -p /root/exports
+mkdir -p /root/imports # Copy task shell script from gcs and run task scriptgsutil cp $GCS_WORKSPACE/$GCS_WORKSPACE_SH ./$GCS_WORKSPACE_SH # Make the script executablechmod +x ./$GCS_WORKSPACE_SH # Start shell scriptsource ./$GCS_WORKSPACE_SH
+Start Docker desktop
+Open terminal and get to the working directory and type. DOCKER_IMAGE_NAME should be understandable to your team members.
+docker build -t DOCKER_IMAGE_NAME -f dockerfile.txt .
+Then change docker tag. PROJECT_ID is the google cloud project id to which you want to deploy your docker image
+docker tag DOCKER_IMAGE_NAME gcr.io/PROJECT_ID/DOCKER_IMAGE_NAME

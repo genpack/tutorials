@@ -37,6 +37,7 @@ Proximity:
 House:
   Rent: RobertEdwardsReal
   Landscape:
+    - hummBNPL
     - AUSPLANTSON
     - FANDANGO
     - fence
@@ -81,7 +82,6 @@ House:
     - Domayne
     - BEDSNDREAMS
     - FlexiCards
-    - humm
     - GospelPiano
     - BabyKingdom
   Repair:
@@ -92,6 +92,7 @@ House:
     - cncl
 Restaurant:
   Cafe:
+    - ShareteaDFOHomebush
     - COCONOIRSYDNEY
     - TokyoBird
     - CocoCubano
@@ -112,12 +113,13 @@ Restaurant:
     - Delisse
     - kinbyus
     - VELOCEEXPRESSO
-    - bar
+    - BankHotelNewtown
     - ASALHOLDINGS
     - CANTINA
     - Movenpick
     - PATISSERIES
     - BAKEHOUSE
+    - ShelbourneHotelSydney
   Fastfood:
     - AdanosCentrepointSydney
     - SKYLERFINCH 
@@ -260,14 +262,11 @@ Transport:
     - RMSEtoll
     - RMS-Etoll
   Insurance:
-    - '617704'
     - AUTOGENERAL
     - BudgetDirect
     - Allianz
     - Aami
-    - QBE
     - RealInsur
-    - ctp
     - RENTALCOVER
   Parking:
     - SydneyOlympicParkP6
@@ -330,6 +329,7 @@ Expenses:
     - CommBankAppBorrowed
 Shopping:
   General:
+    - perfectpotionsydney
     - freechoice
     - HABITANIA
     - GLOBALRETAIL
@@ -376,6 +376,9 @@ Shopping:
     - ORCHID
     - WILDBUNCH
   Clothes:
+    - CLOTHING
+    - MACPAC
+    - ViaDelCorso
     - CommBankAppClothes
     - '1013203149280'
     - UniqloMidCity
@@ -422,6 +425,7 @@ Health:
     - TEETH
   General:
     - WESTERNSYDNEYLHNWESTMEAD
+    - WSLHDWESTMEAD
     - DRSAJDARI
     - SAHHUBRECEPT
     - ULTRASOUND
@@ -443,6 +447,9 @@ Health:
     - hiltonsydney
     - virginactive
     - FITNESSFIRST
+Gadjet:
+  MobilePhone:
+  - RPGBRANDSPTYLTDSYDNEY
 Services:
   Banking:
     - paymentfee
@@ -464,6 +471,9 @@ Services:
     - dryclean
     - laundr
   Legal:
+    - LegalService
+    - Post
+    - MUMBAIEXPRESSCENTR
     - Kargar
     - NSWREGISTRY
   General:
@@ -547,15 +557,13 @@ Beauty:
     - hair
     - Lavish
     - JASEMMOHAMMEDBASGI
+    - SydneyBros
   Skin:
     - TMALPTYLTDNORTHRYDE
     - occitane
   General:
     - beauty
     - NAIL
-LegalServices:
-  Post: Post
-  MumbaiExpress: MUMBAIEXPRESSCENTR
 Leisure:
   Show:
     - MaxAmini
@@ -575,6 +583,7 @@ Leisure:
     - NATIONALPARK
   General: 
     - Leisure
+    - Hijinx
     - SeaToSummit
     - WairakeiTerraces
     - WaiotapuThermalWonde
@@ -595,10 +604,6 @@ Leisure:
     - SkyCityHotelAuckland
     - AlfaAmsterdamHotel 
     - MyHolidays
-    - accommo
-    - hotel
-    - hostel
-    - bnb
     - HolidayHouse
   Overseas: 
     - amsterdam
@@ -624,7 +629,6 @@ Communication:
     - optus
     - FONEFIELD
     - Samsung
-    - phone
     - handset
     - APPLE
     - ICURE

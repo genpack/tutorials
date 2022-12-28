@@ -1,0 +1,35 @@
+# This is a docket image for a linux machine
+# Specify the parent image from which we build.
+# in this example, we are going to build R-studio server
+FROM rocker/tidyverse:latest
+
+# Install commonly used dependencies
+RUN apt-get --allow-releaseinfo-change update
+RUN apt-get install -y python3-pip
+RUN pip3 install requests requests-oauthlib itsdangerous
+RUN apt-get install -y r-base
+RUN apt-get install nano
+RUN apt-get install -y texlive-latex-base texlive-latex-recommended texlive-fonts-recommended
+
+# Install and set up google cloud sdk -- This is needed to read/write from google cloud storage
+RUN apt-get install -y curl gnupg apt-transport-https ca-certificates && \
+    echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg  add - && \
+    apt-get update -y && \
+    apt-get install google-cloud-sdk -y
+
+# clean up
+RUN apt-get clean \
+&& rm -rf /var/lib/apt/lists/ \
+&& rm -rf /tmp/downloaded_packages/ /tmp/*.rds
+
+# r setup -- install R packages that your application requires
+# RUN R -e "install.packages('REQUIRED PACKAGES', repos = 'http://cran.us.r-project.org')"
+# For instance,
+RUN R -e "install.packages('pacman', repos = 'http://cran.us.r-project.org')"
+
+# Add Home directory to Bash
+RUN echo 'export PATH="$HOME/bin:$PATH"' >> /root/.bashrc
+
+# Copy bootstrap shell script to root COPY ./bootstrap.sh /root# Make the script executable
+RUN chmod +x /root/bootstrap.sh # Run bootsctrap.shENTRYPOINT [ "/bin/bash", "/root/bootstrap.sh" ]

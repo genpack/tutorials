@@ -1,0 +1,47 @@
+[2022-10-06T16:54:27.554+1100] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: my_dag_id.D_html_report manual__2022-10-06T05:54:19.455737+00:00 [queued]>
+[2022-10-06T16:54:27.558+1100] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: my_dag_id.D_html_report manual__2022-10-06T05:54:19.455737+00:00 [queued]>
+[2022-10-06T16:54:27.558+1100] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-06T16:54:27.558+1100] {taskinstance.py:1369} INFO - Starting attempt 1 of 1
+[2022-10-06T16:54:27.558+1100] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-06T16:54:27.561+1100] {taskinstance.py:1389} INFO - Executing <Task(BashOperator): D_html_report> on 2022-10-06 05:54:19.455737+00:00
+[2022-10-06T16:54:27.563+1100] {standard_task_runner.py:52} INFO - Started process 23938 to run task
+[2022-10-06T16:54:27.565+1100] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', 'my_dag_id', 'D_html_report', 'manual__2022-10-06T05:54:19.455737+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/dag_template_R.py', '--cfg-path', '/var/folders/rr/tr5h7c2s1tg0n7n69k9rnpn80000gq/T/tmp0un5b070', '--error-file', '/var/folders/rr/tr5h7c2s1tg0n7n69k9rnpn80000gq/T/tmpgoc3bicz']
+[2022-10-06T16:54:27.566+1100] {standard_task_runner.py:80} INFO - Job 8: Subtask D_html_report
+[2022-10-06T16:54:27.581+1100] {task_command.py:371} INFO - Running <TaskInstance: my_dag_id.D_html_report manual__2022-10-06T05:54:19.455737+00:00 [running]> on host 106.1.168.192.in-addr.arpa
+[2022-10-06T16:54:27.597+1100] {taskinstance.py:1581} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=nirasoft
+AIRFLOW_CTX_DAG_ID=my_dag_id
+AIRFLOW_CTX_TASK_ID=D_html_report
+AIRFLOW_CTX_EXECUTION_DATE=2022-10-06T05:54:19.455737+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-10-06T05:54:19.455737+00:00
+[2022-10-06T16:54:27.597+1100] {subprocess.py:62} INFO - Tmp dir root location: 
+ /var/folders/rr/tr5h7c2s1tg0n7n69k9rnpn80000gq/T
+[2022-10-06T16:54:27.597+1100] {subprocess.py:74} INFO - Running command: ['/bin/bash', '-c', 'Rscript -e "rmarkdown::render(\'/Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/scripts/D_task.Rmd\')" ']
+[2022-10-06T16:54:27.600+1100] {subprocess.py:85} INFO - Output:
+[2022-10-06T16:54:28.077+1100] {subprocess.py:92} INFO - 
+[2022-10-06T16:54:28.078+1100] {subprocess.py:92} INFO - 
+[2022-10-06T16:54:28.078+1100] {subprocess.py:92} INFO - processing file: D_task.Rmd
+[2022-10-06T16:54:28.105+1100] {subprocess.py:92} INFO -   |                                                                              |                                                                      |   0%  |                                                                              |.......................                                               |  33%
+[2022-10-06T16:54:28.106+1100] {subprocess.py:92} INFO -   ordinary text without R code
+[2022-10-06T16:54:28.106+1100] {subprocess.py:92} INFO - 
+[2022-10-06T16:54:28.106+1100] {subprocess.py:92} INFO -   |                                                                              |...............................................                       |  67%
+[2022-10-06T16:54:28.107+1100] {subprocess.py:92} INFO - label: setup (with options)
+[2022-10-06T16:54:28.108+1100] {subprocess.py:92} INFO - List of 1
+[2022-10-06T16:54:28.109+1100] {subprocess.py:92} INFO -  $ include: logi FALSE
+[2022-10-06T16:54:28.109+1100] {subprocess.py:92} INFO - 
+[2022-10-06T16:54:28.121+1100] {subprocess.py:92} INFO -   |                                                                              |......................................................................| 100%
+[2022-10-06T16:54:28.121+1100] {subprocess.py:92} INFO -   ordinary text without R code
+[2022-10-06T16:54:28.121+1100] {subprocess.py:92} INFO - 
+[2022-10-06T16:54:28.121+1100] {subprocess.py:92} INFO - 
+[2022-10-06T16:54:28.121+1100] {subprocess.py:92} INFO - output file: D_task.knit.md
+[2022-10-06T16:54:28.122+1100] {subprocess.py:92} INFO - 
+[2022-10-06T16:54:28.130+1100] {subprocess.py:92} INFO - /usr/local/bin/pandoc +RTS -K512m -RTS D_task.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output D_task.html --lua-filter /Library/Frameworks/R.framework/Versions/4.2/Resources/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/4.2/Resources/library/rmarkdown/rmarkdown/lua/latex-div.lua --embed-resources --standalone --variable bs3=TRUE --section-divs --template /Library/Frameworks/R.framework/Versions/4.2/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /var/folders/rr/tr5h7c2s1tg0n7n69k9rnpn80000gq/T//RtmpEHTuvp/rmarkdown-str5d8314ed7a0e.html
+[2022-10-06T16:54:28.555+1100] {subprocess.py:92} INFO - 
+[2022-10-06T16:54:28.555+1100] {subprocess.py:92} INFO - Output created: D_task.html
+[2022-10-06T16:54:28.570+1100] {subprocess.py:96} INFO - Command exited with return code 0
+[2022-10-06T16:54:28.578+1100] {taskinstance.py:1407} INFO - Marking task as SUCCESS. dag_id=my_dag_id, task_id=D_html_report, execution_date=20221006T055419, start_date=20221006T055427, end_date=20221006T055428
+[2022-10-06T16:54:28.592+1100] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-10-06T16:54:28.598+1100] {local_task_job.py:279} INFO - 0 downstream tasks scheduled from follow-on schedule check

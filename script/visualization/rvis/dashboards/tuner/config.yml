@@ -1,0 +1,100 @@
+# This is a sample config for BS Modal Example dashboard:
+items:
+  main:
+    type: dashboardPage
+    layout.side:
+      - pick_seg
+      - pick_exfeat
+      - pick_range
+      - pick_bins
+    layout.body:
+      - metricbox
+      - histPlot
+      - hbarPlot
+  pick_seg:
+    type: selectInput
+    title: 'Segment:'
+    tooltip: "Pick one segment here"
+    tooltip.placement: right
+    tooltip.options: 
+      container: body
+  pick_exfeat:
+    type: selectInput
+    title: 'Exclusion Filter'
+    choices: 
+    - F1
+    - F2
+    - F3
+    - F4
+    - F5
+    selected: []
+    multiple: yes
+  pick_range:
+    type: sliderInput
+    title: Quantile Range
+    min: 0
+    max: 100
+    value: [0,100]
+    step: 1
+    post: ' %'
+  pick_bins:
+    type: sliderInput
+    title: Number of bins
+    min: 10
+    max: 1000
+    value: 100
+    step: 10
+  histPlot:
+    type: plotOutput
+    service: "hist(x = sync$scores, breaks = input$pick_bins, xlab = 'Score', main = 'Distribution of scores for segment %s' %>% sprintf(input$pick_seg))"
+    popover: 
+    - "Histogram of Segment Scores"
+    popover.trigger: click
+    popover.title: Data
+  hbarPlot:
+    type: billboarderOutput
+    service: "plot_sparsity_rate(feature_sparsity, sync$indexes, segment_config[[input$pick_seg]]$feature_set)"
+  metricbox:
+    type: fluidPage
+    layout: 
+      row_1:
+      - n_members
+      - avg_score
+      - score_rng
+  n_members:
+    type: uiOutput
+    cloth: 
+      type: infoBox
+      title: Count
+      icon: tally
+      subtitle: of filtered members
+      color: green
+      fill: yes
+      weight: 4
+    service: "length(sync$scores)"  
+  avg_score:
+    type: uiOutput
+    cloth: 
+      type: infoBox
+      title: Average Score
+      icon: gauge
+      subtitle: of filtered members
+      color: green
+      fill: yes
+      weight: 4
+    service: "mean(sync$scores) %>% round(2)"  
+  score_rng:
+    type: uiOutput
+    cloth: 
+      type: infoBox
+      title: Score Range
+      icon: lines-leaning
+      subtitle: of filtered members
+      color: green
+      fill: yes
+      weight: 4
+    service: "range(sync$scores) %>% round(2) %>% paste(collapse = ' - ')"  
+observers:
+  - "updateSelectInput(session, 'pick_exfeat', choices = segment_config[[input$pick_seg]]$feature_set, selected = c())"
+  - "sync$indexes <- get_filtered_indexes(seg_data, input$pick_seg, segment_config[[input$pick_seg]]$feature_set, input$pick_exfeat, 0.01*input$pick_range)"
+  - "sync$scores  <- seg_data[sync$indexes, input$pick_seg]"

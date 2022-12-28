@@ -5,11 +5,7 @@
 library(magrittr)
 library(shiny)
 library(shinyWidgets)
-library(gener)
-
-source('../../../packages/master/viser-master/R/visgen.R')
-source('../../../packages/master/viser-master/R/dashboard.R')
-
+library(rutils)
 
 #############################################################################################################################
 # Example 1: actionBttn

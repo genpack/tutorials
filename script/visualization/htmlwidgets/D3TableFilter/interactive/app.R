@@ -8,8 +8,8 @@ library(shiny)
 library(htmlwidgets)
 library(magrittr)
 
-library(niragen)
-library(niravis)
+library(rutils)
+library(rvis)
 
 # source('C:/Nima/RCode/packages/niragen/R/niragen.R')
 #source('C:/Nima/RCode/packages/niravis-master/R/visgen.R')

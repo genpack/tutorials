@@ -1,0 +1,991 @@
+[2022-10-06T14:56:14.695+1100] {processor.py:153} INFO - Started process (PID=47570) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T14:56:14.697+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T14:56:14.697+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:56:14.697+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T14:56:14.708+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T14:56:15.053+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:56:15.053+1100] {manager.py:508} INFO - Created Permission View: can read on DAG:example_sla_dag
+[2022-10-06T14:56:15.055+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:56:15.055+1100] {manager.py:508} INFO - Created Permission View: can edit on DAG:example_sla_dag
+[2022-10-06T14:56:15.057+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:56:15.057+1100] {manager.py:508} INFO - Created Permission View: can delete on DAG:example_sla_dag
+[2022-10-06T14:56:15.057+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:56:15.057+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T14:56:15.060+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:56:15.060+1100] {dag.py:2448} INFO - Creating ORM DAG for example_sla_dag
+[2022-10-06T14:56:15.063+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:56:15.063+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T03:54:00+00:00, run_after=2022-10-06T03:56:00+00:00
+[2022-10-06T14:56:15.066+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.372 seconds
+[2022-10-06T14:57:08.459+1100] {processor.py:153} INFO - Started process (PID=48032) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T14:57:08.461+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T14:57:08.461+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:57:08.461+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T14:57:08.472+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T14:57:08.489+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:57:08.489+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T14:57:08.495+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:57:08.495+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T03:54:00+00:00, run_after=2022-10-06T03:56:00+00:00
+[2022-10-06T14:57:08.498+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.039 seconds
+[2022-10-06T14:57:55.525+1100] {processor.py:153} INFO - Started process (PID=48486) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T14:57:55.527+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T14:57:55.527+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:57:55.527+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T14:57:55.540+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T14:57:55.560+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:57:55.559+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T14:57:55.566+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:57:55.566+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T03:54:00+00:00, run_after=2022-10-06T03:56:00+00:00
+[2022-10-06T14:57:55.569+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.044 seconds
+[2022-10-06T14:58:40.969+1100] {processor.py:153} INFO - Started process (PID=48956) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T14:58:40.971+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T14:58:40.971+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:58:40.971+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T14:58:40.983+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T14:58:41.001+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:58:41.001+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T14:58:41.007+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:58:41.007+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T03:56:00+00:00, run_after=2022-10-06T03:58:00+00:00
+[2022-10-06T14:58:41.010+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T14:59:27.764+1100] {processor.py:153} INFO - Started process (PID=49409) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T14:59:27.766+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T14:59:27.767+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:59:27.767+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T14:59:27.783+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T14:59:27.803+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:59:27.803+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T14:59:27.809+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:59:27.809+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T03:56:00+00:00, run_after=2022-10-06T03:58:00+00:00
+[2022-10-06T14:59:27.813+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.049 seconds
+[2022-10-06T15:00:14.031+1100] {processor.py:153} INFO - Started process (PID=50781) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:00:14.033+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:00:14.033+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:00:14.033+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:00:14.044+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:00:14.063+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:00:14.063+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:00:14.068+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:00:14.068+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T03:58:00+00:00, run_after=2022-10-06T04:00:00+00:00
+[2022-10-06T15:00:14.077+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.046 seconds
+[2022-10-06T15:01:03.018+1100] {processor.py:153} INFO - Started process (PID=55085) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:01:03.020+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:01:03.020+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:01:03.020+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:01:03.031+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:01:03.049+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:01:03.049+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:01:03.055+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:01:03.055+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T03:58:00+00:00, run_after=2022-10-06T04:00:00+00:00
+[2022-10-06T15:01:03.058+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:01:49.755+1100] {processor.py:153} INFO - Started process (PID=55568) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:01:49.757+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:01:49.757+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:01:49.757+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:01:49.768+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:01:49.786+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:01:49.786+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:01:49.792+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:01:49.792+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T03:58:00+00:00, run_after=2022-10-06T04:00:00+00:00
+[2022-10-06T15:01:49.795+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:02:38.540+1100] {processor.py:153} INFO - Started process (PID=56049) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:02:38.543+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:02:38.543+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:02:38.543+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:02:38.553+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:02:38.572+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:02:38.572+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:02:38.577+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:02:38.577+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:00:00+00:00, run_after=2022-10-06T04:02:00+00:00
+[2022-10-06T15:02:38.580+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.040 seconds
+[2022-10-06T15:03:27.595+1100] {processor.py:153} INFO - Started process (PID=56829) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:03:27.598+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:03:27.598+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:03:27.598+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:03:27.613+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:03:27.632+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:03:27.632+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:03:27.637+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:03:27.637+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:00:00+00:00, run_after=2022-10-06T04:02:00+00:00
+[2022-10-06T15:03:27.640+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.045 seconds
+[2022-10-06T15:04:13.476+1100] {processor.py:153} INFO - Started process (PID=57305) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:04:13.477+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:04:13.478+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:04:13.478+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:04:13.489+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:04:13.507+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:04:13.506+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:04:13.512+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:04:13.512+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:02:00+00:00, run_after=2022-10-06T04:04:00+00:00
+[2022-10-06T15:04:13.515+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.040 seconds
+[2022-10-06T15:04:58.260+1100] {processor.py:153} INFO - Started process (PID=57759) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:04:58.262+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:04:58.262+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:04:58.262+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:04:58.276+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:04:58.297+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:04:58.297+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:04:58.304+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:04:58.304+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:02:00+00:00, run_after=2022-10-06T04:04:00+00:00
+[2022-10-06T15:04:58.308+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.048 seconds
+[2022-10-06T15:05:45.844+1100] {processor.py:153} INFO - Started process (PID=58356) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:05:45.846+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:05:45.846+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:05:45.846+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:05:45.859+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:05:45.878+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:05:45.878+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:05:45.883+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:05:45.883+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:02:00+00:00, run_after=2022-10-06T04:04:00+00:00
+[2022-10-06T15:05:45.886+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.043 seconds
+[2022-10-06T15:06:28.772+1100] {processor.py:153} INFO - Started process (PID=58831) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:06:28.774+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:06:28.774+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:06:28.774+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:06:28.785+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:06:28.806+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:06:28.806+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:06:28.812+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:06:28.811+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:04:00+00:00, run_after=2022-10-06T04:06:00+00:00
+[2022-10-06T15:06:28.815+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.043 seconds
+[2022-10-06T15:07:16.823+1100] {processor.py:153} INFO - Started process (PID=59327) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:07:16.825+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:07:16.825+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:07:16.825+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:07:16.836+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:07:16.855+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:07:16.855+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:07:16.860+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:07:16.860+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:04:00+00:00, run_after=2022-10-06T04:06:00+00:00
+[2022-10-06T15:07:16.863+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.040 seconds
+[2022-10-06T15:08:01.470+1100] {processor.py:153} INFO - Started process (PID=59795) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:08:01.472+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:08:01.473+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:08:01.473+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:08:01.484+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:08:01.505+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:08:01.505+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:08:01.511+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:08:01.511+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:06:00+00:00, run_after=2022-10-06T04:08:00+00:00
+[2022-10-06T15:08:01.514+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.044 seconds
+[2022-10-06T15:08:46.999+1100] {processor.py:153} INFO - Started process (PID=60286) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:08:47.001+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:08:47.001+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:08:47.001+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:08:47.013+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:08:47.031+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:08:47.031+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:08:47.037+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:08:47.037+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:06:00+00:00, run_after=2022-10-06T04:08:00+00:00
+[2022-10-06T15:08:47.040+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:09:39.719+1100] {processor.py:153} INFO - Started process (PID=60807) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:09:39.721+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:09:39.721+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:09:39.721+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:09:39.734+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:09:39.753+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:09:39.753+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:09:39.759+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:09:39.759+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:06:00+00:00, run_after=2022-10-06T04:08:00+00:00
+[2022-10-06T15:09:39.762+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.044 seconds
+[2022-10-06T15:10:27.703+1100] {processor.py:153} INFO - Started process (PID=61310) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:10:27.705+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:10:27.706+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:10:27.706+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:10:27.718+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:10:27.740+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:10:27.740+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:10:27.753+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:10:27.753+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:08:00+00:00, run_after=2022-10-06T04:10:00+00:00
+[2022-10-06T15:10:27.757+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.054 seconds
+[2022-10-06T15:11:15.896+1100] {processor.py:153} INFO - Started process (PID=61825) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:11:15.899+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:11:15.899+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:11:15.899+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:11:15.915+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:11:15.934+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:11:15.934+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:11:15.940+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:11:15.940+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:08:00+00:00, run_after=2022-10-06T04:10:00+00:00
+[2022-10-06T15:11:15.943+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.047 seconds
+[2022-10-06T15:12:01.784+1100] {processor.py:153} INFO - Started process (PID=62308) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:12:01.785+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:12:01.786+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:12:01.786+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:12:01.803+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:12:01.823+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:12:01.823+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:12:01.829+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:12:01.829+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:10:00+00:00, run_after=2022-10-06T04:12:00+00:00
+[2022-10-06T15:12:01.832+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.049 seconds
+[2022-10-06T15:12:50.497+1100] {processor.py:153} INFO - Started process (PID=62773) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:12:50.500+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:12:50.500+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:12:50.500+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:12:50.512+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:12:50.532+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:12:50.532+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:12:50.538+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:12:50.538+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:10:00+00:00, run_after=2022-10-06T04:12:00+00:00
+[2022-10-06T15:12:50.541+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.045 seconds
+[2022-10-06T15:13:40.172+1100] {processor.py:153} INFO - Started process (PID=63298) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:13:40.174+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:13:40.174+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:13:40.174+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:13:40.186+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:13:40.204+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:13:40.204+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:13:40.210+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:13:40.210+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:10:00+00:00, run_after=2022-10-06T04:12:00+00:00
+[2022-10-06T15:13:40.213+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:14:24.492+1100] {processor.py:153} INFO - Started process (PID=63737) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:14:24.494+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:14:24.495+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:14:24.495+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:14:24.505+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:14:24.523+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:14:24.523+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:14:24.529+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:14:24.529+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:12:00+00:00, run_after=2022-10-06T04:14:00+00:00
+[2022-10-06T15:14:24.532+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.040 seconds
+[2022-10-06T15:15:08.856+1100] {processor.py:153} INFO - Started process (PID=64202) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:15:08.858+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:15:08.859+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:15:08.859+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:15:08.870+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:15:08.891+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:15:08.890+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:15:08.897+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:15:08.897+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:12:00+00:00, run_after=2022-10-06T04:14:00+00:00
+[2022-10-06T15:15:08.900+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.044 seconds
+[2022-10-06T15:15:58.066+1100] {processor.py:153} INFO - Started process (PID=64722) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:15:58.071+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:15:58.071+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:15:58.071+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:15:58.085+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:15:58.104+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:15:58.104+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:15:58.109+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:15:58.109+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:12:00+00:00, run_after=2022-10-06T04:14:00+00:00
+[2022-10-06T15:15:58.113+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.047 seconds
+[2022-10-06T15:16:44.024+1100] {processor.py:153} INFO - Started process (PID=65167) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:16:44.027+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:16:44.027+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:16:44.027+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:16:44.038+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:16:44.057+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:16:44.057+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:16:44.062+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:16:44.062+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:14:00+00:00, run_after=2022-10-06T04:16:00+00:00
+[2022-10-06T15:16:44.066+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:17:32.825+1100] {processor.py:153} INFO - Started process (PID=65664) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:17:32.827+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:17:32.828+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:17:32.827+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:17:32.840+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:17:32.860+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:17:32.860+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:17:32.866+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:17:32.866+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:14:00+00:00, run_after=2022-10-06T04:16:00+00:00
+[2022-10-06T15:17:32.870+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.045 seconds
+[2022-10-06T15:18:20.125+1100] {processor.py:153} INFO - Started process (PID=66140) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:18:20.128+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:18:20.128+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:18:20.128+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:18:20.141+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:18:20.160+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:18:20.160+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:18:20.165+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:18:20.165+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:16:00+00:00, run_after=2022-10-06T04:18:00+00:00
+[2022-10-06T15:18:20.168+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.044 seconds
+[2022-10-06T15:19:09.289+1100] {processor.py:153} INFO - Started process (PID=66637) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:19:09.291+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:19:09.292+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:19:09.292+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:19:09.302+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:19:09.321+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:19:09.321+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:19:09.326+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:19:09.326+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:16:00+00:00, run_after=2022-10-06T04:18:00+00:00
+[2022-10-06T15:19:09.329+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.040 seconds
+[2022-10-06T15:19:54.169+1100] {processor.py:153} INFO - Started process (PID=67091) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:19:54.172+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:19:54.172+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:19:54.172+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:19:54.183+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:19:54.201+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:19:54.201+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:19:54.206+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:19:54.206+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:16:00+00:00, run_after=2022-10-06T04:18:00+00:00
+[2022-10-06T15:19:54.209+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:20:41.722+1100] {processor.py:153} INFO - Started process (PID=67574) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:20:41.725+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:20:41.726+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:20:41.726+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:20:41.741+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:20:41.760+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:20:41.760+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:20:41.765+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:20:41.765+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:18:00+00:00, run_after=2022-10-06T04:20:00+00:00
+[2022-10-06T15:20:41.769+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.046 seconds
+[2022-10-06T15:21:30.940+1100] {processor.py:153} INFO - Started process (PID=68072) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:21:30.942+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:21:30.943+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:21:30.943+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:21:30.954+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:21:30.972+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:21:30.972+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:21:30.977+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:21:30.977+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:18:00+00:00, run_after=2022-10-06T04:20:00+00:00
+[2022-10-06T15:21:30.981+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:22:18.660+1100] {processor.py:153} INFO - Started process (PID=68617) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:22:18.662+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:22:18.662+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:22:18.662+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:22:18.673+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:22:18.692+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:22:18.692+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:22:18.698+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:22:18.698+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:20:00+00:00, run_after=2022-10-06T04:22:00+00:00
+[2022-10-06T15:22:18.701+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:23:06.318+1100] {processor.py:153} INFO - Started process (PID=69106) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:23:06.320+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:23:06.320+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:23:06.320+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:23:06.331+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:23:06.350+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:23:06.350+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:23:06.355+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:23:06.355+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:20:00+00:00, run_after=2022-10-06T04:22:00+00:00
+[2022-10-06T15:23:06.359+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:23:53.806+1100] {processor.py:153} INFO - Started process (PID=69574) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:23:53.809+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:23:53.809+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:23:53.809+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:23:53.820+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:23:53.841+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:23:53.841+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:23:53.847+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:23:53.846+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:20:00+00:00, run_after=2022-10-06T04:22:00+00:00
+[2022-10-06T15:23:53.850+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.043 seconds
+[2022-10-06T15:24:40.325+1100] {processor.py:153} INFO - Started process (PID=70057) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:24:40.327+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:24:40.327+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:24:40.327+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:24:40.338+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:24:40.359+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:24:40.359+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:24:40.365+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:24:40.365+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:22:00+00:00, run_after=2022-10-06T04:24:00+00:00
+[2022-10-06T15:24:40.368+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.044 seconds
+[2022-10-06T15:25:26.691+1100] {processor.py:153} INFO - Started process (PID=70657) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:25:26.693+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:25:26.693+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:25:26.693+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:25:26.705+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:25:26.726+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:25:26.726+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:25:26.735+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:25:26.735+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:22:00+00:00, run_after=2022-10-06T04:24:00+00:00
+[2022-10-06T15:25:26.738+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.047 seconds
+[2022-10-06T15:26:08.949+1100] {processor.py:153} INFO - Started process (PID=71096) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:26:08.951+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:26:08.951+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:26:08.951+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:26:08.962+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:26:08.981+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:26:08.981+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:26:08.987+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:26:08.987+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:24:00+00:00, run_after=2022-10-06T04:26:00+00:00
+[2022-10-06T15:26:08.990+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.042 seconds
+[2022-10-06T15:26:48.735+1100] {processor.py:153} INFO - Started process (PID=71541) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:26:48.737+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:26:48.737+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:26:48.737+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:26:48.749+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:26:48.769+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:26:48.769+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:26:48.775+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:26:48.775+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:24:00+00:00, run_after=2022-10-06T04:26:00+00:00
+[2022-10-06T15:26:48.778+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.043 seconds
+[2022-10-06T15:27:37.010+1100] {processor.py:153} INFO - Started process (PID=72038) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:27:37.013+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:27:37.013+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:27:37.013+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:27:37.024+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:27:37.042+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:27:37.042+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:27:37.048+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:27:37.048+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:24:00+00:00, run_after=2022-10-06T04:26:00+00:00
+[2022-10-06T15:27:37.051+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:28:25.249+1100] {processor.py:153} INFO - Started process (PID=72533) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:28:25.252+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:28:25.252+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:28:25.252+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:28:25.263+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:28:25.281+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:28:25.281+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:28:25.287+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:28:25.287+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:26:00+00:00, run_after=2022-10-06T04:28:00+00:00
+[2022-10-06T15:28:25.290+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:29:11.002+1100] {processor.py:153} INFO - Started process (PID=73033) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:29:11.004+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:29:11.004+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:29:11.004+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:29:11.015+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:29:11.033+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:29:11.033+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:29:11.039+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:29:11.039+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:26:00+00:00, run_after=2022-10-06T04:28:00+00:00
+[2022-10-06T15:29:11.043+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.042 seconds
+[2022-10-06T15:29:55.458+1100] {processor.py:153} INFO - Started process (PID=73500) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:29:55.461+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:29:55.461+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:29:55.461+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:29:55.473+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:29:55.493+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:29:55.493+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:29:55.500+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:29:55.500+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:26:00+00:00, run_after=2022-10-06T04:28:00+00:00
+[2022-10-06T15:29:55.503+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.045 seconds
+[2022-10-06T15:30:37.615+1100] {processor.py:153} INFO - Started process (PID=73917) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:30:37.618+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:30:37.618+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:30:37.618+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:30:37.629+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:30:37.648+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:30:37.648+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:30:37.654+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:30:37.654+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:28:00+00:00, run_after=2022-10-06T04:30:00+00:00
+[2022-10-06T15:30:37.657+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.042 seconds
+[2022-10-06T15:31:25.193+1100] {processor.py:153} INFO - Started process (PID=74449) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:31:25.195+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:31:25.195+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:31:25.195+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:31:25.207+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:31:25.225+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:31:25.225+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:31:25.230+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:31:25.230+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:28:00+00:00, run_after=2022-10-06T04:30:00+00:00
+[2022-10-06T15:31:25.233+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:32:10.872+1100] {processor.py:153} INFO - Started process (PID=74972) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:32:10.875+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:32:10.875+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:32:10.875+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:32:10.889+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:32:10.917+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:32:10.917+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:32:10.927+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:32:10.927+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:30:00+00:00, run_after=2022-10-06T04:32:00+00:00
+[2022-10-06T15:32:10.932+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.060 seconds
+[2022-10-06T15:33:00.416+1100] {processor.py:153} INFO - Started process (PID=75555) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:33:00.422+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:33:00.422+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:33:00.422+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:33:00.434+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:33:00.452+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:33:00.452+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:33:00.458+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:33:00.458+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:30:00+00:00, run_after=2022-10-06T04:32:00+00:00
+[2022-10-06T15:33:00.461+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.046 seconds
+[2022-10-06T15:33:44.941+1100] {processor.py:153} INFO - Started process (PID=76040) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:33:44.943+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:33:44.943+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:33:44.943+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:33:44.955+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:33:44.974+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:33:44.973+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:33:44.979+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:33:44.979+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:30:00+00:00, run_after=2022-10-06T04:32:00+00:00
+[2022-10-06T15:33:44.987+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.046 seconds
+[2022-10-06T15:34:31.864+1100] {processor.py:153} INFO - Started process (PID=76518) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:34:31.866+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:34:31.867+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:34:31.866+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:34:31.879+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:34:31.899+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:34:31.899+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:34:31.905+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:34:31.905+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:32:00+00:00, run_after=2022-10-06T04:34:00+00:00
+[2022-10-06T15:34:31.908+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.045 seconds
+[2022-10-06T15:35:16.796+1100] {processor.py:153} INFO - Started process (PID=76992) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:35:16.798+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:35:16.798+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:35:16.798+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:35:16.811+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:35:16.831+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:35:16.831+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:35:16.837+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:35:16.837+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:32:00+00:00, run_after=2022-10-06T04:34:00+00:00
+[2022-10-06T15:35:16.841+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.046 seconds
+[2022-10-06T15:36:08.672+1100] {processor.py:153} INFO - Started process (PID=77503) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:36:08.675+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:36:08.675+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:36:08.675+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:36:08.685+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:36:08.704+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:36:08.704+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:36:08.710+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:36:08.710+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:34:00+00:00, run_after=2022-10-06T04:36:00+00:00
+[2022-10-06T15:36:08.713+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:36:57.666+1100] {processor.py:153} INFO - Started process (PID=78001) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:36:57.669+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:36:57.669+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:36:57.669+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:36:57.679+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:36:57.700+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:36:57.700+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:36:57.706+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:36:57.706+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:34:00+00:00, run_after=2022-10-06T04:36:00+00:00
+[2022-10-06T15:36:57.709+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.043 seconds
+[2022-10-06T15:37:46.702+1100] {processor.py:153} INFO - Started process (PID=78508) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:37:46.704+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:37:46.704+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:37:46.704+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:37:46.715+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:37:46.733+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:37:46.733+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:37:46.739+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:37:46.739+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:34:00+00:00, run_after=2022-10-06T04:36:00+00:00
+[2022-10-06T15:37:46.742+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.040 seconds
+[2022-10-06T15:38:35.160+1100] {processor.py:153} INFO - Started process (PID=78984) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:38:35.162+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:38:35.162+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:38:35.162+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:38:35.173+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:38:35.191+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:38:35.191+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:38:35.196+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:38:35.196+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:36:00+00:00, run_after=2022-10-06T04:38:00+00:00
+[2022-10-06T15:38:35.200+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.040 seconds
+[2022-10-06T15:39:24.224+1100] {processor.py:153} INFO - Started process (PID=79460) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:39:24.226+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:39:24.226+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:39:24.226+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:39:24.238+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:39:24.256+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:39:24.256+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:39:24.262+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:39:24.262+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:36:00+00:00, run_after=2022-10-06T04:38:00+00:00
+[2022-10-06T15:39:24.265+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.042 seconds
+[2022-10-06T15:40:08.246+1100] {processor.py:153} INFO - Started process (PID=79934) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:40:08.249+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:40:08.249+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:40:08.249+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:40:08.260+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:40:08.277+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:40:08.277+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:40:08.283+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:40:08.283+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:38:00+00:00, run_after=2022-10-06T04:40:00+00:00
+[2022-10-06T15:40:08.286+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.040 seconds
+[2022-10-06T15:40:55.902+1100] {processor.py:153} INFO - Started process (PID=80408) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:40:55.904+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:40:55.904+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:40:55.904+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:40:55.914+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:40:55.933+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:40:55.933+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:40:55.938+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:40:55.938+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:38:00+00:00, run_after=2022-10-06T04:40:00+00:00
+[2022-10-06T15:40:55.941+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.040 seconds
+[2022-10-06T15:41:45.156+1100] {processor.py:153} INFO - Started process (PID=80879) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:41:45.159+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:41:45.159+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:41:45.159+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:41:45.174+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:41:45.193+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:41:45.193+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:41:45.199+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:41:45.199+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:38:00+00:00, run_after=2022-10-06T04:40:00+00:00
+[2022-10-06T15:41:45.202+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.046 seconds
+[2022-10-06T15:42:29.870+1100] {processor.py:153} INFO - Started process (PID=81306) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:42:29.873+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:42:29.873+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:42:29.873+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:42:29.884+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:42:29.902+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:42:29.902+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:42:29.907+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:42:29.907+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:40:00+00:00, run_after=2022-10-06T04:42:00+00:00
+[2022-10-06T15:42:29.910+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:43:22.069+1100] {processor.py:153} INFO - Started process (PID=81816) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:43:22.072+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:43:22.072+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:43:22.072+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:43:22.083+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:43:22.101+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:43:22.101+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:43:22.107+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:43:22.106+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:40:00+00:00, run_after=2022-10-06T04:42:00+00:00
+[2022-10-06T15:43:22.110+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:44:06.060+1100] {processor.py:153} INFO - Started process (PID=82236) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:44:06.062+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:44:06.062+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:44:06.062+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:44:06.073+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:44:06.091+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:44:06.091+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:44:06.096+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:44:06.096+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:42:00+00:00, run_after=2022-10-06T04:44:00+00:00
+[2022-10-06T15:44:06.100+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.040 seconds
+[2022-10-06T15:44:52.067+1100] {processor.py:153} INFO - Started process (PID=82713) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:44:52.069+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:44:52.069+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:44:52.069+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:44:52.080+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:44:52.099+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:44:52.099+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:44:52.104+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:44:52.104+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:42:00+00:00, run_after=2022-10-06T04:44:00+00:00
+[2022-10-06T15:44:52.108+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:45:38.945+1100] {processor.py:153} INFO - Started process (PID=83278) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:45:38.947+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:45:38.947+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:45:38.947+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:45:38.958+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:45:38.976+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:45:38.976+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:45:38.982+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:45:38.982+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:42:00+00:00, run_after=2022-10-06T04:44:00+00:00
+[2022-10-06T15:45:38.985+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.040 seconds
+[2022-10-06T15:46:26.556+1100] {processor.py:153} INFO - Started process (PID=83776) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:46:26.558+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:46:26.558+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:46:26.558+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:46:26.569+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:46:26.587+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:46:26.587+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:46:26.593+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:46:26.593+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:44:00+00:00, run_after=2022-10-06T04:46:00+00:00
+[2022-10-06T15:46:26.597+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:47:12.252+1100] {processor.py:153} INFO - Started process (PID=84243) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:47:12.254+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:47:12.254+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:47:12.254+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:47:12.266+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:47:12.285+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:47:12.285+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:47:12.291+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:47:12.291+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:44:00+00:00, run_after=2022-10-06T04:46:00+00:00
+[2022-10-06T15:47:12.294+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.043 seconds
+[2022-10-06T15:48:01.364+1100] {processor.py:153} INFO - Started process (PID=84747) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:48:01.366+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:48:01.366+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:48:01.366+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:48:01.377+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:48:01.396+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:48:01.395+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:48:01.401+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:48:01.401+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:46:00+00:00, run_after=2022-10-06T04:48:00+00:00
+[2022-10-06T15:48:01.405+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.040 seconds
+[2022-10-06T15:48:52.300+1100] {processor.py:153} INFO - Started process (PID=85267) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:48:52.302+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:48:52.303+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:48:52.302+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:48:52.313+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:48:52.331+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:48:52.331+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:48:52.337+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:48:52.337+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:46:00+00:00, run_after=2022-10-06T04:48:00+00:00
+[2022-10-06T15:48:52.340+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.040 seconds
+[2022-10-06T15:49:42.634+1100] {processor.py:153} INFO - Started process (PID=85789) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:49:42.636+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:49:42.636+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:49:42.636+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:49:42.649+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:49:42.669+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:49:42.669+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:49:42.675+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:49:42.675+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:46:00+00:00, run_after=2022-10-06T04:48:00+00:00
+[2022-10-06T15:49:42.679+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.045 seconds
+[2022-10-06T15:50:29.012+1100] {processor.py:153} INFO - Started process (PID=86316) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:50:29.014+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:50:29.014+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:50:29.014+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:50:29.026+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:50:29.045+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:50:29.045+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:50:29.051+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:50:29.051+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:48:00+00:00, run_after=2022-10-06T04:50:00+00:00
+[2022-10-06T15:50:29.054+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.043 seconds
+[2022-10-06T15:51:17.667+1100] {processor.py:153} INFO - Started process (PID=86871) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:51:17.669+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:51:17.669+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:51:17.669+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:51:17.681+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:51:17.701+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:51:17.701+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:51:17.707+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:51:17.707+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:48:00+00:00, run_after=2022-10-06T04:50:00+00:00
+[2022-10-06T15:51:17.711+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.044 seconds
+[2022-10-06T15:52:09.223+1100] {processor.py:153} INFO - Started process (PID=87472) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:52:09.225+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:52:09.225+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:52:09.225+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:52:09.238+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:52:09.258+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:52:09.258+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:52:09.265+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:52:09.265+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:50:00+00:00, run_after=2022-10-06T04:52:00+00:00
+[2022-10-06T15:52:09.268+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.046 seconds
+[2022-10-06T15:53:00.419+1100] {processor.py:153} INFO - Started process (PID=87986) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:53:00.421+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:53:00.421+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:53:00.421+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:53:00.432+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:53:00.454+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:53:00.454+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:53:00.460+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:53:00.460+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:50:00+00:00, run_after=2022-10-06T04:52:00+00:00
+[2022-10-06T15:53:00.463+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.045 seconds
+[2022-10-06T15:53:45.309+1100] {processor.py:153} INFO - Started process (PID=88476) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:53:45.313+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:53:45.314+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:53:45.314+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:53:45.325+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:53:45.343+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:53:45.343+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:53:45.349+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:53:45.349+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:50:00+00:00, run_after=2022-10-06T04:52:00+00:00
+[2022-10-06T15:53:45.352+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.043 seconds
+[2022-10-06T15:54:30.292+1100] {processor.py:153} INFO - Started process (PID=88923) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:54:30.294+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:54:30.294+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:54:30.294+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:54:30.305+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:54:30.324+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:54:30.324+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:54:30.330+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:54:30.330+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:52:00+00:00, run_after=2022-10-06T04:54:00+00:00
+[2022-10-06T15:54:30.339+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.047 seconds
+[2022-10-06T15:55:19.856+1100] {processor.py:153} INFO - Started process (PID=89427) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:55:19.858+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:55:19.859+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:55:19.858+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:55:19.871+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:55:19.892+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:55:19.892+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:55:19.899+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:55:19.899+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:52:00+00:00, run_after=2022-10-06T04:54:00+00:00
+[2022-10-06T15:55:19.904+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.048 seconds
+[2022-10-06T15:56:01.478+1100] {processor.py:153} INFO - Started process (PID=89888) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:56:01.480+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:56:01.480+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:56:01.480+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:56:01.492+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:56:01.512+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:56:01.512+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:56:01.518+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:56:01.518+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:54:00+00:00, run_after=2022-10-06T04:56:00+00:00
+[2022-10-06T15:56:01.521+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.044 seconds
+[2022-10-06T15:56:43.781+1100] {processor.py:153} INFO - Started process (PID=90319) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:56:43.783+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:56:43.783+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:56:43.783+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:56:43.800+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:56:43.820+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:56:43.820+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:56:43.826+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:56:43.826+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:54:00+00:00, run_after=2022-10-06T04:56:00+00:00
+[2022-10-06T15:56:43.829+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.049 seconds
+[2022-10-06T15:57:27.831+1100] {processor.py:153} INFO - Started process (PID=90784) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:57:27.833+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:57:27.834+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:57:27.834+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:57:27.845+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:57:27.863+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:57:27.863+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:57:27.869+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:57:27.869+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:54:00+00:00, run_after=2022-10-06T04:56:00+00:00
+[2022-10-06T15:57:27.872+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T15:58:14.836+1100] {processor.py:153} INFO - Started process (PID=91250) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:58:14.837+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:58:14.838+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:58:14.838+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:58:14.849+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:58:14.871+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:58:14.871+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:58:14.877+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:58:14.876+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:56:00+00:00, run_after=2022-10-06T04:58:00+00:00
+[2022-10-06T15:58:14.880+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.044 seconds
+[2022-10-06T15:59:02.679+1100] {processor.py:153} INFO - Started process (PID=91750) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:59:02.681+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:59:02.681+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:59:02.681+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:59:02.692+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:59:02.710+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:59:02.710+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:59:02.716+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:59:02.716+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:56:00+00:00, run_after=2022-10-06T04:58:00+00:00
+[2022-10-06T15:59:02.719+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.040 seconds
+[2022-10-06T15:59:52.068+1100] {processor.py:153} INFO - Started process (PID=92253) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:59:52.070+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T15:59:52.070+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:59:52.070+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:59:52.081+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T15:59:52.100+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:59:52.100+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T15:59:52.106+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:59:52.106+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:56:00+00:00, run_after=2022-10-06T04:58:00+00:00
+[2022-10-06T15:59:52.109+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T16:00:44.549+1100] {processor.py:153} INFO - Started process (PID=92795) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:00:44.551+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:00:44.551+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:00:44.551+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:00:44.563+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:00:44.583+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:00:44.583+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:00:44.588+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:00:44.588+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:58:00+00:00, run_after=2022-10-06T05:00:00+00:00
+[2022-10-06T16:00:44.592+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.043 seconds
+[2022-10-06T16:01:23.523+1100] {processor.py:153} INFO - Started process (PID=93279) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:01:23.526+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:01:23.526+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:01:23.526+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:01:23.537+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:01:23.559+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:01:23.559+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:01:23.565+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:01:23.565+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T04:58:00+00:00, run_after=2022-10-06T05:00:00+00:00
+[2022-10-06T16:01:23.568+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.045 seconds
+[2022-10-06T16:02:14.767+1100] {processor.py:153} INFO - Started process (PID=93776) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:02:14.769+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:02:14.770+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:02:14.770+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:02:14.790+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:02:14.814+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:02:14.814+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:02:14.822+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:02:14.822+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:00:00+00:00, run_after=2022-10-06T05:02:00+00:00
+[2022-10-06T16:02:14.826+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.059 seconds
+[2022-10-06T16:03:11.857+1100] {processor.py:153} INFO - Started process (PID=94343) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:03:11.860+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:03:11.860+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:03:11.860+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:03:11.874+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:03:11.895+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:03:11.895+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:03:11.901+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:03:11.901+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:00:00+00:00, run_after=2022-10-06T05:02:00+00:00
+[2022-10-06T16:03:11.905+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.048 seconds
+[2022-10-06T16:04:02.280+1100] {processor.py:153} INFO - Started process (PID=94881) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:04:02.282+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:04:02.282+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:04:02.282+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:04:02.294+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:04:02.314+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:04:02.314+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:04:02.322+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:04:02.322+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:02:00+00:00, run_after=2022-10-06T05:04:00+00:00
+[2022-10-06T16:04:02.326+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.047 seconds
+[2022-10-06T16:04:53.693+1100] {processor.py:153} INFO - Started process (PID=95434) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:04:53.697+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:04:53.698+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:04:53.698+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:04:53.710+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:04:53.730+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:04:53.729+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:04:53.736+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:04:53.736+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:02:00+00:00, run_after=2022-10-06T05:04:00+00:00
+[2022-10-06T16:04:53.739+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.046 seconds
+[2022-10-06T16:05:49.436+1100] {processor.py:153} INFO - Started process (PID=95977) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:05:49.438+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:05:49.438+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:05:49.438+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:05:49.450+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:05:49.469+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:05:49.469+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:05:49.475+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:05:49.475+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:02:00+00:00, run_after=2022-10-06T05:04:00+00:00
+[2022-10-06T16:05:49.478+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.042 seconds
+[2022-10-06T16:06:36.644+1100] {processor.py:153} INFO - Started process (PID=96419) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:06:36.649+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:06:36.649+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:06:36.649+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:06:36.661+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:06:36.681+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:06:36.681+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:06:36.687+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:06:36.687+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:04:00+00:00, run_after=2022-10-06T05:06:00+00:00
+[2022-10-06T16:06:36.690+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.046 seconds
+[2022-10-06T16:07:26.224+1100] {processor.py:153} INFO - Started process (PID=96925) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:07:26.227+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:07:26.227+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:07:26.227+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:07:26.239+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:07:26.257+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:07:26.257+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:07:26.263+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:07:26.263+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:04:00+00:00, run_after=2022-10-06T05:06:00+00:00
+[2022-10-06T16:07:26.266+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.042 seconds
+[2022-10-06T16:08:10.513+1100] {processor.py:153} INFO - Started process (PID=97370) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:08:10.515+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:08:10.515+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:08:10.515+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:08:10.528+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:08:10.549+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:08:10.549+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:08:10.557+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:08:10.556+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:06:00+00:00, run_after=2022-10-06T05:08:00+00:00
+[2022-10-06T16:08:10.560+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.047 seconds
+[2022-10-06T16:09:00.493+1100] {processor.py:153} INFO - Started process (PID=97857) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:09:00.498+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:09:00.498+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:09:00.498+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:09:00.511+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:09:00.532+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:09:00.532+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:09:00.539+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:09:00.539+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:06:00+00:00, run_after=2022-10-06T05:08:00+00:00
+[2022-10-06T16:09:00.543+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.050 seconds
+[2022-10-06T16:09:52.935+1100] {processor.py:153} INFO - Started process (PID=98413) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:09:52.937+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:09:52.938+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:09:52.938+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:09:52.949+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:09:52.968+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:09:52.968+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:09:52.974+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:09:52.974+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:06:00+00:00, run_after=2022-10-06T05:08:00+00:00
+[2022-10-06T16:09:52.977+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.042 seconds
+[2022-10-06T16:10:39.732+1100] {processor.py:153} INFO - Started process (PID=98885) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:10:39.734+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:10:39.734+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:10:39.734+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:10:39.749+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:10:39.773+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:10:39.772+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:10:39.780+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:10:39.780+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:08:00+00:00, run_after=2022-10-06T05:10:00+00:00
+[2022-10-06T16:10:39.783+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.052 seconds
+[2022-10-06T16:11:31.113+1100] {processor.py:153} INFO - Started process (PID=99399) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:11:31.115+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:11:31.115+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:11:31.115+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:11:31.126+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:11:31.145+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:11:31.145+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:11:31.151+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:11:31.151+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:08:00+00:00, run_after=2022-10-06T05:10:00+00:00
+[2022-10-06T16:11:31.154+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T16:12:15.813+1100] {processor.py:153} INFO - Started process (PID=99840) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:12:15.816+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:12:15.816+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:12:15.816+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:12:15.828+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:12:15.848+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:12:15.847+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:12:15.854+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:12:15.853+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:10:00+00:00, run_after=2022-10-06T05:12:00+00:00
+[2022-10-06T16:12:15.858+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.045 seconds
+[2022-10-06T16:13:04.891+1100] {processor.py:153} INFO - Started process (PID=533) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:13:04.894+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:13:04.894+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:13:04.894+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:13:04.906+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:13:04.925+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:13:04.925+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:13:04.931+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:13:04.931+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:10:00+00:00, run_after=2022-10-06T05:12:00+00:00
+[2022-10-06T16:13:04.935+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.043 seconds
+[2022-10-06T16:13:53.306+1100] {processor.py:153} INFO - Started process (PID=1147) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:13:53.309+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:13:53.309+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:13:53.309+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:13:53.322+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:13:53.343+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:13:53.343+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:13:53.350+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:13:53.350+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:10:00+00:00, run_after=2022-10-06T05:12:00+00:00
+[2022-10-06T16:13:53.353+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.047 seconds
+[2022-10-06T16:14:46.886+1100] {processor.py:153} INFO - Started process (PID=1717) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:14:46.889+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:14:46.889+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:14:46.889+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:14:46.900+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:14:46.919+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:14:46.919+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:14:46.926+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:14:46.926+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:12:00+00:00, run_after=2022-10-06T05:14:00+00:00
+[2022-10-06T16:14:46.931+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.045 seconds
+[2022-10-06T16:15:38.309+1100] {processor.py:153} INFO - Started process (PID=2228) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:15:38.310+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:15:38.311+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:15:38.311+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:15:38.323+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:15:38.347+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:15:38.346+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:15:38.354+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:15:38.354+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:12:00+00:00, run_after=2022-10-06T05:14:00+00:00
+[2022-10-06T16:15:38.357+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.049 seconds
+[2022-10-06T16:16:24.110+1100] {processor.py:153} INFO - Started process (PID=2671) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:16:24.112+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:16:24.112+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:16:24.112+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:16:24.129+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:16:24.149+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:16:24.149+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:16:24.156+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:16:24.156+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:14:00+00:00, run_after=2022-10-06T05:16:00+00:00
+[2022-10-06T16:16:24.160+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.050 seconds
+[2022-10-06T16:17:18.666+1100] {processor.py:153} INFO - Started process (PID=3223) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:17:18.668+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:17:18.668+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:17:18.668+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:17:18.687+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:17:18.713+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:17:18.713+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:17:18.719+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:17:18.719+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:14:00+00:00, run_after=2022-10-06T05:16:00+00:00
+[2022-10-06T16:17:18.723+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.058 seconds
+[2022-10-06T16:18:12.823+1100] {processor.py:153} INFO - Started process (PID=3741) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:18:12.825+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:18:12.825+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:18:12.825+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:18:12.841+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:18:12.866+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:18:12.866+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:18:12.875+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:18:12.875+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:16:00+00:00, run_after=2022-10-06T05:18:00+00:00
+[2022-10-06T16:18:12.881+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.058 seconds
+[2022-10-06T16:19:08.062+1100] {processor.py:153} INFO - Started process (PID=4286) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:19:08.065+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:19:08.065+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:19:08.065+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:19:08.077+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:19:08.097+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:19:08.097+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:19:08.103+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:19:08.103+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:16:00+00:00, run_after=2022-10-06T05:18:00+00:00
+[2022-10-06T16:19:08.107+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.045 seconds
+[2022-10-06T16:19:52.815+1100] {processor.py:153} INFO - Started process (PID=4734) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:19:52.817+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:19:52.817+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:19:52.817+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:19:52.830+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:19:52.852+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:19:52.852+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:19:52.859+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:19:52.859+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:16:00+00:00, run_after=2022-10-06T05:18:00+00:00
+[2022-10-06T16:19:52.862+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.048 seconds
+[2022-10-06T16:20:43.497+1100] {processor.py:153} INFO - Started process (PID=5269) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:20:43.501+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:20:43.501+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:20:43.501+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:20:43.517+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:20:43.540+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:20:43.540+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:20:43.549+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:20:43.548+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:18:00+00:00, run_after=2022-10-06T05:20:00+00:00
+[2022-10-06T16:20:43.552+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.056 seconds
+[2022-10-06T16:21:34.170+1100] {processor.py:153} INFO - Started process (PID=5867) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:21:34.172+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:21:34.172+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:21:34.172+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:21:34.184+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:21:34.204+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:21:34.204+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:21:34.210+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:21:34.210+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:18:00+00:00, run_after=2022-10-06T05:20:00+00:00
+[2022-10-06T16:21:34.213+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.043 seconds
+[2022-10-06T16:22:22.079+1100] {processor.py:153} INFO - Started process (PID=6366) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:22:22.082+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:22:22.082+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:22:22.082+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:22:22.094+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:22:22.115+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:22:22.115+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:22:22.121+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:22:22.121+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:20:00+00:00, run_after=2022-10-06T05:22:00+00:00
+[2022-10-06T16:22:22.125+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.046 seconds
+[2022-10-06T16:23:12.660+1100] {processor.py:153} INFO - Started process (PID=6873) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:23:12.664+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:23:12.664+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:23:12.664+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:23:12.677+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:23:12.700+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:23:12.700+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:23:12.706+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:23:12.706+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:20:00+00:00, run_after=2022-10-06T05:22:00+00:00
+[2022-10-06T16:23:12.710+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.050 seconds
+[2022-10-06T16:24:01.891+1100] {processor.py:153} INFO - Started process (PID=7348) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:24:01.893+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:24:01.893+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:24:01.893+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:24:01.906+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:24:01.926+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:24:01.926+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:24:01.932+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:24:01.932+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:22:00+00:00, run_after=2022-10-06T05:24:00+00:00
+[2022-10-06T16:24:01.936+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.045 seconds
+[2022-10-06T16:24:54.209+1100] {processor.py:153} INFO - Started process (PID=7879) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:24:54.211+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:24:54.211+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:24:54.211+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:24:54.224+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:24:54.244+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:24:54.244+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:24:54.250+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:24:54.250+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:22:00+00:00, run_after=2022-10-06T05:24:00+00:00
+[2022-10-06T16:24:54.253+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.045 seconds
+[2022-10-06T16:25:44.943+1100] {processor.py:153} INFO - Started process (PID=8396) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:25:44.945+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:25:44.946+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:25:44.946+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:25:44.958+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:25:44.977+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:25:44.977+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:25:44.983+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:25:44.983+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:22:00+00:00, run_after=2022-10-06T05:24:00+00:00
+[2022-10-06T16:25:44.986+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.043 seconds
+[2022-10-06T16:26:30.964+1100] {processor.py:153} INFO - Started process (PID=8854) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:26:30.966+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:26:30.966+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:26:30.966+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:26:30.979+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:26:30.998+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:26:30.998+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:26:31.004+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:26:31.004+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:24:00+00:00, run_after=2022-10-06T05:26:00+00:00
+[2022-10-06T16:26:31.008+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.044 seconds
+[2022-10-06T16:27:16.687+1100] {processor.py:153} INFO - Started process (PID=9293) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:27:16.690+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:27:16.690+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:27:16.690+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:27:16.701+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:27:16.719+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:27:16.719+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:27:16.725+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:27:16.725+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:24:00+00:00, run_after=2022-10-06T05:26:00+00:00
+[2022-10-06T16:27:16.728+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T16:28:05.341+1100] {processor.py:153} INFO - Started process (PID=9827) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:28:05.343+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:28:05.343+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:28:05.343+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:28:05.354+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:28:05.374+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:28:05.374+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:28:05.379+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:28:05.379+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:26:00+00:00, run_after=2022-10-06T05:28:00+00:00
+[2022-10-06T16:28:05.383+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.042 seconds
+[2022-10-06T16:28:50.173+1100] {processor.py:153} INFO - Started process (PID=10287) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:28:50.175+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:28:50.175+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:28:50.175+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:28:50.186+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:28:50.205+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:28:50.205+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:28:50.211+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:28:50.211+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:26:00+00:00, run_after=2022-10-06T05:28:00+00:00
+[2022-10-06T16:28:50.214+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T16:29:33.433+1100] {processor.py:153} INFO - Started process (PID=10797) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:29:33.434+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:29:33.434+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:29:33.434+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:29:33.451+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:29:33.470+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:29:33.470+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:29:33.476+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:29:33.476+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:26:00+00:00, run_after=2022-10-06T05:28:00+00:00
+[2022-10-06T16:29:33.479+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.047 seconds
+[2022-10-06T16:30:22.756+1100] {processor.py:153} INFO - Started process (PID=11465) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:30:22.758+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:30:22.758+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:30:22.758+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:30:22.770+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:30:22.790+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:30:22.790+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:30:22.796+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:30:22.796+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:28:00+00:00, run_after=2022-10-06T05:30:00+00:00
+[2022-10-06T16:30:22.800+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.044 seconds
+[2022-10-06T16:31:12.240+1100] {processor.py:153} INFO - Started process (PID=12019) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:31:12.242+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:31:12.242+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:31:12.242+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:31:12.254+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:31:12.273+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:31:12.273+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:31:12.278+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:31:12.278+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:28:00+00:00, run_after=2022-10-06T05:30:00+00:00
+[2022-10-06T16:31:12.281+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T16:32:01.104+1100] {processor.py:153} INFO - Started process (PID=12536) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:32:01.107+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:32:01.107+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:32:01.107+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:32:01.119+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:32:01.138+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:32:01.138+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:32:01.144+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:32:01.144+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:30:00+00:00, run_after=2022-10-06T05:32:00+00:00
+[2022-10-06T16:32:01.148+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.043 seconds
+[2022-10-06T16:32:48.968+1100] {processor.py:153} INFO - Started process (PID=13041) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:32:48.970+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:32:48.970+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:32:48.970+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:32:48.981+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:32:48.999+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:32:48.999+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:32:49.005+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:32:49.005+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:30:00+00:00, run_after=2022-10-06T05:32:00+00:00
+[2022-10-06T16:32:49.008+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.040 seconds
+[2022-10-06T16:33:37.876+1100] {processor.py:153} INFO - Started process (PID=13619) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:33:37.878+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:33:37.878+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:33:37.878+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:33:37.890+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:33:37.908+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:33:37.908+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:33:37.914+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:33:37.914+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:30:00+00:00, run_after=2022-10-06T05:32:00+00:00
+[2022-10-06T16:33:37.917+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T16:34:29.309+1100] {processor.py:153} INFO - Started process (PID=14161) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:34:29.311+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:34:29.311+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:34:29.311+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:34:29.325+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:34:29.344+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:34:29.344+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:34:29.350+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:34:29.350+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:32:00+00:00, run_after=2022-10-06T05:34:00+00:00
+[2022-10-06T16:34:29.353+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.044 seconds
+[2022-10-06T16:35:15.815+1100] {processor.py:153} INFO - Started process (PID=14641) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:35:15.817+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:35:15.817+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:35:15.817+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:35:15.828+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:35:15.847+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:35:15.847+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:35:15.853+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:35:15.853+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:32:00+00:00, run_after=2022-10-06T05:34:00+00:00
+[2022-10-06T16:35:15.856+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T16:35:57.823+1100] {processor.py:153} INFO - Started process (PID=15094) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:35:57.828+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:35:57.828+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:35:57.828+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:35:57.849+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:35:57.867+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:35:57.867+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:35:57.873+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:35:57.873+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:32:00+00:00, run_after=2022-10-06T05:34:00+00:00
+[2022-10-06T16:35:57.876+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.053 seconds
+[2022-10-06T16:36:43.725+1100] {processor.py:153} INFO - Started process (PID=15558) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:36:43.728+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:36:43.728+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:36:43.728+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:36:43.739+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:36:43.757+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:36:43.757+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:36:43.763+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:36:43.763+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:34:00+00:00, run_after=2022-10-06T05:36:00+00:00
+[2022-10-06T16:36:43.766+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds
+[2022-10-06T16:37:33.382+1100] {processor.py:153} INFO - Started process (PID=16082) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:37:33.384+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:37:33.384+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:37:33.384+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:37:33.396+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:37:33.416+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:37:33.416+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:37:33.422+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:37:33.422+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:34:00+00:00, run_after=2022-10-06T05:36:00+00:00
+[2022-10-06T16:37:33.426+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.044 seconds
+[2022-10-06T16:38:23.302+1100] {processor.py:153} INFO - Started process (PID=16592) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:38:23.304+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:38:23.304+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:38:23.304+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:38:23.317+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:38:23.338+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:38:23.338+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:38:23.345+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:38:23.345+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:36:00+00:00, run_after=2022-10-06T05:38:00+00:00
+[2022-10-06T16:38:23.348+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.046 seconds
+[2022-10-06T16:39:12.991+1100] {processor.py:153} INFO - Started process (PID=17103) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:39:12.994+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:39:12.994+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:39:12.994+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:39:13.005+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:39:13.025+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:39:13.025+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:39:13.031+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:39:13.031+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:36:00+00:00, run_after=2022-10-06T05:38:00+00:00
+[2022-10-06T16:39:13.034+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.044 seconds
+[2022-10-06T16:39:57.911+1100] {processor.py:153} INFO - Started process (PID=17618) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:39:57.913+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:39:57.913+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:39:57.913+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:39:57.926+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:39:57.947+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:39:57.947+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:39:57.954+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:39:57.954+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:36:00+00:00, run_after=2022-10-06T05:38:00+00:00
+[2022-10-06T16:39:57.957+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.047 seconds
+[2022-10-06T16:40:42.276+1100] {processor.py:153} INFO - Started process (PID=18114) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:40:42.278+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:40:42.278+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:40:42.278+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:40:42.289+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:40:42.307+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:40:42.307+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:40:42.313+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:40:42.313+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:38:00+00:00, run_after=2022-10-06T05:40:00+00:00
+[2022-10-06T16:40:42.316+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.040 seconds
+[2022-10-06T16:41:29.726+1100] {processor.py:153} INFO - Started process (PID=18629) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:41:29.727+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:41:29.728+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:41:29.728+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:41:29.740+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:41:29.760+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:41:29.760+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:41:29.766+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:41:29.766+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:38:00+00:00, run_after=2022-10-06T05:40:00+00:00
+[2022-10-06T16:41:29.769+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.044 seconds
+[2022-10-06T16:42:18.564+1100] {processor.py:153} INFO - Started process (PID=19098) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:42:18.566+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:42:18.566+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:42:18.566+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:42:18.580+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:42:18.601+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:42:18.601+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:42:18.608+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:42:18.608+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:40:00+00:00, run_after=2022-10-06T05:42:00+00:00
+[2022-10-06T16:42:18.613+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.050 seconds
+[2022-10-06T16:43:00.627+1100] {processor.py:153} INFO - Started process (PID=19511) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:43:00.630+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:43:00.630+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:43:00.630+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:43:00.643+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:43:00.663+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:43:00.663+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:43:00.669+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:43:00.669+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:40:00+00:00, run_after=2022-10-06T05:42:00+00:00
+[2022-10-06T16:43:00.673+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.045 seconds
+[2022-10-06T16:43:45.344+1100] {processor.py:153} INFO - Started process (PID=19961) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:43:45.346+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:43:45.346+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:43:45.346+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:43:45.360+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:43:45.378+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:43:45.378+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:43:45.384+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:43:45.384+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:40:00+00:00, run_after=2022-10-06T05:42:00+00:00
+[2022-10-06T16:43:45.387+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.043 seconds
+[2022-10-06T16:44:27.780+1100] {processor.py:153} INFO - Started process (PID=20372) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:44:27.782+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:44:27.782+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:44:27.782+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:44:27.797+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:44:27.818+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:44:27.818+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:44:27.824+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:44:27.824+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:42:00+00:00, run_after=2022-10-06T05:44:00+00:00
+[2022-10-06T16:44:27.828+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.049 seconds
+[2022-10-06T16:45:11.802+1100] {processor.py:153} INFO - Started process (PID=20772) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:45:11.804+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:45:11.804+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:45:11.804+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:45:11.817+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:45:11.839+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:45:11.839+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:45:11.845+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:45:11.845+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:42:00+00:00, run_after=2022-10-06T05:44:00+00:00
+[2022-10-06T16:45:11.849+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.047 seconds
+[2022-10-06T16:46:00.729+1100] {processor.py:153} INFO - Started process (PID=21272) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:46:00.732+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:46:00.732+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:46:00.732+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:46:00.744+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:46:00.767+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:46:00.767+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:46:00.774+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:46:00.774+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:44:00+00:00, run_after=2022-10-06T05:46:00+00:00
+[2022-10-06T16:46:00.778+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.049 seconds
+[2022-10-06T16:46:45.952+1100] {processor.py:153} INFO - Started process (PID=21734) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:46:45.956+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:46:45.956+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:46:45.956+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:46:45.982+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:46:46.000+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:46:46.000+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:46:46.006+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:46:46.006+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:44:00+00:00, run_after=2022-10-06T05:46:00+00:00
+[2022-10-06T16:46:46.009+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.058 seconds
+[2022-10-06T16:47:27.461+1100] {processor.py:153} INFO - Started process (PID=22181) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:47:27.463+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py for tasks to queue
+[2022-10-06T16:47:27.463+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:47:27.463+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:47:27.474+1100] {processor.py:650} INFO - DAG(s) dict_keys(['example_sla_dag']) retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py
+[2022-10-06T16:47:27.493+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:47:27.493+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-06T16:47:27.498+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:47:27.498+1100] {dag.py:2977} INFO - Setting next_dagrun for example_sla_dag to 2022-10-06T05:44:00+00:00, run_after=2022-10-06T05:46:00+00:00
+[2022-10-06T16:47:27.502+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/example_sla_dag.py took 0.041 seconds

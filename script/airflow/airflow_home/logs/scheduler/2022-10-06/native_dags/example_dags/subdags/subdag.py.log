@@ -1,0 +1,955 @@
+[2022-10-06T14:55:52.382+1100] {processor.py:153} INFO - Started process (PID=47330) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:55:52.384+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T14:55:52.384+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:55:52.384+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:55:52.385+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:55:52.397+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T14:56:49.924+1100] {processor.py:153} INFO - Started process (PID=47883) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:56:49.925+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T14:56:49.926+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:56:49.926+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:56:49.927+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:56:49.938+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T14:57:30.531+1100] {processor.py:153} INFO - Started process (PID=48251) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:57:30.533+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T14:57:30.533+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:57:30.533+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:57:30.534+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:57:30.546+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T14:58:00.949+1100] {processor.py:153} INFO - Started process (PID=48561) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:58:00.951+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T14:58:00.951+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:58:00.951+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:58:00.952+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:58:00.964+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T14:58:31.939+1100] {processor.py:153} INFO - Started process (PID=48869) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:58:31.941+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T14:58:31.941+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:58:31.941+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:58:31.942+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:58:31.953+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.014 seconds
+[2022-10-06T14:59:02.454+1100] {processor.py:153} INFO - Started process (PID=49188) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:59:02.456+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T14:59:02.456+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:59:02.456+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:59:02.457+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:59:02.468+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.014 seconds
+[2022-10-06T14:59:36.904+1100] {processor.py:153} INFO - Started process (PID=49512) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:59:36.906+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T14:59:36.906+1100] {logging_mixin.py:115} INFO - [2022-10-06T14:59:36.906+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:59:36.907+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T14:59:36.920+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T15:00:07.755+1100] {processor.py:153} INFO - Started process (PID=50466) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:00:07.757+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:00:07.757+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:00:07.757+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:00:07.758+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:00:07.771+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T15:00:39.789+1100] {processor.py:153} INFO - Started process (PID=54345) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:00:39.791+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:00:39.792+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:00:39.792+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:00:39.793+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:00:39.805+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T15:01:12.163+1100] {processor.py:153} INFO - Started process (PID=55176) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:01:12.164+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:01:12.165+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:01:12.165+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:01:12.165+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:01:12.177+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:01:44.032+1100] {processor.py:153} INFO - Started process (PID=55496) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:01:44.035+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:01:44.035+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:01:44.035+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:01:44.036+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:01:44.049+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T15:02:14.522+1100] {processor.py:153} INFO - Started process (PID=55832) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:02:14.524+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:02:14.524+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:02:14.524+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:02:14.525+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:02:14.537+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:02:49.013+1100] {processor.py:153} INFO - Started process (PID=56150) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:02:49.015+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:02:49.015+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:02:49.015+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:02:49.016+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:02:49.029+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T15:03:21.855+1100] {processor.py:153} INFO - Started process (PID=56775) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:03:21.857+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:03:21.857+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:03:21.857+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:03:21.859+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:03:21.871+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:03:54.243+1100] {processor.py:153} INFO - Started process (PID=57090) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:03:54.245+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:03:54.245+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:03:54.245+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:03:54.246+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:03:54.259+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:04:38.812+1100] {processor.py:153} INFO - Started process (PID=57563) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:04:38.814+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:04:38.814+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:04:38.814+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:04:38.815+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:04:38.828+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:05:23.898+1100] {processor.py:153} INFO - Started process (PID=58081) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:05:23.901+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:05:23.901+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:05:23.901+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:05:23.902+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:05:23.914+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:05:55.661+1100] {processor.py:153} INFO - Started process (PID=58459) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:05:55.664+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:05:55.664+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:05:55.664+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:05:55.665+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:05:55.677+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:06:37.753+1100] {processor.py:153} INFO - Started process (PID=58922) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:06:37.755+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:06:37.755+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:06:37.755+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:06:37.756+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:06:37.768+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:07:09.388+1100] {processor.py:153} INFO - Started process (PID=59243) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:07:09.390+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:07:09.390+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:07:09.390+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:07:09.391+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:07:09.406+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.018 seconds
+[2022-10-06T15:07:40.664+1100] {processor.py:153} INFO - Started process (PID=59564) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:07:40.666+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:07:40.666+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:07:40.666+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:07:40.667+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:07:40.682+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.018 seconds
+[2022-10-06T15:08:11.308+1100] {processor.py:153} INFO - Started process (PID=59911) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:08:11.309+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:08:11.310+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:08:11.309+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:08:11.310+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:08:11.322+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:08:56.459+1100] {processor.py:153} INFO - Started process (PID=60384) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:08:56.461+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:08:56.461+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:08:56.461+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:08:56.462+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:08:56.474+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:09:31.368+1100] {processor.py:153} INFO - Started process (PID=60737) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:09:31.370+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:09:31.370+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:09:31.370+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:09:31.371+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:09:31.383+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:10:06.147+1100] {processor.py:153} INFO - Started process (PID=61082) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:10:06.148+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:10:06.149+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:10:06.149+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:10:06.149+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:10:06.163+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T15:10:37.187+1100] {processor.py:153} INFO - Started process (PID=61427) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:10:37.189+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:10:37.189+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:10:37.189+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:10:37.190+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:10:37.202+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:11:08.975+1100] {processor.py:153} INFO - Started process (PID=61761) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:11:08.977+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:11:08.978+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:11:08.978+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:11:08.978+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:11:08.990+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:11:40.089+1100] {processor.py:153} INFO - Started process (PID=62080) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:11:40.090+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:11:40.091+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:11:40.091+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:11:40.091+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:11:40.103+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:12:11.346+1100] {processor.py:153} INFO - Started process (PID=62400) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:12:11.347+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:12:11.348+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:12:11.348+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:12:11.348+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:12:11.360+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:12:43.265+1100] {processor.py:153} INFO - Started process (PID=62697) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:12:43.267+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:12:43.267+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:12:43.267+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:12:43.268+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:12:43.284+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.019 seconds
+[2022-10-06T15:13:16.845+1100] {processor.py:153} INFO - Started process (PID=63042) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:13:16.847+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:13:16.847+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:13:16.847+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:13:16.848+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:13:16.860+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:13:48.535+1100] {processor.py:153} INFO - Started process (PID=63382) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:13:48.537+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:13:48.537+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:13:48.537+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:13:48.538+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:13:48.551+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:14:33.907+1100] {processor.py:153} INFO - Started process (PID=63842) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:14:33.910+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:14:33.910+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:14:33.910+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:14:33.911+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:14:33.923+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T15:15:17.179+1100] {processor.py:153} INFO - Started process (PID=64306) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:15:17.181+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:15:17.182+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:15:17.181+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:15:17.182+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:15:17.194+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:15:49.766+1100] {processor.py:153} INFO - Started process (PID=64625) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:15:49.768+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:15:49.768+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:15:49.768+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:15:49.769+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:15:49.782+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:16:21.217+1100] {processor.py:153} INFO - Started process (PID=64952) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:16:21.219+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:16:21.219+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:16:21.219+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:16:21.220+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:16:21.232+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:16:52.163+1100] {processor.py:153} INFO - Started process (PID=65266) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:16:52.166+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:16:52.166+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:16:52.166+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:16:52.167+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:16:52.178+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:17:24.580+1100] {processor.py:153} INFO - Started process (PID=65589) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:17:24.582+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:17:24.582+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:17:24.582+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:17:24.583+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:17:24.596+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T15:17:55.947+1100] {processor.py:153} INFO - Started process (PID=65906) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:17:55.950+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:17:55.950+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:17:55.950+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:17:55.951+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:17:55.962+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:18:27.692+1100] {processor.py:153} INFO - Started process (PID=66235) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:18:27.694+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:18:27.695+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:18:27.695+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:18:27.695+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:18:27.707+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:19:00.630+1100] {processor.py:153} INFO - Started process (PID=66555) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:19:00.632+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:19:00.632+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:19:00.632+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:19:00.633+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:19:00.645+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:19:32.637+1100] {processor.py:153} INFO - Started process (PID=66860) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:19:32.639+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:19:32.639+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:19:32.639+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:19:32.640+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:19:32.652+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:20:18.792+1100] {processor.py:153} INFO - Started process (PID=67334) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:20:18.793+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:20:18.794+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:20:18.794+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:20:18.794+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:20:18.806+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:20:49.584+1100] {processor.py:153} INFO - Started process (PID=67652) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:20:49.586+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:20:49.587+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:20:49.587+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:20:49.587+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:20:49.604+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.020 seconds
+[2022-10-06T15:21:22.262+1100] {processor.py:153} INFO - Started process (PID=67973) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:21:22.264+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:21:22.265+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:21:22.265+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:21:22.265+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:21:22.277+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:21:54.751+1100] {processor.py:153} INFO - Started process (PID=68359) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:21:54.752+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:21:54.753+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:21:54.753+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:21:54.753+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:21:54.765+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:22:26.736+1100] {processor.py:153} INFO - Started process (PID=68708) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:22:26.739+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:22:26.739+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:22:26.739+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:22:26.740+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:22:26.752+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:22:57.827+1100] {processor.py:153} INFO - Started process (PID=69036) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:22:57.828+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:22:57.829+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:22:57.829+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:22:57.829+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:22:57.841+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:23:29.171+1100] {processor.py:153} INFO - Started process (PID=69318) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:23:29.174+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:23:29.174+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:23:29.174+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:23:29.175+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:23:29.188+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:24:00.595+1100] {processor.py:153} INFO - Started process (PID=69654) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:24:00.598+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:24:00.598+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:24:00.598+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:24:00.599+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:24:00.611+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:24:31.591+1100] {processor.py:153} INFO - Started process (PID=69983) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:24:31.593+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:24:31.593+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:24:31.593+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:24:31.594+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:24:31.606+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:25:04.021+1100] {processor.py:153} INFO - Started process (PID=70340) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:25:04.023+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:25:04.023+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:25:04.023+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:25:04.024+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:25:04.036+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:25:47.900+1100] {processor.py:153} INFO - Started process (PID=70902) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:25:47.902+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:25:47.902+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:25:47.902+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:25:47.903+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:25:47.915+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:26:27.505+1100] {processor.py:153} INFO - Started process (PID=71295) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:26:27.507+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:26:27.507+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:26:27.507+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:26:27.508+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:26:27.520+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:27:12.942+1100] {processor.py:153} INFO - Started process (PID=71804) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:27:12.944+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:27:12.944+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:27:12.944+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:27:12.945+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:27:12.957+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:27:45.008+1100] {processor.py:153} INFO - Started process (PID=72129) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:27:45.010+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:27:45.010+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:27:45.010+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:27:45.011+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:27:45.024+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:28:16.895+1100] {processor.py:153} INFO - Started process (PID=72445) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:28:16.898+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:28:16.898+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:28:16.898+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:28:16.899+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:28:16.910+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:28:48.616+1100] {processor.py:153} INFO - Started process (PID=72791) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:28:48.619+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:28:48.619+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:28:48.619+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:28:48.620+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:28:48.634+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.018 seconds
+[2022-10-06T15:29:33.889+1100] {processor.py:153} INFO - Started process (PID=73257) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:29:33.892+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:29:33.892+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:29:33.892+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:29:33.893+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:29:33.904+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:30:17.130+1100] {processor.py:153} INFO - Started process (PID=73714) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:30:17.132+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:30:17.132+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:30:17.132+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:30:17.133+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:30:17.145+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:31:00.469+1100] {processor.py:153} INFO - Started process (PID=74162) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:31:00.471+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:31:00.471+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:31:00.471+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:31:00.472+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:31:00.485+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:31:32.662+1100] {processor.py:153} INFO - Started process (PID=74538) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:31:32.664+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:31:32.664+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:31:32.664+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:31:32.665+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:31:32.679+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.018 seconds
+[2022-10-06T15:32:18.663+1100] {processor.py:153} INFO - Started process (PID=75094) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:32:18.665+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:32:18.665+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:32:18.665+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:32:18.666+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:32:18.678+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:32:51.715+1100] {processor.py:153} INFO - Started process (PID=75472) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:32:51.716+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:32:51.717+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:32:51.717+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:32:51.717+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:32:51.730+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:33:23.326+1100] {processor.py:153} INFO - Started process (PID=75797) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:33:23.328+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:33:23.328+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:33:23.328+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:33:23.329+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:33:23.341+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:33:53.907+1100] {processor.py:153} INFO - Started process (PID=76149) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:33:53.909+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:33:53.909+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:33:53.909+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:33:53.910+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:33:53.922+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:34:24.917+1100] {processor.py:153} INFO - Started process (PID=76450) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:34:24.919+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:34:24.919+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:34:24.919+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:34:24.920+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:34:24.933+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T15:35:10.025+1100] {processor.py:153} INFO - Started process (PID=76933) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:35:10.028+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:35:10.028+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:35:10.028+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:35:10.029+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:35:10.041+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:35:44.895+1100] {processor.py:153} INFO - Started process (PID=77269) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:35:44.897+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:35:44.897+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:35:44.897+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:35:44.898+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:35:44.913+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.019 seconds
+[2022-10-06T15:36:18.373+1100] {processor.py:153} INFO - Started process (PID=77618) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:36:18.376+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:36:18.376+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:36:18.376+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:36:18.377+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:36:18.388+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:36:50.818+1100] {processor.py:153} INFO - Started process (PID=77926) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:36:50.820+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:36:50.820+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:36:50.820+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:36:50.821+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:36:50.834+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T15:37:23.465+1100] {processor.py:153} INFO - Started process (PID=78265) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:37:23.467+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:37:23.467+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:37:23.467+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:37:23.467+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:37:23.480+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:37:55.517+1100] {processor.py:153} INFO - Started process (PID=78592) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:37:55.519+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:37:55.519+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:37:55.519+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:37:55.520+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:37:55.533+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:38:27.212+1100] {processor.py:153} INFO - Started process (PID=78909) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:38:27.214+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:38:27.214+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:38:27.214+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:38:27.215+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:38:27.227+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:39:01.067+1100] {processor.py:153} INFO - Started process (PID=79242) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:39:01.069+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:39:01.069+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:39:01.069+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:39:01.070+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:39:01.082+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:39:31.887+1100] {processor.py:153} INFO - Started process (PID=79563) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:39:31.889+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:39:31.889+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:39:31.889+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:39:31.890+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:39:31.902+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:40:17.270+1100] {processor.py:153} INFO - Started process (PID=80027) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:40:17.273+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:40:17.273+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:40:17.273+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:40:17.274+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:40:17.287+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T15:40:48.324+1100] {processor.py:153} INFO - Started process (PID=80325) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:40:48.326+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:40:48.326+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:40:48.326+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:40:48.327+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:40:48.340+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:41:20.714+1100] {processor.py:153} INFO - Started process (PID=80643) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:41:20.717+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:41:20.717+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:41:20.717+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:41:20.718+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:41:20.730+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:41:52.854+1100] {processor.py:153} INFO - Started process (PID=80963) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:41:52.856+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:41:52.856+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:41:52.856+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:41:52.857+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:41:52.869+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:42:39.678+1100] {processor.py:153} INFO - Started process (PID=81418) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:42:39.681+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:42:39.681+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:42:39.681+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:42:39.682+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:42:39.693+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:43:14.234+1100] {processor.py:153} INFO - Started process (PID=81752) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:43:14.236+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:43:14.236+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:43:14.236+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:43:14.237+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:43:14.248+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:43:49.232+1100] {processor.py:153} INFO - Started process (PID=82076) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:43:49.234+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:43:49.234+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:43:49.234+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:43:49.235+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:43:49.247+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:44:31.753+1100] {processor.py:153} INFO - Started process (PID=82498) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:44:31.755+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:44:31.755+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:44:31.755+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:44:31.756+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:44:31.768+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:45:03.853+1100] {processor.py:153} INFO - Started process (PID=82842) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:45:03.855+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:45:03.855+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:45:03.855+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:45:03.856+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:45:03.868+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:45:34.590+1100] {processor.py:153} INFO - Started process (PID=83228) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:45:34.591+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:45:34.592+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:45:34.591+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:45:34.592+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:45:34.605+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:46:06.577+1100] {processor.py:153} INFO - Started process (PID=83578) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:46:06.580+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:46:06.580+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:46:06.580+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:46:06.580+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:46:06.594+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T15:46:38.645+1100] {processor.py:153} INFO - Started process (PID=83904) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:46:38.648+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:46:38.648+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:46:38.648+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:46:38.649+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:46:38.662+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T15:47:23.433+1100] {processor.py:153} INFO - Started process (PID=84363) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:47:23.435+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:47:23.435+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:47:23.435+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:47:23.436+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:47:23.449+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:47:56.990+1100] {processor.py:153} INFO - Started process (PID=84709) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:47:56.992+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:47:56.993+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:47:56.993+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:47:56.994+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:47:57.006+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:48:29.746+1100] {processor.py:153} INFO - Started process (PID=85028) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:48:29.748+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:48:29.748+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:48:29.748+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:48:29.749+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:48:29.762+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T15:49:04.251+1100] {processor.py:153} INFO - Started process (PID=85390) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:49:04.253+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:49:04.253+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:49:04.253+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:49:04.254+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:49:04.266+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:49:37.134+1100] {processor.py:153} INFO - Started process (PID=85732) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:49:37.136+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:49:37.136+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:49:37.136+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:49:37.137+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:49:37.149+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:50:11.072+1100] {processor.py:153} INFO - Started process (PID=86106) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:50:11.074+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:50:11.075+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:50:11.075+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:50:11.075+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:50:11.087+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:50:56.423+1100] {processor.py:153} INFO - Started process (PID=86642) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:50:56.425+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:50:56.425+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:50:56.425+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:50:56.426+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:50:56.438+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:51:30.033+1100] {processor.py:153} INFO - Started process (PID=87020) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:51:30.035+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:51:30.035+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:51:30.035+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:51:30.036+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:51:30.048+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:52:04.442+1100] {processor.py:153} INFO - Started process (PID=87422) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:52:04.444+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:52:04.444+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:52:04.444+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:52:04.445+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:52:04.457+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:52:38.618+1100] {processor.py:153} INFO - Started process (PID=87774) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:52:38.620+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:52:38.620+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:52:38.620+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:52:38.621+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:52:38.632+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:53:11.322+1100] {processor.py:153} INFO - Started process (PID=88128) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:53:11.324+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:53:11.324+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:53:11.324+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:53:11.325+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:53:11.337+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:53:56.212+1100] {processor.py:153} INFO - Started process (PID=88588) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:53:56.214+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:53:56.214+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:53:56.214+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:53:56.215+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:53:56.227+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:54:42.301+1100] {processor.py:153} INFO - Started process (PID=89059) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:54:42.303+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:54:42.303+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:54:42.303+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:54:42.304+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:54:42.319+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.018 seconds
+[2022-10-06T15:55:15.516+1100] {processor.py:153} INFO - Started process (PID=89389) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:55:15.517+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:55:15.518+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:55:15.518+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:55:15.518+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:55:15.530+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:55:57.181+1100] {processor.py:153} INFO - Started process (PID=89824) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:55:57.183+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:55:57.183+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:55:57.183+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:55:57.184+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:55:57.197+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:56:39.793+1100] {processor.py:153} INFO - Started process (PID=90288) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:56:39.795+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:56:39.795+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:56:39.795+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:56:39.796+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:56:39.809+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T15:57:10.533+1100] {processor.py:153} INFO - Started process (PID=90609) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:57:10.535+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:57:10.535+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:57:10.535+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:57:10.536+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:57:10.548+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:57:41.231+1100] {processor.py:153} INFO - Started process (PID=90922) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:57:41.233+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:57:41.233+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:57:41.233+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:57:41.235+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:57:41.248+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T15:58:13.381+1100] {processor.py:153} INFO - Started process (PID=91235) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:58:13.383+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:58:13.383+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:58:13.383+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:58:13.384+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:58:13.396+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T15:58:59.509+1100] {processor.py:153} INFO - Started process (PID=91712) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:58:59.511+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:58:59.511+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:58:59.511+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:58:59.512+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:58:59.525+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T15:59:32.280+1100] {processor.py:153} INFO - Started process (PID=92057) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:59:32.282+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T15:59:32.282+1100] {logging_mixin.py:115} INFO - [2022-10-06T15:59:32.282+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:59:32.283+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T15:59:32.296+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:00:04.988+1100] {processor.py:153} INFO - Started process (PID=92409) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:00:04.989+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:00:04.990+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:00:04.990+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:00:04.990+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:00:05.004+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:00:39.809+1100] {processor.py:153} INFO - Started process (PID=92747) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:00:39.812+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:00:39.812+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:00:39.812+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:00:39.815+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:00:39.829+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.020 seconds
+[2022-10-06T16:01:16.533+1100] {processor.py:153} INFO - Started process (PID=93203) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:01:16.535+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:01:16.535+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:01:16.535+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:01:16.536+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:01:16.549+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T16:01:50.437+1100] {processor.py:153} INFO - Started process (PID=93552) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:01:50.439+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:01:50.439+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:01:50.439+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:01:50.441+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:01:50.458+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.022 seconds
+[2022-10-06T16:02:25.356+1100] {processor.py:153} INFO - Started process (PID=93881) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:02:25.358+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:02:25.358+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:02:25.358+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:02:25.359+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:02:25.377+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.021 seconds
+[2022-10-06T16:03:02.833+1100] {processor.py:153} INFO - Started process (PID=94260) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:03:02.835+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:03:02.835+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:03:02.835+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:03:02.836+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:03:02.850+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:03:40.823+1100] {processor.py:153} INFO - Started process (PID=94670) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:03:40.825+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:03:40.825+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:03:40.825+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:03:40.826+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:03:40.840+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:04:13.161+1100] {processor.py:153} INFO - Started process (PID=94992) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:04:13.164+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:04:13.164+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:04:13.164+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:04:13.167+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:04:13.183+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.022 seconds
+[2022-10-06T16:04:46.608+1100] {processor.py:153} INFO - Started process (PID=95366) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:04:46.611+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:04:46.611+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:04:46.611+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:04:46.613+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:04:46.631+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.023 seconds
+[2022-10-06T16:05:23.078+1100] {processor.py:153} INFO - Started process (PID=95721) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:05:23.081+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:05:23.081+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:05:23.081+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:05:23.082+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:05:23.095+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:05:59.494+1100] {processor.py:153} INFO - Started process (PID=96076) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:05:59.496+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:05:59.497+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:05:59.497+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:05:59.498+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:05:59.511+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:06:31.556+1100] {processor.py:153} INFO - Started process (PID=96372) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:06:31.558+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:06:31.558+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:06:31.558+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:06:31.559+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:06:31.571+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T16:07:02.728+1100] {processor.py:153} INFO - Started process (PID=96702) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:07:02.730+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:07:02.730+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:07:02.730+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:07:02.731+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:07:02.745+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:07:36.675+1100] {processor.py:153} INFO - Started process (PID=97025) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:07:36.677+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:07:36.677+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:07:36.677+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:07:36.678+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:07:36.692+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.018 seconds
+[2022-10-06T16:08:21.342+1100] {processor.py:153} INFO - Started process (PID=97477) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:08:21.344+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:08:21.344+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:08:21.344+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:08:21.345+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:08:21.357+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T16:08:55.035+1100] {processor.py:153} INFO - Started process (PID=97800) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:08:55.037+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:08:55.037+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:08:55.037+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:08:55.038+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:08:55.052+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.018 seconds
+[2022-10-06T16:09:29.131+1100] {processor.py:153} INFO - Started process (PID=98148) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:09:29.133+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:09:29.133+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:09:29.133+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:09:29.134+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:09:29.147+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T16:10:03.061+1100] {processor.py:153} INFO - Started process (PID=98520) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:10:03.063+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:10:03.063+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:10:03.063+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:10:03.064+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:10:03.078+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:10:33.959+1100] {processor.py:153} INFO - Started process (PID=98822) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:10:33.961+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:10:33.961+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:10:33.961+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:10:33.962+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:10:33.981+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.022 seconds
+[2022-10-06T16:11:07.523+1100] {processor.py:153} INFO - Started process (PID=99159) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:11:07.524+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:11:07.525+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:11:07.525+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:11:07.525+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:11:07.539+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T16:11:42.026+1100] {processor.py:153} INFO - Started process (PID=99519) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:11:42.028+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:11:42.028+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:11:42.028+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:11:42.029+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:11:42.042+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:12:25.249+1100] {processor.py:153} INFO - Started process (PID=99937) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:12:25.251+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:12:25.251+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:12:25.251+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:12:25.251+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:12:25.264+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T16:12:57.858+1100] {processor.py:153} INFO - Started process (PID=448) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:12:57.860+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:12:57.860+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:12:57.860+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:12:57.861+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:12:57.874+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T16:13:29.428+1100] {processor.py:153} INFO - Started process (PID=872) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:13:29.430+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:13:29.430+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:13:29.430+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:13:29.431+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:13:29.443+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:14:03.687+1100] {processor.py:153} INFO - Started process (PID=1246) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:14:03.689+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:14:03.689+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:14:03.689+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:14:03.690+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:14:03.703+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:14:40.100+1100] {processor.py:153} INFO - Started process (PID=1649) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:14:40.102+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:14:40.102+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:14:40.102+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:14:40.103+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:14:40.117+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.018 seconds
+[2022-10-06T16:15:11.712+1100] {processor.py:153} INFO - Started process (PID=1978) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:15:11.714+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:15:11.714+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:15:11.714+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:15:11.715+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:15:11.731+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.019 seconds
+[2022-10-06T16:15:47.308+1100] {processor.py:153} INFO - Started process (PID=2314) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:15:47.310+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:15:47.310+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:15:47.310+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:15:47.311+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:15:47.324+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:16:18.837+1100] {processor.py:153} INFO - Started process (PID=2616) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:16:18.840+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:16:18.840+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:16:18.840+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:16:18.841+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:16:18.856+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.019 seconds
+[2022-10-06T16:16:51.489+1100] {processor.py:153} INFO - Started process (PID=2953) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:16:51.491+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:16:51.491+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:16:51.491+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:16:51.492+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:16:51.505+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T16:17:28.690+1100] {processor.py:153} INFO - Started process (PID=3317) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:17:28.692+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:17:28.693+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:17:28.693+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:17:28.695+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:17:28.710+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.021 seconds
+[2022-10-06T16:18:03.807+1100] {processor.py:153} INFO - Started process (PID=3658) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:18:03.809+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:18:03.809+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:18:03.809+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:18:03.810+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:18:03.824+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.018 seconds
+[2022-10-06T16:18:41.795+1100] {processor.py:153} INFO - Started process (PID=4006) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:18:41.797+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:18:41.797+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:18:41.797+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:18:41.798+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:18:41.812+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:19:16.941+1100] {processor.py:153} INFO - Started process (PID=4384) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:19:16.943+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:19:16.944+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:19:16.943+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:19:16.945+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:19:16.959+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.018 seconds
+[2022-10-06T16:20:01.007+1100] {processor.py:153} INFO - Started process (PID=4835) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:20:01.009+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:20:01.009+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:20:01.009+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:20:01.010+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:20:01.024+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:20:35.540+1100] {processor.py:153} INFO - Started process (PID=5168) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:20:35.542+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:20:35.542+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:20:35.542+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:20:35.543+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:20:35.558+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.018 seconds
+[2022-10-06T16:21:09.846+1100] {processor.py:153} INFO - Started process (PID=5607) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:21:09.848+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:21:09.848+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:21:09.848+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:21:09.849+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:21:09.861+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:21:41.985+1100] {processor.py:153} INFO - Started process (PID=5942) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:21:41.987+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:21:41.988+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:21:41.988+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:21:41.988+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:21:42.001+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:22:13.831+1100] {processor.py:153} INFO - Started process (PID=6292) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:22:13.834+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:22:13.834+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:22:13.834+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:22:13.835+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:22:13.852+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.021 seconds
+[2022-10-06T16:22:48.186+1100] {processor.py:153} INFO - Started process (PID=6636) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:22:48.188+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:22:48.188+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:22:48.188+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:22:48.189+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:22:48.206+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.020 seconds
+[2022-10-06T16:23:20.953+1100] {processor.py:153} INFO - Started process (PID=6955) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:23:20.955+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:23:20.955+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:23:20.955+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:23:20.956+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:23:20.969+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T16:23:54.349+1100] {processor.py:153} INFO - Started process (PID=7280) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:23:54.352+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:23:54.352+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:23:54.352+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:23:54.353+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:23:54.367+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.018 seconds
+[2022-10-06T16:24:28.580+1100] {processor.py:153} INFO - Started process (PID=7645) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:24:28.583+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:24:28.583+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:24:28.583+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:24:28.584+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:24:28.597+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:25:02.737+1100] {processor.py:153} INFO - Started process (PID=7969) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:25:02.740+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:25:02.740+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:25:02.740+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:25:02.741+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:25:02.754+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.018 seconds
+[2022-10-06T16:25:37.118+1100] {processor.py:153} INFO - Started process (PID=8323) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:25:37.121+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:25:37.121+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:25:37.121+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:25:37.122+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:25:37.135+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:26:07.675+1100] {processor.py:153} INFO - Started process (PID=8615) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:26:07.678+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:26:07.678+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:26:07.678+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:26:07.678+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:26:07.692+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:26:39.285+1100] {processor.py:153} INFO - Started process (PID=8923) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:26:39.287+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:26:39.288+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:26:39.288+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:26:39.288+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:26:39.301+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T16:27:24.324+1100] {processor.py:153} INFO - Started process (PID=9364) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:27:24.327+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:27:24.327+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:27:24.327+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:27:24.328+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:27:24.339+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:27:57.293+1100] {processor.py:153} INFO - Started process (PID=9727) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:27:57.295+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:27:57.295+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:27:57.295+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:27:57.296+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:27:57.308+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:28:28.634+1100] {processor.py:153} INFO - Started process (PID=10071) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:28:28.636+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:28:28.636+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:28:28.636+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:28:28.637+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:28:28.654+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.019 seconds
+[2022-10-06T16:29:12.102+1100] {processor.py:153} INFO - Started process (PID=10557) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:29:12.104+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:29:12.105+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:29:12.105+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:29:12.105+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:29:12.117+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:29:57.288+1100] {processor.py:153} INFO - Started process (PID=11213) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:29:57.289+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:29:57.289+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:29:57.289+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:29:57.290+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:29:57.303+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T16:30:31.247+1100] {processor.py:153} INFO - Started process (PID=11563) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:30:31.249+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:30:31.250+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:30:31.250+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:30:31.251+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:30:31.272+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.025 seconds
+[2022-10-06T16:31:05.405+1100] {processor.py:153} INFO - Started process (PID=11945) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:31:05.406+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:31:05.406+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:31:05.406+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:31:05.407+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:31:05.419+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.014 seconds
+[2022-10-06T16:31:36.045+1100] {processor.py:153} INFO - Started process (PID=12277) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:31:36.047+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:31:36.047+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:31:36.047+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:31:36.048+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:31:36.060+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:32:09.039+1100] {processor.py:153} INFO - Started process (PID=12619) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:32:09.041+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:32:09.041+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:32:09.041+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:32:09.042+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:32:09.055+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T16:32:41.954+1100] {processor.py:153} INFO - Started process (PID=12973) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:32:41.956+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:32:41.956+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:32:41.956+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:32:41.957+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:32:41.968+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:33:28.166+1100] {processor.py:153} INFO - Started process (PID=13503) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:33:28.168+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:33:28.168+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:33:28.168+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:33:28.169+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:33:28.181+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:34:03.443+1100] {processor.py:153} INFO - Started process (PID=13897) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:34:03.444+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:34:03.445+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:34:03.445+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:34:03.446+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:34:03.458+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:34:37.311+1100] {processor.py:153} INFO - Started process (PID=14254) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:34:37.313+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:34:37.313+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:34:37.313+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:34:37.314+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:34:37.326+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:35:08.442+1100] {processor.py:153} INFO - Started process (PID=14558) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:35:08.444+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:35:08.444+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:35:08.444+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:35:08.445+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:35:08.457+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:35:50.773+1100] {processor.py:153} INFO - Started process (PID=15012) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:35:50.775+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:35:50.775+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:35:50.775+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:35:50.776+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:35:50.793+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.020 seconds
+[2022-10-06T16:36:22.777+1100] {processor.py:153} INFO - Started process (PID=15360) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:36:22.779+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:36:22.779+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:36:22.779+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:36:22.780+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:36:22.795+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:36:53.394+1100] {processor.py:153} INFO - Started process (PID=15649) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:36:53.396+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:36:53.396+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:36:53.396+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:36:53.397+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:36:53.410+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T16:37:26.162+1100] {processor.py:153} INFO - Started process (PID=16002) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:37:26.164+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:37:26.164+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:37:26.164+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:37:26.165+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:37:26.177+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:38:01.147+1100] {processor.py:153} INFO - Started process (PID=16376) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:38:01.149+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:38:01.149+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:38:01.149+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:38:01.150+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:38:01.168+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.021 seconds
+[2022-10-06T16:38:33.398+1100] {processor.py:153} INFO - Started process (PID=16701) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:38:33.400+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:38:33.401+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:38:33.401+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:38:33.402+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:38:33.414+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T16:39:06.507+1100] {processor.py:153} INFO - Started process (PID=17025) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:39:06.509+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:39:06.509+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:39:06.509+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:39:06.510+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:39:06.522+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:39:38.851+1100] {processor.py:153} INFO - Started process (PID=17383) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:39:38.853+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:39:38.853+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:39:38.853+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:39:38.855+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:39:38.867+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T16:40:21.463+1100] {processor.py:153} INFO - Started process (PID=17907) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:40:21.465+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:40:21.465+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:40:21.465+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:40:21.466+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:40:21.479+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.017 seconds
+[2022-10-06T16:40:52.729+1100] {processor.py:153} INFO - Started process (PID=18228) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:40:52.731+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:40:52.731+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:40:52.731+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:40:52.732+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:40:52.747+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.018 seconds
+[2022-10-06T16:41:24.334+1100] {processor.py:153} INFO - Started process (PID=18560) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:41:24.336+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:41:24.336+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:41:24.336+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:41:24.337+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:41:24.348+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:41:58.024+1100] {processor.py:153} INFO - Started process (PID=18914) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:41:58.027+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:41:58.027+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:41:58.027+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:41:58.028+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:41:58.039+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:42:41.877+1100] {processor.py:153} INFO - Started process (PID=19327) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:42:41.880+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:42:41.880+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:42:41.880+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:42:41.882+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:42:41.894+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.018 seconds
+[2022-10-06T16:43:12.492+1100] {processor.py:153} INFO - Started process (PID=19641) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:43:12.494+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:43:12.494+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:43:12.494+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:43:12.495+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:43:12.507+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:43:43.098+1100] {processor.py:153} INFO - Started process (PID=19937) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:43:43.100+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:43:43.101+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:43:43.101+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:43:43.101+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:43:43.113+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:44:24.875+1100] {processor.py:153} INFO - Started process (PID=20351) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:44:24.877+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:44:24.877+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:44:24.877+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:44:24.877+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:44:24.891+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T16:45:08.840+1100] {processor.py:153} INFO - Started process (PID=20763) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:45:08.842+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:45:08.842+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:45:08.842+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:45:08.842+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:45:08.854+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:45:55.812+1100] {processor.py:153} INFO - Started process (PID=21218) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:45:55.814+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:45:55.814+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:45:55.814+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:45:55.815+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:45:55.827+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.016 seconds
+[2022-10-06T16:46:27.138+1100] {processor.py:153} INFO - Started process (PID=21533) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:46:27.140+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:46:27.140+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:46:27.140+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:46:27.141+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:46:27.153+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:47:10.621+1100] {processor.py:153} INFO - Started process (PID=22006) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:47:10.622+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:47:10.623+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:47:10.623+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:47:10.624+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:47:10.636+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds
+[2022-10-06T16:47:53.924+1100] {processor.py:153} INFO - Started process (PID=22472) to work on /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:47:53.926+1100] {processor.py:640} INFO - Processing file /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py for tasks to queue
+[2022-10-06T16:47:53.926+1100] {logging_mixin.py:115} INFO - [2022-10-06T16:47:53.926+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:47:53.927+1100] {processor.py:652} WARNING - No viable dags retrieved from /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py
+[2022-10-06T16:47:53.939+1100] {processor.py:161} INFO - Processing /Users/nramezani/venv/lib/python3.10/site-packages/airflow/example_dags/subdags/subdag.py took 0.015 seconds

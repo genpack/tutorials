@@ -1,0 +1,630 @@
+[2022-10-22T11:03:30.612+1100] {processor.py:153} INFO - Started process (PID=39759) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T11:03:30.614+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T11:03:30.614+1100] {logging_mixin.py:115} INFO - [2022-10-22T11:03:30.614+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T11:03:30.620+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T11:03:31.234+1100] {logging_mixin.py:115} INFO - [2022-10-22T11:03:31.234+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T11:03:31.240+1100] {logging_mixin.py:115} INFO - [2022-10-22T11:03:31.240+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T11:03:31.244+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.634 seconds
+[2022-10-22T11:19:32.513+1100] {processor.py:153} INFO - Started process (PID=39809) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T11:19:32.515+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T11:19:32.515+1100] {logging_mixin.py:115} INFO - [2022-10-22T11:19:32.515+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T11:19:32.520+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T11:19:32.541+1100] {logging_mixin.py:115} INFO - [2022-10-22T11:19:32.541+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T11:19:32.549+1100] {logging_mixin.py:115} INFO - [2022-10-22T11:19:32.549+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T11:19:32.552+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.040 seconds
+[2022-10-22T11:35:28.635+1100] {processor.py:153} INFO - Started process (PID=39832) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T11:35:28.637+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T11:35:28.637+1100] {logging_mixin.py:115} INFO - [2022-10-22T11:35:28.637+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T11:35:28.644+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T11:35:28.669+1100] {logging_mixin.py:115} INFO - [2022-10-22T11:35:28.669+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T11:35:28.674+1100] {logging_mixin.py:115} INFO - [2022-10-22T11:35:28.674+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T11:35:28.678+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.043 seconds
+[2022-10-22T11:50:46.033+1100] {processor.py:153} INFO - Started process (PID=39895) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T11:50:46.035+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T11:50:46.035+1100] {logging_mixin.py:115} INFO - [2022-10-22T11:50:46.035+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T11:50:46.047+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T11:50:46.070+1100] {logging_mixin.py:115} INFO - [2022-10-22T11:50:46.070+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T11:50:46.079+1100] {logging_mixin.py:115} INFO - [2022-10-22T11:50:46.079+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T11:50:46.084+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.052 seconds
+[2022-10-22T12:08:44.932+1100] {processor.py:153} INFO - Started process (PID=39940) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T12:08:44.938+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T12:08:44.938+1100] {logging_mixin.py:115} INFO - [2022-10-22T12:08:44.938+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T12:08:44.943+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T12:08:44.972+1100] {logging_mixin.py:115} INFO - [2022-10-22T12:08:44.972+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T12:08:44.980+1100] {logging_mixin.py:115} INFO - [2022-10-22T12:08:44.980+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T12:08:44.984+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.053 seconds
+[2022-10-22T12:24:27.521+1100] {processor.py:153} INFO - Started process (PID=39984) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T12:24:27.523+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T12:24:27.523+1100] {logging_mixin.py:115} INFO - [2022-10-22T12:24:27.523+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T12:24:27.530+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T12:24:27.558+1100] {logging_mixin.py:115} INFO - [2022-10-22T12:24:27.558+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T12:24:27.569+1100] {logging_mixin.py:115} INFO - [2022-10-22T12:24:27.569+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T12:24:27.573+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.053 seconds
+[2022-10-22T12:42:03.450+1100] {processor.py:153} INFO - Started process (PID=40077) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T12:42:03.453+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T12:42:03.453+1100] {logging_mixin.py:115} INFO - [2022-10-22T12:42:03.453+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T12:42:03.458+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T12:42:03.493+1100] {logging_mixin.py:115} INFO - [2022-10-22T12:42:03.493+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T12:42:03.499+1100] {logging_mixin.py:115} INFO - [2022-10-22T12:42:03.499+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T12:42:03.503+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.052 seconds
+[2022-10-22T12:57:06.825+1100] {processor.py:153} INFO - Started process (PID=40196) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T12:57:06.827+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T12:57:06.827+1100] {logging_mixin.py:115} INFO - [2022-10-22T12:57:06.827+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T12:57:06.832+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T12:57:06.856+1100] {logging_mixin.py:115} INFO - [2022-10-22T12:57:06.856+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T12:57:06.864+1100] {logging_mixin.py:115} INFO - [2022-10-22T12:57:06.864+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T12:57:06.868+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.044 seconds
+[2022-10-22T13:12:13.688+1100] {processor.py:153} INFO - Started process (PID=40275) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T13:12:13.690+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T13:12:13.690+1100] {logging_mixin.py:115} INFO - [2022-10-22T13:12:13.690+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T13:12:13.699+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T13:12:13.738+1100] {logging_mixin.py:115} INFO - [2022-10-22T13:12:13.738+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T13:12:13.745+1100] {logging_mixin.py:115} INFO - [2022-10-22T13:12:13.745+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T13:12:13.749+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.062 seconds
+[2022-10-22T13:29:48.649+1100] {processor.py:153} INFO - Started process (PID=40309) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T13:29:48.651+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T13:29:48.651+1100] {logging_mixin.py:115} INFO - [2022-10-22T13:29:48.651+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T13:29:48.662+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T13:29:48.698+1100] {logging_mixin.py:115} INFO - [2022-10-22T13:29:48.698+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T13:29:48.711+1100] {logging_mixin.py:115} INFO - [2022-10-22T13:29:48.709+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T13:29:48.720+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.072 seconds
+[2022-10-22T13:45:46.428+1100] {processor.py:153} INFO - Started process (PID=40372) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T13:45:46.431+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T13:45:46.431+1100] {logging_mixin.py:115} INFO - [2022-10-22T13:45:46.431+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T13:45:46.436+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T13:45:46.458+1100] {logging_mixin.py:115} INFO - [2022-10-22T13:45:46.458+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T13:45:46.464+1100] {logging_mixin.py:115} INFO - [2022-10-22T13:45:46.464+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T13:45:46.468+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.040 seconds
+[2022-10-22T14:03:35.425+1100] {processor.py:153} INFO - Started process (PID=40502) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T14:03:35.429+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T14:03:35.429+1100] {logging_mixin.py:115} INFO - [2022-10-22T14:03:35.429+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T14:03:35.437+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T14:03:35.477+1100] {logging_mixin.py:115} INFO - [2022-10-22T14:03:35.477+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T14:03:35.485+1100] {logging_mixin.py:115} INFO - [2022-10-22T14:03:35.485+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T14:03:35.490+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.066 seconds
+[2022-10-22T14:21:01.402+1100] {processor.py:153} INFO - Started process (PID=40577) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T14:21:01.404+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T14:21:01.404+1100] {logging_mixin.py:115} INFO - [2022-10-22T14:21:01.404+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T14:21:01.410+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T14:21:01.436+1100] {logging_mixin.py:115} INFO - [2022-10-22T14:21:01.436+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T14:21:01.443+1100] {logging_mixin.py:115} INFO - [2022-10-22T14:21:01.443+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T14:21:01.447+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.045 seconds
+[2022-10-22T14:38:52.820+1100] {processor.py:153} INFO - Started process (PID=40699) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T14:38:52.822+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T14:38:52.822+1100] {logging_mixin.py:115} INFO - [2022-10-22T14:38:52.822+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T14:38:52.827+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T14:38:52.848+1100] {logging_mixin.py:115} INFO - [2022-10-22T14:38:52.848+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T14:38:52.854+1100] {logging_mixin.py:115} INFO - [2022-10-22T14:38:52.854+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T14:38:52.858+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.038 seconds
+[2022-10-22T14:56:09.352+1100] {processor.py:153} INFO - Started process (PID=40770) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T14:56:09.354+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T14:56:09.354+1100] {logging_mixin.py:115} INFO - [2022-10-22T14:56:09.354+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T14:56:09.359+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T14:56:09.380+1100] {logging_mixin.py:115} INFO - [2022-10-22T14:56:09.380+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T14:56:09.385+1100] {logging_mixin.py:115} INFO - [2022-10-22T14:56:09.385+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T14:56:09.389+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.037 seconds
+[2022-10-22T15:12:21.706+1100] {processor.py:153} INFO - Started process (PID=40781) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T15:12:21.709+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T15:12:21.709+1100] {logging_mixin.py:115} INFO - [2022-10-22T15:12:21.709+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T15:12:21.715+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T15:12:21.763+1100] {logging_mixin.py:115} INFO - [2022-10-22T15:12:21.762+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T15:12:21.769+1100] {logging_mixin.py:115} INFO - [2022-10-22T15:12:21.769+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T15:12:21.773+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.067 seconds
+[2022-10-22T15:29:39.368+1100] {processor.py:153} INFO - Started process (PID=40787) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T15:29:39.369+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T15:29:39.370+1100] {logging_mixin.py:115} INFO - [2022-10-22T15:29:39.369+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T15:29:39.375+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T15:29:39.397+1100] {logging_mixin.py:115} INFO - [2022-10-22T15:29:39.397+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T15:29:39.402+1100] {logging_mixin.py:115} INFO - [2022-10-22T15:29:39.401+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T15:29:39.405+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.038 seconds
+[2022-10-22T15:46:37.817+1100] {processor.py:153} INFO - Started process (PID=40798) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T15:46:37.819+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T15:46:37.819+1100] {logging_mixin.py:115} INFO - [2022-10-22T15:46:37.819+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T15:46:37.824+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T15:46:37.845+1100] {logging_mixin.py:115} INFO - [2022-10-22T15:46:37.844+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T15:46:37.849+1100] {logging_mixin.py:115} INFO - [2022-10-22T15:46:37.849+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T15:46:37.852+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.036 seconds
+[2022-10-22T16:01:49.482+1100] {processor.py:153} INFO - Started process (PID=40805) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:01:49.484+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T16:01:49.484+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:01:49.484+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:01:49.490+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:01:49.514+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:01:49.514+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T16:01:49.524+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:01:49.524+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T16:01:49.529+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.047 seconds
+[2022-10-22T16:18:08.608+1100] {processor.py:153} INFO - Started process (PID=40819) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:18:08.610+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T16:18:08.610+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:18:08.610+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:18:08.616+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:18:08.654+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:18:08.654+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T16:18:08.661+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:18:08.661+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T16:18:08.665+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.058 seconds
+[2022-10-22T16:33:59.939+1100] {processor.py:153} INFO - Started process (PID=40832) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:33:59.941+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T16:33:59.944+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:33:59.944+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:33:59.950+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:33:59.972+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:33:59.972+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T16:33:59.978+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:33:59.978+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T16:33:59.982+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.043 seconds
+[2022-10-22T16:34:47.914+1100] {processor.py:153} INFO - Started process (PID=40837) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:34:47.916+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T16:34:47.916+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:34:47.916+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:34:47.921+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:34:47.941+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:34:47.941+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T16:34:47.945+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:34:47.945+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T16:34:47.950+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.036 seconds
+[2022-10-22T16:35:19.362+1100] {processor.py:153} INFO - Started process (PID=40854) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:35:19.364+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T16:35:19.364+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:35:19.364+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:35:19.375+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:35:19.397+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:35:19.397+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T16:35:19.402+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:35:19.402+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T16:35:19.405+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.043 seconds
+[2022-10-22T16:50:46.173+1100] {processor.py:153} INFO - Started process (PID=40855) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:50:46.176+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T16:50:46.176+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:50:46.176+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:50:46.187+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T16:50:46.213+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:50:46.213+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T16:50:46.219+1100] {logging_mixin.py:115} INFO - [2022-10-22T16:50:46.219+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T16:50:46.225+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.053 seconds
+[2022-10-22T17:06:15.387+1100] {processor.py:153} INFO - Started process (PID=40863) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T17:06:15.390+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T17:06:15.390+1100] {logging_mixin.py:115} INFO - [2022-10-22T17:06:15.390+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T17:06:15.397+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T17:06:15.431+1100] {logging_mixin.py:115} INFO - [2022-10-22T17:06:15.431+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T17:06:15.437+1100] {logging_mixin.py:115} INFO - [2022-10-22T17:06:15.437+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T17:06:15.442+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.056 seconds
+[2022-10-22T17:23:30.786+1100] {processor.py:153} INFO - Started process (PID=40870) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T17:23:30.788+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T17:23:30.788+1100] {logging_mixin.py:115} INFO - [2022-10-22T17:23:30.788+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T17:23:30.795+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T17:23:30.820+1100] {logging_mixin.py:115} INFO - [2022-10-22T17:23:30.820+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T17:23:30.826+1100] {logging_mixin.py:115} INFO - [2022-10-22T17:23:30.826+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T17:23:30.829+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.044 seconds
+[2022-10-22T17:40:14.459+1100] {processor.py:153} INFO - Started process (PID=40877) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T17:40:14.460+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T17:40:14.461+1100] {logging_mixin.py:115} INFO - [2022-10-22T17:40:14.461+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T17:40:14.468+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T17:40:14.498+1100] {logging_mixin.py:115} INFO - [2022-10-22T17:40:14.498+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T17:40:14.505+1100] {logging_mixin.py:115} INFO - [2022-10-22T17:40:14.504+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T17:40:14.509+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.051 seconds
+[2022-10-22T17:56:40.979+1100] {processor.py:153} INFO - Started process (PID=40885) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T17:56:40.987+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T17:56:40.988+1100] {logging_mixin.py:115} INFO - [2022-10-22T17:56:40.988+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T17:56:41.013+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T17:56:41.058+1100] {logging_mixin.py:115} INFO - [2022-10-22T17:56:41.058+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T17:56:41.067+1100] {logging_mixin.py:115} INFO - [2022-10-22T17:56:41.067+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T17:56:41.075+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.097 seconds
+[2022-10-22T18:14:13.500+1100] {processor.py:153} INFO - Started process (PID=40892) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T18:14:13.501+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T18:14:13.502+1100] {logging_mixin.py:115} INFO - [2022-10-22T18:14:13.502+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T18:14:13.507+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T18:14:13.532+1100] {logging_mixin.py:115} INFO - [2022-10-22T18:14:13.532+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T18:14:13.537+1100] {logging_mixin.py:115} INFO - [2022-10-22T18:14:13.537+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T18:14:13.542+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.042 seconds
+[2022-10-22T18:31:12.330+1100] {processor.py:153} INFO - Started process (PID=40903) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T18:31:12.332+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T18:31:12.332+1100] {logging_mixin.py:115} INFO - [2022-10-22T18:31:12.332+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T18:31:12.354+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T18:31:12.400+1100] {logging_mixin.py:115} INFO - [2022-10-22T18:31:12.399+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T18:31:12.410+1100] {logging_mixin.py:115} INFO - [2022-10-22T18:31:12.410+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T18:31:12.420+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.095 seconds
+[2022-10-22T18:46:52.456+1100] {processor.py:153} INFO - Started process (PID=40910) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T18:46:52.460+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T18:46:52.460+1100] {logging_mixin.py:115} INFO - [2022-10-22T18:46:52.460+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T18:46:52.470+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T18:46:52.491+1100] {logging_mixin.py:115} INFO - [2022-10-22T18:46:52.491+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T18:46:52.496+1100] {logging_mixin.py:115} INFO - [2022-10-22T18:46:52.496+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T18:46:52.500+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.044 seconds
+[2022-10-22T19:04:22.467+1100] {processor.py:153} INFO - Started process (PID=40931) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T19:04:22.472+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T19:04:22.472+1100] {logging_mixin.py:115} INFO - [2022-10-22T19:04:22.472+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T19:04:22.483+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T19:04:22.505+1100] {logging_mixin.py:115} INFO - [2022-10-22T19:04:22.505+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T19:04:22.519+1100] {logging_mixin.py:115} INFO - [2022-10-22T19:04:22.519+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T19:04:22.534+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.071 seconds
+[2022-10-22T19:20:02.025+1100] {processor.py:153} INFO - Started process (PID=41022) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T19:20:02.027+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T19:20:02.027+1100] {logging_mixin.py:115} INFO - [2022-10-22T19:20:02.027+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T19:20:02.032+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T19:20:02.053+1100] {logging_mixin.py:115} INFO - [2022-10-22T19:20:02.052+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T19:20:02.058+1100] {logging_mixin.py:115} INFO - [2022-10-22T19:20:02.058+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T19:20:02.062+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.038 seconds
+[2022-10-22T19:20:47.109+1100] {processor.py:153} INFO - Started process (PID=41080) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T19:20:47.111+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T19:20:47.111+1100] {logging_mixin.py:115} INFO - [2022-10-22T19:20:47.111+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T19:20:47.125+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T19:20:47.161+1100] {logging_mixin.py:115} INFO - [2022-10-22T19:20:47.161+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T19:20:47.167+1100] {logging_mixin.py:115} INFO - [2022-10-22T19:20:47.167+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T19:20:47.174+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.065 seconds
+[2022-10-22T19:38:50.894+1100] {processor.py:153} INFO - Started process (PID=41157) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T19:38:50.898+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T19:38:50.898+1100] {logging_mixin.py:115} INFO - [2022-10-22T19:38:50.898+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T19:38:50.915+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T19:38:51.028+1100] {logging_mixin.py:115} INFO - [2022-10-22T19:38:51.028+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T19:38:51.039+1100] {logging_mixin.py:115} INFO - [2022-10-22T19:38:51.039+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T19:38:51.044+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.152 seconds
+[2022-10-22T19:56:32.073+1100] {processor.py:153} INFO - Started process (PID=41201) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T19:56:32.077+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T19:56:32.077+1100] {logging_mixin.py:115} INFO - [2022-10-22T19:56:32.077+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T19:56:32.094+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T19:56:32.138+1100] {logging_mixin.py:115} INFO - [2022-10-22T19:56:32.138+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T19:56:32.152+1100] {logging_mixin.py:115} INFO - [2022-10-22T19:56:32.152+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T19:56:32.164+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.091 seconds
+[2022-10-22T20:14:21.902+1100] {processor.py:153} INFO - Started process (PID=41213) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T20:14:21.911+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T20:14:21.911+1100] {logging_mixin.py:115} INFO - [2022-10-22T20:14:21.911+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T20:14:21.933+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T20:14:22.013+1100] {logging_mixin.py:115} INFO - [2022-10-22T20:14:22.013+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T20:14:22.035+1100] {logging_mixin.py:115} INFO - [2022-10-22T20:14:22.035+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T20:14:22.040+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.140 seconds
+[2022-10-22T20:30:50.134+1100] {processor.py:153} INFO - Started process (PID=41227) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T20:30:50.137+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T20:30:50.137+1100] {logging_mixin.py:115} INFO - [2022-10-22T20:30:50.137+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T20:30:50.145+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T20:30:50.195+1100] {logging_mixin.py:115} INFO - [2022-10-22T20:30:50.195+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T20:30:50.213+1100] {logging_mixin.py:115} INFO - [2022-10-22T20:30:50.213+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T20:30:50.232+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.098 seconds
+[2022-10-22T20:47:29.799+1100] {processor.py:153} INFO - Started process (PID=41240) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T20:47:29.804+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T20:47:29.805+1100] {logging_mixin.py:115} INFO - [2022-10-22T20:47:29.804+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T20:47:29.813+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T20:47:29.846+1100] {logging_mixin.py:115} INFO - [2022-10-22T20:47:29.846+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T20:47:29.852+1100] {logging_mixin.py:115} INFO - [2022-10-22T20:47:29.852+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T20:47:29.862+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.063 seconds
+[2022-10-22T21:04:57.442+1100] {processor.py:153} INFO - Started process (PID=41268) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T21:04:57.444+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T21:04:57.444+1100] {logging_mixin.py:115} INFO - [2022-10-22T21:04:57.444+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T21:04:57.450+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T21:04:57.474+1100] {logging_mixin.py:115} INFO - [2022-10-22T21:04:57.474+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T21:04:57.489+1100] {logging_mixin.py:115} INFO - [2022-10-22T21:04:57.489+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T21:04:57.497+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.056 seconds
+[2022-10-22T21:20:33.604+1100] {processor.py:153} INFO - Started process (PID=41281) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T21:20:33.608+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T21:20:33.608+1100] {logging_mixin.py:115} INFO - [2022-10-22T21:20:33.608+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T21:20:33.614+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T21:20:33.639+1100] {logging_mixin.py:115} INFO - [2022-10-22T21:20:33.639+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T21:20:33.646+1100] {logging_mixin.py:115} INFO - [2022-10-22T21:20:33.646+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T21:20:33.650+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.046 seconds
+[2022-10-22T21:36:26.985+1100] {processor.py:153} INFO - Started process (PID=41294) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T21:36:26.987+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T21:36:26.988+1100] {logging_mixin.py:115} INFO - [2022-10-22T21:36:26.988+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T21:36:26.992+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T21:36:27.014+1100] {logging_mixin.py:115} INFO - [2022-10-22T21:36:27.014+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T21:36:27.021+1100] {logging_mixin.py:115} INFO - [2022-10-22T21:36:27.021+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T21:36:27.027+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.042 seconds
+[2022-10-22T21:53:46.709+1100] {processor.py:153} INFO - Started process (PID=41309) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T21:53:46.711+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T21:53:46.711+1100] {logging_mixin.py:115} INFO - [2022-10-22T21:53:46.711+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T21:53:46.718+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T21:53:46.753+1100] {logging_mixin.py:115} INFO - [2022-10-22T21:53:46.753+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T21:53:46.758+1100] {logging_mixin.py:115} INFO - [2022-10-22T21:53:46.758+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T21:53:46.762+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.054 seconds
+[2022-10-22T22:10:40.067+1100] {processor.py:153} INFO - Started process (PID=41316) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T22:10:40.072+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T22:10:40.073+1100] {logging_mixin.py:115} INFO - [2022-10-22T22:10:40.072+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T22:10:40.093+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T22:10:40.128+1100] {logging_mixin.py:115} INFO - [2022-10-22T22:10:40.127+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T22:10:40.146+1100] {logging_mixin.py:115} INFO - [2022-10-22T22:10:40.146+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T22:10:40.159+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.092 seconds
+[2022-10-22T22:27:28.807+1100] {processor.py:153} INFO - Started process (PID=41329) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T22:27:28.809+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T22:27:28.809+1100] {logging_mixin.py:115} INFO - [2022-10-22T22:27:28.809+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T22:27:28.816+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T22:27:28.855+1100] {logging_mixin.py:115} INFO - [2022-10-22T22:27:28.855+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T22:27:28.864+1100] {logging_mixin.py:115} INFO - [2022-10-22T22:27:28.864+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T22:27:28.869+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.062 seconds
+[2022-10-22T22:42:35.993+1100] {processor.py:153} INFO - Started process (PID=41346) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T22:42:35.995+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T22:42:35.995+1100] {logging_mixin.py:115} INFO - [2022-10-22T22:42:35.995+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T22:42:36.004+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T22:42:36.029+1100] {logging_mixin.py:115} INFO - [2022-10-22T22:42:36.029+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T22:42:36.036+1100] {logging_mixin.py:115} INFO - [2022-10-22T22:42:36.036+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T22:42:36.046+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.054 seconds
+[2022-10-22T22:59:31.982+1100] {processor.py:153} INFO - Started process (PID=41362) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T22:59:31.984+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T22:59:31.984+1100] {logging_mixin.py:115} INFO - [2022-10-22T22:59:31.984+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T22:59:31.989+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T22:59:32.011+1100] {logging_mixin.py:115} INFO - [2022-10-22T22:59:32.011+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T22:59:32.031+1100] {logging_mixin.py:115} INFO - [2022-10-22T22:59:32.031+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T22:59:32.045+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.064 seconds
+[2022-10-22T23:17:17.146+1100] {processor.py:153} INFO - Started process (PID=41371) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T23:17:17.149+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T23:17:17.149+1100] {logging_mixin.py:115} INFO - [2022-10-22T23:17:17.149+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T23:17:17.154+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T23:17:17.177+1100] {logging_mixin.py:115} INFO - [2022-10-22T23:17:17.177+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T23:17:17.191+1100] {logging_mixin.py:115} INFO - [2022-10-22T23:17:17.191+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T23:17:17.196+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.052 seconds
+[2022-10-22T23:33:05.057+1100] {processor.py:153} INFO - Started process (PID=41384) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T23:33:05.059+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T23:33:05.059+1100] {logging_mixin.py:115} INFO - [2022-10-22T23:33:05.059+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T23:33:05.065+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T23:33:05.087+1100] {logging_mixin.py:115} INFO - [2022-10-22T23:33:05.087+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T23:33:05.093+1100] {logging_mixin.py:115} INFO - [2022-10-22T23:33:05.093+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T23:33:05.097+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.040 seconds
+[2022-10-22T23:50:07.206+1100] {processor.py:153} INFO - Started process (PID=41392) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T23:50:07.209+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-22T23:50:07.209+1100] {logging_mixin.py:115} INFO - [2022-10-22T23:50:07.209+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T23:50:07.218+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-22T23:50:07.262+1100] {logging_mixin.py:115} INFO - [2022-10-22T23:50:07.262+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-22T23:50:07.273+1100] {logging_mixin.py:115} INFO - [2022-10-22T23:50:07.273+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-22T23:50:07.281+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.082 seconds
+[2022-10-23T00:06:13.055+1100] {processor.py:153} INFO - Started process (PID=41419) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T00:06:13.063+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T00:06:13.064+1100] {logging_mixin.py:115} INFO - [2022-10-23T00:06:13.064+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T00:06:13.095+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T00:06:13.181+1100] {logging_mixin.py:115} INFO - [2022-10-23T00:06:13.181+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T00:06:13.193+1100] {logging_mixin.py:115} INFO - [2022-10-23T00:06:13.193+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T00:06:13.196+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.141 seconds
+[2022-10-23T00:23:55.540+1100] {processor.py:153} INFO - Started process (PID=41430) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T00:23:55.549+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T00:23:55.551+1100] {logging_mixin.py:115} INFO - [2022-10-23T00:23:55.550+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T00:23:55.562+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T00:23:55.621+1100] {logging_mixin.py:115} INFO - [2022-10-23T00:23:55.620+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T00:23:55.634+1100] {logging_mixin.py:115} INFO - [2022-10-23T00:23:55.633+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T00:23:55.639+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.100 seconds
+[2022-10-23T00:41:10.957+1100] {processor.py:153} INFO - Started process (PID=41444) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T00:41:10.965+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T00:41:10.966+1100] {logging_mixin.py:115} INFO - [2022-10-23T00:41:10.965+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T00:41:10.985+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T00:41:11.055+1100] {logging_mixin.py:115} INFO - [2022-10-23T00:41:11.055+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T00:41:11.071+1100] {logging_mixin.py:115} INFO - [2022-10-23T00:41:11.071+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T00:41:11.075+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.154 seconds
+[2022-10-23T00:59:01.765+1100] {processor.py:153} INFO - Started process (PID=41453) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T00:59:01.771+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T00:59:01.771+1100] {logging_mixin.py:115} INFO - [2022-10-23T00:59:01.771+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T00:59:01.778+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T00:59:01.817+1100] {logging_mixin.py:115} INFO - [2022-10-23T00:59:01.816+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T00:59:01.827+1100] {logging_mixin.py:115} INFO - [2022-10-23T00:59:01.827+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T00:59:01.834+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.070 seconds
+[2022-10-23T01:14:04.896+1100] {processor.py:153} INFO - Started process (PID=41461) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T01:14:04.900+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T01:14:04.900+1100] {logging_mixin.py:115} INFO - [2022-10-23T01:14:04.900+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T01:14:04.908+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T01:14:04.949+1100] {logging_mixin.py:115} INFO - [2022-10-23T01:14:04.948+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T01:14:04.957+1100] {logging_mixin.py:115} INFO - [2022-10-23T01:14:04.957+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T01:14:04.962+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.067 seconds
+[2022-10-23T01:31:31.458+1100] {processor.py:153} INFO - Started process (PID=41479) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T01:31:31.466+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T01:31:31.466+1100] {logging_mixin.py:115} INFO - [2022-10-23T01:31:31.466+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T01:31:31.476+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T01:31:31.512+1100] {logging_mixin.py:115} INFO - [2022-10-23T01:31:31.512+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T01:31:31.526+1100] {logging_mixin.py:115} INFO - [2022-10-23T01:31:31.526+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T01:31:31.529+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.071 seconds
+[2022-10-23T01:47:05.786+1100] {processor.py:153} INFO - Started process (PID=41498) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T01:47:05.791+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T01:47:05.791+1100] {logging_mixin.py:115} INFO - [2022-10-23T01:47:05.791+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T01:47:05.800+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T01:47:05.844+1100] {logging_mixin.py:115} INFO - [2022-10-23T01:47:05.844+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T01:47:05.853+1100] {logging_mixin.py:115} INFO - [2022-10-23T01:47:05.853+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T01:47:05.858+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.073 seconds
+[2022-10-23T02:02:32.600+1100] {processor.py:153} INFO - Started process (PID=41505) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T02:02:32.602+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T02:02:32.603+1100] {logging_mixin.py:115} INFO - [2022-10-23T02:02:32.603+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T02:02:32.608+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T02:02:32.652+1100] {logging_mixin.py:115} INFO - [2022-10-23T02:02:32.652+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T02:02:32.660+1100] {logging_mixin.py:115} INFO - [2022-10-23T02:02:32.660+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T02:02:32.664+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.065 seconds
+[2022-10-23T02:18:07.661+1100] {processor.py:153} INFO - Started process (PID=41517) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T02:18:07.664+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T02:18:07.664+1100] {logging_mixin.py:115} INFO - [2022-10-23T02:18:07.664+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T02:18:07.675+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T02:18:07.701+1100] {logging_mixin.py:115} INFO - [2022-10-23T02:18:07.701+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T02:18:07.706+1100] {logging_mixin.py:115} INFO - [2022-10-23T02:18:07.706+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T02:18:07.713+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.055 seconds
+[2022-10-23T02:33:23.466+1100] {processor.py:153} INFO - Started process (PID=41535) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T02:33:23.470+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T02:33:23.471+1100] {logging_mixin.py:115} INFO - [2022-10-23T02:33:23.470+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T02:33:23.477+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T02:33:23.508+1100] {logging_mixin.py:115} INFO - [2022-10-23T02:33:23.508+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T02:33:23.526+1100] {logging_mixin.py:115} INFO - [2022-10-23T02:33:23.526+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T02:33:23.530+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.065 seconds
+[2022-10-23T02:49:17.068+1100] {processor.py:153} INFO - Started process (PID=41552) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T02:49:17.070+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T02:49:17.070+1100] {logging_mixin.py:115} INFO - [2022-10-23T02:49:17.070+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T02:49:17.076+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T02:49:17.095+1100] {logging_mixin.py:115} INFO - [2022-10-23T02:49:17.095+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T02:49:17.100+1100] {logging_mixin.py:115} INFO - [2022-10-23T02:49:17.100+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T02:49:17.109+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.042 seconds
+[2022-10-23T03:04:22.363+1100] {processor.py:153} INFO - Started process (PID=41561) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T03:04:22.366+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T03:04:22.366+1100] {logging_mixin.py:115} INFO - [2022-10-23T03:04:22.366+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T03:04:22.376+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T03:04:22.409+1100] {logging_mixin.py:115} INFO - [2022-10-23T03:04:22.409+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T03:04:22.418+1100] {logging_mixin.py:115} INFO - [2022-10-23T03:04:22.418+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T03:04:22.422+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.059 seconds
+[2022-10-23T03:20:50.989+1100] {processor.py:153} INFO - Started process (PID=41573) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T03:20:50.994+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T03:20:50.994+1100] {logging_mixin.py:115} INFO - [2022-10-23T03:20:50.994+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T03:20:51.006+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T03:20:51.051+1100] {logging_mixin.py:115} INFO - [2022-10-23T03:20:51.051+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T03:20:51.057+1100] {logging_mixin.py:115} INFO - [2022-10-23T03:20:51.057+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T03:20:51.061+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.072 seconds
+[2022-10-23T03:36:43.251+1100] {processor.py:153} INFO - Started process (PID=41582) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T03:36:43.255+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T03:36:43.255+1100] {logging_mixin.py:115} INFO - [2022-10-23T03:36:43.255+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T03:36:43.268+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T03:36:43.306+1100] {logging_mixin.py:115} INFO - [2022-10-23T03:36:43.305+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T03:36:43.321+1100] {logging_mixin.py:115} INFO - [2022-10-23T03:36:43.321+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T03:36:43.325+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.074 seconds
+[2022-10-23T03:54:28.239+1100] {processor.py:153} INFO - Started process (PID=41648) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T03:54:28.244+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T03:54:28.245+1100] {logging_mixin.py:115} INFO - [2022-10-23T03:54:28.245+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T03:54:28.254+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T03:54:28.290+1100] {logging_mixin.py:115} INFO - [2022-10-23T03:54:28.290+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T03:54:28.300+1100] {logging_mixin.py:115} INFO - [2022-10-23T03:54:28.300+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T03:54:28.306+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.068 seconds
+[2022-10-23T04:11:52.505+1100] {processor.py:153} INFO - Started process (PID=41658) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T04:11:52.507+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T04:11:52.507+1100] {logging_mixin.py:115} INFO - [2022-10-23T04:11:52.507+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T04:11:52.513+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T04:11:52.537+1100] {logging_mixin.py:115} INFO - [2022-10-23T04:11:52.536+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T04:11:52.542+1100] {logging_mixin.py:115} INFO - [2022-10-23T04:11:52.542+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T04:11:52.546+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.041 seconds
+[2022-10-23T04:29:16.053+1100] {processor.py:153} INFO - Started process (PID=41668) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T04:29:16.055+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T04:29:16.055+1100] {logging_mixin.py:115} INFO - [2022-10-23T04:29:16.055+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T04:29:16.061+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T04:29:16.084+1100] {logging_mixin.py:115} INFO - [2022-10-23T04:29:16.084+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T04:29:16.090+1100] {logging_mixin.py:115} INFO - [2022-10-23T04:29:16.089+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T04:29:16.095+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.043 seconds
+[2022-10-23T04:45:55.971+1100] {processor.py:153} INFO - Started process (PID=41677) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T04:45:55.975+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T04:45:55.975+1100] {logging_mixin.py:115} INFO - [2022-10-23T04:45:55.975+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T04:45:56.083+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T04:45:56.121+1100] {logging_mixin.py:115} INFO - [2022-10-23T04:45:56.120+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T04:45:56.135+1100] {logging_mixin.py:115} INFO - [2022-10-23T04:45:56.135+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T04:45:56.140+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.169 seconds
+[2022-10-23T05:03:56.345+1100] {processor.py:153} INFO - Started process (PID=41694) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T05:03:56.346+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T05:03:56.347+1100] {logging_mixin.py:115} INFO - [2022-10-23T05:03:56.346+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T05:03:56.351+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T05:03:56.375+1100] {logging_mixin.py:115} INFO - [2022-10-23T05:03:56.375+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T05:03:56.382+1100] {logging_mixin.py:115} INFO - [2022-10-23T05:03:56.382+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T05:03:56.385+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.041 seconds
+[2022-10-23T05:20:10.748+1100] {processor.py:153} INFO - Started process (PID=41705) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T05:20:10.750+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T05:20:10.750+1100] {logging_mixin.py:115} INFO - [2022-10-23T05:20:10.750+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T05:20:10.756+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T05:20:10.780+1100] {logging_mixin.py:115} INFO - [2022-10-23T05:20:10.780+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T05:20:10.788+1100] {logging_mixin.py:115} INFO - [2022-10-23T05:20:10.788+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T05:20:10.796+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.047 seconds
+[2022-10-23T05:35:33.127+1100] {processor.py:153} INFO - Started process (PID=41720) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T05:35:33.132+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T05:35:33.132+1100] {logging_mixin.py:115} INFO - [2022-10-23T05:35:33.132+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T05:35:33.140+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T05:35:33.176+1100] {logging_mixin.py:115} INFO - [2022-10-23T05:35:33.176+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T05:35:33.186+1100] {logging_mixin.py:115} INFO - [2022-10-23T05:35:33.185+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T05:35:33.194+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.067 seconds
+[2022-10-23T05:52:05.504+1100] {processor.py:153} INFO - Started process (PID=41728) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T05:52:05.505+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T05:52:05.506+1100] {logging_mixin.py:115} INFO - [2022-10-23T05:52:05.506+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T05:52:05.512+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T05:52:05.532+1100] {logging_mixin.py:115} INFO - [2022-10-23T05:52:05.532+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T05:52:05.539+1100] {logging_mixin.py:115} INFO - [2022-10-23T05:52:05.539+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T05:52:05.543+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.040 seconds
+[2022-10-23T06:08:04.050+1100] {processor.py:153} INFO - Started process (PID=41741) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T06:08:04.055+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T06:08:04.055+1100] {logging_mixin.py:115} INFO - [2022-10-23T06:08:04.055+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T06:08:04.061+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T06:08:04.095+1100] {logging_mixin.py:115} INFO - [2022-10-23T06:08:04.095+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T06:08:04.102+1100] {logging_mixin.py:115} INFO - [2022-10-23T06:08:04.101+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T06:08:04.107+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.058 seconds
+[2022-10-23T06:25:04.731+1100] {processor.py:153} INFO - Started process (PID=41746) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T06:25:04.734+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T06:25:04.734+1100] {logging_mixin.py:115} INFO - [2022-10-23T06:25:04.734+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T06:25:04.741+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T06:25:04.795+1100] {logging_mixin.py:115} INFO - [2022-10-23T06:25:04.795+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T06:25:04.802+1100] {logging_mixin.py:115} INFO - [2022-10-23T06:25:04.802+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T06:25:04.808+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.077 seconds
+[2022-10-23T06:41:54.481+1100] {processor.py:153} INFO - Started process (PID=41763) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T06:41:54.484+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T06:41:54.485+1100] {logging_mixin.py:115} INFO - [2022-10-23T06:41:54.485+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T06:41:54.495+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T06:41:54.517+1100] {logging_mixin.py:115} INFO - [2022-10-23T06:41:54.517+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T06:41:54.524+1100] {logging_mixin.py:115} INFO - [2022-10-23T06:41:54.524+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T06:41:54.531+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.050 seconds
+[2022-10-23T06:57:20.626+1100] {processor.py:153} INFO - Started process (PID=41774) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T06:57:20.629+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T06:57:20.629+1100] {logging_mixin.py:115} INFO - [2022-10-23T06:57:20.629+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T06:57:20.634+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T06:57:20.660+1100] {logging_mixin.py:115} INFO - [2022-10-23T06:57:20.660+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T06:57:20.665+1100] {logging_mixin.py:115} INFO - [2022-10-23T06:57:20.665+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T06:57:20.669+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.044 seconds
+[2022-10-23T07:12:48.740+1100] {processor.py:153} INFO - Started process (PID=41776) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T07:12:48.742+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T07:12:48.742+1100] {logging_mixin.py:115} INFO - [2022-10-23T07:12:48.742+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T07:12:48.748+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T07:12:48.771+1100] {logging_mixin.py:115} INFO - [2022-10-23T07:12:48.771+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T07:12:48.776+1100] {logging_mixin.py:115} INFO - [2022-10-23T07:12:48.776+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T07:12:48.780+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.040 seconds
+[2022-10-23T07:28:51.668+1100] {processor.py:153} INFO - Started process (PID=41790) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T07:28:51.672+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T07:28:51.672+1100] {logging_mixin.py:115} INFO - [2022-10-23T07:28:51.672+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T07:28:51.707+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T07:28:51.765+1100] {logging_mixin.py:115} INFO - [2022-10-23T07:28:51.765+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T07:28:51.780+1100] {logging_mixin.py:115} INFO - [2022-10-23T07:28:51.780+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T07:28:51.784+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.117 seconds
+[2022-10-23T07:44:23.148+1100] {processor.py:153} INFO - Started process (PID=41807) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T07:44:23.150+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T07:44:23.150+1100] {logging_mixin.py:115} INFO - [2022-10-23T07:44:23.150+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T07:44:23.156+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T07:44:23.207+1100] {logging_mixin.py:115} INFO - [2022-10-23T07:44:23.207+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T07:44:23.217+1100] {logging_mixin.py:115} INFO - [2022-10-23T07:44:23.217+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T07:44:23.220+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.073 seconds
+[2022-10-23T08:00:39.030+1100] {processor.py:153} INFO - Started process (PID=41825) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T08:00:39.032+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T08:00:39.032+1100] {logging_mixin.py:115} INFO - [2022-10-23T08:00:39.032+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T08:00:39.038+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T08:00:39.059+1100] {logging_mixin.py:115} INFO - [2022-10-23T08:00:39.059+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T08:00:39.064+1100] {logging_mixin.py:115} INFO - [2022-10-23T08:00:39.064+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T08:00:39.068+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.038 seconds
+[2022-10-23T08:16:00.929+1100] {processor.py:153} INFO - Started process (PID=41832) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T08:16:00.932+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T08:16:00.932+1100] {logging_mixin.py:115} INFO - [2022-10-23T08:16:00.932+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T08:16:00.938+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T08:16:00.968+1100] {logging_mixin.py:115} INFO - [2022-10-23T08:16:00.968+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T08:16:00.975+1100] {logging_mixin.py:115} INFO - [2022-10-23T08:16:00.975+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T08:16:00.979+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.050 seconds
+[2022-10-23T08:33:48.118+1100] {processor.py:153} INFO - Started process (PID=41846) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T08:33:48.120+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T08:33:48.120+1100] {logging_mixin.py:115} INFO - [2022-10-23T08:33:48.120+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T08:33:48.126+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T08:33:48.166+1100] {logging_mixin.py:115} INFO - [2022-10-23T08:33:48.165+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T08:33:48.172+1100] {logging_mixin.py:115} INFO - [2022-10-23T08:33:48.172+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T08:33:48.176+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.058 seconds
+[2022-10-23T08:51:21.461+1100] {processor.py:153} INFO - Started process (PID=41857) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T08:51:21.467+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T08:51:21.468+1100] {logging_mixin.py:115} INFO - [2022-10-23T08:51:21.468+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T08:51:21.473+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T08:51:21.511+1100] {logging_mixin.py:115} INFO - [2022-10-23T08:51:21.511+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T08:51:21.522+1100] {logging_mixin.py:115} INFO - [2022-10-23T08:51:21.521+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T08:51:21.532+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.072 seconds
+[2022-10-23T09:06:37.790+1100] {processor.py:153} INFO - Started process (PID=41865) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T09:06:37.792+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T09:06:37.792+1100] {logging_mixin.py:115} INFO - [2022-10-23T09:06:37.792+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T09:06:37.798+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T09:06:37.819+1100] {logging_mixin.py:115} INFO - [2022-10-23T09:06:37.819+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T09:06:37.824+1100] {logging_mixin.py:115} INFO - [2022-10-23T09:06:37.824+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T09:06:37.828+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.039 seconds
+[2022-10-23T09:23:31.024+1100] {processor.py:153} INFO - Started process (PID=41874) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T09:23:31.026+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T09:23:31.026+1100] {logging_mixin.py:115} INFO - [2022-10-23T09:23:31.026+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T09:23:31.031+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T09:23:31.063+1100] {logging_mixin.py:115} INFO - [2022-10-23T09:23:31.063+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T09:23:31.071+1100] {logging_mixin.py:115} INFO - [2022-10-23T09:23:31.071+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T09:23:31.076+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.053 seconds
+[2022-10-23T09:40:59.127+1100] {processor.py:153} INFO - Started process (PID=41889) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T09:40:59.130+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T09:40:59.130+1100] {logging_mixin.py:115} INFO - [2022-10-23T09:40:59.130+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T09:40:59.140+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T09:40:59.172+1100] {logging_mixin.py:115} INFO - [2022-10-23T09:40:59.172+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T09:40:59.181+1100] {logging_mixin.py:115} INFO - [2022-10-23T09:40:59.181+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T09:40:59.187+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.061 seconds
+[2022-10-23T09:57:03.788+1100] {processor.py:153} INFO - Started process (PID=41900) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T09:57:03.791+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T09:57:03.792+1100] {logging_mixin.py:115} INFO - [2022-10-23T09:57:03.791+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T09:57:03.800+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T09:57:03.833+1100] {logging_mixin.py:115} INFO - [2022-10-23T09:57:03.832+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T09:57:03.838+1100] {logging_mixin.py:115} INFO - [2022-10-23T09:57:03.838+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T09:57:03.842+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.055 seconds
+[2022-10-23T10:13:45.197+1100] {processor.py:153} INFO - Started process (PID=41911) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T10:13:45.202+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T10:13:45.202+1100] {logging_mixin.py:115} INFO - [2022-10-23T10:13:45.202+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T10:13:45.207+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T10:13:45.236+1100] {logging_mixin.py:115} INFO - [2022-10-23T10:13:45.236+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T10:13:45.241+1100] {logging_mixin.py:115} INFO - [2022-10-23T10:13:45.241+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T10:13:45.245+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.048 seconds
+[2022-10-23T10:30:39.724+1100] {processor.py:153} INFO - Started process (PID=41937) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T10:30:39.726+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T10:30:39.726+1100] {logging_mixin.py:115} INFO - [2022-10-23T10:30:39.726+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T10:30:39.736+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T10:30:39.759+1100] {logging_mixin.py:115} INFO - [2022-10-23T10:30:39.758+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T10:30:39.768+1100] {logging_mixin.py:115} INFO - [2022-10-23T10:30:39.768+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T10:30:39.772+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.048 seconds
+[2022-10-23T10:48:01.741+1100] {processor.py:153} INFO - Started process (PID=41956) to work on /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T10:48:01.745+1100] {processor.py:640} INFO - Processing file /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py for tasks to queue
+[2022-10-23T10:48:01.745+1100] {logging_mixin.py:115} INFO - [2022-10-23T10:48:01.745+1100] {dagbag.py:508} INFO - Filling up the DagBag from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T10:48:01.754+1100] {processor.py:650} INFO - DAG(s) dict_keys(['my_dag_id']) retrieved from /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py
+[2022-10-23T10:48:01.782+1100] {logging_mixin.py:115} INFO - [2022-10-23T10:48:01.782+1100] {dag.py:2429} INFO - Sync 1 DAGs
+[2022-10-23T10:48:01.787+1100] {logging_mixin.py:115} INFO - [2022-10-23T10:48:01.787+1100] {dag.py:2977} INFO - Setting next_dagrun for my_dag_id to None, run_after=None
+[2022-10-23T10:48:01.791+1100] {processor.py:161} INFO - Processing /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/dags/dag_template_R.py took 0.050 seconds

@@ -1,0 +1,14 @@
+main:
+  type: fluidPage
+  layout:
+  - multiple
+  - res
+multiple:
+  type: airDatepickerInput
+  title: 'Select multiple dates:'
+  placeholder: You can pick 5 dates
+  multiple: 5L
+  clearButton: yes
+res:
+  type: verbatimTextOutput
+  service: input$multiple

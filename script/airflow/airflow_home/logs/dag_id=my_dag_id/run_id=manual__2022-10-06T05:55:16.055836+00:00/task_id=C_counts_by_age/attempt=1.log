@@ -1,0 +1,27 @@
+[2022-10-06T16:55:21.419+1100] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: my_dag_id.C_counts_by_age manual__2022-10-06T05:55:16.055836+00:00 [queued]>
+[2022-10-06T16:55:21.423+1100] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: my_dag_id.C_counts_by_age manual__2022-10-06T05:55:16.055836+00:00 [queued]>
+[2022-10-06T16:55:21.423+1100] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-06T16:55:21.423+1100] {taskinstance.py:1369} INFO - Starting attempt 1 of 1
+[2022-10-06T16:55:21.423+1100] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-06T16:55:21.426+1100] {taskinstance.py:1389} INFO - Executing <Task(BashOperator): C_counts_by_age> on 2022-10-06 05:55:16.055836+00:00
+[2022-10-06T16:55:21.427+1100] {standard_task_runner.py:52} INFO - Started process 24680 to run task
+[2022-10-06T16:55:21.429+1100] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', 'my_dag_id', 'C_counts_by_age', 'manual__2022-10-06T05:55:16.055836+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/dag_template_R.py', '--cfg-path', '/var/folders/rr/tr5h7c2s1tg0n7n69k9rnpn80000gq/T/tmp9eu19vrs', '--error-file', '/var/folders/rr/tr5h7c2s1tg0n7n69k9rnpn80000gq/T/tmpqezyul6q']
+[2022-10-06T16:55:21.430+1100] {standard_task_runner.py:80} INFO - Job 11: Subtask C_counts_by_age
+[2022-10-06T16:55:21.446+1100] {task_command.py:371} INFO - Running <TaskInstance: my_dag_id.C_counts_by_age manual__2022-10-06T05:55:16.055836+00:00 [running]> on host 106.1.168.192.in-addr.arpa
+[2022-10-06T16:55:21.463+1100] {taskinstance.py:1581} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=nirasoft
+AIRFLOW_CTX_DAG_ID=my_dag_id
+AIRFLOW_CTX_TASK_ID=C_counts_by_age
+AIRFLOW_CTX_EXECUTION_DATE=2022-10-06T05:55:16.055836+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-10-06T05:55:16.055836+00:00
+[2022-10-06T16:55:21.463+1100] {subprocess.py:62} INFO - Tmp dir root location: 
+ /var/folders/rr/tr5h7c2s1tg0n7n69k9rnpn80000gq/T
+[2022-10-06T16:55:21.463+1100] {subprocess.py:74} INFO - Running command: ['/bin/bash', '-c', '/Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/scripts/run_r.sh /Users/nramezani/Documents/projects/tutorials/script/airflow/airflow_home/scripts/C_task.R ']
+[2022-10-06T16:55:21.465+1100] {subprocess.py:85} INFO - Output:
+[2022-10-06T16:55:22.290+1100] {subprocess.py:96} INFO - Command exited with return code 0
+[2022-10-06T16:55:22.299+1100] {taskinstance.py:1407} INFO - Marking task as SUCCESS. dag_id=my_dag_id, task_id=C_counts_by_age, execution_date=20221006T055516, start_date=20221006T055521, end_date=20221006T055522
+[2022-10-06T16:55:22.332+1100] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-10-06T16:55:22.341+1100] {local_task_job.py:279} INFO - 1 downstream tasks scheduled from follow-on schedule check

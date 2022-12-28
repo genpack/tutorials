@@ -1,0 +1,232 @@
+---
+title: "Readme"
+output:
+  html_document:
+    df_print: paged
+---
+
+This is a guide on how to start an airflow pipeline. 
+The information are extracted from [here](https://towardsdatascience.com/an-introduction-to-apache-airflow-21111bf98c1f) and [here](https://lcalcagni.medium.com/running-r-scripts-in-airflow-using-airflow-bashoperators-6d827f5da5b1).  
+
+In this article, we briefly explain how you can easily create a pipeline that executes a set of R/Python scripts using Apache Airflow. 
+
+__The folder `airflow` in tutorials repository is a template for an airflow pipeline.__
+
+## What is Apache Airflow?
+
+A big part of being a data scientist is being able to automatically evolve models and generate reports. For models that require periodically collecting data, generating period reports, etc. Manually running programs is very time consuming and unscalable. 
+Having the ability automate an entire data pipeline to report generation is incredibly useful. This is exactly what Apache Airflow brings to the table.
+Apache Airflow is an open-source job scheduler that can organize, execute, and monitor any workflow across any periodic time interval. This project was started at Airbnb and has been picked up by lots of large companies like Google and Amazon.
+
+## How Does Airflow work?
+
+Airflow utilizes *Directed Acyclic Graphs (DAGs)* to create jobs.
+
+### What is a DAG?
+
+A DAG is consisted of nodes and directed arrows. Each node is a function that will be executed when it’s time for that function to run and each arrow points to the next node that will be executed after the current node. For nodes that have multiple arrows coming in, all of the dependencies must be completed first before the node can start.
+Each node in the graph is defined by an operator. There are lots of operators such as BashOperator, PythonOperator, etc. Each operator is responsible for running a function of that operator type. For example, if you have a PythonOperator, you can tell the operator to run a python function. This is a list of [all possible Airflow operators](https://airflow.apache.org/docs/apache-airflow/stable/_api/airflow/operators/index.html).
+Each DAG is specified with a DAG python file that specifies the nodes and dependencies between the nodes.
+
+The official Airflow documentation defines a DAG in the following way:
+A DAG is defined in a Python script, which represents the DAGs structure (tasks and their dependencies) as code.
+
+## Getting started
+
+Setting up Airflow is really straight forward. This setup process will be for MacOS but there are corresponding Windows setup steps online. Before the installation process, make sure you have HomeBrew installed. 
+HomeBrew is a package installer that makes it a lot simpler to install programs and packages.
+
+### 1. Install Python3
+
+Install Python3 and then check to make sure the python version is 3+
+
+`% brew install python`
+
+`% python --version`
+
+`python 3.8.3`
+
+### 2.Install pip
+
+`% curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`
+
+`% python get-pip.py`
+
+For Airflow, make sure the pip version is 20.2.4
+
+`% pip install --upgrade pip==20.2.4`
+
+`% pip --version`
+
+### 3. Create a Virtual Environment
+
+Now create and activate the virtual environment so that all packages get install onto the virtual environment rather than your computer.
+
+`% pip install virtualenv`
+`% virtualenv -p python venv`
+
+`% source venv/bin/activate`
+
+Now your virtual environment is activated. Your console should now have `(venv)` before it.
+
+### 4. Install and initiate Airflow
+
+Install Airflow in a new airflow directory
+
+`(venv) % mkdir airflow && cd airflow`
+
+`(venv) % pip install apache-airflow`
+
+Setup the proper directory structure and create a new airflow folder. 
+First get the path to the airflow folder with pwd and then export that as the airflow home directory to that path.
+
+```
+
+(venv) % mkdir airflow_home
+
+(venv) % pwd
+
+/Users/<username>/airflow/airflow_home
+
+export AIRFLOW_HOME=`pwd`/airflow_home
+
+```
+
+Now check if everything is Ok:
+
+`(venv) % airflow version`
+
+
+### 5. Startup Airflow
+
+This will create some files in the directory that you designed as `AIRFLOW_HOME`
+
+Lastly, initialize the Airflow database. Airflow uses a SQLite database to keep track of metadata for all of the airflow DAGs.
+
+`(venv) % airflow db init`
+
+On the first startup of Airflow, you have to create a new user. I have just used simple admin for most of the fields but you can customize it.
+
+```
+(venv) % airflow users create \
+      --role Admin \
+      --username admin \
+      --email your_email@somewhere.com \
+      --firstname Firstname \
+      --lastname Lastname \
+      --password 1234
+``` 
+
+To check if the user was successfully added, list out all users:
+
+`airflow users list`
+
+Then startup the Airflow job scheduler:
+
+`airflow scheduler`
+
+This will freeze your terminal and youwill need to open a new terminal.
+
+You will need to activate the virtual environment and set `AIRFLOW_HOME` again in
+any new terminal you open. 
+If you don’t then the airflow commands will not work in the new terminal.
+
+### 6. Startup Airflow webserver
+
+Start the airflow webserver:
+
+`(venv) % airflow webserver`
+
+From here, everything should be setup so open up any web browser and go to `localhost:8080`. 8080 should be the default port in your `airflow.cfg` file but if that does not work, open up your `airflow.cfg` file and look for the `web_server_port` field and make it 8080. From here, simply enter the username and password you created before and login.
+
+Once you login, there are a lot of sample airflow jobs that you can look through and run.
+
+
+
+### 7. Creating your first DAG
+
+To stop the example DAGs from showing up, open your `airflow.cfg` file and set 
+`load_examples` to `False` and then create a dag folder as specified in the `dags_folder` variable in `airflow.cfg`. The fault dags folder path is `AIRFLOW_HOME/dags`.
+
+```
+(venv) % cd path/to/airflow/airflow_home
+(venv) % mkdir dags
+(venv) % mkdir scripts
+```
+
+Now we will create our first DAG containing four tasks (A, B, C and D). In this case, each task will be an R script.
+
+Now create the following files inside them:
+
+```
+(venv) % cd dags
+(venv) % touch dag_template_R.py
+(venv) % cd ../scripts
+(venv) % touch A_task.R
+(venv) % touch B_task.R
+(venv) % touch C_task.R
+(venv) % touch D_task.Rmd
+(venv) % touch run_r.sh
+```
+
+### 8. Build the tasks:
+
+For this tutorial, I have chosen four simple tasks that may not be useful but will serve as an example. In this subsection, I will create each task as an R script.
+
+Task A (`A_task.R` file): executes a `GET` request to this Random User Generator API (a free and open-source API for generating random user data) and obtains a list of 200 random users from Canada. Then exports the results as a `users.csv` file.
+
+Task B (`B_task.R` file): opens the `users.csv` file and builds a bar plot(counts by gender). Exports the result as a `counts_by_gender.png` file.
+
+Task C (`C_task.R` file): opens the `users.csv` file and builds a bar plot (counts by age). Exports the result as a `counts_by_age.png` file.
+
+Task D (`D_task.Rmd` file): opens the files generated by tasks B and C and builds a simple report html report.
+
+### 9. Bash scripts and commands:
+
+The contents of the run_r.sh file will be useful to run the A, B and C tasks:
+
+```
+#!/usr/bin/env Rscript
+args = commandArgs(trailingOnly=TRUE)
+setwd(dirname(args[1]))
+source(args[1])
+```
+
+(Take into account that you may need to change the interpreter on line 
+`#!/usr/bin/env Rscript`)
+
+Now you should be able to manually execute the scripts containing tasks 
+A, B and C with the following commands:
+
+```
+(venv) % chmod u+x run_r.sh
+(venv) % ./run_r.sh A_task.R
+(venv) % ./run_r.sh B_task.R
+(venv) % ./run_r.sh C_task.R
+(venv) % Rscript -e "rmarkdown::render('D_task.Rmd')"
+```
+
+### 10. The workflow:
+
+Now that we have all the necessary pieces, let's start coding our DAG.
+Look at the contents of the file `dag_template_R.py`
+
+Basically, we defined the default_args and then instantiate the DAG. After that, 
+we generated the tasks by instantiating Bash Operators objects and finally, 
+we set up the task dependencies rules. 
+For more information about how to create DAGs we suggest that you visit this 
+[link](https://airflow.apache.org/docs/apache-airflow/stable/tutorial.html).
+
+### 11. Run your DAG:
+Open the webserver:
+
+`airflow webserver`
+
+You will see a bunch of entries here that are Airflow examples. You can always turn them off by setting load_examples to FALSE in the `airflow.cfg` file.
+Now, open a second terminal to schedule the created DAG by starting the Airflow Scheduler:
+
+
+
+
+
+
