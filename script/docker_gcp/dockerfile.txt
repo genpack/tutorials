@@ -1,0 +1,49 @@
+
+# Install the dependencies necessary to add a new repository over HTTPS:
+sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
+
+# Add the CRAN repository to your system sources’ list:
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
+
+# install R
+sudo apt install r-base
+
+# Installing required R packages:
+
+sudo R -e "install.packages('magrittr', repos = 'http://cran.us.r-project.org')"
+
+sudo apt install libcurl4-openssl-dev
+sudo apt install libssl-dev
+sudo R -e "install.packages('openssl', repos = 'http://cran.us.r-project.org')"
+sudo R -e "install.packages(c('curl', 'httr',  'gargle', 'bigrquery', 'googleCloudStorageR'), repos = 'http://cran.us.r-project.org')"
+
+sudo R -e "install.packages('dplyr', repos = 'http://cran.us.r-project.org')"
+# dbplyr must be this specific version. Latest version does not work with bigquery!
+sudo R -e "devtools::install_version('dbplyr', version = '2.1.1')"
+
+sudo R -e "install.packages('remotes', repos = 'http://cran.us.r-project.org')"
+sudo R -e "remotes::install_version('dbplyr', '2.1.1')"
+
+# If it did not work, you will need to manually download and transfer the tar.gz file: 
+# sudo R -e "remove.packages('dbplyr')"
+# sudo R -e "install.packages('~/packages/dbplyr_2.1.1.tar.gz', repos = NULL, type = 'source')"
+
+sudo R -e "install.packages('lubridate', repos = 'http://cran.us.r-project.org')"
+
+sudo R -e "install.packages('reticulate', repos = 'http://cran.us.r-project.org')"
+
+sudo apt install libfontconfig1-dev
+sudo apt install libxml2-dev
+sudo apt install libharfbuzz-dev libfribidi-de
+sudo apt install libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
+
+sudo R -e "install.packages(c('systemfonts', 'xml2', 'textshaping', 'roxygen2', 'rversions', 'urlchecker', 'ragg', 'pkgdown', 'devtools'), repos = 'http://cran.us.r-project.org')"
+sudo R -e "install.packages('cumstats', repos = 'http://cran.us.r-project.org')"
+sudo R -e "devtools::install_github('https://github.com/genpack/rutils.git')"
+sudo R -e "devtools::install_github('https://github.com/genpack/rprom.git')"
+
+sudo R -e "install.packages(c('rlist', 'readr', 'bigreadr'), repos = 'http://cran.us.r-project.org')"
+# Copy files via git clone or direct transfer
+
+sudo R -e "install.packages('readr', repos = 'http://cran.us.r-project.org')"

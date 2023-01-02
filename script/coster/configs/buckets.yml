@@ -68,7 +68,9 @@ Leisure:
 Restaurant:
   Restaurant: Restaurant
 Utilities: 
-  Utilities: Utilities
+  Utilities: 
+  - Utilities
+  - Utility
 Gadgets: 
   Gadgets: 
   - Gadgets

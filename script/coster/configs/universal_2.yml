@@ -34,6 +34,9 @@ Proximity:
     - proximity
     - RouseHillUnit
     - CBRERPPtyLtd 
+Gift:
+  Gift:
+  - BdayPushChristm
 House:
   Rent: RobertEdwardsReal
   Landscape:
@@ -67,6 +70,8 @@ House:
     - Powershop
     - SYDNEYWATER
   Furniture:
+    - WHEEL&BARROW
+    - T2
     - REDSBABY
     - THINKOUTSIDE
     - DougSmithAppliances
@@ -84,6 +89,7 @@ House:
     - FlexiCards
     - GospelPiano
     - BabyKingdom
+    - ChristmasWarehouseCastleHill
   Repair:
     - HomeInsuExcess
     - roofing
@@ -92,6 +98,7 @@ House:
     - cncl
 Restaurant:
   Cafe:
+    - JLCHOLDINGS
     - ShareteaDFOHomebush
     - COCONOIRSYDNEY
     - TokyoBird
@@ -129,6 +136,8 @@ Restaurant:
     - MadMex
     - Gozleme
     - Oporto
+    - STARCADIUM
+    - JimsMalaysiaCast
     - yhh
     - cozycove
     - McDonalds
@@ -151,7 +160,7 @@ Restaurant:
     - TheChook
     - SESONI
     - NIGHTSTARSPTYLTD
-    - GUZMANYGOMEZ
+    - GUZMANYGOME
     - gyg
     - HungryJack
     - hj
@@ -163,6 +172,8 @@ Restaurant:
     - STREETGREEKCENTREP
     - SABBABA
   Restaurant:
+    - RaguPasta
+    - OrientHotelSydney
     - foodbever
     - BEVERWESTMEAD
     - CommBankAppFood
@@ -269,6 +280,7 @@ Transport:
     - RealInsur
     - RENTALCOVER
   Parking:
+    - DIRECTOROFNATIONALPCANBERRA
     - SydneyOlympicParkP6
     - SERVICENSW4040
     - NationalParksNSW
@@ -476,6 +488,7 @@ Services:
     - MUMBAIEXPRESSCENTR
     - Kargar
     - NSWREGISTRY
+    - EmbassyOfIran
   General:
     - bavraservices
     - MonacoJewellers
@@ -494,8 +507,9 @@ Groceries:
   General: 
     - Coles
     - iga
+    - SUPABARN
     - COSTCO
-    - Woolworths
+    - Woolworth
     - WWTOWNHALL
     - supermar
     - SUPRMRKT
@@ -582,6 +596,7 @@ Leisure:
     - camping
     - NATIONALPARK
   General: 
+    - COCKINGTONGREENGARDE
     - Leisure
     - Hijinx
     - SeaToSummit
@@ -601,6 +616,8 @@ Leisure:
     - QATARAIR
     - FlightTickets
   Accommodation:
+    - DirectDebit617704PAYPALAUSTRALIA1024022871734
+    - DirectDebit617704PAYPALAUSTRALIA1024100477159
     - SkyCityHotelAuckland
     - AlfaAmsterdamHotel 
     - MyHolidays
@@ -661,7 +678,7 @@ Unknown:
     - FlyingDragonGroup
     - panter
     - D-CHOICE
-Transfer:
+UnknownTransfer:
   Cashout:
     - cbaatm
     - cash

@@ -1,19 +1,19 @@
 inputs: 
-  - cba_sa_nov22
-  - cba_cc_nov22
+  - cba_sa_dec22
+  - cba_cc_dec22
 
 categories: script/coster/configs/universal_2.yml
 
-from: 2022-11-01
-until: 2022-11-30
+from: 2022-12-01
+until: 2022-12-30
 
 # excluded_categories: ['Expenses', 'Miscellaneous', 'CreditCard', 'Proximity']
 
 excluded_categories: ['Saving', 'Miscellaneous', 'CreditCard', 'Proximity']
 
 output:
-  transactions: sa_transactions
-  buckets: sa_buckets
+  transactions: sa_transactions.csv
+  buckets: sa_buckets.csv
   
   
 
