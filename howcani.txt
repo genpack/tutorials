@@ -74,6 +74,14 @@ $ sudo scp -i ~/dmclnt.pem config.yml hadoop@emr.79c1756b-2621-a8ba-fcca-8b07d9f
 ## get the list of files in a directory in R environment:
 > list.files(path = '.')
 
+## find all defined loss functions for xgboost [13 Feb 2023]:
+# Look at these links:
+https://machinelearningmastery.com/xgboost-loss-functions/
+https://xgboost.readthedocs.io/en/latest/parameter.html#learning-task-parameters
+
+
+
+
 ## publish RStudio Server as a web interface on AWS EMR cluster or EC2 instance [28 Dec 2018]:
 1- [remotely connect to] AWS EMR cluster
 2- install R on the instance
@@ -532,7 +540,11 @@ $ python3 -m pip install pipx
 % python3 -m pip install pipx
 % python3 -m pip install aws-mfa
 
-
+## run some expressions in R package on load [31 Jan 2023]:
+# useful links:
+# https://github.com/tidyverse/dplyr/blob/bbcfe99e29fe737d456b0d7adc33d3c445a32d9d/R/zzz.r
+# https://rstudio.github.io/reticulate/articles/package.html
+# https://rlang.r-lib.org/reference/on_load.html
 
 ## test equality of two pandas dataframes [2 May 2022]:
 # Example:
@@ -713,3 +725,5 @@ Open terminal and get to the working directory and type. DOCKER_IMAGE_NAME shoul
 docker build -t DOCKER_IMAGE_NAME -f dockerfile.txt .
 Then change docker tag. PROJECT_ID is the google cloud project id to which you want to deploy your docker image
 docker tag DOCKER_IMAGE_NAME gcr.io/PROJECT_ID/DOCKER_IMAGE_NAME
+
+

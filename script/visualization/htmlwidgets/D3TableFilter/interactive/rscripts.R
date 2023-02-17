@@ -45,7 +45,7 @@ D3TableFilter.observer.column.editable.R = function(itemID){paste0("
                                                                    enableEdit(session, '", itemID, "', 'col_0')
                                                                    } else {
                                                                    w = which(names(sync$", itemID, ") == col)
-                                                                   enableEdit(session, '", itemID, "', 'col_' %+% w);  
+                                                                   enableEdit(session, '", itemID, "', 'col_' %++% w);  
                                                                    }
                                                                    }
                                                                    
@@ -54,7 +54,7 @@ D3TableFilter.observer.column.editable.R = function(itemID){paste0("
                                                                    disableEdit(session, '", itemID, "', 'col_0')
                                                                    } else {
                                                                    w = which(names(sync$", itemID, ") == col)
-                                                                   disableEdit(session, '", itemID, "', 'col_' %+% w);  
+                                                                   disableEdit(session, '", itemID, "', 'col_' %++% w);  
                                                                    }
                                                                    }
                                                                    ")
@@ -163,11 +163,11 @@ D3TableFilter.observer.filter.S2C.R = function(itemID){
          if (colname %in% names(sync$", itemID, "_column.filter)){
          if (!identical(flt$value, sync$", itemID, "_column.filter[[colname]])){
          # set filter
-         setFilter(session, tbl = '", itemID, "', col = 'col_' %+% colnumb, filterString = sync$", itemID, "_column.filter[[colname]], doFilter = TRUE);
+         setFilter(session, tbl = '", itemID, "', col = 'col_' %++% colnumb, filterString = sync$", itemID, "_column.filter[[colname]], doFilter = TRUE);
          }
          # else {do nothing}
          } else {
-         setFilter(session, tbl = '", itemID, "', col = 'col_' %+% colnumb, filterString = '', doFilter = TRUE);
+         setFilter(session, tbl = '", itemID, "', col = 'col_' %++% colnumb, filterString = '', doFilter = TRUE);
          }
          # debug(check)
          # check('FOB2', y = input$", itemID, "_filter$filterSettings, z = colnumb, t = colname, r = flt, s = sync$", itemID, "_column.filter)
@@ -307,7 +307,7 @@ dimple.js = function(field_name = 'group'){
 #### D3TableFilter:
 D3TableFilter.color.single.js = function(col){
   JS('function colorScale(obj, i){
-     return "' %+% col %+% '"}')
+     return "' %++% col %++% '"}')
 }
 
 D3TableFilter.color.nominal.js = function(domain, range){
@@ -316,9 +316,9 @@ D3TableFilter.color.nominal.js = function(domain, range){
   domain = domain[!dp]
   range  = range[!dp]
   ss = 'function colorScale(obj,i){
-  var color = d3.scale.ordinal().domain([' %+% 
-    paste('"' %+% domain %+% '"', collapse = ',') %+% ']).range([' %+%
-    paste('"' %+% range  %+% '"', collapse = ',') %+% ']);
+  var color = d3.scale.ordinal().domain([' %++% 
+    paste('"' %++% domain %++% '"', collapse = ',') %++% ']).range([' %++%
+    paste('"' %++% range  %++% '"', collapse = ',') %++% ']);
   return color(i);}'
   return(JS(ss))
 }
@@ -327,9 +327,9 @@ D3TableFilter.color.numeric.js = function(domain, range){
   N  = length(range) 
   q  = domain %>% quantile(probs = (0:(N-1))/(N-1))
   ss = 'function colorScale(obj,i){
-  var color = d3.scale.linear().domain([' %+% 
-    paste(q, collapse = ',') %+% ']).range([' %+%
-    paste('"' %+% range  %+% '"', collapse = ',') %+% ']);
+  var color = d3.scale.linear().domain([' %++% 
+    paste(q, collapse = ',') %++% ']).range([' %++%
+    paste('"' %++% range  %++% '"', collapse = ',') %++% ']);
   return color(i);}'
   return(JS(ss))
 }

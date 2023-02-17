@@ -1,5 +1,5 @@
 library(magrittr)
-source('~/Documents/software/R/projects/tutorials/script/gm/mustools.R')
+source('~/Documents/projects/tutorials/script/gm/mustools.R')
 
 # Melody
 
@@ -10,7 +10,7 @@ pitches %>%
   paste0(15, measure(., 13) %>% pitch_shift(3)) %>% 
   paste0(16, measure(., 8)  %>% pitch_shift(3)) %>% 
   paste0(17, 'FbAG') %>% 
-  paste0(18, 'GFEFfaCF') %>% 
+  paste0(18, 'GFEFfaCF')
   
   
 

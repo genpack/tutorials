@@ -9,14 +9,14 @@ library(htmlwidgets)
 library(magrittr)
 
 library(rutils)
-library(rvis)
 
-# source('C:/Nima/RCode/packages/niragen/R/niragen.R')
-#source('C:/Nima/RCode/packages/niravis-master/R/visgen.R')
-#source('C:/Nima/RCode/packages/niravis-master/R/jscripts.R')
-#source('C:/Nima/RCode/packages/niravis-master/R/rscripts.R')
-#source('C:/Nima/RCode/packages/niravis-master/R/dashboard.R')
-#source('C:/Nima/RCode/packages/niravis-master/R/TFD3.R')
+library(rvis)
+# source('visgen.R')
+# source('jscripts.R')
+# source('rscripts.R')
+# source('dashtools.R')
+# source('dashboard.R')
+# source('D3TableFilter.R')
 
 data(mtcars);
 mtcars <- mtcars[, 1:3];
@@ -125,8 +125,8 @@ I$hornetClass  = list(type = 'selectInput'  , title = "Set row class on 'Hornet 
 # Outputs:
 # O$candidateUi     = list(type = "uiOutput")
 I$candidate       = list(type = "radioButtons", title = "Make Datsun candidate", choices = c("yes" = TRUE, "no" = FALSE), selected = T)
-O$mtcars          = list(type = "TFD3Output", title = "mtcars" %>% h4, height = "auto", sync = T, config = cfg, data = mtcars)
-O$mtcars2         = list(type = "TFD3Output", title = "", height = "2000px",  sync = T, config = cfg2, data = mtcars[ , 1:2])
+O$mtcars          = list(type = "d3tfOutput", title = "mtcars" %>% h4, height = "auto", sync = T, config = cfg, data = mtcars)
+O$mtcars2         = list(type = "d3tfOutput", title = "", height = "2000px",  sync = T, config = cfg2, data = mtcars[ , 1:2])
 O$mtcars2Output   = list(type = "tableOutput", title = "")
 O$edits           = list(type = "tableOutput", title = h4("Last edits"), rownames = T) 
 O$filters         = list(type = "tableOutput", title = h4("Filters")) 

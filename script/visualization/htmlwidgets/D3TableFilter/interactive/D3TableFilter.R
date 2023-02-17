@@ -18,15 +18,15 @@
 
 
 # Default settings for package DT:
-D3TableFilter.table.defset = defset %>% list.edit(
-  # Valid classes for all dimensions
-  dimclass  = list(
-    label = valid.classes,
-    color = valid.classes),
-  multiples = c('label', 'color'),
-  withRowNames  = T,
-  column.filter.enabled = TRUE
-)
+D3TableFilter.table.defset = defset %<==>% 
+  list(
+    # Valid classes for all dimensions
+    dimclass  = list(
+      label = valid.classes,
+      color = valid.classes),
+    multiples = c('label', 'color'),
+    withRowNames  = T,
+    column.filter.enabled = TRUE)
 
 D3TableFilter.addColumnTypes = function(config, obj){
   D3TableFilter.column_type = c(numeric = 'Number', character = 'String', Date = 'Date')
@@ -67,7 +67,7 @@ D3TableFilter.config.verify = function(config){
   config$selection.color       %<>% verify('character', domain = c('active', 'success', 'info', 'warning', 'danger'), default = 'info', lengths = 1, varname = 'config$selection.color')
   config$footer.font.weight    %<>% verify('character', domain = c('bold'), lengths = 1, varname = 'config$footer.font.weight')
   config$footer.font.adjust    %<>% verify('character', domain = c('left', 'right', 'center'), lengths = 1, varname = 'config$footer.font.adjust')
-  config$footer.font.format    %<>% verify('character', domain = 1:9 %+% '.f', lengths = 1, varname = 'config$footer.font.format')
+  config$footer.font.format    %<>% verify('character', domain = 1:9 %++% '.f', lengths = 1, varname = 'config$footer.font.format')
   # and many more ...
   return(config)
 }
@@ -109,7 +109,7 @@ D3TableFilter.edit = function(colnames, config){
   out = character()
   for(i in enacols){
     w = which(nms == i) - 1
-    for (j in w){out %<>% c('col_' %+% w)}
+    for (j in w){out %<>% c('col_' %++% w)}
   }
   return(out)
 }
@@ -123,7 +123,7 @@ D3TableFilter.initialFilters = function(colnames, config){
   out = list()
   for(i in names(config$column.filter) %>% verify('character', domain = nms, default = character(), varname = 'names(config$column.filter)')){
     w = which (nms == i)
-    for (j in w){out[['col_' %+% (w - 1)]] = config$column.filter[[i]]}
+    for (j in w){out[['col_' %++% (w - 1)]] = config$column.filter[[i]]}
   }
   return(out)
 }
@@ -160,7 +160,7 @@ D3TableFilter.bgColScales = function(obj, config){
   nms  = c('rownames', colnames(obj))
   for (cc in names(config$column.color)){
     w = which(nms == cc) - 1
-    config$column.color.auto[[cc]] %<>% verify('logical', domain = c(T,F), lengths = 1, default = F, varname = "config$column.color.auto['" %+% cc %+% "']")
+    config$column.color.auto[[cc]] %<>% verify('logical', domain = c(T,F), lengths = 1, default = F, varname = "config$column.color.auto['" %++% cc %++% "']")
     if(config$column.color[[cc]] %>% unique %>% length == 1){
       scr = D3TableFilter.color.single.js(config$column.color[[cc]] %>% unique)
     } else if(config$column.color.auto[[cc]]){
@@ -252,8 +252,8 @@ D3TableFilter.table = function(obj, label = NULL, color = NULL, shape = NULL, co
     enableTf     = config$column.filter.enabled,
     filterInput  = config$column.filter.enabled,
     edit         = L$label %>% D3TableFilter.edit(config),
-    checkBoxes   = chif(is.empty(wcb), NULL, 'col_' %+% wcb),
-    radioButtons = chif(is.empty(wcb), NULL, 'col_' %+% wrb),
+    checkBoxes   = chif(is.empty(wcb), NULL, 'col_' %++% wcb),
+    radioButtons = chif(is.empty(wcb), NULL, 'col_' %++% wrb),
     initialFilters = D3TableFilter.initialFilters(L$label, config),
     footData = D3TableFilter.footData(obj[, L$label], config),
     tableStyle = config$table.style,

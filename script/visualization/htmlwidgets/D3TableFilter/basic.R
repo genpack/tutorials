@@ -3,8 +3,10 @@
 
 library(magrittr)
 library(dplyr)
-source('C:/Nima/R/projects/libraries/developing_packages/niragen.R')
-source('C:/Nima/R/projects/libraries/developing_packages/visgen.R')
+
+library(rutils)
+library(rvis)
+library(D3TableFilter)
 
 
 
@@ -19,15 +21,15 @@ tableProps <- list(
   )
 );
 
-tbl <- 
-  d3tf(mtcars,
+d3tf(mtcars,
        tableProps = tableProps,
        showRowNames = TRUE,
        tableStyle = "table table-bordered")
 
 # Translation:
 
-tbl = mtcars %>% arrange(cyl, disp) %>% D3TableFilter.table(label = names(mtcars) %>% as.list)
+rvisPlot(plotter = 'D3TableFilter', type = 'table', obj = mtcars %>% arrange(cyl, disp))
+
 
 ### server.R ------------------------
 # --------------------------------------------------------
