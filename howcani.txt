@@ -482,6 +482,36 @@ $ jupyter kernelspec uninstall myenv
 # Example:
 > remove.packages("dbplyr")
 
+## melt a table in bigquery sql [22 Feb 2023]:
+SELECT
+  <columns_to_keep>,
+  metric,
+  value
+FROM <table> UNPIVOT(value FOR metric IN (<columns_to_unpivot>))
+order by metric, value
+
+# Another way to do it if you would rather not use <cloumns_to_unpivot>:
+
+select
+  <columns_to_keep>,
+  metric,
+  value
+from (
+  SELECT
+    *,
+    REGEXP_REPLACE(SPLIT(pair, ':')[OFFSET(0)], r'^"|"$', '') metric, 
+    REGEXP_REPLACE(SPLIT(pair, ':')[OFFSET(1)], r'^"|"$', '') value 
+  FROM
+    <table>,
+    UNNEST(SPLIT(REGEXP_REPLACE(to_json_string(<table>), r'{|}', ''))) pair
+)
+where metric not in (<column_names_to_keep>)
+order by metric, value
+where
+
+# column_names_to_keep - this is a list of the JSON-escaped names of the columns to keep
+# source: https://sql-snippets.count.co/t/unpivot-melt/55
+
 
 ## change default keyboard shortcuts in pyCharm [28 March 2022]:
 # in pycharm go to settings 
