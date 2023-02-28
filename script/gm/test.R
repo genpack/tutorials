@@ -149,7 +149,7 @@ pitches = '2c3CEEDDCCDCa4bc5bDDCCbbCbg6af7EGGGGEEFEC8DEDb9CgED10DCbCfgf11FAAGGFF
 
 pitches %>% paste0(13, measure(., 8) %>% pitch_shift(2)) 
 
-pitches %>% measure(11) %>% pitch_shift(10)
+pitches %>% measure(11) %>% pitch_shift(3)
 
 rythms = c('', '4', '1.o3ovo4ovo', '14','1...ovo', '1444', '1.vo3678', '1..v4v', '124v5678')
   

@@ -2,14 +2,15 @@ library(magrittr)
 library(dplyr)
 library(gm)
 
+#### For gm:
 
-read.csv('script/gm/data/chamadoona.csv') -> mel
+read.csv('script/gm/data/chamadoona_v2.csv') -> mel
 # mel %>% write.csv('script/gm/data/chamadoona.csv', row.names = F)
 
 View(mel)
 
 is_issue = mel %>% group_by(measure) %>% summarise(sumdur = sum(duration)) %>% 
-  pull(sumdur) %>% {.!=1} %>% sum %>% as.logical
+  pull(sumdur) %>% {.!=8} %>% sum %>% as.logical
 is_issue = is_issue & (is.na(mel$octave[mel$note != 'r']) %>% sum)
 
 mel %<>% filter(duration > 0)

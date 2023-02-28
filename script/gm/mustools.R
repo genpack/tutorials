@@ -1,7 +1,7 @@
 # mustools.R
 zarbs = as.character(1:8)
 
-measure = function(pitch, mn){
+smeasure = function(pitch, mn){
   mn %<>% as.integer
   start = stringr::str_locate(pitch, as.character(mn)) %>% as.integer %>% {.[2]} + 1
   end   = stringr::str_locate(pitch, as.character(mn+1)) %>% as.integer %>% {.[1]} - 1
@@ -11,12 +11,13 @@ measure = function(pitch, mn){
   return("")
 }
 
-pitch_shift = function(pitch, shift = 1){
-  patn = 'ormtslicdefgabCDEFGABORMTSLI' %>% strsplit('') %>% unlist
-  patt  = patn %>% length %>% sequence
+snote_shift = function(pitch, shift = 1){
+  snotes = rep('CDEFGAB', 4) %>% strsplit('') %>% unlist
+  patn   = 'ormtslicdefgabCDEFGABORMTSLI' %>% strsplit('') %>% unlist
+  patt   = patn %>% length %>% sequence
   names(patt) = patn
   
-  notes[patt[gsub(pitch, pattern = "[0-9]", replacement = '') %>% strsplit('') %>% unlist] + shift] %>% 
+  snotes[patt[gsub(pitch, pattern = "[0-9]", replacement = '') %>% strsplit('') %>% unlist] + shift] %>% 
     {.[is.na(.)]<-'-';.} %>% paste(collapse = "")
 }
 
@@ -149,3 +150,13 @@ as.rythm = function(r){
   
   return(res) 
 }
+
+
+## spitch + key + start_octave -> melody
+### snote, smelody, note, rythm, function
+
+## function + mode + start -> melody
+## note + rythm -> music
+## chord + chordform -> music
+## chordfunction + chordrythm -> chordform
+## 
