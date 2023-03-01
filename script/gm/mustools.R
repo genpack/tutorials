@@ -1,7 +1,7 @@
 # mustools.R
 zarbs = as.character(1:8)
 
-smeasure = function(pitch, mn){
+measure = function(pitch, mn){
   mn %<>% as.integer
   start = stringr::str_locate(pitch, as.character(mn)) %>% as.integer %>% {.[2]} + 1
   end   = stringr::str_locate(pitch, as.character(mn+1)) %>% as.integer %>% {.[1]} - 1
@@ -11,13 +11,12 @@ smeasure = function(pitch, mn){
   return("")
 }
 
-snote_shift = function(pitch, shift = 1){
-  snotes = rep('CDEFGAB', 4) %>% strsplit('') %>% unlist
+pitch_shift = function(pitch, shift = 1){
   patn   = 'ormtslicdefgabCDEFGABORMTSLI' %>% strsplit('') %>% unlist
   patt   = patn %>% length %>% sequence
   names(patt) = patn
   
-  snotes[patt[gsub(pitch, pattern = "[0-9]", replacement = '') %>% strsplit('') %>% unlist] + shift] %>% 
+  patn[patt[gsub(pitch, pattern = "[0-9]", replacement = '') %>% strsplit('') %>% unlist] + shift] %>% 
     {.[is.na(.)]<-'-';.} %>% paste(collapse = "")
 }
 
