@@ -58,7 +58,7 @@ build_snote_mapper = function(key = "C", start = 2){
 smeasure = function(smelody, mn){
   mn %<>% as.integer
   start = stringr::str_locate(smelody, as.character(mn)) %>% as.integer %>% {.[2]} + 1
-  end   = stringr::str_locate(smelody, as.character(mn+1)) %>% as.integer %>% {.[1]} - 1
+  end   = start + substr(smelody, start, nchar(smelody)) %>% stringr::str_locate("[0-9]") %>% as.integer %>% {.[1]} - 2
   if(is.na(end)){end = nchar(smelody)}
   out   = substr(smelody, start, end)
   if(length(grep(out, pattern = "[0-9]")) == 0){return(out)}

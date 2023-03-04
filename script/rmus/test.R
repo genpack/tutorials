@@ -1,25 +1,30 @@
 # rmus
-mod = function(x, y){
+RMUSMOD = function(x, y){
   x - y*(x %/% y)
 }
 
-notes_sharp = c('C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B')
-notes_flat  = c('C', 'D_', 'D', 'E_', 'E', 'F', 'G_', 'G', 'A_', 'A', 'B_', 'B')
-add_note = function(input, halftunes = 2){
-  ind = which(notes_sharp == input)
+NOTES_SHARP = c('C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B')
+NOTES_FLAT  = c('C', 'D_', 'D', 'E_', 'E', 'F', 'G_', 'G', 'A_', 'A', 'B_', 'B')
+shift_note = function(input, halftunes = 2, sharp = T){
+  if(length(input)>1){
+    return(input %>% sapply(shift_note) %>% unlist)
+  }
+  ind = which(NOTES_SHARP == input)
   if(length(ind) == 0){
-    ind = which(notes_flat == input)
+    ind = which(NOTES_FLAT == input)
     rutils::assert(length(ind) > 0, 'Unknown Note!')
   }
   
-  ind = mod(ind + halftunes, 12)
+  ind = RMUSMOD(ind + halftunes, 12)
   ind[ind == 0] <- 12
-  return(notes_sharp[ind])
+  if(sharp) return(NOTES_SHARP[ind]) else return(NOTES_FLAT[ind])
 }
 
 chord_triad = function(input, major = T){
   
   rutils::chif(major, c(0, 4, 3), c(0, 3, 4)) -> nts
   
-  input %>% add_note(nts %>% cumsum)
+  input %>% shift_note(nts %>% cumsum)
 }
+
+

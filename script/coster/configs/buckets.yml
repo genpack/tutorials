@@ -19,7 +19,9 @@ Furniture:
 Transport:
   Transport: Transport
 Communication: 
-  Communication: Communication
+  Communication: 
+  - Communication
+  - Communicatiion
 
 CarPurchase:
   CarPurchase: CarPurchase

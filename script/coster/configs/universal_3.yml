@@ -37,8 +37,7 @@ Proximity:
 Gift:
   Gift:
   - BdayPushChristm
-House:
-  Rent: RobertEdwardsReal
+Landscape:
   Landscape:
     - hummBNPL
     - AUSPLANTSON
@@ -60,18 +59,16 @@ House:
     - mitre10
     - fandago
     - AUSTRALIANNATIVELAND
+HomeInsurance:
   Insurance:
     - COMMONWEALTHINSURANCE
+Mortgage:    
   Mortgage:
     - Mortgage
     - Loan
-  Utility:
-    - AGLENERGY
-    - Powershop
-    - SYDNEYWATER
+Furniture:    
   Furniture:
     - WHEEL&BARROW
-    - T2
     - REDSBABY
     - THINKOUTSIDE
     - DougSmithAppliances
@@ -90,12 +87,21 @@ House:
     - GospelPiano
     - BabyKingdom
     - ChristmasWarehouseCastleHill
+Utilities:  
+  Utility:
+    - AGLENERGY
+    - Powershop
+    - SYDNEYWATER
+HomeRepair:    
   Repair:
     - HomeInsuExcess
     - roofing
+CouncilFee:    
   Council:
     - TheHillsShireCouncil
     - cncl
+HomeRent:
+  Rent: RobertEdwardsReal
 Restaurant:
   Cafe:
     - BarLuca
@@ -267,22 +273,11 @@ Restaurant:
     - '85DEGREES'
     - LA-ONGTHAI
     - CRINITIS
-Transport:
-  PublicTransport:
-    - TransportForNSW
-    - TFNSWRAIL
-    - UBER
-    - WWMetro
+
+CarParking:
   Toll:
     - RMSEtoll
     - RMS-Etoll
-  Insurance:
-    - AUTOGENERAL
-    - BudgetDirect
-    - Allianz
-    - Aami
-    - RealInsur
-    - RENTALCOVER
   Parking:
     - DIRECTOROFNATIONALPCANBERRA
     - SydneyOlympicParkP6
@@ -296,9 +291,18 @@ Transport:
     - RANDWICKCOUNCIL
     - NORTHERNBEACHESCOUNC
     - MACQUARIEUNIVERSITYNORTHRYDE
+carInsurance:  
+  Insurance:
+    - AUTOGENERAL
+    - BudgetDirect
+    - Allianz
+    - Aami
+    - RealInsur
+    - RENTALCOVER
   Registration:
     - SERVICENSW
     - RMS-Rego
+carFuel:
   Fuel:
     - MOBILEASTNOWRA
     - Caltex
@@ -317,18 +321,26 @@ Transport:
     - station
     - BPSILVERWATER
     - ColesExpress
+CarServices:
   Service:
     - MicarCar
     - KAKINGAHOLDINGS 
     - REPCO
     - pinkslip
+carPurchase:
   Buy:
     - Nissan
   Rent:
     - hertz
     - RentalCars
     - EASYCARTMASCOT 
-CreditCardRepayment:
+Transport:
+  PublicTransport:
+    - TransportForNSW
+    - TFNSWRAIL
+    - UBER
+    - WWMetro
+CreditCard:
   CBA:
     - PAYMENTRECEIVED
     - CRDTBLL
@@ -419,26 +431,14 @@ Shopping:
   Electronics:
     - JBHiFi
     - EBay
-Health:
+HealthInsurance:
   Insurance:
     - Bupa
     - CBHS
     - OVHC
     - MYO
-  Medicine:
-    - PUNCHBOWLCENTRAL
-    - CINCOTTADISCNTCHEM
-    - GMWORLD
-    - AMCAL
-    - Pharmacy
-    - YSTHealth
-    - PriceLine
-    - pline
-    - CHEMIST
-    - drug
-  Dentist:
-    - AshrafObaid
-    - TEETH
+    - CellCare
+MedicalVisit:
   General:
     - WESTERNSYDNEYLHNWESTMEAD
     - WSLHDWESTMEAD
@@ -453,12 +453,27 @@ Health:
     - health
     - clinik
     - MCAREBENEFITS
-    - CellCare
     - NORTHVILLAGEFMLYP
   Specialist:
     - NEUROSURGERY
     - BENJAMINTRAUTMAN
     - chiro
+  Dentist:
+    - AshrafObaid
+    - TEETH
+Medicine:
+  Medicine:
+    - PUNCHBOWLCENTRAL
+    - CINCOTTADISCNTCHEM
+    - GMWORLD
+    - AMCAL
+    - Pharmacy
+    - YSTHealth
+    - PriceLine
+    - pline
+    - CHEMIST
+    - drug
+Sports:
   Sport:
     - WAVESFITNESS
     - hiltonsydney
@@ -467,7 +482,16 @@ Health:
 Gadjet:
   MobilePhone:
   - RPGBRANDSPTYLTDSYDNEY
-Services:
+
+LaundryServices:
+  Laundry:
+    - LAWRENCEDRYCLEANERS
+    - MAURICEDRYCLEANE
+    - Fabani
+    - dryclean
+    - laundr
+
+LegalServices:
   Banking:
     - paymentfee
     - TransferFee
@@ -481,12 +505,6 @@ Services:
     - OverdrawingApprovalFee
     - TRANSACTIONFEE
     - PaymentFee
-  Laundry:
-    - LAWRENCEDRYCLEANERS
-    - MAURICEDRYCLEANE
-    - Fabani
-    - dryclean
-    - laundr
   Legal:
     - LegalService
     - Post

@@ -35,7 +35,7 @@ View(transactions)
 
 path_output_transactions = paste('script', 'coster', 'report', mc$output$transactions, sep = "/")
 
-transactions %>% write.csv(path_output_transactions, row.names = F)
+transactions %>% write.csv(path_output_transactions %>% paste("csv", sep = "."), row.names = F)
 
 ##########
 
@@ -50,7 +50,7 @@ path_output_buckets = paste('script', 'coster', 'report', mc$output$buckets, sep
 
 bucket_balances %>% View
 
-bucket_balances %>% write.csv(path_output_buckets, row.names = F)
+bucket_balances %>% write.csv(path_output_buckets %>% paste('csv', sep = "."), row.names = F)
 
 #  rpivotTable::rpivotTable()
   
