@@ -3,46 +3,52 @@
 build_snote_mapper = function(key = "C", start = 2){
 
   all_snotes = 'ormtslicdefgabCDEFGABORMTSLI' %>% strsplit('') %>% unlist
-  snote_mapper = 'cdefgabcdefgabcdefgabcdefgab' %>% 
+  map2note = 'cdefgabcdefgabcdefgabcdefgab' %>% 
     strsplit('') %>% unlist %>% {names(.)<-all_snotes;.}
   
   if(key %in% c("Dm", "F")){
-    snote_mapper[strsplit('biBI', '') %>% unlist] %<>% paste0('_')
+    map2note[strsplit('biBI', '') %>% unlist] %<>% paste0('_')
   }
   
   if(key %in% c("G", "Em")){
-    snote_mapper[strsplit('gsGS','') %>% unlist] %<>% paste0('#')
+    map2note[strsplit('gsGS','') %>% unlist] %<>% paste0('#')
   }
   
   if(key %in% c("Gm", "Bb")){
-    snote_mapper[strsplit('beimBEIM','') %>% unlist] %<>% paste0('_')
+    map2note[strsplit('beimBEIM','') %>% unlist] %<>% paste0('_')
   }
   
   if(key %in% c("D", "Bm")){
-    snote_mapper[strsplit('ftcoFTCO','') %>% unlist] %<>% paste0('#')
+    map2note[strsplit('ftcoFTCO','') %>% unlist] %<>% paste0('#')
   }
   
   if(key %in% c("Cm", "Eb")){
-    snote_mapper[strsplit('meEMibBIlaAL','') %>% unlist] %<>% paste0('_')
+    map2note[strsplit('meEMibBIlaAL','') %>% unlist] %<>% paste0('_')
   }
 
   if(key %in% c("A", "Gbm")){
-    snote_mapper[strsplit('cfgotsCFGOTS','') %>% unlist] %<>% paste0('#')
+    map2note[strsplit('cfgotsCFGOTS','') %>% unlist] %<>% paste0('#')
   }
   
   if(key %in% c("Fm", "Ab")){
-    snote_mapper[strsplit('meEMibBIlaALdrDR','') %>% unlist] %<>% paste0('_')
+    map2note[strsplit('meEMibBIlaALdrDR','') %>% unlist] %<>% paste0('_')
   }
   
   if(key %in% c("E", "Dbm")){
-    snote_mapper[strsplit('cfgotsCFGOTSdrDR','') %>% unlist] %<>% paste0('#')
+    map2note[strsplit('cfgotsCFGOTSdrDR','') %>% unlist] %<>% paste0('#')
   }
 
-  # 5 or more signatures have not been supported yet.
+  map2octave = c(rep(start,7), rep(start+1,7), rep(start+2,7), rep(start+3,7))
   
-  snote_mapper %>% 
-    paste0(c(rep(start,7), rep(start+1,7), rep(start+2,7), rep(start+3,7))) %>% 
-    {names(.)<-all_snotes;.}
+  map2note %>% paste0(map2octave) -> map2pitch
+  
+  names(map2note) <- all_snotes 
+  names(map2octave) <- all_snotes 
+  names(map2pitch) <- all_snotes 
+  
+  
+  # 5 or more signatures have not been supported yet.
+  return(list(map2note = map2note, map2octave = map2octave, map2pitch = map2pitch)) 
 }
 
 ###############################################################################
@@ -85,10 +91,23 @@ snote_shift = function(snote, shift = 1){
 
 ###############################################################################
 
-
 # start: which octave number does the first snotes "ormtdli" start from?
 # key: which key signature are you using?
-snote2cpitch = function(snote, key = 'C', start = 2){
-  mapper = build_snote_mapper(key = key, start = start)
-  return(mapper[snote %>% strsplit('') %>% unlist])
+snote2note_octave = function(snote, key = 'C', start = 2){
+  mapper = build_snote_mapper(key = key)
+  snotes = snote %>% strsplit('') %>% unlist
+  plus   = which(snotes == '+') - 1
+  nega   = which(snotes == '-') - 1
+  notes  = mapper$map2note[snotes]
+  if(length(plus) > 0){notes[plus] %<>% shift_note(1)}
+  if(length(nega) > 0){notes[nega] %<>% shift_note(-1)}
+  return(list(
+    octaves = mapper$map2octave[snotes] %>% na.omit(),
+    notes   = notes[!is.na(notes)]
+  ))
+}
+  
+snote2cpitch = function(...){
+  res = snote2note_octave(...)
+  return(paste0(res$notes, res$octaves))
 }

@@ -29,7 +29,9 @@ song = data.frame(
   pitch = NA,
   duration = NA,
   note = NA,
-  octave = NA
+  octave = NA,
+  schord = NA,
+  rchord = NA
 )
 
 song$rythm[1] <- '4_0'
@@ -42,6 +44,7 @@ song$rythm[14] <- '5111_111'
 song$rythm[14] <- '611o_1111'
 song$rythm[19:22] <- '24112222_11111111'
 song$rythm[c(9,17)] <- '9111_1111'
+
 
 
 song %>% apply_rythms -> mpr
@@ -77,5 +80,43 @@ music_df %>%
     func = pitch2function(.$pitch, start = "f"),
     rythm = pitchDuration2rythm(.$pitch, .$duration))}) %>% View
 
+
+
+
+## CHORDS
+########################################################
+song$schord[c(1:3, 6)] = 'tcacacac'              # Fm
+song$schord[4] = 'scgcgcgc'                      # C7/G
+song$schord[5] = 'm+cgcgcgc'                     # C7/E
+song$schord[c(7, 13, 21)] = 'l+fCfCfCf'          # F7/A
+song$schord[c(8,11, 14, 19, 20)] = 'ifDfDfDf'    # Bbm
+song$schord[9] = 'se+Ce+Ce+C'                    # C7/G
+song$schord[10] = 'tea+cC'                       # F7
+
+song$schord[12] = 'cfEfEfEf'                     # F7/C
+song$schord[15] = 'ifD+fD+fD+f'                  # Bb7
+song$schord[16] = 'ebGbGbeb'                     # Ebm
+song$schord[17] = 'ifDfDifD'                     # Bbm
+song$schord[18] = 'tea+CFA+OT'                   # F7
+song$schord[22] = 'tfCfCfCf'                     # F7
+
+song$rchord[c(1:8,11:16, 18:22)] = '11111111_11111111'      
+song$rchord[c(9, 17)] = '1111112_1111111'               
+song$rchord[10] = '11114_11111'               
+
+
+
+########################################################
+schords = "145"
+schords %<>% 
+  paste0(2, smeasure(., 1)) %>% 
+  paste0(3, smeasure(., 1)) %>% 
+  paste0(14, 'DbCb') %>% 
+  paste0(15, smeasure(., 13) %>% snote_shift(3)) %>% 
+  paste0(16, smeasure(., 8)  %>% snote_shift(3)) %>% 
+  paste0(17, 'FbAG') %>% 
+  paste0(18, 'GFEFfaCF') %>% 
+  paste0(20, smeasure(., 19)) %>% 
+  paste0(22, smeasure(., 21)) 
 
 

@@ -92,7 +92,7 @@ semitone = function(notes, octaves){
 
 shift_note = function(input, halftunes = 2, sharp = T){
   if(length(input)>1){
-    return(input %>% sapply(shift_note) %>% unlist)
+    return(input %>% sapply(shift_note, halftunes = halftunes, sharp = sharp) %>% unlist)
   }
   ind = which(NOTES_SHARP == input)
   if(length(ind) == 0){

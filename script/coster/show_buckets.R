@@ -11,8 +11,8 @@ source("script/coster/coster_tools.R")
 # Read Config:
 
 
-# mc = yaml::read_yaml('script/coster/configs/mc_buckets.yml')
-mc = yaml::read_yaml('script/coster/configs/master_config.yml')
+mc = yaml::read_yaml('script/coster/configs/mc_buckets.yml')
+# mc = yaml::read_yaml('script/coster/configs/master_config.yml')
 
 config = yaml::read_yaml(mc$categories)
 
