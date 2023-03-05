@@ -19,8 +19,7 @@ SCALE = list(
   chargah = c(0, 1, 3, 1, 2, 1, 3, 1))
 
 ###############################################################################
-
-cpitchRythm2pitchDuration = function(cpitch, rythm, target_unit = 1/8){
+rythm2duration = function(rythm, target_unit = 1/8){
   rsplit = rythm %>% strsplit('_') %>% unlist
   rsplit[1] %>% strsplit('') %>% unlist %>% 
     strtoi(32L) %>% {.[.==0]<-32;.} -> duration
@@ -28,13 +27,20 @@ cpitchRythm2pitchDuration = function(cpitch, rythm, target_unit = 1/8){
   rutils::assert(rythm_unit %in% c(1,1/2,1/4,1/8,1/12,1/16,1/24,1/32), "Durations dont fit in a measure!")
   duration = duration*rythm_unit/target_unit
   rutils::assert(sum(duration)*target_unit == 1.0, "Durations dont fit a measure!")
+  return(duration)
+}
+
+cpitch2pitch = function(cpitch, rythm){
+  rsplit = rythm %>% strsplit('_') %>% unlist
   isrest = rsplit[2] %>% strsplit('') %>% 
     unlist %>% as.integer %>% as.logical %>% {!.}
   nn = length(cpitch)
-  rutils::assert(sum(!isrest) == nn, 'Check Error!')
+  rutils::assert(
+    sum(!isrest) == nn, 
+    sprintf("Given rythm %s does not match number of notes in the given cpitch %s!", rythm, paste(cpitch, collapse = ';')))
   pitch = rep('r', nn)
   pitch[!isrest] <- cpitch
-  return(list(pitch = pitch, duration = duration))
+  return(pitch)
 }
 
 pitchDuration2rythm = function(pitch, duration){
@@ -141,7 +147,7 @@ note_ovtave2function = function(notes, octaves = NULL, scale = 'white', mode = 1
 
 function2note_octave = function(func, scale = 'white', mode = 1, start = "a", starting_octave = 4){
   if(length(func) > 1){
-    return(func %>% sapply(function2note_octave, scale = scale, mode = mode, start = start))
+    return(func %>% lapply(function2note_octave, scale = scale, mode = mode, start = start))
   }
   
   fsplit = func %>% strsplit('_') %>% unlist
@@ -150,7 +156,7 @@ function2note_octave = function(func, scale = 'white', mode = 1, start = "a", st
   notes = scale_notes[fsplit[1] %>% strsplit('') %>% unlist %>% as.integer]
   offsets = fsplit[2] %>% strsplit('') %>% unlist %>% as.integer
   octaves = starting_octave + as.integer((- semitone(notes, 4) + semitone(start, 4) + 12*(offsets+1))/12)
-  return(list(note = notes, octaves = octaves))
+  return(list(note = notes, octave = octaves))
 }
 
 pitch2function = function(pitch, ...){
@@ -163,6 +169,53 @@ pitch2function = function(pitch, ...){
   return(note_ovtave2function(notes, octaves, ...))
 }
 
+function2pitch = function(...){
+  noctave = function2note_octave(...)
+  noctave %>% lapply(function(u) paste0(u$note, u$octave))
+}
 
 # todo:
 # function2pitch
+
+# MPR Functions:
+
+mpr.add_function = function(mpr, pitch = 'pitch', output = 'function', ...){
+  mpr[[pitch]] %>% 
+    strsplit(";") %>% 
+    lapply(function(u) try(pitch2function(u, ...), silent = T)) %>% 
+    unlist -> mpr[[output]]
+  return(mpr)
+}
+
+mpr.add_cpitch_from_function = function(mpr, func = 'function', output = 'cpitch', ...){
+  mpr[[func]] %>% function2pitch(...) %>% lapply(paste, collapse = ";") -> mpr[[output]]
+  return(mpr)
+}
+
+mpr.add_cpitch_from_snote = function(mpr, snote = 'snote', octave = 2, key = "C", output = "cpitch"){
+  mpr[[snote]] %>% 
+    sapply(snote2cpitch, key = 'Fm', start = 3) %>% 
+    lapply(paste, collapse = ";") %>% unlist -> mpr[[output]]
+  return(mpr)
+}
+
+mpr.add_duration = function(mpr, cpitch = 'cpitch', rythm = 'rythm', output = "duration", target_unit = 1/8){
+  measures = which(!is.na(mpr[[rythm]]) & !is.na(mpr[[cpitch]]))
+  for(i in measures){
+    rythm2duration(mpr[i, rythm], target_unit = target_unit) %>% 
+      paste(collapse = ";") -> mpr[i, output]
+  }
+  return(mpr)
+}
+
+mpr.add_pitch = function(mpr, cpitch = 'cpitch', rythm = 'rythm', output = "pitch"){
+  measures = which(!is.na(mpr[[rythm]]) & !is.na(mpr[[cpitch]]))
+  for(i in measures){
+    pitch = mpr[i, cpitch] %>% strsplit(";") %>% unlist %>% 
+      cpitch2pitch(rythm = mpr[i, rythm])
+    mpr[i, output] <- pitch %>% paste(collapse = ";")
+  }
+  return(mpr)
+
+  }
+

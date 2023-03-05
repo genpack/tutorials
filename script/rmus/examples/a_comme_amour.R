@@ -1,9 +1,11 @@
 # This example shows how you can easily write notes for a song using snote and smelody functions.
+library(magrittr)
 
-source('script/rmus/snote_tools.R')
-source('script/rmus/rmus_tools.R')
+source('script/rmus/tools/snote_tools.R')
+source('script/rmus/tools/rmus_tools.R')
 
-# Build melody until measure 22:
+## Build melody until measure 22:
+########################################################
 smelody = '2c3CEEDDCCDCa4bc5bDDCCbbCbg6af7EGGGGEEFEC8DEDb9CgED10DCbCfgf11FAAGGFFGFD12Ef19DfCDEDCb21CfabDCba'
 smelody %<>% 
   paste0(13, smeasure(., 3) %>% snote_shift(2)) %>% 
@@ -11,7 +13,7 @@ smelody %<>%
   paste0(15, smeasure(., 13) %>% snote_shift(3)) %>% 
   paste0(16, smeasure(., 8)  %>% snote_shift(3)) %>% 
   paste0(17, 'FbAG') %>% 
-  paste0(18, 'GFEFfaCF') %>% 
+  paste0(18, 'GFEF') %>% 
   paste0(20, smeasure(., 19)) %>% 
   paste0(22, smeasure(., 21)) 
   
@@ -28,38 +30,71 @@ song = data.frame(
   rythm = NA,
   pitch = NA,
   duration = NA,
-  note = NA,
-  octave = NA,
   schord = NA,
   rchord = NA
 )
 
+
+## Rythms
+########################################################
 song$rythm[1] <- '4_0'
 song$rythm[2] <- '31_01'
 song$rythm[c(3,5,7,11,13,15)] <- '7111111111_1111111111'
 song$rythm[c(4,6,12)] <- '31_11'
 song$rythm[c(8,16)] <- 'd3_1111'
 song$rythm[10] <- '611c444_1111111'
-song$rythm[14] <- '5111_111'
-song$rythm[14] <- '611o_1111'
+song$rythm[14] <- '5111_1111'
+song$rythm[18] <- '611o_1111'
 song$rythm[19:22] <- '24112222_11111111'
 song$rythm[c(9,17)] <- '9111_1111'
 
+song %<>% apply_rythms
 
 
-song %>% apply_rythms -> mpr
+## CHORD Melodies
+########################################################
+song$schord[c(1:3, 6)] = 'tcacacac'              # Fm
+song$schord[4] = 'scgcgcgc'                      # C7/G
+song$schord[5] = 'm+cgcgcgc'                     # C7/E
+song$schord[c(7, 13, 21)] = 'l+fCfCfCf'          # F7/A
+song$schord[c(8,11, 14, 19, 20)] = 'ifDfDfDf'    # Bbm
+song$schord[9] = 'se+Ce+Ce+C'                    # C7/G
+song$schord[10] = 'tea+cC'                       # F7
 
+song$schord[12] = 'cfEfEfEf'                     # F7/C
+song$schord[15] = 'ifD+fD+fD+f'                  # Bb7
+song$schord[16] = 'ebGbGbeb'                     # Ebm
+song$schord[17] = 'ifDfifD'                     # Bbm
+song$schord[18] = 'tea+CFA+OT'                   # F7
+song$schord[22] = 'tfCfCfCf'                     # F7
+
+song$schord[1:22] %>% 
+  sapply(snote2cpitch, key = 'Fm', start = 3) %>% 
+  lapply(paste, collapse = ";") %>% unlist -> song$chord_cpitch
+
+## CHORD Rythms
+########################################################
+song$rchord[c(1:8,11:16, 18:22)] = '11111111_11111111'      
+song$rchord[c(9, 17)] = '1111112_1111111'               
+song$rchord[10] = '11114_11111'               
+
+song %>% select(chord_cpitch, rchord) %>% 
+  rename(cpitch = chord_cpitch, rythm = rchord) %>% apply_rythms() %>% 
+  select(chord_pitch = pitch, chord_duration = duration) %>% cbind(song) -> song
+
+
+## Convert to standard music dataframe (SMD):
+########################################################
 # todo for function apply_rythm: consider empty cpitch
-mpr$pitch[1] <- "r"
+song$pitch[1] <- "r"
 
 
-mpr %>% mpr2rmusdf -> music_df
+song %>% mpr2rmusdf -> music_df
 
 # todo for function snote2cpitch: consider bekkars and out of scale notes 
 # specified with notation: + - in the snote
 music_df$pitch[c(115, 123)] <- 'a4'
 music_df$note[c(115, 123)] <- 'a'
-
 
 
 View(music_df)
@@ -79,44 +114,5 @@ music_df %>%
   do({data.frame(
     func = pitch2function(.$pitch, start = "f"),
     rythm = pitchDuration2rythm(.$pitch, .$duration))}) %>% View
-
-
-
-
-## CHORDS
-########################################################
-song$schord[c(1:3, 6)] = 'tcacacac'              # Fm
-song$schord[4] = 'scgcgcgc'                      # C7/G
-song$schord[5] = 'm+cgcgcgc'                     # C7/E
-song$schord[c(7, 13, 21)] = 'l+fCfCfCf'          # F7/A
-song$schord[c(8,11, 14, 19, 20)] = 'ifDfDfDf'    # Bbm
-song$schord[9] = 'se+Ce+Ce+C'                    # C7/G
-song$schord[10] = 'tea+cC'                       # F7
-
-song$schord[12] = 'cfEfEfEf'                     # F7/C
-song$schord[15] = 'ifD+fD+fD+f'                  # Bb7
-song$schord[16] = 'ebGbGbeb'                     # Ebm
-song$schord[17] = 'ifDfDifD'                     # Bbm
-song$schord[18] = 'tea+CFA+OT'                   # F7
-song$schord[22] = 'tfCfCfCf'                     # F7
-
-song$rchord[c(1:8,11:16, 18:22)] = '11111111_11111111'      
-song$rchord[c(9, 17)] = '1111112_1111111'               
-song$rchord[10] = '11114_11111'               
-
-
-
-########################################################
-schords = "145"
-schords %<>% 
-  paste0(2, smeasure(., 1)) %>% 
-  paste0(3, smeasure(., 1)) %>% 
-  paste0(14, 'DbCb') %>% 
-  paste0(15, smeasure(., 13) %>% snote_shift(3)) %>% 
-  paste0(16, smeasure(., 8)  %>% snote_shift(3)) %>% 
-  paste0(17, 'FbAG') %>% 
-  paste0(18, 'GFEFfaCF') %>% 
-  paste0(20, smeasure(., 19)) %>% 
-  paste0(22, smeasure(., 21)) 
 
 
