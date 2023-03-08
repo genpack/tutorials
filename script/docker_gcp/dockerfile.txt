@@ -42,8 +42,16 @@ sudo R -e "install.packages(c('systemfonts', 'xml2', 'textshaping', 'roxygen2', 
 sudo R -e "install.packages('cumstats', repos = 'http://cran.us.r-project.org')"
 sudo R -e "devtools::install_github('https://github.com/genpack/rutils.git')"
 sudo R -e "devtools::install_github('https://github.com/genpack/rprom.git')"
+sudo R -e "devtools::install_github('https://github.com/genpack/rml.git')"
+sudo R -e "devtools::install_github('https://github.com/genpack/rbig.git')"
 
 sudo R -e "install.packages(c('rlist', 'readr', 'bigreadr'), repos = 'http://cran.us.r-project.org')"
 # Copy files via git clone or direct transfer
 
 sudo R -e "install.packages('readr', repos = 'http://cran.us.r-project.org')"
+sudo R -e "install.packages('AUC', repos = 'http://cran.us.r-project.org')"
+
+# install Python packages
+sudo pip install pandas
+sudo pip install numpy
+sudo pip install scikit-learn

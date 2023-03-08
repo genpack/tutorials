@@ -1,5 +1,8 @@
 ##
 # rmus
+library(magrittr)
+library(dplyr)
+
 RMUSMOD = function(x, y){
   x - y*(x %/% y)
 }
@@ -11,6 +14,17 @@ SHARP2FLAT  = NOTES_FLAT  %>% {names(.)<-NOTES_SHARP;.}
 
 NOTE_ORDER  <- c(1:12, 2, 4, 7, 9, 11)
 names(NOTE_ORDER)<-union(NOTES_FLAT, NOTES_SHARP)
+
+KEY2SCALE = rep('white', 60)  
+names(KEY2SCALE) = NOTES_FLAT %>% toupper %>% 
+  gsub(pattern = "_", replacement = 'b') %>% 
+  c(paste0(.,'m'), paste0(.,7), paste0(., 'm7'), paste0(., 'dim'))
+
+KEY2MODE = rep(3,12) %>% c(rep(1,12), rep(7,12), rep(1, 12), rep(2, 12))
+names(KEY2MODE) = names(KEY2SCALE)
+
+KEY2START = rep(NOTES_FLAT, 5)  
+names(KEY2START) = names(KEY2MODE)
 
 SCALE = list(
   white = c(0, 2, 1, 2, 2, 1, 2, 2),
@@ -84,7 +98,7 @@ mpr2rmusdf = function(mpr){
                measure = i))
   }
   out$note = out$pitch %>% strsplit("[0-9]") %>% unlist
-  out$octave = out$pitch %>% gsub(pattern = "[a-g,_#]", replacement = "") %>% unlist
+  out$octave = out$pitch %>% gsub(pattern = "[a-z,_#]", replacement = "") %>% unlist
   out$octave[out$octave == 'r'] <- NA
   return(out)
 }
@@ -130,7 +144,7 @@ scale_notes = function(scale = 'white', mode = 1, start = "a", sharp = T){
 }
 
 
-note_ovtave2function = function(notes, octaves = NULL, scale = 'white', mode = 1, start = "a"){
+note_ocvtave2function = function(notes, octaves = NULL, scale = 'white', mode = 1, start = "a"){
   scale_steps_sharp = scale_notes(mode = mode, start = start, sharp = T)  
   scale_steps_flat  = scale_notes(mode = mode, start = start, sharp = F)  
   func = notes %>% sapply(function(i, sharp, flat) which(i == sharp | i == flat), sharp = scale_steps_sharp[-8], flat = scale_steps_flat[-8]) %>% unlist
@@ -154,8 +168,14 @@ function2note_octave = function(func, scale = 'white', mode = 1, start = "a", st
   
   scale_notes = scale_notes(mode = mode, start = start, sharp = F)
   notes = scale_notes[fsplit[1] %>% strsplit('') %>% unlist %>% as.integer]
+  
   offsets = fsplit[2] %>% strsplit('') %>% unlist %>% as.integer
-  octaves = starting_octave + as.integer((- semitone(notes, 4) + semitone(start, 4) + 12*(offsets+1))/12)
+  
+  #a = semitone(notes, 4) - semitone(start, 4) 
+  #a[a<0] = a[a<0]+12
+  #octaves = starting_octave + as.integer((a + offsets*12)/12)
+  
+  octaves = starting_octave + as.integer((- semitone(notes, 4) + semitone(start, 4) - 1 + 12*(offsets+1))/12)
   return(list(note = notes, octave = octaves))
 }
 
@@ -163,15 +183,20 @@ pitch2function = function(pitch, ...){
   pitch = pitch[pitch != 'r']
   if(length(pitch) == 0){return('_')}
   notes = pitch %>% strsplit("[0-9]") %>% unlist
-  octaves = pitch %>% gsub(pattern = "[a-g,_#]", replacement = "") %>% 
+  octaves = pitch %>% gsub(pattern = "[a-z,_#]", replacement = "") %>% 
     unlist %>% as.integer
   
   return(note_ovtave2function(notes, octaves, ...))
 }
 
-function2pitch = function(...){
-  noctave = function2note_octave(...)
-  noctave %>% lapply(function(u) paste0(u$note, u$octave))
+function2pitch = function(func, ...){
+  paster  = function(u) paste0(u$note, u$octave)
+  noctave = function2note_octave(func = func, ...)
+  if(length(func)==1){
+    return(paster(noctave))
+  } else {
+    return(noctave %>% lapply(paster))
+  }
 }
 
 # todo:
@@ -179,16 +204,70 @@ function2pitch = function(...){
 
 # MPR Functions:
 
-mpr.add_function = function(mpr, pitch = 'pitch', output = 'function', ...){
-  mpr[[pitch]] %>% 
-    strsplit(";") %>% 
-    lapply(function(u) try(pitch2function(u, ...), silent = T)) %>% 
-    unlist -> mpr[[output]]
+get_scale_mode_start = function(mpr, key = NULL, scale = NULL, mode = NULL, start = NULL){
+  
+  key    = rutils::verify(key, 'character', lengths = 1, null_allowed = T)
+  scale  = rutils::verify(scale, 'character', lengths = 1, default = 'white')
+  mode   = rutils::verify(mode, c('numeric', 'integer', 'character'), lengths = 1, default = 1)
+  start  = rutils::verify(start, 'character', lengths = 1, default = 'a')
+  
+  if(!is.null(key)){
+    if(key %in% names(KEY2MODE)){
+      keys = rep(key, nrow(mpr))
+    } else {
+      rutils::assert(!is.null(mpr[[key]]), "Given mpr table has no column %s!" %>% sprintf(key))
+      keys = mpr[[key]]
+    }
+    # assign scale, mode and start
+    return(list(scales = KEY2SCALE[keys], modes = KEY2MODE[keys], starts = KEY2START[keys]))
+  } else {
+    if(is.null(mpr[[scale]])){
+      scales = rep(scale, nrow(mpr))
+    } else {
+      scales = mpr[[scale]]
+    }
+    if(inherits(mode, 'character')){
+      rutils::assert(!is.null(mpr[[mode]]), "Given mpr table has no column %s!" %>% sprintf(mode))
+      modes = mpr[[mode]]
+    } else {
+      modes = rep(mode, nrow(mpr))
+    }
+    if(is.null(mpr[[start]])){
+      starts = rep(start, nrow(mpr))
+    } else {
+      rutils::assert(!is.null(mpr[[start]]), "Given mpr table has no column %s!" %>% sprintf(start))
+      starts = mpr[[start]]
+    }
+  }
+  
+  return(list(scales = scales, modes = modes, starts = starts))
+}
+
+mpr.add_function = function(mpr, pitch = 'pitch', output = 'function', key = NULL, scale = NULL, mode = NULL, start = NULL){
+  sms = get_scale_mode_start(mpr, key = key, scale = scale, mode = mode, start = start)
+  for(i in sequence(nrow(mpr))){
+    p = mpr[i, pitch] %>% strsplit(";") %>% unlist
+    f = try(pitch2function(p, scale = sms$scales[i], mode = sms$modes[i], start = sms$starts[i]), silent = T)
+    if(inherits(f, 'try-error')){
+      f = '!-!'
+    }
+    mpr[i, output] <- f
+  }  
+  # mpr[[pitch]] %>% 
+  #   strsplit(";") %>% 
+  #   lapply(function(u) try(pitch2function(u, ...), silent = T)) %>% 
+  #   unlist -> mpr[[output]]
   return(mpr)
 }
 
-mpr.add_cpitch_from_function = function(mpr, func = 'function', output = 'cpitch', ...){
-  mpr[[func]] %>% function2pitch(...) %>% lapply(paste, collapse = ";") -> mpr[[output]]
+mpr.add_cpitch_from_function = function(mpr, func = 'function', output = 'cpitch', key = NULL, scale = NULL, mode = NULL, start = NULL){
+  sms = get_scale_mode_start(mpr, key = key, scale = scale, mode = mode, start = start)
+  rws = which(!is.na(sms$scales) & !is.na(sms$modes) & !is.na(sms$starts))
+  for(i in rws){
+    mpr[i, func] %>% function2pitch(scale = sms$scales[i], mode = sms$modes[i], start = sms$starts[i]) %>% 
+      paste(collapse = ";") -> mpr[i, output]
+  }
+  # mpr[[func]] %>% function2pitch(...) %>% lapply(paste, collapse = ";") -> mpr[[output]]
   return(mpr)
 }
 
@@ -217,5 +296,82 @@ mpr.add_pitch = function(mpr, cpitch = 'cpitch', rythm = 'rythm', output = "pitc
   }
   return(mpr)
 
+}
+
+# single track
+mpr2rmd = function(mpr, pitch = NULL, duration = NULL, chord = NULL, track = "melody", channel = 0){
+  pitch     = rutils::verify(pitch, 'character', domain = colnames(mpr), lengths = 1, null_allowed = F)
+  duration  = rutils::verify(duration, 'character', domain = colnames(mpr), lengths = 1, null_allowed = F)
+  chord     = rutils::verify(chord, 'character', domain = colnames(mpr), lengths = 1, null_allowed = T)
+  
+  rmdf = NULL
+  for(i in sequence(nrow(mpr))){
+    measure_pitches = strsplit(mpr[i, pitch], ';') %>% unlist
+    if(length(measure_pitches) == 0){measure_pitches = 'r'}
+    measure_notes = measure_pitches %>% strsplit("[0-9]") %>% unlist
+    measure_octaves = measure_pitches %>% gsub(pattern = "[a-z,_#]", replacement = "")
+      
+    measure_notes = 
+    data.frame(
+      measure = i, 
+      track = track,
+      channel = channel,
+      pitch = measure_pitches,
+      note = measure_notes,
+      octave = measure_octaves %>% as.integer,
+      duration = strsplit(mpr[i, duration], ';') %>% unlist %>% as.numeric
+    ) -> rmdfi
+    if(!is.null(chord)){
+      rdmi$chord = mpr[i, chord]
+    }
+    rmdf %<>% rbind(rmdfi)
   }
+  return(rmdf)
+}
+
+
+rmd2mpr = function(rmd){
+  paste_semicolon = function(u) paste(u, collapse = ';')
+  
+  # rmd %>% reshape2::dcast(measure ~ track, value.var = 'duration', fun.aggregate = sum)
+  rmd$pitch = rmd$note %>% tolower %>% paste0(rmd$octave)
+  rmd$pitch[rmd$note == 'r'] <- "r"
+  pitches   = rmd %>% reshape2::dcast(measure ~ track, value.var = 'pitch', fun.aggregate = paste_semicolon)
+  durations = rmd %>% reshape2::dcast(measure ~ track, value.var = 'duration', fun.aggregate = paste_semicolon)
+  colnames(pitches)[-1] %<>% paste('pitch', sep = '_')  
+  colnames(durations)[-1] %<>% paste('duration', sep = '_')  
+  out = pitches %>% left_join(durations, by = 'measure')
+
+  if(!is.null(rmd$part)){
+    paste_unique = function(u) paste(unique(u), collapse = '-')
+    parts   = rmd %>% reshape2::dcast(measure ~ track, value.var = 'part', fun.aggregate = paste_unique)
+    colnames(parts)[-1] %<>% paste('part', sep = '_')  
+    out %<>% left_join(parts, by = 'measure')
+  }
+  if(!is.null(rmd$chord)){
+    paste_unique = function(u) paste(unique(u[nchar(u)>0]), collapse = '/')
+    chords   = rmd %>% reshape2::dcast(measure ~ track, value.var = 'chord', fun.aggregate = paste_unique)
+    colnames(chords)[-1] %<>% paste('chord', sep = '_')  
+    out %<>% left_join(chords, by = 'measure')
+  }
+
+  if(!is.null(rmd$lyrics)){
+    paste_space = function(u) paste(u, collapse = ' ')
+    lyrics   = rmd %>% reshape2::dcast(measure ~ track, value.var = 'lyrics', fun.aggregate = paste_space)
+    colnames(lyrics)[-1] %<>% paste('lyrics', sep = '_')  
+    out %<>% left_join(lyrics, by = 'measure')
+  }
+  
+  return(out)
+  
+}
+
+
+# todo: move to musicai_tools
+is_rmd = function(df){
+  is_issue = df %>% group_by(measure) %>% summarise(sumdur = sum(duration)) %>% 
+    pull(sumdur) %>% {.!=8} %>% sum %>% as.logical
+  is_issue = is_issue & (is.na(df$octave[df$note != 'r']) %>% sum)
+  return(!is_issue)
+}
 
