@@ -1,6 +1,6 @@
 
 ###### BUILD SNOTE MAPPER #############################################
-build_snote_mapper = function(key = "C", start = 2){
+build_snote_mapper = function(key = "C", starting_octave = 2){
   
   all_snotes = 'ormtslicdefgabCDEFGABORMTSLI' %>% strsplit('') %>% unlist
   map2note = 'cdefgabcdefgabcdefgabcdefgab' %>% 
@@ -38,7 +38,7 @@ build_snote_mapper = function(key = "C", start = 2){
     map2note[strsplit('cfgotsCFGOTSdrDR','') %>% unlist] %<>% paste0('#')
   }
   
-  map2octave = c(rep(start,7), rep(start+1,7), rep(start+2,7), rep(start+3,7))
+  map2octave = c(rep(starting_octave,7), rep(starting_octave+1,7), rep(starting_octave+2,7), rep(starting_octave+3,7))
   
   map2note %>% paste0(map2octave) -> map2pitch
   
@@ -91,10 +91,10 @@ snote_shift = function(snote, shift = 1){
 
 ###############################################################################
 
-# start: which octave number does the first snotes "ormtdli" start from?
+# starting_octave: which octave number does the first snotes "ormtdli" start from?
 # key: which key signature are you using?
-snote2note_octave = function(snote, key = 'C', start = 2){
-  mapper = build_snote_mapper(key = key)
+snote2note_octave = function(snote, ...){
+  mapper = build_snote_mapper(...)
   snotes = snote %>% strsplit('') %>% unlist
   plus   = which(snotes == '+') - 1
   nega   = which(snotes == '-') - 1

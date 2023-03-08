@@ -81,7 +81,7 @@ song$chord_rythm[10] = '11114_11111'
 
 song %>% mpr.add_cpitch_from_snote(
   snote = 'melody_snote', 
-  octave = 3,
+  starting_octave = 3,
   key = "Fm",
   output = 'melody_cpitch') %>% 
   mpr.add_duration(
@@ -94,7 +94,7 @@ song %>% mpr.add_cpitch_from_snote(
     output = 'melody_pitch') %>% 
   mpr.add_cpitch_from_snote(
     snote = 'chord_snote', 
-    octave = 2, 
+    starting_octave = 2, 
     key = "Fm",
     output = 'chord_cpitch') %>% 
   mpr.add_duration(
@@ -112,7 +112,7 @@ song %>%
   mpr.add_function(pitch = 'melody_pitch', output = 'melody_function', start = "f") %>% 
   mpr.add_function(pitch = 'chord_pitch', output = 'chord_function', key = "chord") %>% 
   dplyr::select('chord', 'chord_rythm', 'chord_function', 'chord_pitch') %>% 
-  dplyr::distinct(chord_rythm, chord_function) %>% View
+  dplyr::distinct(chord_rythm, chord_function) -> chord_forms_learned
 
 # mpr.add_cpitch_from_function(func = 'melody_function', start = "e", mode = 3, output = 'transpose_E') %>% 
 rmt_melody = song %>% mpr2rmd(pitch = 'melody_pitch', duration = 'melody_duration', track = 'melody')
@@ -124,5 +124,7 @@ song_rmt %>% filter(track == 'melody') %>% rmd2tabr() -> song_tabr
 # song_tabr %>% as_music_df() %>% View
 
 song_rmt %>% rmd2gm(key = "Fm", clef = list(melody = 'G', chord = 'F'))   -> song_gm
+song_gm %>% show()
+song_gm %>% export(dir_path = 'script/rmusic/examples/a_comme_amour', file_name = 'a_comme_amour', formats = 'mid')
 
 song_rmt %>% rmd2mpr() %>% View

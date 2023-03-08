@@ -26,19 +26,19 @@ rmd2gm = function(rmd, key = "Am", clef = 'G', meter = c(4,4), unit = 1/8){
   
   clef = rutils::verify(clef, 'list', names_domain = tracks)
 
-  durchar = tabr::ticks_to_duration(rmd$duration*unit*1920) %>% 
+  rmd$durchar = tabr::ticks_to_duration(rmd$duration*unit*1920) %>% 
     gsub(pattern = "4", replacement = 'q')
   
-  w1 = durchar %>% length %>% sequence %>% setdiff(grep(durchar, pattern = '16'))
-  durchar[w1] %<>% gsub(pattern = "1", replacement = 'w')
-  w2 = durchar %>% length %>% sequence %>% setdiff(grep(durchar, pattern = '32'))
-  durchar[w2] %<>% gsub(pattern = "2", replacement = 'h')
-  durchar[durchar == 't8'] <- 'q/3'
+  w1 = rmd$durchar %>% length %>% sequence %>% setdiff(grep(rmd$durchar, pattern = '16'))
+  rmd$durchar[w1] %<>% gsub(pattern = "1", replacement = 'w')
+  w2 = rmd$durchar %>% length %>% sequence %>% setdiff(grep(rmd$durchar, pattern = '32'))
+  rmd$durchar[w2] %<>% gsub(pattern = "2", replacement = 'h')
+  rmd$durchar[rmd$durchar == 't8'] <- 'q/3'
   m = Music() + Meter(meter[1], meter[2]) + Key(gmkey)
   for(tr in tracks){
     dft = rmd %>% dplyr::filter(track == tr)
     m = m + Line(pitches = dft$pitch %>% as.list, 
-                 durations = durchar %>% as.list,
+                 durations = dft$durchar %>% as.list,
                  name = tr) + Clef(clef[[tr]], to = tr)
   }
   return(m)  

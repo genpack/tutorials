@@ -186,7 +186,7 @@ pitch2function = function(pitch, ...){
   octaves = pitch %>% gsub(pattern = "[a-z,_#]", replacement = "") %>% 
     unlist %>% as.integer
   
-  return(note_ovtave2function(notes, octaves, ...))
+  return(note_ocvtave2function(notes, octaves, ...))
 }
 
 function2pitch = function(func, ...){
@@ -260,20 +260,20 @@ mpr.add_function = function(mpr, pitch = 'pitch', output = 'function', key = NUL
   return(mpr)
 }
 
-mpr.add_cpitch_from_function = function(mpr, func = 'function', output = 'cpitch', key = NULL, scale = NULL, mode = NULL, start = NULL){
+mpr.add_cpitch_from_function = function(mpr, func = 'function', output = 'cpitch', key = NULL, scale = NULL, mode = NULL, start = NULL, ...){
   sms = get_scale_mode_start(mpr, key = key, scale = scale, mode = mode, start = start)
   rws = which(!is.na(sms$scales) & !is.na(sms$modes) & !is.na(sms$starts))
   for(i in rws){
-    mpr[i, func] %>% function2pitch(scale = sms$scales[i], mode = sms$modes[i], start = sms$starts[i]) %>% 
+    mpr[i, func] %>% function2pitch(scale = sms$scales[i], mode = sms$modes[i], start = sms$starts[i], ...) %>% 
       paste(collapse = ";") -> mpr[i, output]
   }
   # mpr[[func]] %>% function2pitch(...) %>% lapply(paste, collapse = ";") -> mpr[[output]]
   return(mpr)
 }
 
-mpr.add_cpitch_from_snote = function(mpr, snote = 'snote', octave = 2, key = "C", output = "cpitch"){
+mpr.add_cpitch_from_snote = function(mpr, snote = 'snote', octave = 2, output = "cpitch", ...){
   mpr[[snote]] %>% 
-    sapply(snote2cpitch, key = 'Fm', start = 3) %>% 
+    sapply(snote2cpitch, ...) %>% 
     lapply(paste, collapse = ";") %>% unlist -> mpr[[output]]
   return(mpr)
 }

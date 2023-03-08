@@ -17,8 +17,6 @@ note_smallest_multiplier = function(v){
   return(u)
 }
 
-ticks_to_duration(song_rmt$duration*240)
-duration_to_ticks(8)
 
 # Convert a rmusic data.frame into a tabr music object:
 rmd2tabr = function(rmd, unit = 1/8, ...){
