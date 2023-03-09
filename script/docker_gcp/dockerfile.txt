@@ -55,3 +55,7 @@ sudo R -e "install.packages('AUC', repos = 'http://cran.us.r-project.org')"
 sudo pip install pandas
 sudo pip install numpy
 sudo pip install scikit-learn
+
+
+# to run the feature generator:
+sudo nohup Rscript segmentation_pipeline/modules/snapshot_feature_generator.R segmentation_pipeline/configs/master_config_vm.yml > log_snapshot_feature_generator.txt & 

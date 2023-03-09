@@ -2,9 +2,10 @@ library(magrittr)
 library(dplyr)
 library(gm)
 
-source("script/rmusic/tools/gm_tools.R")
 source("script/rmusic/tools/rm_tools.R")
+source("script/rmusic/tools/mpr_tools.R")
 source("script/rmusic/tools/tabr_tools.R")
+source("script/rmusic/tools/gm_tools.R")
 
 read.csv('script/rmusic/examples/chamadoona/chamadoona_v2.csv') -> mel
 
