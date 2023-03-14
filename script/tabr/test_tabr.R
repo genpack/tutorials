@@ -143,5 +143,39 @@ View(res)
 
 res %>% midi_notes(noteworthy = T)
 
+#### Read midi files:
 
+rms = read_midi("C:/Users/nima_/Dropbox/music/nirasongsEthod/POPCHORT1_MS.mid")
+rms = read_midi("C:/Users/nima_/Dropbox/music/nirasongsEthod/E14_MS.mid")
+
+rms %>% midi2rmd %>% View
+
+rms %>% filter(event == "Note On", channel == 12) %>% midi_notes() %>% View
+
+rms %>% filter(event == "Note On", channel == 12) %>% distinct(time) %>% dim
+
+rms %>% filter(event == "Note On", channel == 9) %>% 
+  mutate(ticks =  duration_to_ticks(duration)) %>% View
+
+rms %>% filter(event == "Note On") %>% 
+  mutate(ticks =  duration_to_ticks(duration))%>%
+  arrange(time) %>% 
+  mutate(tick_cs = cumsum(ticks), measure = as.integer(time/1920) + 1) %>% View 
+
+         
+rms %>% midi2rmd() -> rmd
+
+rmd %>% 
+  # filter(event == "Note On") %>% 
+  group_by(time) %>% 
+  summarise(note = paste(note, collapse = ';'), 
+            duration = unique(duration) %>% paste(collapse = ';'),
+            ticks = mean(ticks)) %>% 
+  # mutate(ticks = duration_to_ticks(duration)) %>% 
+  mutate(time_prev = time) %>% 
+  rutils::column.shift.down(keep.rows = T, col = 'time_prev') %>% 
+  mutate(time_expected = time_prev + ticks) %>% 
+  mutate(time_offset = time - time_expected) %>% 
+  select(time_prev, time, ticks, time_expected, time_offset, duration, note) %>% 
+  View
 

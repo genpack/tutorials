@@ -109,6 +109,13 @@ semitone = function(notes, octaves){
   octaves*12 + NOTE_ORDER[notes]
 }
 
+semitone2note = function(semitone){
+  NOTES_FLAT[RMUSMOD(semitone, 12) + 1]
+}
+
+semitone2octave = function(semitone){
+  as.integer(semitone/12)
+}
 
 shift_note = function(input, halftunes = 2, sharp = T){
   if(length(input)>1){
@@ -211,3 +218,21 @@ is_rmd = function(df){
   return(!is_issue)
 }
 
+midi2rmd = function(midi, unit = 1/8){
+  midi %>% filter(event == "Note On") %>% 
+    mutate(measure = as.integer(time/1920) + 1, 
+           semitone = pitch_semitones(pitch),
+           ticks =  duration_to_ticks(duration)) %>% 
+    arrange(time) %>% 
+    mutate(dirand = ticks/(1920*unit),
+           note = semitone2note(semitone),
+           octave = semitone2octave(semitone),
+           track = paste(channel, track, sep = '-')) %>% 
+    group_by(channel, track, measure, time) %>% 
+    summarise(duration = paste(dirand, collapse = ';'),
+              nud = length(unique(dirand)),
+              note = paste(note, collapse = ''),
+              octave = paste(octave, collapse = ''),
+              pitch = paste(pitch, collapse = '')) %>% 
+    select(channel, track, measure, time, note, octave, duration, nud, pitch)
+}

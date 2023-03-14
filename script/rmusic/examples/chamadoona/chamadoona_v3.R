@@ -19,10 +19,16 @@ note_ocvtave2function(notes = mel$note[nonrests], octaves = mel$octave[nonrests]
 
 # Now take it to a different mode
 
-function2note_octave(song_function, start = 'c', mode = 3, starting_octave = 3) -> noct
+function2note_octave(song_function, start = 'c', mode = 7, starting_octave = 3) -> noct
 
 mel$note[nonrests] <- noct$note
 mel$octave[nonrests] <- noct$octave
 
 mel %>% rmd2gm(key = "C") -> song_gm
 song_gm %>% show()
+song_gm %>% export(dir_path = 'script/rmusic/examples/chamadoona', file_name = 'chamaddona_M7C', formats = 'mid')
+
+
+# and to a different scale-mode
+
+]
