@@ -127,11 +127,30 @@ mpr2rmd = function(mpr, pitch = NULL, duration = NULL, chord = NULL, track = "me
 }
 
 
+note_octave2pitch = function(notes, octaves){
+  nnn = length(notes)
+  rutils::assert(length(octaves) == nnn, "todo: write something!")
+  pitches = rep("", nnn)
+  mults = grep(notes, pattern = '[()]')
+  mults %>% identical(grep(octaves, pattern = '[()]')) %>% 
+    rutils::assert('todo: write something!')
+  sings = sequence(nnn) %>% setdiff(mults)
+  notes[mults] %>% tolower %>% 
+    stringr::str_remove_all('[()]') %>% strsplit(':') %>% 
+    purrr::map2(
+      .y = octaves[mults] %>% stringr::str_remove_all('[()]') %>% strsplit(':'), 
+      .f = function(u,v) paste0(u,v)) %>% 
+    lapply(function(u) paste0('(', paste(u, collapse = ':'), ')')) %>% 
+    unlist -> pitches[mults]
+  notes[sings] %>% tolower %>% paste0(octaves[sings]) -> pitches[sings]
+  return(pitches)
+}
+
 rmd2mpr = function(rmd){
   paste_semicolon = function(u) paste(u, collapse = ';')
   
   # rmd %>% reshape2::dcast(measure ~ track, value.var = 'duration', fun.aggregate = sum)
-  rmd$pitch = rmd$note %>% tolower %>% paste0(rmd$octave)
+  rmd$pitch = note_octave2pitch(rmd$note, rmd$octave)
   rmd$pitch[rmd$note == 'r'] <- "r"
   pitches   = rmd %>% reshape2::dcast(measure ~ track, value.var = 'pitch', fun.aggregate = paste_semicolon)
   durations = rmd %>% reshape2::dcast(measure ~ track, value.var = 'duration', fun.aggregate = paste_semicolon)

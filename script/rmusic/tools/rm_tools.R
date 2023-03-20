@@ -151,14 +151,51 @@ scale_notes = function(scale = 'white', mode = 1, start = "a", sharp = T){
 }
 
 
-note_ocvtave2function = function(notes, octaves = NULL, scale = 'white', mode = 1, start = "a"){
+note_octave2function = function(notes, octaves = NULL, scale = 'white', mode = 1, start = "a"){
+  lnts  = length(notes)
+  mults = notes %>% grep(pattern = "[()]")
+  if(length(mults) > 0){
+    rutils::assert(octaves %>% grep(pattern = "[()]") %>% identical(mults), "todo: write something!")
+    fun_1 = ""
+    fun_2 = ""
+    all   = sequence(lnts)
+    while((length(mults) > 0) | (length(all) > 0)){
+      if(length(mults) > 0){
+        first = min(mults)
+        sings = all[all < first]
+      } else {
+        sings = all
+      }
+      
+      if(length(sings) > 0){
+        fun_sings = note_octave2function(notes[sings], octaves[sings] %>% as.integer, scale = scale, mode = mode, start = start) %>% 
+          strsplit("_") %>% unlist
+        fun_1 %<>% paste0(fun_sings[1])
+        fun_2 %<>% paste0(fun_sings[2])
+        all %<>% setdiff(sings) 
+      }
+      if(length(mults) > 0){
+        nts = notes[first]   %>% stringr::str_remove_all("[()]") %>% strsplit(":") %>% unlist
+        ovs = octaves[first] %>% stringr::str_remove_all("[()]") %>% strsplit(":") %>% unlist
+        fun_mults = note_octave2function(nts, ovs %>% as.integer, scale = scale, mode = mode, start = start) %>% 
+          strsplit('_') %>% unlist
+        fun_1 %<>% paste0('(', fun_mults[1], ')')
+        fun_2 %<>% paste0('(', fun_mults[2], ')')
+        mults %<>% setdiff(first)
+        all   %<>% setdiff(first) 
+      }
+    }
+    
+    return(paste(fun_1, fun_2, sep = '_'))
+  }
+
   scale_steps_sharp = scale_notes(mode = mode, start = start, sharp = T)  
   scale_steps_flat  = scale_notes(mode = mode, start = start, sharp = F)  
   func = notes %>% sapply(function(i, sharp, flat) which(i == sharp | i == flat), sharp = scale_steps_sharp[-8], flat = scale_steps_flat[-8]) %>% unlist
-  rutils::assert(length(func) == length(notes), "Some of the given notes are out of scale!")
+  rutils::assert(length(func) == lnts, "Some of the given notes are out of scale!")
   out = func %>% paste(collapse = '')
   if(!is.null(octaves)){
-    rutils::assert(length(octaves == length(notes)), 'Arguments `octave` and `notes` have different lengths!')
+    rutils::assert(length(octaves == lnts), 'Arguments `octave` and `notes` have different lengths!')
     locations = semitone(notes, octaves) - semitone(start, min(octaves)) + 12
     locations = as.integer(locations/12)
     out %<>% paste(paste(locations - min(locations), collapse = ''), sep = '_')
@@ -174,6 +211,28 @@ function2note_octave = function(func, scale = 'white', mode = 1, start = "a", st
   fsplit = func %>% strsplit('_') %>% unlist
   
   scale_notes = scale_notes(mode = mode, start = start, sharp = F)
+  
+  aa = fsplit[1] %>% strsplit("[()]") %>% unlist
+  bb = fsplit[2] %>% strsplit("[()]") %>% unlist
+  
+  if(length(aa) > 1){
+    rutils::assert(length(aa) == length(bb), "todo: write something!")
+    notes = c()
+    octaves = c()
+    for(i in sequence(length(aa))){
+      res = paste(aa[i], bb[i], sep = '_') %>% 
+        function2note_octave(scale = scale, mode = mode, start = start, starting_octave = starting_octave)
+      if(RMUSMOD(i,2) == 0){
+        notes   = c(notes, paste0('(', res$note %>% paste(collapse = ':'), ')'))
+        octaves = c(octaves, paste0('(', res$octave %>% paste(collapse = ':'), ')'))
+      } else {
+        notes   = c(notes, res$note)
+        octaves = c(octaves, res$octave)
+      }
+    }
+    return(list(note = notes, octave = octaves))
+  }
+  
   notes = scale_notes[fsplit[1] %>% strsplit('') %>% unlist %>% as.integer]
   
   offsets = fsplit[2] %>% strsplit('') %>% unlist %>% as.integer
@@ -182,7 +241,9 @@ function2note_octave = function(func, scale = 'white', mode = 1, start = "a", st
   #a[a<0] = a[a<0]+12
   #octaves = starting_octave + as.integer((a + offsets*12)/12)
   
-  octaves = starting_octave + as.integer((- semitone(notes, 4) + semitone(start, 4) - 1 + 12*(offsets+1))/12)
+  octaves = as.integer((- semitone(notes, 4) + semitone(start, 4) - 1 + 12*(offsets+1))/12) %>% 
+    {.-min(.)} %>% {.+starting_octave}
+  
   return(list(note = notes, octave = octaves))
 }
 
@@ -193,7 +254,7 @@ pitch2function = function(pitch, ...){
   octaves = pitch %>% gsub(pattern = "[a-z,_#]", replacement = "") %>% 
     unlist %>% as.integer
   
-  return(note_ocvtave2function(notes, octaves, ...))
+  return(note_octave2function(notes, octaves, ...))
 }
 
 function2pitch = function(func, ...){
@@ -219,6 +280,12 @@ is_rmd = function(df){
 }
 
 midi2rmd = function(midi, unit = 1/8){
+  paste_bruckets = function(v, collapse){
+    if(length(v) > 1){
+      return(paste0('(', paste(v, collapse = collapse), ')'))
+    } else {return(v)}
+  }
+  
   midi %>% filter(event == "Note On") %>% 
     mutate(measure = as.integer(time/1920) + 1, 
            semitone = pitch_semitones(pitch),
@@ -226,13 +293,25 @@ midi2rmd = function(midi, unit = 1/8){
     arrange(time) %>% 
     mutate(dirand = ticks/(1920*unit),
            note = semitone2note(semitone),
-           octave = semitone2octave(semitone),
-           track = paste(channel, track, sep = '-')) %>% 
-    group_by(channel, track, measure, time) %>% 
-    summarise(duration = paste(dirand, collapse = ';'),
+           octave = semitone2octave(semitone) %>% as.character,
+           track = paste(channel, track, sep = '-')) -> aa
+  
+  #aa = rbind(aa[1,], aa)
+  #aa$time[1] = 1920*(aa$measure[1]-1)
+  #aa$note[1] = 'r'
+  
+  aa %>% group_by(channel, track, measure, time) %>% 
+    summarise(duration = unique(dirand) %>% paste_bruckets(collapse = ':'),
+              ticks = first(ticks),
               nud = length(unique(dirand)),
-              note = paste(note, collapse = ''),
-              octave = paste(octave, collapse = ''),
-              pitch = paste(pitch, collapse = '')) %>% 
-    select(channel, track, measure, time, note, octave, duration, nud, pitch)
+              note = paste_bruckets(note, collapse = ':'),
+              octave = paste_bruckets(octave, collapse = ':'),
+              pitch = paste_bruckets(pitch, collapse = ':')) %>% 
+    mutate(time_next = time) %>% 
+    rutils::column.shift.up(keep.rows = T, col = 'time_next') -> aa
+  
+  # aa$time_next[nrow(aa)] = (aa$measure[nrow(aa)] + 1)*1920
+  aa %>%  mutate(next_time_expected = time + ticks) %>% 
+    mutate(time_offset = time_next - next_time_expected) %>% 
+    select(channel, track, measure, time, time_next, ticks, next_time_expected, time_offset, note, octave, duration, nud, pitch) -> bb
 }

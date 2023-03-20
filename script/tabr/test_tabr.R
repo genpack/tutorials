@@ -145,7 +145,7 @@ res %>% midi_notes(noteworthy = T)
 
 #### Read midi files:
 
-rms = read_midi("C:/Users/nima_/Dropbox/music/nirasongsEthod/POPCHORT1_MS.mid")
+rms = read_midi("script/rmusic/examples/popchart_1/POPCHORT1_MS.mid")
 rms = read_midi("C:/Users/nima_/Dropbox/music/nirasongsEthod/E14_MS.mid")
 
 rms %>% midi2rmd %>% View
@@ -170,12 +170,17 @@ rmd %>%
   group_by(time) %>% 
   summarise(note = paste(note, collapse = ';'), 
             duration = unique(duration) %>% paste(collapse = ';'),
-            ticks = mean(ticks)) %>% 
+            ticks = first(ticks)) %>% 
   # mutate(ticks = duration_to_ticks(duration)) %>% 
   mutate(time_prev = time) %>% 
   rutils::column.shift.down(keep.rows = T, col = 'time_prev') %>% 
   mutate(time_expected = time_prev + ticks) %>% 
   mutate(time_offset = time - time_expected) %>% 
-  select(time_prev, time, ticks, time_expected, time_offset, duration, note) %>% 
+  select(time_prev, time, time_prev, ticks, time_expected, time_offset, duration, note) %>% 
   View
+
+# notes = c("g", "a", "(g:b_:d)", "b_", "(c:e_:g)", "d")
+# octaves = c("4", "4", "(4:4:4)", "4", "(4:4:4)", "5")
+# func = note_octave2function(notes, octaves, scale = 'white', mode = 1, start = "g")
+# function2note_octave(func, scale = 'white', mode = 1, start = "g")
 
