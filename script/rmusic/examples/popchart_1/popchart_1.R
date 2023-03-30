@@ -15,7 +15,9 @@ mid = read_midi("script/rmusic/examples/popchart_1/POPCHORT1_MS.mid")
 mid %>% midi2rmd() -> rmd
 
 View(rmd)
-
+rmd %>% group_by(measure) %>% 
+  summarise(sumticks = sum(ticks), sumdur = sum(duration)) %>% 
+  View
 
 
 rmd %>% rmd2mpr()

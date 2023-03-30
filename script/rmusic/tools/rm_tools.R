@@ -336,13 +336,18 @@ midi2rmd = function(midi, unit = 1/8){
     mutate(dirand = ticks/(1920*unit),
            note = semitone2note(semitone),
            octave = semitone2octave(semitone) %>% as.character,
-           track = paste(channel, track, sep = '-')) -> aa
+           track = paste(channel, track, sep = '-')) %>% 
+    select(channel, track, measure, time, ticks, note, octave, pitch, dirand) -> aa
   
-  #aa = rbind(aa[1,], aa)
-  #aa$time[1] = 1920*(aa$measure[1]-1)
-  #aa$note[1] = 'r'
+  measures_started_by_time = aa$measure[which(aa$time == 1920*(aa$measure-1))] %>% unique
   
-  aa %>% group_by(channel, track, measure, time) %>% 
+  aa %>% filter(!measure %in% measures_started_by_time) %>% 
+    distinct(channel, track, measure) %>% 
+    mutate(time = (measure-1)*1920, ticks = 0,
+           note = NA, octave = NA, pitch = NA, dirand = "") -> bb
+
+  aa %>% rbind(bb) %>% arrange(time) %>% 
+    group_by(channel, track, measure, time) %>% 
     summarise(duration = unique(dirand) %>% paste_bruckets(collapse = ':'),
               ticks = first(ticks),
               nud = length(unique(dirand)),
@@ -350,10 +355,29 @@ midi2rmd = function(midi, unit = 1/8){
               octave = paste_bruckets(octave, collapse = ':'),
               pitch = paste_bruckets(pitch, collapse = ':')) %>% 
     mutate(time_next = time) %>% 
-    rutils::column.shift.up(keep.rows = T, col = 'time_next') -> aa
+    rutils::column.shift.up(keep.rows = T, col = 'time_next') -> cc
   
-  # aa$time_next[nrow(aa)] = (aa$measure[nrow(aa)] + 1)*1920
-  aa %>%  mutate(next_time_expected = time + ticks) %>% 
+  cc$time_next[nrow(cc)] = cc$measure[nrow(cc)]*1920
+  cc %>%  
+    mutate(ticks = ifelse(time_next - time < ticks, time_next - time, ticks)) %>% 
+    mutate(next_time_expected = time + ticks) %>% 
     mutate(time_offset = time_next - next_time_expected) %>% 
-    select(channel, track, measure, time, time_next, ticks, next_time_expected, time_offset, note, octave, duration, nud, pitch) -> bb
+    select(channel, track, measure, time, time_next, ticks, next_time_expected, time_offset, note, octave, duration, nud, pitch) -> dd
+  
+  if(sum(dd$nud != 1) == 0){
+    dd$duration = dd$ticks/(1920*unit)
+  } else {stop('Handling multiple durations for simultaneous notes is not supported yet!')}
+  
+  dd %>% filter(time_offset > 0) %>%
+    select(-time, -ticks, -duration, -note, -octave, -pitch, -nud, -time_next) %>% 
+    rename(time = next_time_expected, ticks = time_offset) %>% 
+    mutate(note = 'r', pitch = 'r', octave = NA, duration = ticks/(1920*unit)) %>% 
+    select(channel, track, measure, time, ticks, note, octave, duration, pitch) -> ee
+  
+  dd %>% select(channel, track, measure, time, ticks, note, octave, duration, pitch) %>% 
+    rbind(ee) %>% 
+    arrange(time) %>% 
+    filter(ticks > 0) -> ff
+    
+  return(ff)
 }
