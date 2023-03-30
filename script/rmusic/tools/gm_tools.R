@@ -12,7 +12,7 @@ rmd2gm = function(rmd, key = "Am", clef = 'G', meter = c(4,4), unit = 1/8){
   gmkey = GMKEY[key]    
   rmd %<>% filter(duration > 0)
   rmd$pitch = rmd$note %>% note_octave2pitch(rmd$octave) %>% 
-    stringr::str_replace(pattern = '_', replacement = '-') %>% 
+    stringr::str_replace_all(pattern = '_', replacement = '-') %>% 
     toupper
   rmd$pitch[rmd$note == 'r'] <- NA
 

@@ -123,7 +123,7 @@ semitone = function(notes, octaves){
     stns[sings] <- semitone(notes[sings], octaves[sings])
     return(stns)
   }
-  return(as.integer(octaves)*12 + NOTE_ORDER[notes])
+  return(as.integer(octaves)*12 + NOTE_ORDER[notes] - 1)
 }
 
 notes_custom = function(sharps = NULL){
@@ -146,7 +146,7 @@ semitone2note = function(semitones, sharps = NULL){
     nts[i] = paste0('(', semitone2note(stns, sharps = sharps) %>% paste(collapse = ':'), ')')      
   }
   NOTES_CUSTOM = notes_custom(sharps)
-  nts[sings] = NOTES_CUSTOM[RMUSMOD(semitones[sings] %>% as.integer %>% {.-1}, 12) + 1]
+  nts[sings] = NOTES_CUSTOM[RMUSMOD(semitones[sings] %>% as.integer, 12) + 1]
   return(nts)
 }
 
@@ -168,7 +168,7 @@ shift_semitone = function(semitones, halftunes = 2){
   out   = rep(NA, length(semitones))
   for(i in mults){
     stns   = semitones[i] %>% stringr::str_remove_all("[()]") %>% strsplit(":") %>% unlist
-    out[i] = paste0('(', shift_semitone(stns %>% as.integer) %>% paste(collapse = ':'), ')')      
+    out[i] = paste0('(', shift_semitone(stns %>% as.integer, halftunes = halftunes) %>% paste(collapse = ':'), ')')      
   }
   out[sings] = as.integer(semitones[sings]) + halftunes
   return(out)
@@ -348,11 +348,11 @@ function2pitch = function(func, ...){
 # function2pitch
 
 
-# todo: move to musicai_tools
+# todo: consider time unit. May not be 8 always, don't hardcode 8
 is_rmd = function(df){
-  is_issue = df %>% group_by(measure) %>% summarise(sumdur = sum(duration)) %>% 
+  is_issue = df %>% group_by(measure, track) %>% summarise(sumdur = sum(duration)) %>% 
     pull(sumdur) %>% {.!=8} %>% sum %>% as.logical
-  is_issue = is_issue & (is.na(df$octave[df$note != 'r']) %>% sum)
+  is_issue = is_issue | (is.na(df$octave[df$note != 'r']) %>% sum)
   return(!is_issue)
 }
 

@@ -48,6 +48,7 @@ measure,note,octave,duration,track
 9,d,5,1,melodie
 9,e_,5,1,melodie
 9,e_,5,3,melodie
+10,r,,1,melodie
 10,(e_:g),(5:5),1,melodie
 10,(d:f),(5:5),1,melodie
 10,(c:e_),(5:5),1,melodie
@@ -110,6 +111,7 @@ measure,note,octave,duration,track
 7,d,3,1,accord
 7,f#,3,1,accord
 7,a,3,1,accord
+7,d,4,1,accord
 8,(d:g:b_),(3:3:3),2,accord
 8,(d:f#:a),(3:3:3),2,accord
 8,(g:d:g),(2:3:3),1,accord
