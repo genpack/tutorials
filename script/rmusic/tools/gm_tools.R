@@ -11,8 +11,9 @@ names(GMKEY) = names(KEY2MODE)[1:24]
 rmd2gm = function(rmd, key = "Am", clef = 'G', meter = c(4,4), unit = 1/8){
   gmkey = GMKEY[key]    
   rmd %<>% filter(duration > 0)
-  rmd$pitch = rmd$note %>% stringr::str_replace(pattern = '_', replacement = '-') %>% 
-    toupper %>% paste0(rmd$octave)
+  rmd$pitch = rmd$note %>% note_octave2pitch(rmd$octave) %>% 
+    stringr::str_replace(pattern = '_', replacement = '-') %>% 
+    toupper
   rmd$pitch[rmd$note == 'r'] <- NA
 
   if(is.null(rmd$track)){rmd$track = 'melody'}
@@ -37,7 +38,7 @@ rmd2gm = function(rmd, key = "Am", clef = 'G', meter = c(4,4), unit = 1/8){
   m = Music() + Meter(meter[1], meter[2]) + Key(gmkey)
   for(tr in tracks){
     dft = rmd %>% dplyr::filter(track == tr)
-    m = m + Line(pitches = dft$pitch %>% as.list, 
+    m = m + Line(pitches = dft$pitch %>% stringr::str_remove_all("[()]") %>% strsplit(":"), 
                  durations = dft$durchar %>% as.list,
                  name = tr) + Clef(clef[[tr]], to = tr)
   }

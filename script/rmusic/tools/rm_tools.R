@@ -78,6 +78,8 @@ pitchDuration2rythm = function(pitch, duration){
 # and returns the data frame
 # the values in `pitch` and `duration` columns are string character and contain 
 # pitches and durations of each measure which are concatenated with separator semicolon.
+# todo: check with it's equivalent mpr.add_duration() function in mpr_tools.R
+# todo: may need to be removed
 apply_rythms = function(mpr, target_unit = 1/8){
   measures = which(!is.na(mpr$rythm) & !is.na(mpr$cpitch))
   for(i in measures){
@@ -89,6 +91,7 @@ apply_rythms = function(mpr, target_unit = 1/8){
   return(mpr)
 }
 
+# todo: check with it's equivalent mpr2rmd() function in mpr_tools.R
 mpr2rmusdf = function(mpr){
   measures = which(!is.na(mpr$duration) & !is.na(mpr$pitch))
   out = NULL
@@ -123,15 +126,27 @@ semitone = function(notes, octaves){
   return(as.integer(octaves)*12 + NOTE_ORDER[notes])
 }
 
-semitone2note = function(semitones){
+notes_custom = function(sharps = NULL){
+  if(!is.null(sharps)){
+    out = NOTES_FLAT
+    ind = which(NOTES_SHARP %in% paste0(sharps, '#'))
+    out[ind] <- NOTES_SHARP[ind]
+  } else {
+    out = NOTES_FLAT
+  }
+  return(out)
+}
+
+semitone2note = function(semitones, sharps = NULL){
   mults = semitones %>% grep(pattern = "[()]")
   sings = length(semitones) %>% sequence %>% setdiff(mults)
   nts   = rep(NA, length(semitones))
   for(i in mults){
     stns   = semitones[i] %>% stringr::str_remove_all("[()]") %>% strsplit(":") %>% unlist
-    nts[i] = paste0('(', semitone2note(stns) %>% paste(collapse = ':'), ')')      
+    nts[i] = paste0('(', semitone2note(stns, sharps = sharps) %>% paste(collapse = ':'), ')')      
   }
-  nts[sings] = NOTES_FLAT[RMUSMOD(semitones[sings] %>% as.integer %>% {.-1}, 12) + 1]
+  NOTES_CUSTOM = notes_custom(sharps)
+  nts[sings] = NOTES_CUSTOM[RMUSMOD(semitones[sings] %>% as.integer %>% {.-1}, 12) + 1]
   return(nts)
 }
 
@@ -299,8 +314,28 @@ pitch2function = function(pitch, ...){
   return(note_octave2function(notes, octaves, ...))
 }
 
+note_octave2pitch = function(notes, octaves){
+  nnn = length(notes)
+  rutils::assert(length(octaves) == nnn, "todo: write something!")
+  pitches = rep("", nnn)
+  mults = grep(notes, pattern = '[()]')
+  mults %>% identical(grep(octaves, pattern = '[()]')) %>% 
+    rutils::assert('todo: write something!')
+  sings = sequence(nnn) %>% setdiff(mults)
+  notes[mults] %>% tolower %>% 
+    stringr::str_remove_all('[()]') %>% strsplit(':') %>% 
+    purrr::map2(
+      .y = octaves[mults] %>% stringr::str_remove_all('[()]') %>% strsplit(':'), 
+      .f = function(u,v) paste0(u,v)) %>% 
+    lapply(function(u) paste0('(', paste(u, collapse = ':'), ')')) %>% 
+    unlist -> pitches[mults]
+  notes[sings] %>% tolower %>% paste0(octaves[sings]) -> pitches[sings]
+  return(pitches)
+}
+
+
 function2pitch = function(func, ...){
-  paster  = function(u) paste0(u$note, u$octave)
+  paster  = function(u) paste0(note_octave2pitch(u$note, u$octave))
   noctave = function2note_octave(func = func, ...)
   if(length(func)==1){
     return(paster(noctave))
