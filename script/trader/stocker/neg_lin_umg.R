@@ -4,10 +4,10 @@ library(magrittr)
 library(dplyr)
 library(trader)
 
-load("~/Documents/software/R/projects/tutorials/script/trader/stocker/data/dat_raw_historical_until_15_01_2021.RData")
+load("script/trader/stocker/data/dat_raw_historical_until_15_01_2021.RData")
 
 selected_ticker = "UMG.AX"
-selected_ticker = "ING.AX"
+# selected_ticker = "ING.AX"
 
 dat_raw %>% 
   filter(ticker == selected_ticker) %>% 

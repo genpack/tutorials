@@ -2,7 +2,7 @@ library(magrittr)
 library(dplyr)
 library(trader)
 
-load("~/Documents/software/R/projects/stocker/data/dat_raw_historical_until_15_01_2021.RData")
+load("script/trader/stocker/data/dat_raw_historical_until_15_01_2021.RData")
 
 selected_ticker = "CBA.AX"
 

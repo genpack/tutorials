@@ -106,15 +106,57 @@ mpr2rmusdf = function(mpr){
 
 
 semitone = function(notes, octaves){
-  octaves*12 + NOTE_ORDER[notes]
+  mults = notes %>% grep(pattern = "[()]")
+  if(length(mults) > 0){
+    rutils::assert(octaves %>% grep(pattern = "[()]") %>% identical(mults), "todo: write something!")
+    lnts = length(notes)
+    stns = rep(NA, lnts)
+    for(i in mults){
+      nts = notes[i] %>% stringr::str_remove_all("[()]") %>% strsplit(":") %>% unlist
+      ovs = octaves[i] %>% stringr::str_remove_all("[()]") %>% strsplit(":") %>% unlist
+      stns[i] = paste0('(', semitone(nts, ovs) %>% paste(collapse = ':'), ')')
+    }
+    sings = sequence(lnts) %>% setdiff(mults)
+    stns[sings] <- semitone(notes[sings], octaves[sings])
+    return(stns)
+  }
+  return(as.integer(octaves)*12 + NOTE_ORDER[notes])
 }
 
-semitone2note = function(semitone){
-  NOTES_FLAT[RMUSMOD(semitone, 12) + 1]
+semitone2note = function(semitones){
+  mults = semitones %>% grep(pattern = "[()]")
+  sings = length(semitones) %>% sequence %>% setdiff(mults)
+  nts   = rep(NA, length(semitones))
+  for(i in mults){
+    stns   = semitones[i] %>% stringr::str_remove_all("[()]") %>% strsplit(":") %>% unlist
+    nts[i] = paste0('(', semitone2note(stns) %>% paste(collapse = ':'), ')')      
+  }
+  nts[sings] = NOTES_FLAT[RMUSMOD(semitones[sings] %>% as.integer %>% {.-1}, 12) + 1]
+  return(nts)
 }
 
-semitone2octave = function(semitone){
-  as.integer(semitone/12)
+semitone2octave = function(semitones){
+  mults = semitones %>% grep(pattern = "[()]")
+  sings = length(semitones) %>% sequence %>% setdiff(mults)
+  ovs   = rep(NA, length(semitones))
+  for(i in mults){
+    stns   = semitones[i] %>% stringr::str_remove_all("[()]") %>% strsplit(":") %>% unlist
+    ovs[i] = paste0('(', semitone2octave(stns %>% as.integer) %>% paste(collapse = ':'), ')')      
+  }
+  ovs[sings] = as.integer(as.integer(semitones[sings])/12)
+  return(ovs)
+}
+
+shift_semitone = function(semitones, halftunes = 2){
+  mults = semitones %>% grep(pattern = "[()]")
+  sings = length(semitones) %>% sequence %>% setdiff(mults)
+  out   = rep(NA, length(semitones))
+  for(i in mults){
+    stns   = semitones[i] %>% stringr::str_remove_all("[()]") %>% strsplit(":") %>% unlist
+    out[i] = paste0('(', shift_semitone(stns %>% as.integer) %>% paste(collapse = ':'), ')')      
+  }
+  out[sings] = as.integer(semitones[sings]) + halftunes
+  return(out)
 }
 
 shift_note = function(input, halftunes = 2, sharp = T){

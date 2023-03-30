@@ -31,4 +31,3 @@ song_gm %>% export(dir_path = 'script/rmusic/examples/chamadoona', file_name = '
 
 # and to a different scale-mode
 
-]
