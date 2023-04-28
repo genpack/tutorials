@@ -104,6 +104,8 @@ HomeRent:
   Rent: RobertEdwardsReal
 Restaurant:
   Cafe:
+    - ESPRESSO
+    - PRATTENPARKCOMMUNI
     - BarLuca
     - JLCHOLDINGS
     - ShareteaDFOHomebush
@@ -182,6 +184,9 @@ Restaurant:
     - STREETGREEKCENTREP
     - SABBABA
   Restaurant:
+    - EASYMADECATERING
+    - MUMBAIEXPRESSSYDNEY
+    - LALQILA
     - RaguPasta
     - OrientHotelSydney
     - foodbever
@@ -278,6 +283,7 @@ CarParking:
   Toll:
     - RMSEtoll
     - RMS-Etoll
+    - TRANSPORTNSWETOLL
   Parking:
     - DIRECTOROFNATIONALPCANBERRA
     - SydneyOlympicParkP6
@@ -554,6 +560,7 @@ Groceries:
     - chop
     - malekmarjan
   Drinks:
+    - LIQUORLAND
     - Tyrrells
     - DanMurphy
     - NAKEDWIN

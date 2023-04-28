@@ -33,14 +33,15 @@ SCALE = list(
   chargah = c(0, 1, 3, 1, 2, 1, 3, 1))
 
 ###############################################################################
-rythm2duration = function(rythm, target_unit = 1/8){
+rythm2duration = function(rythm, target_unit = 1/8, meter = 4/4){
   rsplit = rythm %>% strsplit('_') %>% unlist
   rsplit[1] %>% strsplit('') %>% unlist %>% 
     strtoi(32L) %>% {.[.==0]<-32;.} -> duration
-  rythm_unit = 1.0/sum(duration)
-  rutils::assert(rythm_unit %in% c(1,1/2,1/4,1/8,1/12,1/16,1/24,1/32), "Durations dont fit in a measure!")
+  rythm_unit = meter/sum(duration)
+  rutils::assert(rythm_unit %in% c(1,1/2,1/4,1/8,1/12,1/16,1/24,1/32, 3/4, 3/8, 3/16), 
+                 "Durations dont fit in a measure for rythm: %s!" %>% sprintf(rythm))
   duration = duration*rythm_unit/target_unit
-  rutils::assert(sum(duration)*target_unit == 1.0, "Durations dont fit a measure!")
+  rutils::assert(sum(duration)*target_unit == meter, "Durations dont fit a measure!")
   return(duration)
 }
 
@@ -52,7 +53,7 @@ cpitch2pitch = function(cpitch, rythm){
   rutils::assert(
     sum(!isrest) == nn, 
     sprintf("Given rythm %s does not match number of notes in the given cpitch %s!", rythm, paste(cpitch, collapse = ';')))
-  pitch = rep('r', nn)
+  pitch = rep('r', length(isrest))
   pitch[!isrest] <- cpitch
   return(pitch)
 }
@@ -304,14 +305,33 @@ function2note_octave = function(func, scale = 'white', mode = 1, start = "a", st
   return(list(note = notes, octave = octaves))
 }
 
+pitch2note_octave = function(pitches){
+  out = list(notes = c(), octaves = c())  
+  multiples = pitches %>% grep(pattern = "[()]")
+  for(i in multiples){
+    notoctave = pitches[i] %>% strsplit("[()]") %>% unlist %>% setdiff("")
+    out$notes[i] = paste0("(", notoctave[1], ")")
+    out$octaves[i] = paste0("(", notoctave[2], ")")
+  }
+  singles = length(pitches) %>% sequence %>% setdiff(multiples)
+  
+  notes = pitches[singles] %>% strsplit("[0-9]") %>% unlist
+  octaves = pitches[singles] %>% gsub(pattern = "[a-z,_#]", replacement = "") %>% unlist %>% as.integer
+
+  out$notes[singles] = notes
+  out$octaves[singles] = octaves
+  return(out)
+}
+
 pitch2function = function(pitch, ...){
   pitch = pitch[pitch != 'r']
   if(length(pitch) == 0){return('_')}
-  notes = pitch %>% strsplit("[0-9]") %>% unlist
-  octaves = pitch %>% gsub(pattern = "[a-z,_#]", replacement = "") %>% 
-    unlist %>% as.integer
-  
-  return(note_octave2function(notes, octaves, ...))
+  # notes = pitch %>% strsplit("[0-9]") %>% unlist
+  # octaves = pitch %>% gsub(pattern = "[a-z,_#]", replacement = "") %>% 
+  #   unlist %>% as.integer
+  res = measure_pitches %>% pitch2note_octave()
+    
+  return(note_octave2function(res$notes, res$octaves, ...))
 }
 
 note_octave2pitch = function(notes, octaves){

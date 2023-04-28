@@ -94,6 +94,33 @@ snote_shift = function(snote, shift = 1){
 # starting_octave: which octave number does the first snotes "ormtdli" start from?
 # key: which key signature are you using?
 snote2note_octave = function(snote, ...){
+  
+  aa = snote %>% strsplit("[()]") %>% unlist
+  if(length(aa) > 1){
+    notes = c()
+    octaves = c()
+    for(i in sequence(length(aa))){
+      res = aa[i] %>% snote2note_octave(...)
+      notes   = c(notes, res$notes)
+      octaves = c(octaves, res$octaves)
+    }
+    return(list(notes = notes, octaves = octaves))
+  }
+  
+  bb = snote %>% strsplit(":") %>% unlist
+  if(length(bb) > 1){
+    res = bb %>% paste(collapse = '') %>% snote2note_octave(...)
+    res$notes %<>% paste(collapse = ':')
+    res$notes = paste0('(', res$notes, ')')
+    if (length(unique(res$octaves)) > 1){
+      res$octaves %<>% paste(collapse = ':')
+      res$octaves = paste0('(', res$octaves, ')')
+    } else {
+      res$octaves %<>% unique
+    }
+    return(res)
+  }
+    
   mapper = build_snote_mapper(...)
   snotes = snote %>% strsplit('') %>% unlist
   plus   = which(snotes == '+') - 1
@@ -102,12 +129,46 @@ snote2note_octave = function(snote, ...){
   if(length(plus) > 0){notes[plus] %<>% shift_note(1)}
   if(length(nega) > 0){notes[nega] %<>% shift_note(-1)}
   return(list(
-    octaves = mapper$map2octave[snotes] %>% na.omit(),
-    notes   = notes[!is.na(notes)]
+    octaves = mapper$map2octave[snotes] %>% na.omit() %>% unname,
+    notes   = notes[!is.na(notes)] %>% unname
   ))
 }
 
 snote2cpitch = function(...){
   res = snote2note_octave(...)
   return(paste0(res$notes, res$octaves))
+}
+
+snote2rythm_suffix = function(snotes){
+  if(length(snotes)>1){return(snotes %>% sapply(snote2rythm_suffix) %>% unlist)}
+  if(snotes == ""){return("")}
+  aa = snotes %>% strsplit("[()]") %>% unlist
+  if(length(aa) == 1){
+    bb = aa %>% strsplit("") %>% unlist
+    rs = 1 - (bb == 'x')
+    return(rs %>% paste(collapse = ""))
+  } else {
+    rs = ""
+    for (i in sequence(length(aa))){
+      if(RMUSMOD(i,2) == 0){rs = paste0(rs, 1)} else {rs = paste0(rs, aa[i] %>% snote2rythm_suffix)}
+    }
+    return(rs)
+  }
+}
+
+smelody2pitch_rythm = function(smelodies, ...){
+  out = list()
+  splitted = smelodies %>% strsplit('_') %>% purrr::reduce(rbind)
+  if(length(smelodies) == 1){splitted %<>% t}
+  splitted %<>% as.data.frame %>% {names(.)<-c('snote', 'srythm');.}
+  out$rythm = splitted$srythm %>% paste(splitted$snote %>% snote2rythm_suffix, sep = '_')
+  out$rythm[out$rythm == "_"] <- "1_0"
+  cpitch = splitted$snote %>% 
+    # remove character x ?
+    purrr::map(snote2cpitch, ...) %>% 
+    lapply(paste, collapse = ";") %>% unlist
+  out$pitch = cpitch %>% strsplit(";") %>% purrr::map2(.y = out$rythm, .f = cpitch2pitch) %>% 
+    purrr::map(paste, collapse = ';') %>% unlist
+  # out$pitch = cpitch %>% cpitch2pitch(rythm = out$rythm)
+  return(out)
 }

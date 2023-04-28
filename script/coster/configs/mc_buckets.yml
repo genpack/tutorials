@@ -4,15 +4,15 @@ inputs:
 categories: script/coster/configs/buckets.yml
 
 from: 2022-08-01
-until: 2023-02-01
+until: 2023-04-04
 
-excluded_categories: ['Expenses', 'Miscellaneous', 'CreditCard', 'Proximity', 'Mortgage']
+#excluded_categories: ['Expenses', 'Miscellaneous', 'CreditCard', 'Proximity', 'Mortgage']
 
 # excluded_categories: ['Saving', 'Miscellaneous', 'CreditCard', 'Proximity']
 
 output:
   transactions: nbs_transactions
-  buckets: bucket_balances_feb23
+  buckets: bucket_balances_april23
   
 
 
