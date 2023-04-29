@@ -19,8 +19,8 @@ note_smallest_multiplier = function(v){
 
 
 # Convert a rmusic data.frame into a tabr music object:
-rmd2tabr = function(rmd, unit = 1/8, ...){
-  rutils::assert(is_rmd(rmd), "Error (todo: write something)")
+rmd2tabr = function(rmd, unit = 1/8, key = "C", ...){
+  rutils::assert(is_rmd(rmd, unit = unit), "measures do not have equal duration!")
   
   rmd$octave[rmd$note == 'r'] <- ''
 
@@ -53,11 +53,13 @@ rmd2tabr = function(rmd, unit = 1/8, ...){
 
   # Apply lyrics:
   if(!is.null(rmd$lyrics)){
-    lyrics = as_lyrics(rmd$lyrics)
+    lyrics = tabr::as_lyrics(rmd$lyrics)
   } else {lyrics = NA}
   
 
   tabr::as_music(notes = paste0(rmd$note, rmd$octave),
            info  = durchar, lyrics = lyrics, 
-           labels = rmd$chord, ...)         
+           labels = rmd$chord, 
+           key = key %>% gsub(pattern = "b", replacement = '_') %>% tolower, 
+           ...)         
 }

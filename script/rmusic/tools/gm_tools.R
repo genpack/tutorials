@@ -7,8 +7,8 @@
 GMKEY = c(0, -5, 2, -3, 4, -1, -6, 1, -4, 3, -2, 5, -3, 4, -1, -6, 1, -4, 3, -2, 5, 0, -5, 2)
 names(GMKEY) = names(KEY2MODE)[1:24]
 
-
-rmd2gm = function(rmd, key = "Am", clef = 'G', meter = c(4,4), unit = 1/8){
+rmd2gm = function(rmd, key = "C", clef = 'G', meter = c(4,4), unit = 1/8){
+  # assert(rmd %>% is_rmd, "measures do not have equal duration!")
   gmkey = GMKEY[key]    
   rmd %<>% filter(duration > 0)
   rmd$pitch = rmd$note %>% note_octave2pitch(rmd$octave) %>% 
