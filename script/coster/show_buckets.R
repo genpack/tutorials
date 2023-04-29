@@ -45,7 +45,6 @@ transactions %>%
             Total_In   = sum(ifelse(value > 0, value, 0)),
             Total = sum(value)) -> bucket_balances
 
-
 path_output_buckets = paste('script', 'coster', 'report', mc$output$buckets, sep = "/")
 
 bucket_balances %>% View

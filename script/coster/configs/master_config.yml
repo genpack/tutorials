@@ -1,19 +1,19 @@
 inputs: 
-  - cba_sa_feb23
-  - cba_cc_feb23
+  - cba_sa_mar23
+  - cba_cc_mar23
 
 categories: script/coster/configs/universal_3.yml
 
-from: 2022-12-01
-until: 2023-03-01
+from: 2023-03-01
+until: 2023-03-31
 
 # excluded_categories: ['Expenses', 'Miscellaneous', 'CreditCard', 'Proximity']
 
 excluded_categories: ['Saving', 'Miscellaneous', 'CreditCard', 'Proximity', 'Income', 'Expenses']
 
 output:
-  transactions: sa_transactions_feb23
-  buckets: sa_buckets_feb23
+  transactions: sa_transactions_mar23
+  buckets: sa_buckets_mar23
   
   
 

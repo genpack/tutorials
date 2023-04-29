@@ -1,6 +1,7 @@
 library(magrittr)
 library(dplyr)
-library(trader)
+# library(trader)
+source("~/Documents/packages/trader/R/virtual_trader.R")
 
 load("script/trader/stocker/data/dat_raw_historical_until_15_01_2021.RData")
 
@@ -54,9 +55,5 @@ vt$current.price
 # Have a look at your position:
 vt$position
 # Our profit in dollars:
-vt$equity()/100
-
-
-# debug(neg_lin)
-# neg_lin(vt, pm = pm)
+vt$equity()
 
