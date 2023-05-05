@@ -142,7 +142,7 @@ snote2cpitch = function(...){
 snote2rythm_suffix = function(snotes){
   if(length(snotes)>1){return(snotes %>% sapply(snote2rythm_suffix) %>% unlist)}
   if(snotes == ""){return("")}
-  aa = snotes %>% strsplit("[()]") %>% unlist
+  aa = snotes %>%  stringr::str_remove_all("[+-]") %>% strsplit("[()]") %>% unlist
   if(length(aa) == 1){
     bb = aa %>% strsplit("") %>% unlist
     rs = 1 - (bb == 'x')
@@ -158,7 +158,17 @@ snote2rythm_suffix = function(snotes){
 
 smelody2pitch_rythm = function(smelodies, ...){
   out = list()
-  splitted = smelodies %>% strsplit('_') %>% purrr::reduce(rbind)
+  splitted = smelodies %>% strsplit('_')
+  
+  # verify all smelodies have exactly 2 components:
+  lengths = splitted %>% lapply(length) %>% unlist
+  nottwo = which(lengths != 2)
+  rutils::assert(
+    length(nottwo) == 0, 
+    "These smelodies do not have exactly 2 components: %s" %>% 
+      sprintf(paste(mpr[nottwo, tr], collapse = ", ")))
+  
+  splitted %<>% purrr::reduce(rbind)
   if(length(smelodies) == 1){splitted %<>% t}
   splitted %<>% as.data.frame %>% {names(.)<-c('snote', 'srythm');.}
   out$rythm = splitted$srythm %>% paste(splitted$snote %>% snote2rythm_suffix, sep = '_')

@@ -78,7 +78,7 @@ mpr.add_cpitch_from_snote = function(mpr, snote = 'snote', octave = 2, output = 
 mpr.add_duration = function(mpr, cpitch = 'cpitch', rythm = 'rythm', output = "duration", target_unit = 1/8, meter = 4/4){
   measures = which(!is.na(mpr[[rythm]]) & !is.na(mpr[[cpitch]]))
   for(i in measures){
-    rythm2duration(mpr[i, rythm], target_unit = target_unit, meter = meter) %>% 
+    rythm2duration(mpr[[rythm]][i], target_unit = target_unit, meter = meter) %>% 
       paste(collapse = ";") -> mpr[i, output]
   }
   return(mpr)
@@ -88,7 +88,7 @@ mpr.add_pitch = function(mpr, cpitch = 'cpitch', rythm = 'rythm', output = "pitc
   measures = which(!is.na(mpr[[rythm]]) & !is.na(mpr[[cpitch]]))
   for(i in measures){
     pitch = mpr[i, cpitch] %>% strsplit(";") %>% unlist %>% 
-      cpitch2pitch(rythm = mpr[i, rythm])
+      cpitch2pitch(rythm = mpr[[rythm]][i])
     mpr[i, output] <- pitch %>% paste(collapse = ";")
   }
   return(mpr)
@@ -99,7 +99,7 @@ mpr.add_pitch = function(mpr, cpitch = 'cpitch', rythm = 'rythm', output = "pitc
 mpr2rmd = function(mpr, track = "melody", channel = 0, pitch = NULL, duration = NULL, chord = NULL, lyrics = NULL){
   mpr %<>% as.data.frame()
   
-  track     = rutils::verify(pitch, 'character', lengths = 1, default = "melody")
+  track     = rutils::verify(track, 'character', lengths = 1, default = "melody")
   # measure   = rutils::verify(pitch, c('numeric', 'integer'), domain = colnames(mpr), lengths = 1, default = "measure")
   pitch     = rutils::verify(pitch, 'character', domain = colnames(mpr), lengths = 1, default = paste(track, 'pitch', sep = '_'))
   duration  = rutils::verify(duration, 'character', domain = colnames(mpr), lengths = 1, default = paste(track, 'duration', sep = '_'))
@@ -123,7 +123,7 @@ mpr2rmd = function(mpr, track = "melody", channel = 0, pitch = NULL, duration = 
         channel = channel,
         pitch = measure_pitches,
         note = measure_notes,
-        octave = measure_octaves,
+        octave = measure_octaves %>% as.character,
         duration = strsplit(mpr[i, duration], ';') %>% unlist %>% as.numeric
       ) -> rmdfi
     nr = nrow(rmdfi)
@@ -134,10 +134,13 @@ mpr2rmd = function(mpr, track = "melody", channel = 0, pitch = NULL, duration = 
       rmdfi$chord =  chords
     }
     if(!is.null(lyrics)){
-      lyric = mpr[i, lyrics] %>% strsplit("[ ]") %>% unlist
-      if(length(lyric) > nr){lyric = lyric[sequence(nr)]}
-      while(length(lyric) < nr){lyric = c(lyric, "")}
-      rmdfi$lyrics =  lyric
+      rmdfi$lyrics = NA
+      lyr = mpr[i, lyrics] %>% strsplit(" ") %>% unlist
+      wnr = which(rmdfi$pitch != 'r')
+      nnr = length(wnr)
+      if(length(lyr) > nnr){lyr = lyr[sequence(nnr)]}
+      while(length(lyr) < nnr){lyr = c(lyr, "")}
+      rmdfi$lyrics[wnr] = lyr
     }
     rmdf %<>% rbind(rmdfi)
   }
