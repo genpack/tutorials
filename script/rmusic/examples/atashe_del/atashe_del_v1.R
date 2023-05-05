@@ -40,5 +40,31 @@ mpr %>% mpr2rmd(pitch = 'piano_pitch', duration = 'piano_duration', chord = 'cho
 mpr %>% mpr2rmd(pitch = 'voice_pitch', duration = 'voice_duration', chord = 'chord', track = 'voice') -> song_voice
 mpr %>% mpr2rmd(pitch = 'tar_pitch', duration = 'tar_duration', chord = 'chord', track = 'tar') -> song_tar
 
-song_piano %>% rbind(song_tar) %>% rbind(song_voice) %>% rmd2gm() -> song
-  
+song_piano %>% rbind(song_tar) %>% rbind(song_voice) %>% 
+  rmd2gm(key = "Cm", meter = c(3,4)) -> song
+show(song)
+
+song_piano %>% rmd2tabr(key = "Cm", unit = 1/8) -> song_piano_tabr
+
+song_piano_tabr %>% tabr::render_music(
+  file = 'script/rmusic/examples/atashe_del/piano_Cm.pdf',
+  header = list(
+    title = "Title Hastam",
+    subtitle = "Subtitle Hastam dar khedmattoon",
+    composer = "Nima Ramezani",
+    album = "Cozy Nava",
+    arranger = "Nima Ramezani",
+    instrument = "Piano",
+    meter = "3/4",
+    opus = "opus hastam",
+    copyright = "Cozy Stage Inc.",
+    poet = "Bahman Yazdani",
+    tagline = "tagline hastam"
+  ),
+  colors = list(
+    lyrics = 'blue',
+    bar = 'red',
+    stem = 'green',
+    beam = 'yellow')
+  )
+

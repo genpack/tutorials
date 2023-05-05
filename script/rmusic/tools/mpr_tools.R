@@ -96,7 +96,7 @@ mpr.add_pitch = function(mpr, cpitch = 'cpitch', rythm = 'rythm', output = "pitc
 }
 
 # single track
-mpr2rmd = function(mpr, track = "melody", channel = 0, pitch = NULL, duration = NULL, chord = NULL){
+mpr2rmd = function(mpr, track = "melody", channel = 0, pitch = NULL, duration = NULL, chord = NULL, lyrics = NULL){
   mpr %<>% as.data.frame()
   
   track     = rutils::verify(pitch, 'character', lengths = 1, default = "melody")
@@ -104,6 +104,7 @@ mpr2rmd = function(mpr, track = "melody", channel = 0, pitch = NULL, duration = 
   pitch     = rutils::verify(pitch, 'character', domain = colnames(mpr), lengths = 1, default = paste(track, 'pitch', sep = '_'))
   duration  = rutils::verify(duration, 'character', domain = colnames(mpr), lengths = 1, default = paste(track, 'duration', sep = '_'))
   chord     = rutils::verify(chord, 'character', domain = colnames(mpr), lengths = 1, null_allowed = T)
+  lyrics    = rutils::verify(lyrics, 'character', domain = colnames(mpr), lengths = 1, null_allowed = T)
   rmdf = NULL
   for(i in sequence(nrow(mpr))){
     # cat(i, '-')
@@ -125,11 +126,18 @@ mpr2rmd = function(mpr, track = "melody", channel = 0, pitch = NULL, duration = 
         octave = measure_octaves,
         duration = strsplit(mpr[i, duration], ';') %>% unlist %>% as.numeric
       ) -> rmdfi
+    nr = nrow(rmdfi)
     if(!is.null(chord)){
       chords = mpr[i, chord]
       # chords = mpr[i, chord] %>% strsplit("[/ ]") %>% unlist
-      while(length(chords) < nrow(rmdfi)){chords = c(chords, "")}
+      while(length(chords) < nr){chords = c(chords, "")}
       rmdfi$chord =  chords
+    }
+    if(!is.null(lyrics)){
+      lyric = mpr[i, lyrics] %>% strsplit("[ ]") %>% unlist
+      if(length(lyric) > nr){lyric = lyric[sequence(nr)]}
+      while(length(lyric) < nr){lyric = c(lyric, "")}
+      rmdfi$lyrics =  lyric
     }
     rmdf %<>% rbind(rmdfi)
   }

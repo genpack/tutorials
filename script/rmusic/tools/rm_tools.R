@@ -175,9 +175,9 @@ shift_semitone = function(semitones, halftunes = 2){
   return(out)
 }
 
-shift_note = function(input, halftunes = 2, sharp = T){
+shift_note = function(input, halftunes = 2, sharps = NULL){
   if(length(input)>1){
-    return(input %>% sapply(shift_note, halftunes = halftunes, sharp = sharp) %>% unlist)
+    return(input %>% sapply(shift_note, halftunes = halftunes, sharps = sharps) %>% unlist)
   }
   ind = which(NOTES_SHARP == input)
   if(length(ind) == 0){
@@ -187,7 +187,8 @@ shift_note = function(input, halftunes = 2, sharp = T){
   
   ind = RMUSMOD(ind + halftunes, 12)
   ind[ind == 0] <- 12
-  if(sharp) return(NOTES_SHARP[ind]) else return(NOTES_FLAT[ind])
+  NOTES_CUSTOM = notes_custom(sharps)
+  return(NOTES_CUSTOM[ind])
 }
 
 chord_triad = function(input, major = T){
@@ -369,9 +370,9 @@ function2pitch = function(func, ...){
 
 
 # todo: consider time unit. May not be 8 always, don't hardcode 8
-is_rmd = function(df){
+is_rmd = function(df, unit = 1/8){
   is_issue = df %>% group_by(measure, track) %>% summarise(sumdur = sum(duration)) %>% 
-    pull(sumdur) %>% {.!=8} %>% sum %>% as.logical
+    pull(sumdur) %>% {!rutils::equal(.,1/unit)} %>% sum %>% as.logical
   is_issue = is_issue | (is.na(df$octave[df$note != 'r']) %>% sum)
   return(!is_issue)
 }
@@ -435,4 +436,24 @@ midi2rmd = function(midi, unit = 1/8){
     filter(ticks > 0) -> ff
     
   return(ff)
+}
+
+
+rdm.transpose = function(rdm, halftunes = NULL){
+  if(is.null(halftunes)){return(rdm)}
+  nonrests = which(rdm$note != 'r')
+  semitones = semitone(notes = rdm$note[nonrests], octaves = rdm$octave[nonrests])
+  out = rdm
+  out$note[nonrests] = semitones %>% shift_semitone(halftunes) %>% semitone2note()
+  out$octave[nonrests] = semitones %>% shift_semitone(halftunes) %>% semitone2octave()
+  
+  ind = rdm$chord %>% grep(pattern = "[ABCDEFG]")
+  rdm$chord[ind] %>% substr(1,1) %>% 
+    tolower %>% 
+    shift_note(halftunes, sharps = NULL) %>% 
+    toupper %>% paste0(
+      out$chord[ind] %>% gsub(pattern = '[ABCDEFG]', replacement = '')
+    ) %>% 
+    gsub(pattern = '_', replacement = 'b') -> out$chord[ind]
+  return(out)
 }
