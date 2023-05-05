@@ -48,20 +48,20 @@ song$melody_rythm[c(9,17)] <- '9111_1111'
 
 ## CHORD Melodies
 #############################################################
-song$chord_snote[c(1:3, 6)] = 'tcacacac'              # Fm
+song$chord_snote[c(1:3, 6)] = 'pcacacac'              # Fm
 song$chord_snote[4] = 'scgcgcgc'                      # C7/G
 song$chord_snote[5] = 'm+cgcgcgc'                     # C7/E
 song$chord_snote[c(7, 13, 21)] = 'l+fCfCfCf'          # F7/A
-song$chord_snote[c(8,11, 14, 19, 20)] = 'ifDfDfDf'    # Bbm
+song$chord_snote[c(8,11, 14, 19, 20)] = 'tfDfDfDf'    # Bbm
 song$chord_snote[9] = 'se+Ce+Ce+C'                    # C7/G
-song$chord_snote[10] = 'tea+cC'                       # F7
+song$chord_snote[10] = 'pea+cC'                       # F7
 
 song$chord_snote[12] = 'cfEfEfEf'                     # F7/C
-song$chord_snote[15] = 'ifD+fD+fD+f'                  # Bb7
+song$chord_snote[15] = 'tfD+fD+fD+f'                  # Bb7
 song$chord_snote[16] = 'ebG-bG-beb'                   # Ebm
-song$chord_snote[17] = 'ifDfifD'                      # Bbm
-song$chord_snote[18] = 'tea+CFA+OT'                   # F7
-song$chord_snote[22] = 'tfCfCfCf'                     # F7
+song$chord_snote[17] = 'tfDftfD'                      # Bbm
+song$chord_snote[18] = 'pea+CFA+OP'                   # F7
+song$chord_snote[22] = 'pfCfCfCf'                     # F7
 
 ## CHORD Keys
 ###########################################################

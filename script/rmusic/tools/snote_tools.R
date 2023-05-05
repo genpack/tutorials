@@ -2,12 +2,12 @@
 ###### BUILD SNOTE MAPPER #############################################
 build_snote_mapper = function(key = "C", starting_octave = 2){
   
-  all_snotes = 'ormtslicdefgabCDEFGABORMTSLI' %>% strsplit('') %>% unlist
+  all_snotes = 'ormpsltcdefgabCDEFGABORMPSLT' %>% strsplit('') %>% unlist
   map2note = 'cdefgabcdefgabcdefgabcdefgab' %>% 
     strsplit('') %>% unlist %>% {names(.)<-all_snotes;.}
   
   if(key %in% c("Dm", "F")){
-    map2note[strsplit('biBI', '') %>% unlist] %<>% paste0('_')
+    map2note[strsplit('btBT', '') %>% unlist] %<>% paste0('_')
   }
   
   if(key %in% c("G", "Em")){
@@ -15,27 +15,27 @@ build_snote_mapper = function(key = "C", starting_octave = 2){
   }
   
   if(key %in% c("Gm", "Bb")){
-    map2note[strsplit('beimBEIM','') %>% unlist] %<>% paste0('_')
+    map2note[strsplit('betmBETM','') %>% unlist] %<>% paste0('_')
   }
   
   if(key %in% c("D", "Bm")){
-    map2note[strsplit('ftcoFTCO','') %>% unlist] %<>% paste0('#')
+    map2note[strsplit('fpcoFPCO','') %>% unlist] %<>% paste0('#')
   }
   
   if(key %in% c("Cm", "Eb")){
-    map2note[strsplit('meEMibBIlaAL','') %>% unlist] %<>% paste0('_')
+    map2note[strsplit('meEMtbBTlaAL','') %>% unlist] %<>% paste0('_')
   }
   
   if(key %in% c("A", "Gbm")){
-    map2note[strsplit('cfgotsCFGOTS','') %>% unlist] %<>% paste0('#')
+    map2note[strsplit('cfgopsCFGOPS','') %>% unlist] %<>% paste0('#')
   }
   
   if(key %in% c("Fm", "Ab")){
-    map2note[strsplit('meEMibBIlaALdrDR','') %>% unlist] %<>% paste0('_')
+    map2note[strsplit('meEMtbBTlaALdrDR','') %>% unlist] %<>% paste0('_')
   }
   
   if(key %in% c("E", "Dbm")){
-    map2note[strsplit('cfgotsCFGOTSdrDR','') %>% unlist] %<>% paste0('#')
+    map2note[strsplit('cfgopsCFGOPSdrDR','') %>% unlist] %<>% paste0('#')
   }
   
   map2octave = c(rep(starting_octave,7), rep(starting_octave+1,7), rep(starting_octave+2,7), rep(starting_octave+3,7))
@@ -81,7 +81,7 @@ smeasure = function(smelody, mn){
 # s_melody = '2c3CEEDDCCDCa4bc5bDDCCbbCbg6af7EGGGGEEFEC8DEDb9CgED10DCbCfgf11FAAGGFFGFD12Ef'
 # s_melody %>% smeasure(5) %>% snote_shift(-3)
 snote_shift = function(snote, shift = 1){
-  patn   = 'ormtslicdefgabCDEFGABORMTSLI' %>% strsplit('') %>% unlist
+  patn   = 'ormpsltcdefgabCDEFGABORMPSLT' %>% strsplit('') %>% unlist
   patt   = patn %>% length %>% sequence
   names(patt) = patn
   
