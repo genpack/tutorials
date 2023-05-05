@@ -53,20 +53,20 @@ song %<>% apply_rythms
 
 ## CHORD Melodies
 ########################################################
-song$schord[c(1:3, 6)] = 'tcacacac'              # Fm
+song$schord[c(1:3, 6)] = 'pcacacac'              # Fm
 song$schord[4] = 'scgcgcgc'                      # C7/G
 song$schord[5] = 'm+cgcgcgc'                     # C7/E
 song$schord[c(7, 13, 21)] = 'l+fCfCfCf'          # F7/A
-song$schord[c(8,11, 14, 19, 20)] = 'ifDfDfDf'    # Bbm
+song$schord[c(8,11, 14, 19, 20)] = 'tfDfDfDf'    # Bbm
 song$schord[9] = 'se+Ce+Ce+C'                    # C7/G
-song$schord[10] = 'tea+cC'                       # F7
+song$schord[10] = 'pea+cC'                       # F7
 
 song$schord[12] = 'cfEfEfEf'                     # F7/C
-song$schord[15] = 'ifD+fD+fD+f'                  # Bb7
+song$schord[15] = 'tfD+fD+fD+f'                  # Bb7
 song$schord[16] = 'ebGbGbeb'                     # Ebm
-song$schord[17] = 'ifDfifD'                     # Bbm
-song$schord[18] = 'tea+CFA+OT'                   # F7
-song$schord[22] = 'tfCfCfCf'                     # F7
+song$schord[17] = 'tfDftfD'                     # Bbm
+song$schord[18] = 'pea+CFA+OP'                   # F7
+song$schord[22] = 'pfCfCfCf'                     # F7
 
 song$schord[1:22] %>% 
   sapply(snote2cpitch, key = 'Fm', start = 3) %>% 
