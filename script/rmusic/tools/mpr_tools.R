@@ -134,7 +134,7 @@ mpr2rmd = function(mpr, track = "melody", channel = 0, pitch = NULL, duration = 
       rmdfi$chord =  chords
     }
     if(!is.null(lyrics)){
-      rmdfi$lyrics = NA
+      rmdfi$lyrics = ""
       lyr = mpr[i, lyrics] %>% strsplit(" ") %>% unlist
       wnr = which(rmdfi$pitch != 'r')
       nnr = length(wnr)

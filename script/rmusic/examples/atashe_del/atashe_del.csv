@@ -1,189 +1,188 @@
-measure,lyrics,chord,piano,voice,tar
-1,,Gm,gagfga_111111,_,_
-2,,Bb,bagabD_111111,_,_
-3,,Cm,C_6,_,_
-4,,Bb,bgaC_2211,_,_
-5,,Gm,b_6,_,_
-6,,Fm,afga_2211,_,_
-7,,Gm,baCbDC_111111,_,_
-8,,Cm,EDCbag_111111,_,_
-9,,,CED_312,_,_
-9,,,bC_24,_,_
-10,,,(G:O:M)C_42,_,_
-10,,,bCbag_21111,_,_
-11,,Bb,bab_312,_,_
-11,,Gm,ag_24,_,_
-12,dar del aa,Cm,_,CbC_312,_
-12,ta she,,_,bC_24,_
-13,gha me,Gm,_,xbC_312,_
-13,ro khat,,bCbag_21111,bg_24,_
-14,taa ke khaa,Bb,_,bab_312,_
-14,ne kard,Gm,x(f:F)(g:G)(a:A)(b:B)_21111,ag_24,_
-15,,Cm,_,_,CbC_312
-15,,,_,_,bC_24
-16,,Gm,_,_,xbC_312
-16,,,_,_,bCbag_21111
-17,,Bb,_,_,bab_312
-17,,Gm,_,_,ag_24
-18,di de sey,Cm,_,CbC_312,_
-18,le khoon,,_,bC_24,_
-19,be daa,Gm,_,xbC_312,_
-19,ma nam,,_,bg_24,_
-20,bas ra vaa,Bb,_,bab_312,_
-20,ne kard,Gm,xga_312,ag_24,_
-21,,,bab_312,_,_
-21,,,agabC_21111,_,_
-22,aaf taa,Gm,_,DD_42,_
-22,be om,,_,CD_24,_
-23,re man,,_,xCD_312,_
-23,fo roo,,_,Cb_24,_
-24,raft o maa,Cm,_,CbC_312,_
-24,ham az,,_,bC_24,_
-25,o fogh,,_,xCb_312,_
-25,che raa,,_,ag_24,_
-26,sar bo roon,Bb,_,bab_312,_
-26,na kard,Gm,xgabC_21111,ag_24,_
-27,,Gm,_,_,DCD_312
-27,,,_,_,CD_24
-28,,,_,_,xCD_312
-28,,,_,_,CDCbag_111111
-29,,Cm,_,_,CbC_312
-29,,,_,_,bC_24
-30,,,_,_,xbC_312
-30,,,_,_,bCbaga_111111
-31,,Bb,_,_,bab_312
-31,,Gm,xgabC_21111,_,ag_24
-32,hich sobh,Gm,_,DD_42,_
-32,dam,,_,CD_24,_
-33,na shod,,_,xCD_312,_
-33,fa lak,,_,Cb_24,_
-34,chon sha fagh,Cm,_,CbC_312,_
-34,ze khoon,,_,bC_24,_
-35,de le ,,_,xCb_312,_
-35,ma raa,Bb,_,ag_24,_
-36,laa le goon,Gm,_,bab_312,_
-36,na kard,,xgabC_21111,ag_24,_
-37,,Gm,_,_,DCD_312
-37,,,_,_,CD_24
-38,,,_,_,xCD_312
-38,,,_,_,CDCbag_111111
-39,,Cm,_,_,CbC_312
-39,,,_,_,bC_24
-40,,,_,_,xbC_312
-40,,,_,_,bCbaga_111111
-41,,Bb,_,_,bab_312
-41,,Gm,_,_,ag_24
-42,ze roo,Gm,_,xgf_312,_
-42,ye ma hat,,_,fga_222,_
-43,jaa,Bb,_,b_6,_
-43,naa,Fm,_,a_6,_
-44,par de bar,Bb,_,baC_312,_
-44,go sha,Gm,xfg_312,ag_24,_
-45,,Bb,b_6,_,_
-45,,Fm,a_6,_,_
-46,,Bb,baC_312,_,_
-46,,Gm,ag_24,_,_
-47,dar aa,Gm,_,xgf_312,_
-47,se maan,,_,fga_222,_
-48,mah,Bb,_,b_6,_
-48,raa,Fm,_,a_6,_
-49,mon fa el,Bb,_,baC_312,_
-49,na maa,Gm,xfg_312,ag_24,_
-50,,Bb,b_6,_,_
-50,,Fm,a_6,_,_
-51,,Bb,baC_312,_,_
-51,,Gm,agabC_21111,_,_
-52,be,Gm,Dx_42,xb_42,_
-52,maa he roo,,_,CDC_222,_
-53,yat,Bb,_,D_6,_
-53,so,,_,C_6,_
-54,gand ke,Gm,_,ba_42,_
-54,del be meh,,_,bCb_222,_
-55,rat,Ab,_,C_6,_
-55,paa,,_,b_6,_
-56,band be,Fm,_,ag_42,_
-56,ter re at,,_,aba_222,_
-57,jaan,Bb,_,b_6,_
-57,pey,,_,a_6,_
-58,vand,Gm,xg_42,gx_42,_
-58,,,aba_222,_,_
-59,,Bb,bCb_312,_,_
-59,,Fm,agabC_21111,_,_
-60,gha,Gm,Dx_24,xb_42,_
-60,sam be zan,,_,CDC_222,_
-61,do,Bb,_,D_6,_
-61,paa,,_,C_6,_
-62,zand be,Gm,_,ba_42,_
-62,jaa nam aa,,_,bCb_222,_
-63,tash,Ab,_,C_6,_
-63,af,,_,b_6,_
-64,kand fe,Fm,_,ag_42,_
-64,raa ghe roo,,_,aba_222,_
-65,yet,Bb,_,b_6,_
-65,yek,,_,a_6,_
-66,chand,Gm,xg_42,gx_42,_
-66,,,aba_222,_,_
-67,,Bb,bCb_312,_,_
-67,,Gm,ag_24,_,_
-68,,Gm,_,_,Dx_42
-68,,,_,_,bx_42
-69,bi,Fm,_,xF_42,gx_42
-69,yaa ne gaa,,_,EDC_222,_
-70,raa ja,Gm,_,bg_42,_
-70,maa le khod,,_,abC_222,_
-71,ben,Gm,_,G_6,_
-71,maa,Bb,_,D_6,_
-72,,Gm,GAGFG_11118,_,Gx_24
-72,,Bb,DEDCD_11118,_,Dx_24
-73,ze,Fm,_,xF_42,_
-73,ran go boo,,_,EDC_222,_
-74,yat khe,Gm,_,bg_42,_
-74,jel na maa,,_,abC_222,_
-75,gol,Gm,_,G_6,_
-75,raa,Bb,_,D_6,_
-76,,Gm,GAGFG_11118,_,Gx_24
-76,,Bb,DEDCD_11118,_,Dx_24
-77,ro dar,Fm,_,xFF_222,Fx_24
-78,tar fe cha man,Gm,_,FFGG_2112,_
-79,bin ben,Fm,_,xGF_222,_
-80,shas te cho man,Cm/Gm,_,EDCD_2112,_
-81,del khoon,Fm,_,xFF_222,_
-82,bas ze gha me,Gm,_,FFGG_2112,_
-83,yaa ri,Fm,_,xAF_222,_
-84,ghon che da han,Cm/Gm,_,EDCD_2112,_
-85,,Bb,(d:D)(e:E)(f:F)(e:E)(d:D)(c:C)_111111,_,_
-86,,Gm,(D:R)(g:G)(d:D)_222,_,_
-87,gol de,Cm,(e:E)x_24,xED_222,xED_222
-88,rakh shan,Ab,_,ED_33,EFEDCb_312222
-89,de cheh re,Cm,_,CbC_222,CbC_222
-90,taa ban,Bb,_,DC_33,DEDCba_312222
-91,de ghon che,Gm,_,bab_222,bab_222
-92,dar khan,Ab,_,Cb_33,Cb_33
-93,de bol bol,Fm,_,aga_222,aga_222
-94,na a re za nan,Gm,xgabC_81111,bCbag_11112,bCbag_31224
-95,har ke,Cm,(e:E)x_24,xED_222,xED_222
-96,joo yan,Ab,_,ED_33,EFEDCb_312222
-97,de baa shad,Cm,_,CbC_222,CbC_222
-98,yaa ban,Bb,_,DC_33,DEDCba_312222
-99,de del daa,Gm,_,bab_222,bab_222
-100,rad zen,Ab,_,Cb_33,Cb_33
-101,de bas kon,Fm,_,aga_222,aga_222
-102,aa aa ho fa ghaan,Gm,_,bCbag_11112,bCbag_31224
-103,,,xga_222,_,_
-104,,,bCbag_31224,_,_
-105, ze jo re mah,Gm,_,xabCC_21111,_
-106,roo oo oo yaan,Cm,_,CCbC_1113,_
-107, shek ve gar,Ab,_,xCDC_2112,_
-108,saa zi,Bb/Fm,_,ba_33,_
-109, be shesh da re,Gm,_,xabCC_21111,_
-110,meh nat,Cm,_,CCbC_1113,_
-111,moh re an,Ab,_,xCDC_2112,_
-112,daa zi,Bb/Fm,_,ba_33,_
-113, ham chon,Gm,_,xDC_222,_
-114,saa aa aa le ek,,_,bagab_11112,_
-115,nagh de jaan,Bb,_,xbCb_2112,_
-116,baa aa aa zi,Cm,_,agbC_1113,_
-117, ham chon,Gm,_,xDC_222,_
-118,saa aa aa le ek,,_,bagab_11112,_
-119,das te khod,,_,xbCb_2112,_
-120,baa zi,Fm/Gm,_,ag_33,_
+measure,lyrics,chord,piano_left,piano_right,voice,tar
+1,,Gm,(g:b:D)x_12,gagfga_111111,_,g6
+2,,Bb,(f:b:D)x_12,bagabD_111111,_,b6
+3,,Cm,(c:g:b)x_12,C_6,_,C6
+4,,Bb,(f:b:D)x_12,bgaC_2211,_,_
+5,,Gm,(g:b:D)x_12,b_6,_,b6
+6,,Fm,(f:a:C)x_12,afga_2211,_,a6
+7,,Gm,(g:b:D)x_12,baCbDC_111111,_,b6
+8,,Cm,(c:g:b)x_12,EDCbag_111111,_,
+9,,Cm,(c:g:b)x_12,CED_312,_,C6
+9,,,,bC_24,_,C6
+10,,Cm,(c:g:b)x_12,(G:O:M)C_42,_,xC42
+10,,,,bCbag_21111,_,bCbag_21111
+11,,Bb,(f:b:D)x_12,bab_312,_,bab_312
+11,,Gm,(g:b:D)x_12,ag_24,_,ag_24
+12,dar del aa,Cm,cegx_2112,x(E:G)_21,CbC_312,C_6
+12,ta she,,Cbg_222,,bC_24,b_6
+13, gha me,Gm,gbDG_2112,(G:B:M)x_42,xbC_312,xbC_312
+13,ro khat,,Dbg_222,,bg_24,bCbag_21111
+14,taa ke khaa,Bb,(f:b:D)x_12,_,bab_312,bab_312
+14,ne kard,Gm,(g:b:D)x_12,x(f:F)(g:G)(a:A)(b:B)_21111,ag_24,ag_24
+15,,Cm,ceg_111,CbC_312,_,C6
+15,,,bge_111,bC_24,_,b6
+16,,Gm,gbD_111,xbC_312,_,xbC_312
+16,,,GBG_111,bCbag_21111,_,bg_24
+17,,Bb,(f:b:D)x_12,bab_312,_,bb_21
+17,,Gm,(g:b:D)x_12,ag_24,_,ag_24
+18,di de sey,Cm,cegx_2112,x(E:G)_21,CbC_312,C_6
+18,le khoon,,Cge_111,_,bC_24,b_6
+19, be daa,Gm,gbDG_2112,(G:O:M)x_21,xbC_312,xbC_312
+19,ma nam,,GBG_111,,bg_24,bCbag_21111
+20,bas ra vaa,Bb,(f:b:D)x_12,_,bab_312,bab_312
+20,ne kard,Gm,(g:b:D)x_12,xga_312,ag_24,ag_24
+21,,,,bab_312,_,_
+21,,,,agabC_21111,_,_
+22,aaf taa,Gm,gbDx_2112,x(B:R)_21,DD_42,DCD_312
+22,be om,,GDb_111,_,CD_24,CD_24
+23, re man,,gbDG_2112,_,xCD_312,xCD_312
+23,fo roo,,,Cba_111,Cb_24,Cba_222
+24,raft o maa,Cm,cegx_2112,x(E:G)_21,CbC_312,CbC_312
+24,ham az,,Cge_111,_,bC_24,bC_24
+25, o fogh,,ceg_111,xbC_312,xCb_312,xCb_312
+25,che raa,,bge_111,bCbaga_111111,bg_24,bag_111
+26,sar bo roon,Bb,(f:b:D)x_12,_,bab_312,bab_312
+26,na kard,Gm,(g:b:D)x_12,xgabC_21111,ag_24,ag_24
+27,,Gm,gbD_111,DCD_312,_,D_6
+27,,,GBG_111,CD_24,_,C_6
+28,,,gbD_111,xCD_312,_,xCD_312
+28,,,GBG_111,CDCbag_111111,_,Cb_24
+29,,Cm,cegx_2112,CbC_312,_,CbC_312
+29,,,Cge_111,bGFED_21111,_,bg_24
+30,,,cegx_2112,CbC_312,_,bb_21
+30,,,Cge_111,bCbaga_111111,_,ag_24
+31,,Bb,(f:b:D)x_12,bab_312,_,
+31,,Gm,(g:b:D)x_12,ag_24,_,
+32,hich sobh,Gm,gbDx_2112,x(B:R)_21,DD_42,DCD_312
+32,dam,,GDb_111,_,CD_24,CD_24
+33, na shod,,gbDG_2112,_,xCD_312,xCD_312
+33,fa lak,,,Cba_111,Cb_24,Cba_222
+34,chon sha fagh,Cm,cegx_2112,x(E:G)_21,CbC_312,CbC_312
+34,ze khoon,,Cge_111,_,bC_24,bC_24
+35, de le ,,ceg_111,xbC_312,xCb_312,xCb_312
+35,ma raa,,bge_111,bCbaga_111111,ag_24,bag_111
+36,laa le goon,Bb,,_,bab_312,bab_312
+36,na kard,Gm,,xgabC_21111,ag_24,ag_24
+37,,Gm,gbD_111,DCD_312,_,D_6
+37,,,GBG_111,CD_24,_,C_6
+38,,,gbD_111,xCD_312,_,xCD_312
+38,,,GBG_111,Cba_111,_,CDCbag_111111
+39,,Cm,cegx_2112,CbG_312,_,CbC_312
+39,,,Cge_111,FED_222,_,bC_24
+40,,,cegx_2112,CbC_312,_,xbC_312
+40,,,Cge_111,bCbaga_111111,_,bCbaga_111111
+41,,Bb,(f:b:D)x_12,bab_312,_,bab_312
+41,,Gm,(g:b:D)x_12,ag_24,_,ag_24
+42, ze roo,Fm,faCx_2112,x(A:O)_21,xfe+_312,xfe+_312
+42,ye ma hat,,FCa_222,,fga_222,fga_222
+43,jaa,Bb,(f:b:D)x_12,_,b_6,b_6
+43,naa,Fm,(f:a:C)x_12,_,a_6,a_6
+44,par de bar,Bb,(f:b:D)x_12,_,baC_312,baC_312
+44,go sha,Gm,(g:b:D)x_12,xfg_312,ag_24,ag_24
+45,,Bb,(f:b:D)x_12,(b:B)_6,_,b6
+45,,Fm,(f:a:C)x_12,(a:A)_6,_,a6
+46,,Bb,(f:b:D)x_12,baC_312,_,bb_21
+46,,Gm,(g:b:D)x_12,ag_24,_,ag_24
+47, dar aa,Fm,faCx_2112,x(A:O)_21,xfe+_312,xfe+_312
+47,se maan,,FCa_222,,fga_222,fga_222
+48,mah,Bb,(f:b:D)x_12,_,b_6,b_6
+48,raa,Fm,(f:a:C)x_12,_,a_6,a_6
+49,mon fa el,Bb,(f:b:D)x_12,_,baC_312,baC_312
+49,na maa,Gm,(g:b:D)x_12,xfg_312,ag_24,ag_24
+50,,Bb,(f:b:D)x_12,baC_312,_,_
+50,,Fm,(f:a:C)x_12,agabC_21111,_,_
+51, be,Gm,gbD_111,Dx_42,xb_42,_
+51,maa he roo,,GBG_111,_,CDC_222,_
+52,yat,Bb,tdf_111,(d:D)_6,D_6,D_6
+52,so,,bfd_111,(c:C)_6,C_6,C_6
+53,gand ke,Gm,gbD_111,(b:B)_6,ba_42,b_6
+53,del be meh,,GBG_111,_,bCb_222,_
+54,rat,Ab,aCE_111,(c:C)_6,C_6,C_6
+54,paa,,AEC_111,(b:B)_6,b_6,b_6
+55,band be,Fm,faC_111,(a:A)_6,ag_42,a_6
+55,ter re at,,FCa_111,_,aba_222,_
+56,jaan,Bb,tdf_111,(b:B)_6,b_6,b_6
+56,pey,,bfd_111,(a:A)_6,a_6,a_6
+57,vand ,Gm,gbD_111,xg_42,gx_42,g_6
+57,,,GBG_111,aba_222,_,_
+58,,Bb,(f:b:D)x_12,bCb_312,_,_
+58,,Fm,(f:a:C)x_12,agabC_21111,_,_
+59, gha,Gm,gbD_111,Dx_24,xb_42,_
+59,sam be zan,,GBG_111,_,CDC_222,_
+60,do,Bb,tdf_111,_,D_6,D_6
+60,paa,,bfd_111,GFGEFD_111111,C_6,C_6
+61,zand be,Gm,gbD_111,Cba_312,ba_42,b_6
+61,jaa nam aa,,GBG_111,bCb_222,bCb_222,_
+62,tash,Ab,aCE_111,_,C_6,C_6
+62,af,,AEC_111,FEFDEC_111111,b_6,b_6
+63,kand fe,Fm,faC_111,bag_312,ag_42,a_6
+63,raa ghe roo,,FCa_111,aba_222,aba_222,_
+64,yet,Bb,tdf_111,_,b_6,b_6
+64,yek,,bfd_111,_,a_6,a_6
+65,chand ,Gm,gbD_111,xg_42,gx_42,g_6
+65,,,GBG_111,aba_222,_,_
+66,,Bb,(f:b:D)x_12,bCb_312,_,_
+66,,Gm,(g:b:D)x_12,ag_24,_,_
+67, bi,Fm,faCx_2112,x(a:C)_21,xF_42,xF_42
+67,yaa ne gaa,,FCa_111,_,EDC_222,EDC_222
+68,raa ja,Gm,gbDx_2112,x(B:R)_21,bg_42,bg_42
+68,maa le khod,,GDb_111,_,abC_222,abC_222
+69,ben,Gm,(g:b:D)x_12,_,G_6,G_6
+69,maa,Bb,(f:b:D)x_12,_,D_6,D_6
+70,,Gm,(g:b:D)x_12,GAGFG_11118,_,Gx_24
+70,,Bb,(f:b:D)x_12,DEDCD_11118,_,Dx_24
+71, ze,Fm,faCx_2112,x(a:C)_21,xF_42,xF_42
+71,ran go boo,,FCa_111,_,EDC_222,EDC_222
+72,yat khe,Gm,gbDx_2112,x(B:R)_21,bg_42,bg_42
+72,jel na maa,,GDb_111,_,abC_222,abC_222
+73,gol,Gm,(g:b:D)x_12,_,G_6,G_6
+73,raa,Bb,(f:b:D)x_12,_,D_6,D_6
+74,,Gm,(g:b:D)x_12,GAGFG_11118,_,Gx_24
+74,,Bb,(f:b:D)x_12,DEDCD_11118,_,Dx_24
+75, ro dar,Fm,faCFCA_111111,,xFF_222,Fx_24
+76,tar fe cha man,Gm,gbDGBG_111111,xCDEF_81111,FFGG_2112,FE+FGG_11112
+77, bin ben,Fm,faCFCA_111111,Gx_15,xGF_222,xAAGF_21111
+78,shas te cho man,Cm/Gm,ceGDBG_111111,xFEDC_81111,EDCD_2112,GEDCD_11112
+79, del khoon,Fm,faCFCA_111111,Dx_15,xFF_222,xFF_222
+80,bas ze gha me,Gm,gbDGBG_111111,,FFGG_2112,FE+FGG_11112
+81,yaa ri,Fm,faCFCA_111111,,xAF_222,xGFFE_21111
+82,ghon che da han,Cm/Gm,ceGDBG_111111,,EDCD_2112,EDDCD_11112
+83,,Bb,,(d:D)(e:E)(f:F)(e:E)(d:D)(c:C)_111111,_,_
+84,,Gm,,(D:R)(g:G)(d:D)_222,_,_
+85, gol de,Cm,cegCge_111111,(e:E)x(e:g)_213,xED_222,xED_222
+86,rakh shan,Ab,aCEAEC_111111,xGFEDCb_6111111,ED_33,EFEDCb_312222
+87,de cheh re,Cm,cegCge_111111,CbC_111,CbC_222,CbC_222
+88,taa ban,Bb,tdfbfd_111111,xFEDCba_6111111,DC_33,DEDCba_312222
+89,de ghon che,Gm,gbDGBG_111111,bab_222,bab_222,bab_222
+90,dar khan,Ab,aCEAEC_111111,xCDCbag_6111111,Cb_33,Cb_33
+91,de bol bol,Fm,faCFCA_111111,aga_222,aga_222,aga_222
+92,na a re za nan,Gm,gbDGBG_111111,xgabC_81111,bCbag_11112,bCbag_31224
+93, har ke,Cm,cegCge_111111,(e:E)x(e:g)_213,xED_222,xED_222
+94,joo yan,Ab,aCEAEC_111111,xGFEDCb_6111111,ED_33,EFEDCb_312222
+95,de baa shad,Cm,cegCge_111111,CbC_111,CbC_222,CbC_222
+96,yaa ban,Bb,tdfbfd_111111,xFEDCba_6111111,DC_33,DEDCba_312222
+97,de del daa,Gm,gbDGBG_111111,bab_222,bab_222,bab_222
+98,rad zen,Ab,aCEAEC_111111,xCDCbag_6111111,Cb_33,Cb_33
+99,de bas kon,Fm,faCFCA_111111,aga_222,aga_222,aga_222
+100,aa aa ho fa ghaan,Gm,gbDGBG_111111,bCbag_11112,bCbag_11112,bCbag_31224
+101,,,,xga_222,_,_
+102,,,,bCbag_31224,_,_
+103, ze jo re mah,Gm,gbDxGDB_2112222,x(B:R)_12,xabCC_21111,xabCC_21111
+104,roo oo oo yaan,Cm,cegxCge_2112222,x(E:G)_12,CCbC_1113,CCbC_1113
+105, shek ve gar,Ab,lceaxae_2112222,x(f:a:E)_33,xCDC_2112,xCDC_2112
+106,saa zi,Bb/Fm,(f:b:D)(f:a:C)_33,(F:B:R)(F:A:O)_33,ba_33,baba_1113
+107, be shesh da re,Gm,gbDxGDB_2112222,x(B:R)_12,xabCC_21111,xabCC_21111
+108,meh nat,Cm,cegxCge_2112222,x(E:G)_12,CCbC_1113,CCbC_1113
+109, moh re an,Ab,lceaxae_2112222,x(f:a:E)_33,xCDC_2112,xCDC_2112
+110,daa zi,Bb/Fm,(f:b:D)(f:a:C)_33,(F:B:R)(F:A:O)_33,ba_33,baba_1113
+111, ham chon,Gm,gbDxGDB_2112222,x(B:R)_12,xDC_222,xDC_222
+112,saa aa aa le ek,,gbDxGDB_2112222,x(B:R)_12,bagab_11112,bagab_11112
+113, nagh de jaan,Bb,fbDxFDB_2112222,x(B:R)_12,xbCb_2112,xbCb_2112
+114,baa aa aa zi,Cm,cegxCge_2112222,x(E:G)_12,agbC_1113,agbC_1113
+115, ham chon,Gm,gbDxGDB_2112222,x(B:R)_12,xDC_222,xDC_222
+116,saa aa aa le ek,,gbDxGDB_2112222,x(B:R)_12,bagab_11112,bagab_11112
+117, das te khod,,gbDxGDB_2112222,x(B:R)_12,xbCb_2112,xbCb_2112
+118,baa zi,Fm/Gm,(f:a:C)std_3111,_,ag_33,ag_33
+119,,Gm,xgbd_3111,stdx_1113,,g_6
+120,,Gm,xGBR,gbdx_1113,,g_6
+121,,Gm,x_6,GBRS_1113,,G_6
