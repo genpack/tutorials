@@ -166,7 +166,7 @@ smelody2pitch_rythm = function(smelodies, ...){
   rutils::assert(
     length(nottwo) == 0, 
     "These smelodies do not have exactly 2 components: %s" %>% 
-      sprintf(paste(mpr[nottwo, tr], collapse = ", ")))
+      sprintf(paste(splitted[nottwo], collapse = ", ")))
   
   splitted %<>% purrr::reduce(rbind)
   if(length(smelodies) == 1){splitted %<>% t}

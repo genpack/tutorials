@@ -96,7 +96,7 @@ mpr.add_pitch = function(mpr, cpitch = 'cpitch', rythm = 'rythm', output = "pitc
 }
 
 # single track
-mpr2rmd = function(mpr, track = "melody", channel = 0, pitch = NULL, duration = NULL, chord = NULL, lyrics = NULL){
+mpr2rmd_single_track = function(mpr, track = "melody", channel = 0, pitch = NULL, duration = NULL, chord = NULL, lyrics = NULL){
   mpr %<>% as.data.frame()
   
   track     = rutils::verify(track, 'character', lengths = 1, default = "melody")
@@ -184,3 +184,75 @@ rmd2mpr = function(rmd){
   return(out)
   
 }
+
+# if you have duplicated measures in a table, this function will combine the duplicated measures into a single measure 
+mpr.combine_measures = function(mpr){
+  is.duplicated.measure = duplicated(mpr$measure) %>% {length(.) > 0}
+  if(is.duplicated.measure){
+    lambda = function(dot){
+      data.frame(chord = paste(dot$chord %>% stringr::str_remove_all(" ") %>% {.[.!=""]} %>% na.omit, collapse = '/'),
+                 lyrics = paste(dot$lyrics %>% na.omit, collapse = " ")) -> out
+      for(tr in tracks){
+        split = dot[[tr]] %>% strsplit('_')
+        split %>% list.pull(1) %>% paste(collapse = '') %>% 
+          paste(split %>% list.pull(2) %>% paste(collapse = ''), sep = '_') -> out[[tr]]
+      }
+      return(out)
+    }
+    mpr %<>% group_by(measure) %>% do({lambda(.)}) %>% ungroup %>% arrange(measure)
+  }
+  return(mpr)
+}
+
+# smelody is a combination of snote and srythm.
+# snote and srythm are separated with '_'.
+# srythm is the first part of rythm containing the durations. 
+# since srythm does not specify which durations are rest, 
+# snote must contain rests noted by letter x
+# example of smelody:  xabC_2114 
+# like snote smelody needs a key and starting octave to be translated to pitches.
+# srythms can be converted to durations
+# This function gets a mpr table and converts smelodies into pitch and duration for all the tracks
+# Argument tracks must be a named list containing required parameters for each track
+mpr.add_tracks_from_smelody = function(mpt, tracks, key = 'C', meter = 4/4){
+  for(tr in names(tracks)){
+    verify(tracks[[tr]]$starting_octave, 
+           c('integer', 'numeric'), 
+           lengths = 1, domain = c(1:10),
+           default = 3) -> tracks[[tr]]$starting_octave
+    
+    mpr[[tr]] %<>% {.[(. == '_')|(.=='')|is.na(.)]<-'__';.}
+    res = mpr[[tr]] %>% smelody2pitch_rythm(
+      starting_octave = tracks[[tr]]$starting_octave,
+      key = key)
+    
+    mpr[[paste(tr, 'rythm', sep = '_')]] <- res$rythm
+    mpr[[paste(tr, 'pitch', sep = '_')]] <- res$pitch
+    
+    mpr %<>% mpr.add_duration(
+      cpitch = paste(tr, 'pitch', sep = '_'), 
+      rythm  = paste(tr, 'rythm', sep = '_'),  
+      output = paste(tr, 'duration', sep = '_'), meter = meter)
+  }
+  return(mpr)
+}
+
+mpr2rmd = function(mpr, tracks){
+  ## Convert mpr to rmusic standard dataframe:
+  song = NULL
+  
+  for(tr in names(tracks)){
+    rutils::verify(tracks[[tr]]$pitch,  'character', lengths = 1, default = paste(tr, 'pitch', sep = '_')) -> tracks[[tr]]$pitch
+    rutils::verify(tracks[[tr]]$duration,  'character', lengths = 1, default = paste(tr, 'duration', sep = '_')) -> tracks[[tr]]$duration
+    rutils::verify(tracks[[tr]]$chord,  'character', lengths = 1, null_allowed = T) -> tracks[[tr]]$chord
+    rutils::verify(tracks[[tr]]$lyrics, 'character', lengths = 1, null_allowed = T) -> tracks[[tr]]$lyrics
+    
+    mpr %>% mpr2rmd_single_track(
+      pitch    = tracks[[tr]]$pitch,
+      duration = tracks[[tr]]$duration,
+      lyrics   = tracks[[tr]]$lyrics,
+      chord    = tracks[[tr]]$chord, track = tr) %>% bind_rows(song) -> song
+  }
+  return(song)
+}
+
