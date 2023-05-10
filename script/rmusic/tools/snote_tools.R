@@ -93,14 +93,14 @@ snote_shift = function(snote, shift = 1){
 
 # starting_octave: which octave number does the first snotes "ormtdli" start from?
 # key: which key signature are you using?
-snote2note_octave = function(snote, ...){
+snote2note_octave = function(snote, sharps = NULL, ...){
   
   aa = snote %>% strsplit("[()]") %>% unlist
   if(length(aa) > 1){
     notes = c()
     octaves = c()
     for(i in sequence(length(aa))){
-      res = aa[i] %>% snote2note_octave(...)
+      res = aa[i] %>% snote2note_octave(sharps = sharps, ...)
       notes   = c(notes, res$notes)
       octaves = c(octaves, res$octaves)
     }
@@ -109,7 +109,7 @@ snote2note_octave = function(snote, ...){
   
   bb = snote %>% strsplit(":") %>% unlist
   if(length(bb) > 1){
-    res = bb %>% paste(collapse = '') %>% snote2note_octave(...)
+    res = bb %>% paste(collapse = '') %>% snote2note_octave(sharps = sharps, ...)
     res$notes %<>% paste(collapse = ':')
     res$notes = paste0('(', res$notes, ')')
     if (length(unique(res$octaves)) > 1){
@@ -126,8 +126,8 @@ snote2note_octave = function(snote, ...){
   plus   = which(snotes == '+') - 1
   nega   = which(snotes == '-') - 1
   notes  = mapper$map2note[snotes]
-  if(length(plus) > 0){notes[plus] %<>% shift_note(1)}
-  if(length(nega) > 0){notes[nega] %<>% shift_note(-1)}
+  if(length(plus) > 0){notes[plus] %<>% shift_note(1, sharps = sharps)}
+  if(length(nega) > 0){notes[nega] %<>% shift_note(-1, sharps = sharps)}
   return(list(
     octaves = mapper$map2octave[snotes] %>% na.omit() %>% unname,
     notes   = notes[!is.na(notes)] %>% unname

@@ -214,7 +214,7 @@ mpr.combine_measures = function(mpr){
 # srythms can be converted to durations
 # This function gets a mpr table and converts smelodies into pitch and duration for all the tracks
 # Argument tracks must be a named list containing required parameters for each track
-mpr.add_tracks_from_smelody = function(mpt, tracks, key = 'C', meter = 4/4){
+mpr.add_tracks_from_smelody = function(mpt, tracks, key = 'C', meter = 4/4, ...){
   for(tr in names(tracks)){
     verify(tracks[[tr]]$starting_octave, 
            c('integer', 'numeric'), 
@@ -224,7 +224,8 @@ mpr.add_tracks_from_smelody = function(mpt, tracks, key = 'C', meter = 4/4){
     mpr[[tr]] %<>% {.[(. == '_')|(.=='')|is.na(.)]<-'__';.}
     res = mpr[[tr]] %>% smelody2pitch_rythm(
       starting_octave = tracks[[tr]]$starting_octave,
-      key = key)
+      key = key,
+      ...)
     
     mpr[[paste(tr, 'rythm', sep = '_')]] <- res$rythm
     mpr[[paste(tr, 'pitch', sep = '_')]] <- res$pitch
