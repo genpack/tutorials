@@ -1,21 +1,21 @@
 inputs: 
-  - cba_sa_apr23
-  - cba_cc_apr23
+  - cba_sa_sep23
+  - cba_cc_sep23
 
-categories: script/coster/configs/universal_3.yml
+categories: script/coster/configs/universal_4.yml
 
-from: 2023-04-01
-until: 2023-04-30
+from: 2023-06-01
+until: 2023-10-01
 
 # excluded_categories: ['Expenses', 'Miscellaneous', 'CreditCard', 'Proximity']
 
-excluded_categories: ['Saving', 'CreditCard', 'Proximity', 'Income', 'Expenses']
+excluded_categories: ['Saving', 'CreditCard', 'Proximity', 'Income', 'Expenses', 'HomePurchase', 'Personal', 'UnknownTransfer']
 
 # excluded_categories: ~
 
 output:
-  transactions: sa_transactions_apr23
-  buckets: sa_buckets_apr23
+  transactions: sa_transactions_sep23
+  buckets: sa_buckets_sep23
   
   
 

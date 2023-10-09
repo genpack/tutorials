@@ -5,14 +5,13 @@ library(magrittr)
 library(dplyr)
 library(rutils)
 
-
 source("script/coster/coster_tools.R")
 
 # Read Config:
 
 
-mc = yaml::read_yaml('script/coster/configs/mc_buckets.yml')
-# mc = yaml::read_yaml('script/coster/configs/master_config.yml')
+# mc = yaml::read_yaml('script/coster/configs/mc_buckets.yml')
+mc = yaml::read_yaml('script/coster/configs/master_config.yml')
 
 config = yaml::read_yaml(mc$categories)
 
@@ -45,11 +44,18 @@ transactions %>%
             Total_In   = sum(ifelse(value > 0, value, 0)),
             Total = sum(value)) -> bucket_balances
 
+transactions %>% 
+  group_by(category, subcategory) %>% 
+  summarise(Total_Out  = sum(ifelse(value < 0, - value, 0)), 
+            Total_In   = sum(ifelse(value > 0, value, 0)),
+            Total = sum(value)) -> bucket_balances_sub
+
 path_output_buckets = paste('script', 'coster', 'report', mc$output$buckets, sep = "/")
 
-bucket_balances %>% View
+View(bucket_balances)
+#View(bucket_balances_sub)
 
-bucket_balances %>% write.csv(path_output_buckets %>% paste('csv', sep = "."), row.names = F)
+bucket_balances_sub %>% write.csv(path_output_buckets %>% paste('csv', sep = "."), row.names = F)
 
 #  rpivotTable::rpivotTable()
   

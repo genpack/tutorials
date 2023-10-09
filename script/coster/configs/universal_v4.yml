@@ -1,215 +1,7 @@
-Saving:
-  Annexp: Annexp
-  NetBankSaver:
-    - xx0322NetBank
-    - xx0322CommBankApp
-    - xx1077
-  Saving:
-    - NetBankSaving
-    - CommBankAppSaving
-    - regularsaving
-    - extrasaving
-    - xx4024
-Income:
-  Scentre: 
-    - scentregroup
-  ElSalary: 
-    - lulaSalary
-    - BankErrorMoneyBack
-    - SalaryGOODSTART
-  CBA: 
-    - SalarySTAFFDEPARTMENT
-    - CBAFNLDIV
-    - RefundfromCBA
-  ADCG: ADCG
-  TAX: ATO
-  JobExpenses:
-    - UVDues
-    - UWUFEES
-    - DYMOCKS
-    - TOYSANDTALES
-    - ARTISTICDOUGH
-    - TWINKL
-Proximity:
-  Proximity: 
-    - proximity
-    - RouseHillUnit
-    - CBRERPPtyLtd 
-    - 32CIVICWay
-    - U141T1
-Gift:
-  Gift:
-  - BdayPushChristm
-Landscape:
-  Landscape:
-    - hummBNPL
-    - AUSPLANTSON
-    - FANDANGO
-    - fence
-    - driveway
-    - KENTHURSTGROUP
-    - SydneyPlantMarket
-    - SYDNEYSPLANTMARKET
-    - Daiso
-    - FlowerPower
-    - SWANESNURSERIES
-    - EDENGARDENS
-    - Flick
-    - bunnings
-    - SolarNaturally
-    - HRKING
-    - SUNLITEHARDWARE
-    - mitre10
-    - fandago
-    - AUSTRALIANNATIVELAND
-HomeInsurance:
-  Insurance:
-    - COMMONWEALTHINSURANCE
-Mortgage:    
-  Mortgage:
-    - NABTransferDEPOSITFORUNIT
-    - NABTransferDischargeClearance
-    - PexaSettlement
-    - Mortgage
-    - Loan
-Furniture:    
-  Furniture:
-    - WHEEL&BARROW
-    - REDSBABY
-    - THINKOUTSIDE
-    - DougSmithAppliances
-    - NickScali
-    - CocoRepublic
-    - Ikea
-    - VICTORIASBASEMENT
-    - HarveyNorman
-    - blind
-    - SKYE
-    - ADAIRS
-    - HUNTERDOUGLAS
-    - Domayne
-    - BEDSNDREAMS
-    - FlexiCards
-    - GospelPiano
-    - BabyKingdom
-    - ChristmasWarehouseCastleHill
-Utilities:  
-  Utility:
-    - AGLENERGY
-    - Powershop
-    - SYDNEYWATER
-Edvin:
-  Edvin: 
-    - TADAKIDS
-    - KiddoKove
-    - BABYBUNTING
-HomeRepair:    
-  Repair:
-    - HomeInsuExcess
-    - roofing
-    - 'WdlATMCBAATMGEORGE&MRKTBNSW200503'
-    - 'WdlATMCBAATMSTANHOPEGDNBNSW270402AUS'
-CouncilFee:    
-  Council:
-    - TheHillsShireCouncil
-    - cncl
-HomeRent:
-  Rent: RobertEdwardsReal
-Restaurant:
-  Cafe:
-    - ESPRESSO
-    - "Toby'sEstateSydney"
-    - PRATTENPARKCOMMUNI
-    - FEIJOATREE
-    - BarLuca
-    - JLCHOLDINGS
-    - ShareteaDFOHomebush
-    - COCONOIRSYDNEY
-    - TokyoBird
-    - CocoNoir
-    - CocoCubano
-    - persianbasement
-    - RedSpoon
-    - STARBUCKS
-    - GloriaJeans
-    - cafe
-    - Caffe
-    - SSCDESSERT
-    - coffee
-    - Chatime
-    - ButterSaltPeppe
-    - GreenOriental
-    - soulorigin
-    - PURPLEOASIS
-    - bristo
-    - MBGP
-    - Delisse
-    - kinbyus
-    - VELOCEEXPRESSO
-    - BankHotelNewtown
-    - ASALHOLDINGS
-    - CANTINA
-    - Movenpick
-    - PATISSERIES
-    - BAKEHOUSE
-    - ShelbourneHotelSydney
-    - EATGRK
-    - AIRPORTRETAILENTER
-  Fastfood:
-    - HUMMINGBIRDRAY
-    - GECALSCP
-    - AdanosCentrepoin
-    - REDWOKTHAI
-    - JimsMalaysiaCas
-    - Roll'dWestfield
-    - BIGBITE
-    - NEMRHOLDINGS # ?? 
-    - FRESHBITE
-    - ZSGWFIELDSYDN
-    - ZeusWestfieldSydney
-    - AdanosCentrepointSydney
-    - SKYLERFINCH 
-    - GAMI
-    - EATISTANBUL
-    - NOOKJR
-    - MadMex
-    - Gozleme
-    - Oporto
-    - STARCADIUM
-    - JimsMalaysiaCast
-    - cozycove
-    - McDonalds
-    - Subway
-    - Lime
-    - TheYorkStreetEat
-    - THEFLYBARMELBOURNEAIR
-    - SaharaStreetFood
-    - JoesSandwichBar
-    - LeWrap
-    - UrbanTastyFood
-    - Tomtin
-    - Eatery
-    - ALATURKO
-    - CraftyCuts
-    - KAHII
-    - BellesTake
-    - HONGKONGFLAVOURS
-    - TheChook
-    - SESONI
-    - NIGHTSTARSPTYLTD
-    - GUZMANYGOME
-    - HungryJack
-    - PRADHAN
-    - MYRDLYJ
-    - ELITRADINGSYDNEY
-    - MARALLGROUPPTYLTD
-    - burger
-    - STREETGREEKCENTREP
-    - SABBABA
-    - TACOBELL
-  Restaurant:
-    - ViaNapoliPizzeria
-    - KINNNIYOM
+- source_category: EatingOut
+  target_category: Expenses_EatingOut
+  target_subcategory: Expenses_EatingOut_Restaurant
+  keywords:
     - RESTRNT
     - Restaurant
     - LAPIAZZA
@@ -309,6 +101,224 @@ Restaurant:
     - LA-ONGTHAI
     - CRINITIS
 
+- source_category: EatingOut
+  target_category: Expenses_EatingOut
+  target_subcategory: Expenses_EatingOut_Cafe
+
+- source_category: EatingOut
+  target_category: Expenses_EatingOut
+  target_subcategory: Expenses_EatingOut_FastFood
+
+- source_category: Buffer
+  target_category: Savings
+  keywords:
+  - Annexp
+  - xx0322NetBank
+  - xx0322CommBankApp
+  - xx1077
+  - NetBankSaving
+  - CommBankAppSaving
+  - regularsaving
+  - extrasaving
+  - xx4024
+
+- source_category: Income
+  target_category: Buffer
+  keywords:
+    - scentregroup
+    - lulaSalary
+    - BankErrorMoneyBack
+    - SalaryGOODSTART
+    - SalarySTAFFDEPARTMENT
+    - CBAFNLDIV
+    - RefundfromCBA
+
+- source_category: Savings
+  target_category: Buffer
+
+
+
+    
+  ADCG: ADCG
+  TAX: ATO
+  JobExpenses:
+    - UVDues
+    - UWUFEES
+    - DYMOCKS
+    - TOYSANDTALES
+    - ARTISTICDOUGH
+    - TWINKL
+Proximity:
+  Proximity: 
+    - proximity
+    - RouseHillUnit
+    - CBRERPPtyLtd 
+    - 32CIVICWay
+    - U141T1
+Gift:
+  Gift:
+  - BdayPushChristm
+Landscape:
+  Landscape:
+    - hummBNPL
+    - AUSPLANTSON
+    - FANDANGO
+    - fence
+    - driveway
+    - KENTHURSTGROUP
+    - SydneyPlantMarket
+    - SYDNEYSPLANTMARKET
+    - Daiso
+    - FlowerPower
+    - SWANESNURSERIES
+    - EDENGARDENS
+    - Flick
+    - bunnings
+    - SolarNaturally
+    - HRKING
+    - SUNLITEHARDWARE
+    - mitre10
+    - fandago
+    - AUSTRALIANNATIVELAND
+HomeInsurance:
+  Insurance:
+    - COMMONWEALTHINSURANCE
+Mortgage:    
+  Mortgage:
+    - NABTransferDEPOSITFORUNIT
+    - NABTransferDischargeClearance
+    - PexaSettlement
+    - Mortgage
+    - Loan
+Furniture:    
+  Furniture:
+    - WHEEL&BARROW
+    - REDSBABY
+    - THINKOUTSIDE
+    - DougSmithAppliances
+    - NickScali
+    - CocoRepublic
+    - Ikea
+    - VICTORIASBASEMENT
+    - HarveyNorman
+    - blind
+    - SKYE
+    - ADAIRS
+    - HUNTERDOUGLAS
+    - Domayne
+    - BEDSNDREAMS
+    - FlexiCards
+    - GospelPiano
+    - BabyKingdom
+    - ChristmasWarehouseCastleHill
+Utilities:  
+  Utility:
+    - AGLENERGY
+    - Powershop
+    - SYDNEYWATER
+Edvin:
+  Edvin: 
+    - TADAKIDS
+    - KiddoKove
+    - BABYBUNTING
+HomeRepair:    
+  Repair:
+    - HomeInsuExcess
+    - roofing
+CouncilFee:    
+  Council:
+    - TheHillsShireCouncil
+    - cncl
+HomeRent:
+  Rent: RobertEdwardsReal
+Restaurant:
+  Cafe:
+    - ESPRESSO
+    - PRATTENPARKCOMMUNI
+    - BarLuca
+    - JLCHOLDINGS
+    - ShareteaDFOHomebush
+    - COCONOIRSYDNEY
+    - TokyoBird
+    - CocoNoir
+    - CocoCubano
+    - persianbasement
+    - RedSpoon
+    - STARBUCKS
+    - GloriaJeans
+    - cafe
+    - Caffe
+    - SSCDESSERT
+    - coffee
+    - Chatime
+    - ButterSaltPeppe
+    - GreenOriental
+    - soulorigin
+    - PURPLEOASIS
+    - bristo
+    - MBGP
+    - Delisse
+    - kinbyus
+    - VELOCEEXPRESSO
+    - BankHotelNewtown
+    - ASALHOLDINGS
+    - CANTINA
+    - Movenpick
+    - PATISSERIES
+    - BAKEHOUSE
+    - ShelbourneHotelSydney
+    - EATGRK
+    - AIRPORTRETAILENTER
+  Fastfood:
+    - REDWOKTHAI
+    - JimsMalaysiaCas
+    - Roll'dWestfield
+    - BIGBITE
+    - NEMRHOLDINGS # ?? 
+    - FRESHBITE
+    - ZeusWestfieldSydney
+    - AdanosCentrepointSydney
+    - SKYLERFINCH 
+    - GAMI
+    - EATISTANBUL
+    - NOOKJR
+    - MadMex
+    - Gozleme
+    - Oporto
+    - STARCADIUM
+    - JimsMalaysiaCast
+    - cozycove
+    - McDonalds
+    - Subway
+    - Lime
+    - TheYorkStreetEat
+    - THEFLYBARMELBOURNEAIR
+    - SaharaStreetFood
+    - JoesSandwichBar
+    - LeWrap
+    - UrbanTastyFood
+    - Tomtin
+    - Eatery
+    - ALATURKO
+    - CraftyCuts
+    - KAHII
+    - BellesTake
+    - HONGKONGFLAVOURS
+    - TheChook
+    - SESONI
+    - NIGHTSTARSPTYLTD
+    - GUZMANYGOME
+    - HungryJack
+    - PRADHAN
+    - MYRDLYJ
+    - ELITRADINGSYDNEY
+    - MARALLGROUPPTYLTD
+    - burger
+    - STREETGREEKCENTREP
+    - SABBABA
+    - TACOBELL
+  Restaurant:
+
 CarParking:
   Toll:
     - RMSEtoll
@@ -361,7 +371,6 @@ carFuel:
 CarServices:
   Service:
     - MicarCar
-    - carrepair
     - KAKINGAHOLDINGS 
     - REPCO
     - pinkslip
@@ -425,7 +434,6 @@ Shopping:
     - RIPEMATERNITY
   Houseware:
     - BIGW
-    - BingLee
     - KnifeforLife
     - THEREJECTSHOP
     - tkmaxx
@@ -450,7 +458,6 @@ Shopping:
     - CommBankAppClothes
     - '1013203149280'
     - UniqloMidCity
-    - TAROCASH
     - COUNTRYROAD
     - BROOKSBROTHERS
     - Kathmandu
@@ -599,7 +606,6 @@ Groceries:
     - URBANFOODMARKET
   Meat:
     - BUTCHERIKHWAN
-    - PARYDEISE
     - Butcher
     - meat
     - chop
