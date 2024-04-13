@@ -35,6 +35,8 @@ LegalServices:
 Charity:
   Charity: Charity
 Miscellaneous:
+  AriseByMeriton: momanddadrental
+  BurrowFromBuckets: BurrowFromBuckets
   Expenses: ElaheBuffer
   CreditCard: CreditCardFix
   BurrowedBack: Burrowed
@@ -52,7 +54,9 @@ CarParking:
   - parking
   - carpark
 CarServices:
-  CarServices: CarService
+  CarServices: 
+  - CarService
+  - CarRepair
 CarInsurance: 
   CarInsurance: CarInsurance
   CarRegistration: CarRegistration

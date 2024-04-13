@@ -1,15 +1,18 @@
+# These buckets are defined for FY2022-2023:
 Saving:
-  Annexp: Annexp
-  NetBankSaver:
+  Annexp: 
+  - Annexp
+  - SentByBabak
+  Saving:
     - xx0322NetBank
     - xx0322CommBankApp
     - xx1077
-  Saving:
     - NetBankSaving
     - CommBankAppSaving
     - regularsaving
     - extrasaving
     - xx4024
+
 Income:
   Scentre: 
     - scentregroup
@@ -20,7 +23,9 @@ Income:
   CBA: 
     - SalarySTAFFDEPARTMENT
     - CBAFNLDIV
+    - CBADIV
     - RefundfromCBA
+    - CBArefund
   ADCG: ADCG
   TAX: ATO
   JobExpenses:
@@ -30,6 +35,7 @@ Income:
     - TOYSANDTALES
     - ARTISTICDOUGH
     - TWINKL
+
 Proximity:
   Proximity: 
     - proximity
@@ -37,10 +43,46 @@ Proximity:
     - CBRERPPtyLtd 
     - 32CIVICWay
     - U141T1
-Gift:
+
+Personal:
   Gift:
   - BdayPushChristm
-Landscape:
+  - GROUPTOGETH
+
+# $500
+Furniture:  
+  Furniture:
+    - WHEEL&BARROW
+    - REDSBABY
+    - THINKOUTSIDE
+    - NickScali
+    - CocoRepublic
+    - Ikea
+    - VICTORIASBASEMENT
+    - HarveyNorman
+    - blind
+    - SKYE
+    - ADAIRS
+    - HUNTERDOUGLAS
+    - Domayne
+    - BEDSNDREAMS
+    - FlexiCards
+    - GospelPiano
+    - BabyKingdom
+    - ChristmasWarehouseCastleHill
+  Appliances:
+    - DougSmithAppliances
+    - APPLIANCES
+    - BIGW
+    - BingLee
+    - KnifeforLife
+    - THEREJECTSHOP
+    - tkmaxx
+    - HOUSERHODES
+    - HomeAppliances
+    - Gerdak
+    - YUNYUNUSCOR
+    - '4A3J2AXZ3EEWS'
   Landscape:
     - hummBNPL
     - AUSPLANTSON
@@ -62,61 +104,22 @@ Landscape:
     - mitre10
     - fandago
     - AUSTRALIANNATIVELAND
-HomeInsurance:
-  Insurance:
-    - COMMONWEALTHINSURANCE
-Mortgage:    
-  Mortgage:
-    - NABTransferDEPOSITFORUNIT
-    - NABTransferDischargeClearance
-    - PexaSettlement
-    - Mortgage
-    - Loan
-Furniture:    
-  Furniture:
-    - WHEEL&BARROW
-    - REDSBABY
-    - THINKOUTSIDE
-    - DougSmithAppliances
-    - NickScali
-    - CocoRepublic
-    - Ikea
-    - VICTORIASBASEMENT
-    - HarveyNorman
-    - blind
-    - SKYE
-    - ADAIRS
-    - HUNTERDOUGLAS
-    - Domayne
-    - BEDSNDREAMS
-    - FlexiCards
-    - GospelPiano
-    - BabyKingdom
-    - ChristmasWarehouseCastleHill
+
+# $300
 Utilities:  
-  Utility:
+  Gas:
     - AGLENERGY
+  Electricity:
     - Powershop
+    - winconnect
+  Water:  
     - SYDNEYWATER
-Edvin:
-  Edvin: 
-    - TADAKIDS
-    - KiddoKove
-    - BABYBUNTING
-HomeRepair:    
-  Repair:
-    - HomeInsuExcess
-    - roofing
-    - 'WdlATMCBAATMGEORGE&MRKTBNSW200503'
-    - 'WdlATMCBAATMSTANHOPEGDNBNSW270402AUS'
-CouncilFee:    
-  Council:
-    - TheHillsShireCouncil
-    - cncl
-HomeRent:
-  Rent: RobertEdwardsReal
-Restaurant:
+    - PAYPALAUSTRALIA1028802765145
+
+# $800
+EatingOut:
   Cafe:
+    - PICCOLOMENORWEST
     - ESPRESSO
     - "Toby'sEstateSydney"
     - PRATTENPARKCOMMUNI
@@ -156,6 +159,11 @@ Restaurant:
     - EATGRK
     - AIRPORTRETAILENTER
   Fastfood:
+    - SAINAAPTYLTD
+    - THEPERSIANGARDENCAF
+    - ROUSEHILLTAKEAWAY
+    - BANGKOKTHAIWOK
+    - SDLOGISTICSPTYLTDRYDE
     - HUMMINGBIRDRAY
     - GECALSCP
     - AdanosCentrepoin
@@ -208,13 +216,15 @@ Restaurant:
     - SABBABA
     - TACOBELL
   Restaurant:
+    - GardensWest
+    - AsukaRouseHill 
+    - LezzetteFoods
     - ViaNapoliPizzeria
     - KINNNIYOM
     - RESTRNT
     - Restaurant
     - LAPIAZZA
     - DEVINE
-    - EASYMADECATERING
     - MUMBAIEXPRESSSYDNEY
     - LALQILA
     - RaguPasta
@@ -308,39 +318,38 @@ Restaurant:
     - '85DEGREES'
     - LA-ONGTHAI
     - CRINITIS
+  Catering:
+  - PAYPALAUSTRALIA1028937872319
+  - PAYPALAUSTRALIA1028805003412
+  - EASYMADECATERING
 
-CarParking:
-  Toll:
-    - RMSEtoll
-    - RMS-Etoll
-    - TRANSPORTNSWETOLL
-  Parking:
-    - CITYOFCANADABAYCDRUMMOYNE
-    - DIRECTOROFNATIONALPCANBERRA
-    - SydneyOlympicParkP6
-    - SERVICENSW4040
-    - NationalParksNSW
-    - oeh
-    - cnclFagan
-    - parking
-    - CARPARK
-    - SydAprtIntnl
-    - RANDWICKCOUNCIL
-    - NORTHERNBEACHESCOUNC
-    - MACQUARIEUNIVERSITYNORTHRYDE
-carInsurance:  
-  Insurance:
+# $100
+PublicTransport:
+  PublicTransport:
+    - TransportForNSW
+    - TFNSWRAIL
+    - UBER
+    - WWMetro
+    - ovpay
+
+# $350
+CarInsurance:    
+  CarInsurance:
     - AUTOGENERAL
     - BudgetDirect
     - Allianz
     - Aami
     - RealInsur
     - RENTALCOVER
-  Registration:
+    - PAYPALAUSTRALIA1028930486413 # BudgetDirect RSA
+    - PAYPALAUSTRALIA1028930485509 # BudgetDirect ThirdParty
+  CarRegistration:
     - SERVICENSW
     - RMS-Rego
-carFuel:
-  Fuel:
+
+# $350
+CarFuel:    
+  CarFuel:
     - MOBILEASTNOWRA
     - Caltex
     - CTXWOW
@@ -358,27 +367,46 @@ carFuel:
     - station
     - BPSILVERWATER
     - ColesExpress
-CarServices:
-  Service:
+
+# $200
+CarServices:    
+  CarServices:
     - MicarCar
     - carrepair
     - KAKINGAHOLDINGS 
     - REPCO
     - pinkslip
-carPurchase:
-  Buy:
+
+# 0$    
+CarPurchase:    
+  CarPurchase:
     - Nissan
-  Rent:
-    - hertz
-    - RentalCars
-    - EASYCARTMASCOT 
-Transport:
-  PublicTransport:
-    - TransportForNSW
-    - TFNSWRAIL
-    - UBER
-    - WWMetro
-    - ovpay
+
+# $50    
+CarParking:    
+  Toll:
+    - RMSEtoll
+    - RMS-Etoll
+    - TRANSPORTNSWETOLL
+  Parking:
+    - ParramattaCityCounci
+    - NTHSYDNCOUNCILPARK
+    - 'NBC-PAY&DISPLAYPARK'
+    - CITYOFCANADABAYCDRUMMOYNE
+    - DIRECTOROFNATIONALPCANBERRA
+    - SydneyOlympicParkP6
+    - SERVICENSW4040
+    - NationalParksNSW
+    - oeh
+    - cnclFagan
+    - parking
+    - CARPARK
+    - SydAprtIntnl
+    - RANDWICKCOUNCIL
+    - NORTHERNBEACHESCOUNC
+    - MACQUARIEUNIVERSITYNORTHRYDE
+    - WestfieldSydneySydneyNSAUS # Valet Parking Westfield Sydney
+
 CreditCard:
   CBA:
     - PAYMENTRECEIVED
@@ -389,12 +417,13 @@ CreditCard:
     - xx1822
     - AUTOPAYMENT
     - CBACRCARDAUTOPAY
-Expenses:
-  Expenses: 
-    - expenses
-    - NetBankBurrowed
-    - CommBankAppBorrowed
+
+# 450
 Shopping:
+  Edvin:
+    - TADAKIDS
+    - KiddoKove
+    - BABYBUNTING
   General:
     - perfectpotionsydney
     - freechoice
@@ -423,17 +452,6 @@ Shopping:
     - BEDBATHNTABLE
     - PILLOWTALK
     - RIPEMATERNITY
-  Houseware:
-    - BIGW
-    - BingLee
-    - KnifeforLife
-    - THEREJECTSHOP
-    - tkmaxx
-    - HOUSERHODES
-    - HomeAppliances
-    - Gerdak
-    - YUNYUNUSCOR
-    - '4A3J2AXZ3EEWS'
   Office:
     - OFFICEWORKS
   Pets:
@@ -474,15 +492,35 @@ Shopping:
   Electronics:
     - JBHiFi
     - EBay
+    - RPGBRANDSPTYLTDSYDNEY
+    - ServiceCentreWatch
+
+# $300
 HealthInsurance:
-  Insurance:
+  HealthInsurance:
     - Bupa
     - CBHS
     - OVHC
     - MYO
     - CellCare
+
+# $100  
+Medicine:
+  Medicine:
+    - PUNCHBOWLCENTRAL
+    - CINCOTTADISCNTCHEM
+    - GMWORLD
+    - AMCAL
+    - Pharmacy
+    - YSTHealth
+    - PriceLine
+    - pline
+    - CHEMIST
+    - drug
+
+# $300
 MedicalVisit:
-  General:
+  GeneralVisit:
     - DirectCredit623907WesternSydneyL6472668 # Hospital Return
     - WESTERNSYDNEYLHNWESTMEAD
     - WSLHDWESTMEAD
@@ -505,40 +543,60 @@ MedicalVisit:
   Dentist:
     - AshrafObaid
     - TEETH
-Medicine:
-  Medicine:
-    - PUNCHBOWLCENTRAL
-    - CINCOTTADISCNTCHEM
-    - GMWORLD
-    - AMCAL
-    - Pharmacy
-    - YSTHealth
-    - PriceLine
-    - pline
-    - CHEMIST
-    - drug
+
 Sports:
-  Sport:
+  Fitness:
     - WAVESFITNESS
     - hiltonsydney
     - virginactive
     - FITNESSFIRST
-Gadjet:
-  MobilePhone:
-  - RPGBRANDSPTYLTDSYDNEY
-  Watch:
-  - ServiceCentreWatch
 
-LaundryServices:
+# $4,000
+Rental:
+  Rental:
+    - RobertEdwardsReal
+    - momanddad
+
+HomePurchase:
+  Purchase: 
+    - TransferToMOJOHomes
+    - CBRE
+    - Meriton
+    - ATRIUM
+    - CBRichardEllis
+  Repair:
+    - HomeInsuExcess
+    - roofing
+    - 'WdlATMCBAATMGEORGE&MRKTBNSW200503'
+    - 'WdlATMCBAATMSTANHOPEGDNBNSW270402AUS'
+  Insurance:
+    - COMMONWEALTHINSURANCE
+  Mortgage:
+    - NABTransferDEPOSITFORUNIT
+    - NABTransferDischargeClearance
+    - PexaSettlement
+    - Mortgage
+    - Loan
+  Council:
+    - TheHillsShireCouncil
+    - cncl
+  Strata:
+    - netstrata
+  Relocation:
+    - MenThatMove
+    - removalost
+    - JoneRowel
+    - GoninansPianoRemoval
+  
+# $100
+LegalServices:
   Laundry:
     - LAWRENCEDRYCLEANERS
     - MAURICEDRYCLEANE
     - Fabani
     - dryclean
     - laundr
-
-LegalServices:
-  Banking:
+  Bank:
     - paymentfee
     - TransferFee
     - OverdraftUsageFee
@@ -555,6 +613,7 @@ LegalServices:
     - LocalCertificationServices
     - LegalService
     - Post
+    - APLaneCove
     - MUMBAIEXPRESSCENTR
     - Kargar
     - NSWREGISTRY
@@ -574,6 +633,11 @@ LegalServices:
     - Expensesformumanddadtrip
     - visafee
     - visainsurancefee
+  Fine:
+    - FEDERALPOLICE
+    - Fine
+
+# $1,500    
 Groceries:
   General: 
     - Coles
@@ -596,7 +660,9 @@ Groceries:
     - SUMMERLANDPOULTRY
     - TheCheesecakeShop
     - MORTEZAGHAHREMANI
+    - METROLANECOVE 
     - URBANFOODMARKET
+    - FOOD
   Meat:
     - BUTCHERIKHWAN
     - PARYDEISE
@@ -628,6 +694,8 @@ Groceries:
     - Bread
   Sweets: 
   - SAFFRANPATISSERIE
+
+# $50
 Charity:
   Wikipedia: Wikipedia
   BlackDog: BlackDog
@@ -642,18 +710,23 @@ Charity:
   Unknown: 
     - charity
     - donate
+
+# $300
 Beauty:
   Hair:
     - hair
     - Lavish
     - JASEMMOHAMMEDBASGI
     - SydneyBros
+    - TheMensGrooming
   Skin:
     - TMALPTYLTDNORTHRYDE
     - occitane
   General:
     - beauty
     - NAIL
+
+# $800
 Leisure:
   Show:
     - MaxAmini
@@ -714,9 +787,12 @@ Leisure:
     - WAIHEKE
     - nlnld
     - EURO
-Fine:
-  AustralianPolice: FEDERALPOLICE
-  Fine: Fine
+  CarRent:
+    - hertz
+    - RentalCars
+    - EASYCARTMASCOT 
+  
+# $200
 Communication:
   Phone: 
     - VODAFONE
@@ -735,6 +811,7 @@ Communication:
     - TPG
     - telstra
     - internet
+
 Education:
   Music: 
     - TransfertoCBAA/cCBTabletAppmembershipfee
@@ -743,6 +820,7 @@ Education:
     - CozyStage
   Books:
     - Books
+
 Unknown:
   General:
     - YUNZHOUINVESTMENT

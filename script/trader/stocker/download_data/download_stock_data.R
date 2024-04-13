@@ -16,7 +16,7 @@ library(tidyquant)
 #### Downloading data
 setwd('script/trader/stocker/data/')
 all_stocks <- readxl::read_excel("stock_list.xlsx")
-all_stocks_codes <- paste(all_stocks$code,".AX",sep="")
+all_stocks_codes <- paste(all_stocks$code, "AX", sep = ".")
 
 f_names <- list.files("data_raw_current/", full.names = TRUE)
 file.remove(f_names)
@@ -72,7 +72,6 @@ for(i in 1:length(all_files)){
 dat <- rbindlist(all_dat_list)
 temp <- duplicated(dat)
 ind <- which(temp==FALSE)
-
 dat <- dat[ind,]
 max_date <- max(dat$date)
 dat <- dat %>% group_by(symbol,date) %>% arrange(-volume) %>% mutate(id_temp=row_number()) %>% filter(id_temp==1) %>% select(-id_temp)
@@ -104,14 +103,12 @@ dat <- dat %>% group_by(symbol) %>% arrange(date,.by_group = TRUE) %>%
   mutate(ret_open_last_2_days = lag(ret_open,2)) %>%
   mutate(ret_close_last_2_day = lag(ret_close,2))
 
-
-
-
 min_trade <- 500000
 max_trade <- 2500000
 temp <- dat %>% filter(vol_dollar > min_trade,vol_dollar < max_trade, ret_close< .15, ret_close>-.15,
                        open>.01, open<10) %>%
-  group_by(date) %>%   arrange(ret_close_high) %>% mutate(id=row_number()) %>% filter(id<10)
+  group_by(date) %>%   arrange(ret_close_high) %>% mutate(id=row_number()) %>% 
+  filter(id <= 3) %>% ungroup %>% filter(date == max(date))
 
 
 mean(temp$ret_close_high,na.rm=TRUE)
