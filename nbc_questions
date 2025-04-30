@@ -1,0 +1,256 @@
+## Thread: Conversation with my boss
+
+
+# Email from my boss on 18 April 2025:
+Hi Nima 
+ 
+Thanks for this. Until our new EM starts (offer's gone out, start date TBD), Mt will be acting as your manager so please include him on your emails (after the new EM starts, still would be good for you and Mt to work together super closely). 
+ 
+On your set of questions in the attached deck, they need to be comprehensive and structured. I spent about 5 mins on GenAI and it gave me the following response. It's still not 100% but a good start that you can keep refining with it. Suggest you work on refining this using your own knowledge, as well as using GenAI as much as possible and other research avenues. It can help you with structuring your thinking also. 
+ 
+Thanks! 
+M
+ 
+To scope out a “Facebook‑style” real‑time audience‐selection and offer‑ranking engine, you’ll want to frame questions across nine key domains—so that by the end of your discovery you’ll have a clear solution design and an implementation plan. Here’s a structured set of questions your team should ask (and answer):
+
+ 
+
+1. Business Objectives & Success Metrics
+
+What uplift targets do we need?
+e.g. increase CTR from 0.5% to X%, revenue per mailed customer, incremental profit per campaign.
+Which segments or products drive the highest business value?
+How will we measure success?
+Define primary KPI (CTR, conversion rate, revenue), plus guardrail metrics (unsubscribe rate, complaint rate).
+What trade‑offs are acceptable?
+e.g. a small drop in open‑rate for a big lift in high‑value conversions.
+ 
+
+2. Offer Catalog & Prioritization
+
+What offers exist, and how are they currently prioritized?
+Is there a hierarchy or mutual exclusivity among offers?
+What business rules must apply?
+e.g. regulatory blocks, channel‑specific constraints, customer eligibility.
+How should competing offers be ranked?
+purely by predicted uplift? by a margin of expected value (profit)?
+ 
+
+ 
+
+3. Data Inventory & Quality
+
+What customer data do we have, and at what freshness?
+profile, transaction, channel engagement, real‑time events (app/web/mobile).
+Are there gaps or quality issues?
+missing demographic fields, stale transaction data, siloed systems.
+Where will we store features?
+batch warehouse vs. real‑time Feature Store.
+What privacy/consent constraints apply?
+opt‑ins, GDPR/CPRA constraints, retention policies.
+ 
+
+4. Modeling & Algorithms
+
+Which modeling approaches suit our goals?
+multi‑armed bandits (explore/exploit), contextual multi‑armed bandits, reinforcement learning, or ranking models.
+How will we benchmark against today’s propensity models?
+What input features and temporal windows?
+last 24h web events, 30‑day transaction recency/frequency.
+How do we handle cold starts (new customers/offers)?
+How will we handle model retraining and drift detection?
+ 
+5. Real‑Time Eventing & Personalization
+
+Which events trigger offer evaluation?
+session start, deposit posted, login, click stream events.
+What latency do we need?
+sub‑second? under 1 minute?
+What stream‑processing technologies do we adopt?
+Kafka, AWS Kinesis, Azure Event Hubs, Spark Streaming.
+How do we store and retrieve session context?
+ 
+
+6. System Architecture & Integration
+
+Where does Pega fit?
+will Pega still host orchestration and messaging?
+What new components are required?
+Feature Store, model‑serving API, ranking service, real‑time event bus.
+How will campaigns be triggered and tracked?
+What are the data flows—batch vs. streaming?
+What SLAs and uptime requirements apply
+ 
+
+7. Experimentation & A/B Testing
+
+How will we run controlled tests?
+hold‑out groups, sequential testing, multi‑arm bandit experiments.
+What tooling is needed?
+built‑in Pega test flows, external experiment management platforms.
+How do we ensure statistical validity?
+What reporting cadence and dashboards?
+ 
+8. Deployment, Monitoring & MLOps
+
+What CI/CD pipeline will deploy models?
+How will we monitor model performance in production?
+online metrics (CTR, conversion), data‑drift, prediction‑drift.
+What alerting thresholds?
+What rollback strategy?
+Who owns model ops vs. data‑engineering vs. Pega‑ops?
+9. Governance, Compliance & Risk
+
+What regulatory constraints exist for automated decisioning?
+fair lending, anti‑discrimination, consent logging.
+How will we audit recommendations?
+How do we surface explanations for ranked offers?
+What approval workflows must wrap around production launches?
+
+
+# Reply to my boss on 26 April 2025:
+
+Hi M,
+Thanks a lot for sending this.
+ 
+This is a very good guide that covers everything from a high level. Some of these items have been referred to in the deck I sent you before joining (attached again in this email).
+What I wanted to share with you in this two-slide deck was the very immediate things I needed to understand in the first two weeks and a very broad and initial ideas that came to my mind.
+ 
+Me and Mt will be working closely together to make a comprehensive plan based on this guide supported by our knowledge and experience.
+ 
+Cheers
+Nima
+
+Hi Nima
+ 
+Is the deck you’ve attached still the questions that we need to find out? I don’t really understand what it is sorry.
+ 
+On your point below about wanting to send top of mind questions only, I suggest you always use top-down comms principles:
+Always provide a comprehensive big picture view of all the components that need to fir together (e.g., what are all the categories of things you need to find out, e.g., architecture, data sources). In one page you’d show this with a description of what it will entail.
+If you don’t give the big picture view and how ALL elements fit together people will get lost. You need to do this especially when you start designing solutions, so people don’t get lost.
+You then will deep dive into each area. Whenever you have a table with a list of things, if the list is more than ~3 things you need to categorise them further
+If you need to prioritise, you then label the ones that are high priority
+ 
+R actually did the first pass of this well in the questions they sent.
+ 
+I suggest you go through the list of their questions and add any additional ones that you have. I’d also like us  to be super output driven, i.e, any learnings through these sessions that will be conducted we should create their process map etc 
+
+I’d also like us  to be super output driven, i.e, any learnings through these sessions that will be conducted we should create their process map etc so it’s easy to align further with the stakeholders. FYI @Y, @R by the end of the discovery session we should have outputs for:
+what’s the current process for creating NBCs & how it will change in each proposed phase?
+What’s the current infrastructure, how will the solution plug in to it, any changes needed?
+What are the available data that are currently available + what else is readily available, are these enough for the first pass, what else is needed for the other horizons
+Etc etc
+And all of the above needs to be syndicated and aligned with the relevant SMEs and owners. Once done, I’ll do a final alignment myself with the relevant GMs before taking to EGMs. 
+Regards
+M
+
+
+Questions asked by Fr:
+
+Vision and Business Outcomes:
+
+What do you want program to achieve in next 3 months?
+What do you want program to achieve in next 6 months?
+What is the long-term vision for the NBC capability (1 - 3 years)?
+"What business KPIs will this NBC system directly impact? 
+(Examples: NPS, product cross-sell rate, churn reduction, cost per acquisition)"
+Is the main goal speed, personalization depth, customer value, operational efficiency, consolidation of model or something else?
+What are the "must have" outcomes versus "nice to have" outcomes?
+Is the vision to have a fully automated system that delivers a Next Best Conversation for each customer across all channels?
+How will you measure success of the program? (Example: uplift in conversion, faster time-to-market, improved customer experience)
+Are there any pain points or limitations with your current approach that you're looking to address?
+Any other considerations for solution approach?
+Can GenAI/Agents be considered as part of solution approach?
+
+Model Dev & Scoring
+
+How many NBCs are currently live?
+Is there a broad categorization of NBCs available for sharing?
+What is the typical process for adding a new NBC - from idea to activation?
+What is the typical process for deactivating or removing an NBC from the system?
+Who are the key teams or roles involved at each stage of adding, approving, and launching an NBC?
+How often are existing NBCs refreshed (e.g., weekly, monthly)?
+What types of models / technqiues are used today to generate NBC propensity scores?
+Are any LLMs/Agents currently used in NBCs? If yes, which LLMs and which NBCs
+How are business outcomes linked back to model performance? (e.g., campaign success attributed to model predictions)
+Is there a feedback loop where campaign or NBC outcomes are used to retrain or adjust models?
+How are Next Best Conversations (NBCs) currently used in your business? (e.g., always-on campaigns, triggered journeys, inbound personalization, outbound call lists?)
+Across which channels are NBCs activated today? (e.g., mobile app, online banking, call center, email, SMS, branch network?)
+Are NBCs primarily used for marketing purposes, service interactions, retention, upsell/cross-sell, or other objectives?
+How are NBC recommendations currently prioritized if multiple NBCs apply to the same customer? (e.g., based on propensity score, business priority, customer lifecycle stage?)
+How do you handle model governance and approvals today?
+Are there any regulatory/compliance checks required before a new NBC goes live?
+Is the time it takes to add a new Next Best Conversation (NBC) currently a challenge for you in getting to market quickly?
+If yes, where do you see the main slowdowns or manual steps today - is it more on the data science side, business approvals, IT integration, or campaign deployment?
+Orchestration of NBCs
+What is the biggest need for NBC framework
+When do you Retrain / Update a model
+Are some NBCs powered by triggers
+Any additional details?
+How are NBC models operationalized and productization?
+Does the current process use enterprise LLM APIs?
+Are GPUs available to develop NBC solution?
+
+Data:
+
+How is the datalake structured? What are the layers (For example Lending, Raw, Standardized, Curated)
+Which layers do NBC solution have access to?
+What are the primary data sources feeding into the NBC models? (e.g., transaction data, CRM data, digital engagement, call center interactions?)
+Do you have a centralized Customer 360° data platform? If yes, what's the frequency of update
+Is there a comprehensive data dictionary available, covering things like table purpose, update frequency, maintainers, primary keys, column types, and column definitions?
+Is there a dedicated team or group of people who can help answer data-related queries, or would we need to engage with multiple individual data owners across different domains?
+Are any external data sources (such as credit bureau data) currently used by the NBC models?
+If yes, could you also share which external sources are being used, and how frequently this data is refreshed or updated?
+Is unstructured data — such as call center transcripts, chatbot conversations, customer emails, or social media interactions — currently being used as inputs into the NBC models or decisioning processes?
+If yes, could you please share which types of unstructured data are being utilized, and how frequently this data is processed or refreshed?
+"Could you help us understand the volume of data involved in the NBC program?
+(Specifically:)
+Approximately how many tables or datasets are used?
+How many customers are covered by the NBC models?
+How much historical data is available and typically used (e.g., 24 months, longer)?"
+Are all customers already identifitied? Is there a need for identity resolution?
+Are all the datasets available at a common location like a data lake or a warehouse? or are they scattered across multiple data sources?
+"Do you currently have data quality and assessment reports of your data?
+The details in the report would pertain to Exhaustiveness, Accuracy, Mapping and Formats.
+Do you have any data quality issues or concerns? (e.g., data completeness, accuracy, consistency, identity resolution, data on legacy systems)"
+Will the data for NBC be masked or unmasked?
+
+Infrastructure:
+
+Where is the data currently stored that supports the NBC models and decisioning process?
+Can you help us understand how the data supporting NBC models is organized within your AWS environment?
+"Can you help us understand the compute environment available today for NBC model development, training, and scoring?
+Which platforms or services are primarily used for model training and deployment? (e.g., AWS SageMaker, EMR clusters, EC2 instances, Kubernetes, Databricks, on-prem GPUs?)"
+Are different environments maintained for development, testing, and production deployments? (e.g., Dev/Staging/Prod)
+Are any enterprise-grade Large Language Models (LLMs) currently available within your environment? (e.g., AWS Bedrock models, Azure OpenAI, Anthropic Claude, proprietary models?)
+How can we access data and compute environments? (Remote desktop/ Laptop, VPN etc.)
+What version control softwares does your company use? (For example: Github/Gitlab/Bitbucket)
+Which other tools are used as part of development and productionalization? (Example - Workflows/Rundeck/JIRA)
+"List of accesses which will be required and how long will it take to get each access
+(Remote Desktop/Laptop/VPN, Data lake, Compute environment, Confluence)"
+Is there any coding/development practice that is mandated?
+Fractal would require their accelerator codes to be brought into your environment. What would be the process for this?
+Will the development environment be shared or dedicated?
+
+Consumption (PEGA)
+
+Who are the primary users of the NBC system? (e.g., Marketing team, Sales team, Branch staff, Contact centre agents)
+Will different business units have different NBC requirements?
+Through which platforms are NBCs operationalized today - such as PEGA Customer Decision Hub, Adobe Experience Platform (AEP), Salesforce, or in-house systems?
+Can you share details around integration of current NBC integration?
+Are there any limitations in current integration with existing crm systems or databases?
+
+Government & Project Management
+
+Are there any templates or formats you prefer project progress to be reported in?
+What frequency of communication would you like to establish (e.g., weekly status meetings, daily check-ins)?
+What is the time zone and working week (Mon-Fri) for your team that we will be collaborating with on this engagement?
+Which communication channels do you prefer for regular updates and discussions (e.g., email, video calls, project management tools)?
+Are there regular feedback checkpoints that you'd like to establish throughout the project?
+What is the data quality process and frequency? Is the data available for consumption after data quality checks?
+Who are the SMEs within your organization who possess domain knowledge relevant to this project?
+What is the process to get sign off on the solution from the business teams? How many stakeholders are involved in this process and the success criterias?
+Who will be our POC from the Business DS, DE, IT, End consumption teams?
+
+Please generate a list of questions based on the first email from M that excludes questions already asked by Fr.
+
