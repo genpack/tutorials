@@ -254,3 +254,103 @@ Who will be our POC from the Business DS, DE, IT, End consumption teams?
 
 Please generate a list of questions based on the first email from M that excludes questions already asked by Fr.
 
+
+1. Business Objectives & Success Metrics
+How are “value to bank”, “strategic value”, and “value to customer” defined and quantified in the NBC score formula?
+
+What is the end-to-end process to derive each of these components, and how often are they refreshed?
+
+How do different business units prioritize their NBC goals (e.g., revenue, retention, digital engagement)?
+
+What are the business trade-offs between personalization accuracy and operational complexity?
+
+Are there defined tiers or classes of KPIs (e.g., real-time vs. quarterly KPIs)?
+
+2. Offer Catalog & Prioritization
+Who owns the master list of offers across channels?
+
+How are offer definitions (eligibility, duration, content) standardized across systems?
+
+Is there a visual or centralized repository of all current offers and their lifecycle status (e.g., active, sunset, in review)?
+
+How do business units track cannibalization or conflicts between concurrent offers?
+
+What are the known pain points in today’s offer governance process?
+
+3. Data Inventory & Quality
+What is the process for onboarding new data sources into the NBC pipeline?
+
+Is there a visual data lineage map showing raw → curated → feature-ready layers for NBC?
+
+What is the coverage rate for core customer identifiers across systems (e.g., % of records with persistent customer ID)?
+
+How are source systems monitored for schema drift or feed failures?
+
+What are the rules for data retention and purging for NBC-relevant data?
+
+4. Modeling & Algorithms
+What versioning practices are used for existing models (model registry, version control, changelogs)?
+
+Are ensemble models or model stacking strategies currently in use?
+
+How are performance metrics shared across teams – via dashboards, reports, or embedded in tools?
+
+What’s the current process for feature experimentation and validation before model adoption?
+
+Are custom evaluation metrics (beyond standard ROC/AUC) used for any NBC models?
+
+5. Real-Time Eventing & Personalization
+Are customer interactions timestamped and stored in a unified event schema?
+
+What determines when an “event” is considered actionable by the NBC engine?
+
+Is there a prioritization mechanism when multiple events occur simultaneously?
+
+What are the rules for suppressing repeat recommendations in real-time (e.g., customer already declined)?
+
+How is real-time context (device, location, previous action) captured and stored?
+
+6. System Architecture & Integration
+Is there a current high-level architecture diagram for NBC processes?
+
+What is the integration pathway between model APIs and PEGA orchestration?
+
+Are there internal SLAs between teams for model availability and scoring latency?
+
+How is metadata (e.g., feature source, model name, timestamp) stored alongside predictions?
+
+Is NBC embedded in campaign orchestration tools, or is it consumed externally?
+
+7. Experimentation & A/B Testing
+Are business teams trained to interpret test results, or is a centralized analytics team responsible?
+
+Are there visual dashboards that compare NBC models under experimentation side-by-side?
+
+What is the review cadence for testing results (e.g., weekly forums, monthly steering groups)?
+
+What types of experimental results are required to greenlight a model into production?
+
+Is there a hypothesis backlog or experimentation roadmap managed across teams?
+
+8. Deployment, Monitoring & MLOps
+Who owns the deployment pipelines for NBC models – business DS, engineering, or platform team?
+
+Are rollback protocols automated or manual for failed NBC deployments?
+
+Is drift monitored separately for feature distributions and model predictions?
+
+Are audit logs maintained for each production model inference (inputs, score, model version)?
+
+How are “early warning indicators” for model degradation currently detected?
+
+9. Governance, Compliance & Risk
+Are recommendations from NBCs currently explainable to frontline staff (e.g., agents)?
+
+What internal processes exist to flag high-risk NBCs for additional compliance review?
+
+Are NBC rules reviewed for fairness across customer cohorts (e.g., by age, income, region)?
+
+Is there a clear approval chain and sign-off process for new models and offer logic?
+
+Is there a central governance dashboard showing status of all live and pending NBC models?
+
