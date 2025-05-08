@@ -1,5 +1,6 @@
 ##### Initiative Proposal Review
 
+# Prompt 1:
 
 You are an AI assistant. Your job is to review initiatives proposed in a bank based on the follwing criteria.
 These are questions you need to ask yourself and give a score of 1-3 for each question.
@@ -35,5 +36,69 @@ Assessment Criteria:
     Is it worthwhile building this prototype? 
     Does it sit within our current tech strategy? 
 
-Reply from AI:
+# Reply from AI:
 
+
+# Prompt 2:
+
+Problem 
+
+What is the problem you are trying to solve?
+
+We are solving the problem of unstructured performance feedback from Workday feedback PDFs by using GenAI to transform them into clear, KPI-aligned summaries for employees and managers.
+What is the problem statement theme you feel your problem aligns to and why do you feel it aligns to that theme? 
+
+Employee Engagement and Experience.
+Explain why this is a problem, who is impacted and why it is worth solving? 
+
+Manual review of unstructured performance feedback is inefficient, inconsistent, and limits the ability to align individual contributions to organizational goals
+Explain the problem in more detail:
+Who is impacted:
+Managers: Must manually read and interpret feedback for all direct reports
+Employees: Receive vague or inconsistent growth feedback
+HR & Leadership: Lack visibility into performance trends across teams
+Why should we spent time solving this:
+Enables consistent, KPI-aligned feedback
+Reduces review preparation time for managers
+Enhances employee development and engagement
+Converts static PDFs into an actionable knowledge base
+How will your solution address the problem statement:
+The GenAI Performance Feedback Analyzer transforms unstructured Workday PDFs into structured, KPI-aligned summaries using Amazon Bedrock. This end-to-end solution integrates with AWS DHP services—S3, Bedrock, and knowledgebase—and delivers a secure, role-based interface to help employees reflect and grow, while enabling managers to make consistent, data-driven assessments.
+
+Describe the solution in detail, including key features and functionalities.
+DHP (Bedrock) and GenAI Studio will be available for use
+We propose a GenAI-powered Performance Feedback Analyzer that automates the transformation of Workday-generated PDF feedback files into structured summaries aligned with our organization’s KPIs and values. The solution uses Amazon Bedrock and AWS DHP services to extract and summarize data, stores it in a knowledge base, and delivers insights through a secure, interactive web app hosted on EC2 or ECS. This tool empowers employees and managers to engage in more effective, data-driven performance conversations.
+We will build a GenAI-powered analyzer that:
+Reads feedback PDF files from Workday and stores it in Amazon S3
+Uses Amazon Bedrock (LLM models) to summarize achievements, strengths, and improvement areas
+Provides a secure, role-based web app for employees and managers to access personalized insights.
+
+Extract Feedback -> Store Securely -> Summarise with GenAI -> Display Insights
+
+Describe the impact of the solution on the customers identified. 
+
+The solution helps employees understand feedback clearly, saves managers time, and gives HR visibility into performance trends.
+Empowers employees with clearer understanding of their feedback and growth areas.
+Saves time for managers and gives HR visibility into performance trends.
+Does this solution have the potential be more widely adopted?
+
+Can be applied across HR, I&D, and manager groups for automated feedback summarization.
+Supports consistent performance insights from unstructured feedback across teams.
+ 
+By what methods will you be able to measure the success of the solution? 
+Track time saved, adoption rate, and clarity ratings from users.
+Compare AI-generated summaries with manual versions for accuracy.
+
+It simplifies feedback, aligns it to KPIs, and delivers summaries via a secure web app.
+direct hit
+
+
+# Reply from AI:
+
+
+# Prompt 3:
+
+# Reply from AI:
+
+
+# Prompt 4:
