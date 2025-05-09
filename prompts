@@ -151,7 +151,231 @@ A well‑articulated pain‑point with a clear GenAI pipeline that leverages exi
 
 # Prompt 3:
 
-# Reply from AI:
+Problem
+
+What is the problem you are trying to solve?
+
+Improving the organisation and relevance of our Confluence space.
+What is the problem statement theme you feel your problem aligns to and why do you feel it aligns to that theme?
+
+Deliver better, sooner : By cleaning up our Confluence space, we can make it easier for team members to find current and relevant information quickly and efficiently.
+Disorganised pages cost time in terms of engineers not being able to find the content they need due to it either being difficult to find or out of date. It also costs the time of the page’s author, as it can result in users querying engineers directly. Furthermore, an automated tool which reorganises our pages saves engineer’s time, as the engineers do not need to do this themselves. Hence, this solution will allow both page authors and page readers to be able to save a significant amount of time, collectively leading to better outcomes, sooner.
+Explain why this is a problem, who is impacted, and why it is worth solving?
+
+Provide a detailed description of the problem and the proposed solution using the below headings. Please also include key roadmap checkpoints.
+
+Explain the problem in more detail:
+Our Confluence space has become cluttered with outdated pages, dead links, and a disorganised structure. This makes it difficult for team members to find up-to-date and relevant information quickly, leading to wasted time and potential errors. This also makes it difficult for our users, as they can be faced with pages that are outdated, difficult to find, or contain incomplete information.
+Who is impacted:
+All team members who use Confluence for accessing information, documentation, and collaborative work are affected.
+Why should we spent time solving this:
+Cleaning up our Confluence space will improve efficiency, reduce frustration, and help ensure that team members are working with the most current and accurate information. This will enhance overall productivity and the quality of work.
+If we are successful, the tool we create may be used by other teams too, helping them automatically uplift their confluence pages organisation & solving the same problem for them!
+How will your solution address the problem statement:
+Dead links : Identify and remove or update dead links within the Confluence space to ensure all referenced resources are accessible.
+Notify users about outdated pages : Implement a system to alert users if a page hasn't been updated in a specified amount of time, prompting them to review and update the content if necessary.
+Reorganise page structure : Reevaluate and restructure the Confluence pages to create a more intuitive and logical organization, making it easier for users to navigate and find the information they need quickly.
+Merge similar pages: If two pages exist on a topic, merge them into the one page. If this is to be part of a system that runs periodically, the owner of the pages will be informed via a Confluence comment beforehand. If it is to be run once-off, it will simply merge the pages as part of the suggested new structure.
+Key Roadmap Checkpoints:
+
+Initial Assessment : Using AI, Conduct a thorough audit of the current Confluence space to identify outdated pages, dead links, and overall page structure issues.
+Duplicate Confluence: Using a local docker image, an export, or another method, create a copy of our confluence space such that we may use it to test out large changes, such as the page restructure or page merge.
+Develop Notification System : Create and implement a notification system to alert users about pages that have not been updated in a specified period.
+Cleanup Dead Links :Using AI, Go through identified dead links and either remove them or update them with correct information.
+Restructuring Pages : Using AI, Redesign the page structure based on best practices and user feedback to improve navigation and accessibility. Also merge any pages with duplicate topics.
+Review and Feedback : After the restructuring, gather feedback from team members on the new layout and make any necessary adjustments.
+Ongoing Maintenance : Develop a plan for regular audits and maintenance of the Confluence space to ensure it remains organised and up-to-date over time.
+
+Describe the solution in detail, including key features and functionalities.
+DHP (Bedrock) and GenAI Studio will be available for use
+​Insert your proposed solution, and how you will achieve it. You have 2 Business days to build our Proof of Concept. Use mock data where possible.
+ 
+We will develop the Confluence Cleanup Tool over the course of 2 business days, focusing on building a Proof of Concept (PoC) using mock data where possible. The key components and steps are outlined below:
+Confluence Cleanup Tool Core
+Audit Module : Using AI, conduct a thorough audit of the current Confluence space to identify outdated pages, dead links, duplicate pages, and overall page structure issues.
+Notification System : Create and implement a system to alert users about pages that have not been updated in a specified period.
+Link Validator : Identify and remove or update dead links within the Confluence space to ensure all referenced resources are accessible.
+Page Merger : Using AI, identify and merge pages with similar topics to reduce duplication.
+Restructure Module : Redesign the page structure based on best practices and user feedback to improve navigation and accessibility.
+Duplicate Confluence Environment
+Using a local Docker image, Confluence export, or another method, create a copy of our Confluence space to test large changes iteratively (e.g., page restructure or page merge).
+Role-based Notifications
+Page Owners : Notify owners of outdated pages to prompt review and updates.
+Users : Update users if significant changes are made to the page structure.
+Context-Aware Incremental Updates
+Pull existing content updates from the Confluence space periodically.
+Ensure AI-based modules are tuned to incremental changes without disrupting ongoing documentation.
+Automation and Efficiency Tools
+Link Validator Automation : Use a secure code scanner (e.g., Snyk) for validating URLs within Confluence pages.
+AI Integration : Utilise AI tools for automated identification of outdated content, and structuring.
+Chatbot Integration
+Now that Data within the confluence page is up to date, it will make creating a chatbot based on the data more accurate and effective.
+
+Process diagram:
+Export Data From Confluence -> Github Actions: Python Code to use API to call AI to perform audit checks -> Cleaned Data -> cleaned Data (removed dead links,merged documents,delete old/irrelevant pages) -> Host cleaned confluence data locally on docker -> Feed cleaned data into AI chatbot for Luna Type CHatbot
+
+Describe the impact of the solution on the customers identified. 
+
+Enhanced Efficiency : By organising Confluence space and removing outdated pages, duplicated pages and dead links, engineers will be able to find accurate and relevant information faster. This reduction in time spent searching leads to increased productivity and fewer interruptions in their workflow.
+Reduced Frustration : Streamlined navigation and logical organisation within Confluence will alleviate the frustration caused by disorganised and cluttered pages, fostering a better user experience.
+Up-to-Date Information : Implementing a notification system for outdated pages ensures that users are always accessing the most current and accurate information, reducing the likelihood of errors due to outdated content.
+Improved Collaboration : By merging duplicate pages and reorganising content logically, the solution will facilitate better collaboration among team members, as it ensures everyone is on the same page with the same information.
+Does this solution have the potential be more widely adopted?
+
+Widespread Adoption : The solution has the potential to be widely adopted within our organisation which relies heavily on confluence. It could also be adapted for other documentation such as GitHub Pages which also has similar issues.
+Business Units : Teams involved in engineering, product development, customer support, and any other units that use Confluence for maintaining and accessing documentation will benefit from this solution. It provides a framework that can be implemented universally to improve information management and accessibility.
+Customer Use Cases :
+Product Development Teams : Ensuring that product specs, designs, and planning documents are up-to-date and easily accessible.
+Engineering Teams : Facilitating access to technical documentation, troubleshooting guides, and project status updates.
+Customer Support Teams : Providing them with accurate and organised knowledge bases to swiftly resolve customer inquiries.
+HR and Training Departments : Maintaining up-to-date policy documents, training materials, and onboarding guides for new hires.
+By what methods will you be able to measure the success of the solution?
+Documentation Reduction : Track the reduction of outdated documents and duplicated documents
+Dead Links : Measure the number of dead or outdated links before and after using GenAI to filter this content.
+Efficiency Gains : Calculate the time saved by both page readers as a result of improved organisation and access to up-to-date information. Will create a random question to a user and see how long it takes to find the answer in the original docs and the updated docs.
+
+AI Integration : The use of AI to audit, clean up, and reorganise the Confluence space adds a layer of innovation and ensures that the process is thorough and scalable.
+Scalability : The solution is designed to be scalable, allowing other teams and business units to easily adapt the framework for their Confluence spaces. Hopefully similar model can be used for GitHub Pages as well.
+Automated Tools : Developing automated tools for restructuring and organisation will reduce manual effort, making the solution sustainable and easy to maintain in the long term.
+Cross-Team Collaboration : This project fosters collaboration across different teams, as the improvements in Confluence will benefit multiple departments and enhance overall communication.
+Better data to train AI with : If we are using Confluence data to train an AI chatbot, then cleaning up confluence will mean that the answers the AI chatbot can return will be more accurate and of higher quality. 
+
+
+# Reply from O3 to prompt 3:
+
 
 
 # Prompt 4:
+
+Problem 
+
+What is the problem you are trying to solve?
+
+Users of Digital banking platform often struggle with managing their finances, tracking expences, and settings achievable financial goals due to lack of personalization, proactive insights, and easy to understand financial summaries. Bank statements are often raw, data-heavy, and challenging to interpret, especially for everyday users.  Rather than rows of transactions, people need smart, personalized insights to better understand their financial activities. This understanding will enable them to quickly track their spending and help them achieve their financial goals. It can also provide intelligent, conversational, and actionable guidance tailored to individual financial behaviour.
+What is the problem statement theme you feel your problem aligns to and why do you feel it aligns to that theme? 
+
+ Anticipate and resolve customer problems
+Explain why this is a problem, who is impacted and why it is worth solving? 
+
+Explain the problem in more detail:
+Currently, when customers request bank statements or passbook transaction lists, they receive rows of transactions detailing every transaction made. While this provides a comprehensive list, it lacks high-level insights into spending patterns. Customers who want to know how much they have spent on categories like food, travel, or shopping must manually sift through all transactions, which is time-consuming, especially with a high volume of transactions. The transaction list does not offer insights into spending over a given month or period. Providing these insights would give customers a clear understanding of their finances, which is valuable but often overlooked due to the tedious nature of reviewing each transaction individually. 
+Who is impacted: Customers
+Why should we spent time solving this: This provides our customers with a personalized financial report that helps them understand their spending patterns. It informs them whether they are on track with their budget or if they need to review their spending to meet their financial goals. With this, we can offer customers intelligent and conversational insights, allowing them to easily understand their spending habits by simply asking in natural language. This can enhance customer satisfaction and make it easier for them to manage their finances without the tedious task of tracking and reviewing transactions.
+How will your solution address the problem statement:
+Insert a short executive summary (no more than one paragraph) of the solution you’d like to explore in the Hackathon. 
+
+Describe the solution in detail, including key features and functionalities.
+DHP (Bedrock) and GenAI Studio will be available for use
+​Insert your proposed solution, and how you will achieve it. You have 2 Business days to build our Proof of Concept. Use mock data where possible.
+Please include a diagram
+A GenAI-Powered assistant that reads your bank statement and gives you personalized financial report in plain English, with graphs, spending breakdowns, and actionable tips. When Customer opts for personalized insights on their transaction data/list, we will use Gen-AI and instantly Parse and Categorize (i.e., we will auto-tag then such as food, shopping, rent etc). Next, we will display Dashboards with charts Monthly spendings, cashflow trends and we can provide insights (such as “You are saving 10% of your savings, “Shopping was 25% higher than average “). We can provide personal Finance Tips and suggestions as well such as (“cutting 10% from food will save $800 etc“)
+
+Process Diagram:
+User Opts for financial insights -> Get records of transaction data -> transaction extractor -> Categorize Engine GenAI, LLM -> Insights Generator (Summarise, Pattern Detection, Suggestions Engine)
+
+Describe the impact of the solution on the customers identified. 
+
+How will your solution improve the customers experience?
+These personalized insights provide our customers with financial details on their spending (such as on food, rent, shopping, savings, etc.), making them aware of their spending habits and bringing them closer to their financial goals. With these insights, customers can plan their future goals and track their progress. It also helps identify small, unnoticed expenses that can accumulate over time and impact their financial objectives 
+Does this solution have the potential be more widely adopted?
+
+If so, explain the customer use cases &/or business units that may utilise your solution.​
+By what methods will you be able to measure the success of the solution? 
+As we try to provide more intelligent and personalized insights for our customers this solution has potential to be adapted more widely. Here are few use cases that this can be adapted more widely based on customer financial behaviour. It will be like personal assistant that we can provide for our customers which will help in tracking our customers their spending habits and financial goals. 
+Behaviour Insights: We can generate monthly summary spendings. Detect Habits such weekly grocery store visits and also comparing previous month vs current month.  
+Goal based Recommendations: Everyone has dream to retire conformably and lead happy life or have goals to save money for children education etc. We can suggest savings target every month so that our customers will be able to reach their financial goal comfortably. 
+Conversational Agent: A Chat bot to Answer Financial Queries like 
+What did I spend on travel last month? 
+How can I reduce my monthly bills? 
+
+# Reply from O3 to prompt 4:
+
+# Prompt 5:
+
+Problem 
+
+What is the problem you are trying to solve?
+
+Insert a one sentence summary of what you are trying to achieve. 
+Risk Agent: Develop an agent that encapsulates a collection of all risk and compliance obligations, enabling rapid execution of risk assessments. This includes standards such as SDLC, risk checklists, and more.
+ 
+What is the problem statement theme you feel your problem aligns to and why do you feel it aligns to that theme? 
+
+Reminder the problem statement themes are - Anticipate and resolve customer problems // Safe, reliable and resilient // Deliver better, sooner.
+Safe, reliable and resilient.
+ 
+Explain why this is a problem, who is impacted and why it is worth solving? 
+
+Provide a detailed description of the problem and the proposed solution using the below headings. Please also include key roadmap checkpoints.
+
+Explain the problem in more detail:
+In current state there are many risk governance processes which are cumbersome. We are trying to streamline this process to provide safer, reliable and resilient solutions.
+Risk and Compliance Obligations:
+CMRS (Change Management Risk Standard): This standard defines the minimum requirements to manage the risk of new or increased risk exposure due to changes in scope, timeline, or resource constraints. It ensures that all modifications to the existing business-as-usual (BAU) operating environment are managed appropriately 
+SDLC (System Development Lifecycle): This includes a series of practices that must be completed and certified by key roles before the completion of any technology initiative or change. The SDLC ecosystem integrates DevOps tools for development, testing, and release, ensuring compliance with SDLC requirements 
+Risk Checklists: These are predefined lists of potential risks that need to be assessed and mitigated. They include risk descriptions, impact, likelihood, rating, mitigation steps, and escalation visibility 
+Integration of Standards:
+Group Risk Management Approach (RMA): This approach includes various compliance risks such as financial crime, privacy laws, and poor conduct. It also outlines the governing policies and key management committees involved in risk management 
+Who is impacted:
+Everyone who has to follow risk assessments and processes, including SDLC, CMRS and others.
+ 
+Why should we spent time solving this:
+There are numerous risk governance processes in place that are quite complex. We aim to simplify these procedures to deliver safer, more dependable, and resilient solutions.
+ 
+How will your solution address the problem statement:
+Insert a short executive summary (no more than one paragraph) of the solution you’d like to explore in the Hackathon. 
+
+Describe the solution in detail, including key features and functionalities.
+DHP (Bedrock) and GenAI Studio will be available for use
+​Insert your proposed solution, and how you will achieve it. You have 2 Business days to build our Proof of Concept. Use mock data where possible.
+ 
+Automation and Reporting:
+Implement automated controls to increase the efficiency of operations and improve the accuracy and reliability of risk assessments.
+Develop reporting tools that provide standard reports to monitor progress and compliance with SDLC and other requirements 
+ Define the Boundaries of a risk agent
+The risk agent should have a well-defined scope of responsibilities, which includes:
+Identifying Risks: The agent should be capable of identifying potential risks across various domains such as operational, financial, compliance, and strategic risks.
+Assessing Risks: The agent should evaluate the identified risks based on their impact and likelihood, using predefined risk assessment frameworks and checklists.
+Mitigating Risks: The agent should recommend mitigation strategies and actions to reduce the impact or likelihood of the identified risks.
+Monitoring and Reporting: The agent should continuously monitor the risk environment and provide regular reports on the status of risks and the effectiveness of mitigation measures.
+Data Privacy and Security. Ensuring that all data handled by the agent is protected and complies with relevant data privacy and security regulations.
+Access Control. Implementing robust access control measures to ensure that only authorized personnel can interact with the agent and access sensitive information. Regularly update the repository with new standards, policies, and risk assessments.
+The risk agent should be designed to continuously learn and improve: 
+Feedback Loops: Incorporating feedback loops to learn from past risk assessments and improve future performance.
+Regular Updates: Ensuring that the agent's knowledge base is regularly updated with new standards, policies, and risk assessments.. 
+Ensure that the agent is continuously learning and improving its risk assessment capabilities
+
+Describe the impact of the solution on the customers identified. 
+
+The impact will streamline risk processes and enable teams across the organisation to develop at a faster rate while maintaining appropriate levels of safety and security. This will enhance capabilities and features to better support customer needs.
+Does this solution have the potential be more widely adopted?
+
+The use cases and business units that may utilise the proposed solution include:
+Risk Management Teams: These teams will benefit from streamlined risk assessment processes, allowing them to efficiently manage compliance obligations and ensure adherence to standards such as CMRS and SDLC.
+Development Teams: By integrating the risk agent into their workflows, development teams can automate risk assessments, enabling faster project delivery while maintaining compliance with necessary regulations.
+Compliance Departments: The solution will assist compliance officers in monitoring and reporting on risk management activities, ensuring that all obligations are met and documented effectively.
+Project Management Offices (PMOs): PMOs can leverage the solution to enhance project oversight, ensuring that all projects align with risk management standards and that potential risks are identified and mitigated early in the project lifecycle.
+Executive Leadership: Senior management can use the insights generated by the risk agent to make informed decisions regarding risk exposure and resource allocation, ultimately leading to safer and more resilient business operations.
+By addressing the needs of these various business units, the solution has the potential to enhance overall operational efficiency, reduce risk exposure, and foster a culture of compliance across the organisation.
+ 
+To measure the success of the solution, the following methods can be employed:
+Key Performance Indicators (KPIs): Establish specific KPIs related to risk assessment efficiency, compliance rates, and the speed of project delivery. Tracking these metrics will provide quantitative data on the solution's impact.
+User Feedback: Collect feedback from users interacting with the risk agent to understand their experiences, challenges, and suggestions for improvement. This qualitative data can highlight areas of success and those needing enhancement.
+Reduction in Risk Exposure: Monitor changes in risk exposure levels before and after implementing the solution. A decrease in identified risks or incidents can demonstrate the solution's effectiveness in mitigating risks.
+Time Savings: Measure the time taken to complete risk assessments and compliance checks before and after the solution's implementation. Significant reductions in time can indicate improved efficiency.
+Adoption Rates: Track the adoption rates of the risk agent across different teams and departments. High adoption rates can signify the solution's relevance and usability.
+Continuous Improvement Metrics: Implement mechanisms for continuous feedback and improvement, such as tracking the number of updates made to the risk agent based on user input and changing regulations.
+By employing these methods, the effectiveness and impact of the solution can be comprehensively evaluated. 
+ 
+
+# Reply from O3 to prompt 5:
+
+# Prompt 6:
+# Reply from O3 to prompt 6:
+
+# Prompt 7:
+
+# Reply from O3 to prompt 7:
+# Prompt 8:
+
+# Reply from AI:
